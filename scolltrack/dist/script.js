@@ -3,7 +3,6 @@
 console.clear();
 
 
-
 //===================================================== canvas
 var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
