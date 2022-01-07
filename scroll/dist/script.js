@@ -33,19 +33,6 @@ light.position.set(-8, 0, 0).normalize();
 scene.add(light);
 
 
-// Loaders
-
-const cubeTextureLoader = new THREE.CubeTextureLoader()
-const gltfLoader = new GLTFLoader()
-//const debugObject = {}
-
-
-
-//debugObject.envMapIntensity = 2.5
-//gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
-
-
-
 
 
 
