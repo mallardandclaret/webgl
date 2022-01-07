@@ -112,7 +112,7 @@ var loader = new THREE.GLTFLoader();
 var mixer;
 var model;
 
-/**
+
 loader.load(
   "mod/GAS18.gltf",
   function (gltf) {
@@ -122,7 +122,8 @@ loader.load(
         node.material.side = THREE.DoubleSide;
       }
     });
-    */
+    
+
     model = gltf.scene;
     model.scale.set(0.3, 0.3, 0.3);
     model.position.set(10, 0, 0);
