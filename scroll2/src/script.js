@@ -68,8 +68,8 @@ gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(upda
     '/models/GAS18.gltf',
     (gltf) =>
     {
-        gltf.scene.scale.set(10, 10, 10)
-        gltf.scene.position.set(0, 4, 0)
+        gltf.scene.scale.set(1, 1, 1)
+        gltf.scene.position.set(0, 0, 0)
         gltf.scene.rotation.y = Math.PI * 0.5
         scene.add(gltf.scene)
   
