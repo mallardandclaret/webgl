@@ -3,9 +3,6 @@
 console.clear();
 
 
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-
-
 
 //===================================================== canvas
 var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
@@ -39,13 +36,8 @@ scene.add(light);
 // Loaders
 
 const cubeTextureLoader = new THREE.CubeTextureLoader()
+const gltfLoader = new GLTFLoader()
 //const debugObject = {}
-
-/**
- * Loaders
- */
- const gltfLoader = new GLTFLoader()
- const cubeTextureLoader = new THREE.CubeTextureLoader()
 
 
 
