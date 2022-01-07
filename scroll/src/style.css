@@ -1,0 +1,22 @@
+body {
+  font-family: Monospace;
+  background: #222;
+  color: #fff;
+  margin: 0px;
+}
+h3 {
+  font-weight: normal;
+}
+#info {
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+}
+#info a {
+  color: #75ddc1;
+  font-weight: bold;
+}
