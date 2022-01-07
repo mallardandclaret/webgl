@@ -31,17 +31,72 @@ light.position.set(-8, 0, 0).normalize();
 scene.add(light);
 
 
-const textureLoader = new THREE.TextureLoader()
-const cubeTextureLoader = new THREE.CubeTextureLoader()
+// Loaders
 
-const environmentMapTexture = cubeTextureLoader.load([
-    'textures/environmentMaps/0/px.png',
-    'textures/environmentMaps/0/nx.png',
-    'textures/environmentMaps/0/py.png',
-    'textures/environmentMaps/0/ny.png',
-    'textures/environmentMaps/0/pz.png',
-    'textures/environmentMaps/0/nz.png'
+const cubeTextureLoader = new THREE.CubeTextureLoader()
+const debugObject = {}
+
+
+
+/**
+ * Environment map
+ */
+ const environmentMap = cubeTextureLoader.load([
+  '/textures/environmentMaps/0/px.jpg',
+  '/textures/environmentMaps/0/nx.jpg',
+  '/textures/environmentMaps/0/py.jpg',
+  '/textures/environmentMaps/0/ny.jpg',
+  '/textures/environmentMaps/0/pz.jpg',
+  '/textures/environmentMaps/0/nz.jpg'
 ])
+
+environmentMap.encoding = THREE.sRGBEncoding
+
+scene.background = environmentMap
+scene.environment = environmentMap
+
+debugObject.envMapIntensity = 2.5
+gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
+
+/**
+* Models
+*/
+gltfLoader.load(
+  '/mod/GAS18.gltf',
+  (gltf) =>
+  {
+      gltf.scene.scale.set(10, 10, 10)
+      gltf.scene.position.set(0, - 4, 0)
+      gltf.scene.rotation.y = Math.PI * 0.5
+      scene.add(gltf.scene)
+
+      gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+
+      updateAllMaterials()
+  }
+)
+
+
+/**
+ * Update all materials
+ */
+ const updateAllMaterials = () =>
+ {
+     scene.traverse((child) =>
+     {
+         if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
+         {
+             // child.material.envMap = environmentMap
+             child.material.envMapIntensity = debugObject.envMapIntensity
+             child.material.needsUpdate = true
+             child.castShadow = true
+             child.receiveShadow = true
+         }
+     })
+ }
+
+
+
 
 //===================================================== resize
 window.addEventListener("resize", function () {
@@ -56,6 +111,8 @@ window.addEventListener("resize", function () {
 var loader = new THREE.GLTFLoader();
 var mixer;
 var model;
+
+/**
 loader.load(
   "mod/GAS18.gltf",
   function (gltf) {
@@ -65,7 +122,7 @@ loader.load(
         node.material.side = THREE.DoubleSide;
       }
     });
-
+    */
     model = gltf.scene;
     model.scale.set(0.3, 0.3, 0.3);
     model.position.set(10, 0, 0);
