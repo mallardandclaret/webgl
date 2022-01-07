@@ -68,7 +68,7 @@ loader.load(
 
     model = gltf.scene;
     model.scale.set(0.3, 0.3, 0.3);
-    model.position.set(0, 5, 0);
+    model.position.set(10, 0, 0);
     scene.add(model);
 
     model.envMap = environmentMapTexture;
