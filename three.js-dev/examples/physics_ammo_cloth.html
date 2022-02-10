@@ -86,11 +86,22 @@
 
 				camera.position.set( - 12, 7, 4 );
 
-				renderer = new THREE.WebGLRenderer();
+				
+
+				renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.shadowMap.enabled = true;
+				
+				renderer.physicallyCorrectLights = true
+                renderer.outputEncoding = THREE.sRGBEncoding
+                renderer.toneMapping = THREE.ReinhardToneMapping
+                renderer.toneMappingExposure = 3
+                
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap
+
 				container.appendChild( renderer.domElement );
+
 
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.target.set( 0, 2, 0 );
@@ -113,8 +124,8 @@
 				light.shadow.camera.near = 2;
 				light.shadow.camera.far = 50;
 
-				light.shadow.mapSize.x = 2048;
-				light.shadow.mapSize.y = 2048;
+				light.shadow.mapSize.x = 1024;
+				light.shadow.mapSize.y = 1024;
 
 				light.shadow.bias = - 0.003;
 				scene.add( light );
@@ -226,8 +237,8 @@
 				// Cloth graphic object
 				const clothWidth = 4;
 				const clothHeight = 3;
-				const clothNumSegmentsZ = clothWidth * 30;
-				const clothNumSegmentsY = clothHeight * 30;
+				const clothNumSegmentsZ = clothWidth * 20;
+				const clothNumSegmentsY = clothHeight * 20;
 				const clothPos = new THREE.Vector3( - 3, 3, 2 );
 
 				const clothGeometry = new THREE.PlaneGeometry( clothWidth, clothHeight, clothNumSegmentsZ, clothNumSegmentsY );
@@ -257,8 +268,8 @@
 				const clothCorner11 = new Ammo.btVector3( clothPos.x, clothPos.y, clothPos.z - clothWidth );
 				const clothSoftBody = softBodyHelpers.CreatePatch( physicsWorld.getWorldInfo(), clothCorner00, clothCorner01, clothCorner10, clothCorner11, clothNumSegmentsZ + 1, clothNumSegmentsY + 1, 0, true );
 				const sbConfig = clothSoftBody.get_m_cfg();
-				sbConfig.set_viterations( 30 );
-				sbConfig.set_piterations( 30 );
+				sbConfig.set_viterations( 20 );
+				sbConfig.set_piterations( 20 );
 
 				clothSoftBody.setTotalMass( 0.9, false );
 				Ammo.castObject( clothSoftBody, Ammo.btCollisionObject ).getCollisionShape().setMargin( margin * 3 );
@@ -287,7 +298,7 @@
 				arm.receiveShadow = true;
 
 				// Glue the cloth to the arm
-				const influence = 1;
+				const influence = 0.5;
 				clothSoftBody.appendAnchor( 0, arm.userData.physicsBody, false, influence );
 				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
