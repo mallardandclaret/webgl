@@ -91,73 +91,8 @@
 
 			}
 
-			function initGraphics() {
 
-				container = document.getElementById( 'container' );
-
-				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.2, 2000 );
-
-				scene = new THREE.Scene();
-				//scene.background = new THREE.Color( 0xbfd1e5 );
-
-				camera.position.set( - 12, 7, 4 );
-
-				
-
-				renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
-				renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.shadowMap.enabled = true;
-				
-				renderer.physicallyCorrectLights = true
-                renderer.outputEncoding = THREE.sRGBEncoding
-                renderer.toneMapping = THREE.ReinhardToneMapping
-                renderer.toneMappingExposure = 3
-                
-                renderer.shadowMap.type = THREE.PCFSoftShadowMap
-
-				container.appendChild( renderer.domElement );
-
-
-				controls = new OrbitControls( camera, renderer.domElement );
-				controls.target.set( 0, 2, 0 );
-				controls.update();
-
-				textureLoader = new THREE.TextureLoader();
-
-				const ambientLight = new THREE.AmbientLight( 0x404040 );
-				scene.add( ambientLight );
-
-				const light = new THREE.DirectionalLight( 0xffffff, 1 );
-				light.position.set( - 7, 10, 15 );
-				light.castShadow = true;
-				const d = 10;
-				light.shadow.camera.left = - d;
-				light.shadow.camera.right = d;
-				light.shadow.camera.top = d;
-				light.shadow.camera.bottom = - d;
-
-				light.shadow.camera.near = 2;
-				light.shadow.camera.far = 50;
-
-				light.shadow.mapSize.x = 1024;
-				light.shadow.mapSize.y = 1024;
-
-				light.shadow.bias = - 0.003;
-				scene.add( light );
-
-				stats = new Stats();
-				stats.domElement.style.position = 'absolute';
-				stats.domElement.style.top = '0px';
-				container.appendChild( stats.domElement );
-
-				window.addEventListener( 'resize', onWindowResize );
-
-			}
-
-
-
-            /**
+ /**
             * Update all materials
             */
             const updateAllMaterials = () =>
@@ -189,13 +124,85 @@
              
              environmentMap.encoding = THREE.sRGBEncoding
              
-             scene.background = environmentMap
-             scene.environment = environmentMap
+             
              
              //debugObject.envMapIntensity = 2.5
              //gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
         
 
+
+
+
+
+
+			function initGraphics() {
+
+				container = document.getElementById( 'container' );
+
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.2, 2000 );
+
+				scene = new THREE.Scene();
+				//scene.background = new THREE.Color( 0xbfd1e5 );
+
+				camera.position.set( - 12, 7, 4 );
+
+				scene.background = environmentMap
+                scene.environment = environmentMap
+
+				renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
+				renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.shadowMap.enabled = true;
+				
+				renderer.physicallyCorrectLights = true
+                renderer.outputEncoding = THREE.sRGBEncoding
+                renderer.toneMapping = THREE.ReinhardToneMapping
+                renderer.toneMappingExposure = 3
+                
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap
+
+				container.appendChild( renderer.domElement );
+
+
+				controls = new OrbitControls( camera, renderer.domElement );
+				controls.target.set( 0, 2, 0 );
+				controls.update();
+
+				textureLoader = new THREE.TextureLoader();
+
+				//const ambientLight = new THREE.AmbientLight( 0x404040 );
+				//scene.add( ambientLight );
+
+				const light = new THREE.DirectionalLight( 0xffffff, 1 );
+				light.position.set( - 7, 10, 15 );
+				light.castShadow = true;
+				const d = 10;
+				light.shadow.camera.left = - d;
+				light.shadow.camera.right = d;
+				light.shadow.camera.top = d;
+				light.shadow.camera.bottom = - d;
+
+				light.shadow.camera.near = 2;
+				light.shadow.camera.far = 50;
+
+				light.shadow.mapSize.x = 1024;
+				light.shadow.mapSize.y = 1024;
+
+				light.shadow.bias = - 0.003;
+				scene.add( light );
+
+				stats = new Stats();
+				stats.domElement.style.position = 'absolute';
+				stats.domElement.style.top = '0px';
+				container.appendChild( stats.domElement );
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+
+
+           
 
 
 
