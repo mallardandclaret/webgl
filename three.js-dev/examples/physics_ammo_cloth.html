@@ -36,19 +36,23 @@
 
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
+			import * as dat from 'lil-gui'
+
+			import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
 
 			/**
             * Loaders
             */
-            //var loader = new GLTFLoader()
+            var loader = new GLTFLoader()
             const cubeTextureLoader = new THREE.CubeTextureLoader()
             
             /**
              * Base
              */
             // Debug
-            //const gui = new dat.GUI()
-            //const debugObject = {}
+            const gui = new dat.GUI()
+            const debugObject = {}
 
 
 
@@ -126,8 +130,8 @@
              
              
              
-             //debugObject.envMapIntensity = 2.5
-             //gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
+             debugObject.envMapIntensity = 2.5
+             gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
         
 
 
