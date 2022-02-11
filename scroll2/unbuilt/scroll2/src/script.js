@@ -50,7 +50,7 @@ var scene = new THREE.Scene();
       {
           if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
           {
-              // child.material.envMap = environmentMap
+              child.material.envMap = environmentMap
               child.material.envMapIntensity = debugObject.envMapIntensity
               child.material.needsUpdate = true
               child.castShadow = true
