@@ -149,13 +149,28 @@ gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
 
 
 //===================================================== resize
-window.addEventListener("resize", function () {
+/* window.addEventListener("resize", function () {
   let width = window.innerWidth;
   let height = window.innerHeight;
   renderer.setSize(width, height);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
-});
+}); */
+
+
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize( window.innerWidth, window.innerHeight );
+window.addEventListener( 'resize', onWindowResize );
+
+function onWindowResize() {
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
 
 //===================================================== model
 var mixer;
