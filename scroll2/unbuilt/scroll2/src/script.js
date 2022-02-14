@@ -150,10 +150,10 @@ gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
 
 //===================================================== resize
 window.addEventListener("resize", function () {
-  let width = window.innerWidth;
-  let height = window.innerHeight;
-  renderer.setSize(width, height);
-  camera.aspect = width / height;
+  //let width = window.innerWidth;
+  //let height = window.innerHeight;
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 });
 
