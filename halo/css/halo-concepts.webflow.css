@@ -1,0 +1,211 @@
+.body {
+  background-color: #0c0c0c;
+}
+
+.hero-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.hero-wrapper.zoom {
+  position: fixed;
+}
+
+.righ-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33%;
+  height: 100vh;
+  padding-right: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.heading {
+  font-family: Silk, sans-serif;
+  color: #fff;
+  font-size: 20.5vh;
+  line-height: 22vh;
+  font-weight: 200;
+}
+
+.left-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33%;
+  height: 100vh;
+  padding-left: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.image-wrap-1 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 60%;
+  height: 40vh;
+  min-height: 400px;
+}
+
+.image-wrap-1.zoom {
+  position: absolute;
+  z-index: 9999;
+}
+
+.div-block-2 {
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/three.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.div-block-2._2 {
+  background-image: url('../images/one.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.div-block-2._3 {
+  background-image: url('../images/seven.jpg');
+}
+
+.div-block-2._4 {
+  background-image: url('../images/three.jpg');
+}
+
+.div-block-2._5 {
+  background-image: url('../images/one.jpg');
+}
+
+.div-block-3 {
+  position: absolute;
+  left: -4%;
+  top: auto;
+  right: auto;
+  bottom: 8%;
+  z-index: 9999;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.mid-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33%;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.div-block-3-copy {
+  position: absolute;
+  left: auto;
+  top: 15%;
+  right: -10%;
+  bottom: auto;
+  z-index: 9998;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.heading-copy {
+  font-family: Silk, sans-serif;
+  color: #fff;
+  font-size: 20.5vh;
+  line-height: 22vh;
+  font-weight: 200;
+}
+
+.image-wrap-1-copy {
+  width: 60%;
+  padding-top: 10px;
+}
+
+.text-block {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.text-block._2 {
+  margin-top: -5px;
+}
+
+.noise {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 0;
+}
+
+.intro {
+  height: 300vh;
+}
+
+@font-face {
+  font-family: 'Silk';
+  src: url('../fonts/font.woff2') format('woff2'), url('../fonts/font.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
