@@ -108,10 +108,10 @@ function init()
 	
 	// MESHES WITH ANIMATED TEXTURES!
 	
-	var runnerTexture = new THREE.ImageUtils.loadTexture( 'images/run.png' );
-	annie = new TextureAnimator( runnerTexture, 10, 1, 10, 75 ); // texture, #horiz, #vert, #total, duration.
+	var runnerTexture = new THREE.ImageUtils.loadTexture( 'images/ticker.png' );
+	annie = new TextureAnimator( runnerTexture, 4, 1, 4, 75 ); // texture, #horiz, #vert, #total, duration.
 	var runnerMaterial = new THREE.MeshBasicMaterial( { map: runnerTexture, side:THREE.DoubleSide } );
-	var runnerGeometry = new THREE.PlaneGeometry(50, 50, 1, 1);
+	var runnerGeometry = new THREE.PlaneGeometry(20, 2150, 1, 1);
 	var runner = new THREE.Mesh(runnerGeometry, runnerMaterial);
 	runner.position.set(-100,25,0);
 	scene.add(runner);
