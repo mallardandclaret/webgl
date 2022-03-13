@@ -349,7 +349,7 @@
 				sbConfig.set_viterations( 15 );
 				sbConfig.set_piterations( 15 );
 
-				clothSoftBody.setTotalMass( 5, false );
+				clothSoftBody.setTotalMass( 20, false );
 				Ammo.castObject( clothSoftBody, Ammo.btCollisionObject ).getCollisionShape().setMargin( margin * 3 );
 				physicsWorld.addSoftBody( clothSoftBody, 1, - 1 );
 				cloth.userData.physicsBody = clothSoftBody;
