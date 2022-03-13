@@ -320,7 +320,7 @@
 				const clothPos = new THREE.Vector3( - 3, 3, 2 );
 
 				const clothGeometry = new THREE.PlaneGeometry( clothWidth, clothHeight, clothNumSegmentsZ, clothNumSegmentsY );
-				clothGeometry.rotateY( Math.PI * 0.5 );
+				clothGeometry.rotateZ( Math.PI * 0.5 );
 				clothGeometry.translate( clothPos.x, clothPos.y + clothHeight * 0.5, clothPos.z - clothWidth * 0.5 );
 
 				const clothMaterial = new THREE.MeshLambertMaterial( { color: 0xFFFFFF, side: THREE.DoubleSide } );
