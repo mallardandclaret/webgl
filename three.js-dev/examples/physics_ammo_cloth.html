@@ -323,8 +323,8 @@
 				clothGeometry.rotateZ( Math.PI * 0.5 );
 				clothGeometry.translate( clothPos.x, clothPos.y + clothHeight * 0.5, clothPos.z - clothWidth * 0.5 );
 
-				const clothMaterial = new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0.1,
-    metalness: 0.7, side: THREE.DoubleSide } );
+				const clothMaterial = new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0,
+    metalness: 1, side: THREE.DoubleSide } );
 				cloth = new THREE.Mesh( clothGeometry, clothMaterial );
 				cloth.castShadow = true;
 				cloth.receiveShadow = true;
