@@ -149,7 +149,7 @@
 				scene = new THREE.Scene();
 				//scene.background = new THREE.Color( 0xbfd1e5 );
 
-				camera.position.set( - 12, 7, 4 );
+				camera.position.set( - 20, 0, 0 );
 
 				scene.background = environmentMap
                 scene.environment = environmentMap
@@ -376,7 +376,7 @@
 				arm.receiveShadow = true;
 
 				// Glue the cloth to the arm
-				const influence = 0.5;
+				const influence = 0.1;
 				clothSoftBody.appendAnchor( 0, arm.userData.physicsBody, false, influence );
 				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
