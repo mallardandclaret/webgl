@@ -245,15 +245,15 @@
 				const ground = createParalellepiped( 60, 1, 60, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF } ) );
 				ground.castShadow = true;
 				ground.receiveShadow = true;
-				//textureLoader.load( 'textures/grid.png', function ( texture ) {
+				textureLoader.load( 'textures/grid.png', function ( texture ) {
 
-					//texture.wrapS = THREE.RepeatWrapping;
-					//texture.wrapT = THREE.RepeatWrapping;
-					//texture.repeat.set( 40, 40 );
-					//ground.material.map = texture;
-					//ground.material.needsUpdate = true;
+					texture.wrapS = THREE.RepeatWrapping;
+					texture.wrapT = THREE.RepeatWrapping;
+					texture.repeat.set( 40, 40 );
+					ground.material.map = texture;
+					ground.material.needsUpdate = true;
 
-	 );
+	} );
 
 				// Wall
 				const brickMass = 0.5;
