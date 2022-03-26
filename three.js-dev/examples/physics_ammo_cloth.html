@@ -347,8 +347,8 @@
 				const clothCorner11 = new Ammo.btVector3( clothPos.x, clothPos.y, clothPos.z - clothWidth );
 				const clothSoftBody = softBodyHelpers.CreatePatch( physicsWorld.getWorldInfo(), clothCorner00, clothCorner01, clothCorner10, clothCorner11, clothNumSegmentsZ + 1, clothNumSegmentsY + 1, 0, true );
 				const sbConfig = clothSoftBody.get_m_cfg();
-				sbConfig.set_viterations( 10 );
-				sbConfig.set_piterations( 10 );
+				sbConfig.set_viterations( 1 );
+				sbConfig.set_piterations( 1 );
 
 				clothSoftBody.setTotalMass( 10, false );
 				Ammo.castObject( clothSoftBody, Ammo.btCollisionObject ).getCollisionShape().setMargin( margin * 3 );
@@ -515,7 +515,7 @@
 				// Update cloth
 				const softBody = cloth.userData.physicsBody;
 				const clothPositions = cloth.geometry.attributes.position.array;
-				const numVerts = clothPositions.length / 1;
+				const numVerts = clothPositions.length / 3;
 				const nodes = softBody.get_m_nodes();
 				let indexFloat = 0;
 
