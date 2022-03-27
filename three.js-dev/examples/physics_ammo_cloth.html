@@ -36,6 +36,8 @@
 
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
+
 			//import * as dat from 'lil-gui'
 
 			//import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
@@ -53,6 +55,47 @@
             // Debug
             //const gui = new dat.GUI()
             //const debugObject = {}
+
+
+			const settings = {
+            metalness: 1.0,
+            roughness: 0.4,
+            ambientIntensity: 0.2,
+            //aoMapIntensity: 1.0,
+            envMapIntensity: 1.0,
+            //displacementScale: 2.436143, // from original model
+            normalScale: 1.0
+            };
+
+
+
+
+			initGui();
+
+			const gui = new GUI();
+            //let gui = gui.addFolder( "Material" );
+            gui.add( settings, 'metalness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+            material.metalness = value;
+            } );
+			gui.add( settings, 'roughness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+            material.roughness = value;
+            } );
+            //gui.add( settings, 'aoMapIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+            //material.aoMapIntensity = value;
+            //} );
+            gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+            ambientLight.intensity = value;
+            } );
+            gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
+            material.envMapIntensity = value;
+            } );
+            //gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function ( value ) {
+            //material.displacementScale = value;
+            //} );
+            gui.add( settings, 'normalScale' ).min( - 1 ).max( 1 ).onChange( function ( value ) {
+            material.normalScale.set( 1, - 1 ).multiplyScalar( value );
+            } );
+            }
 
 
 
@@ -311,6 +354,16 @@
 
 				}
 
+
+// textures
+const textureLoader = new THREE.TextureLoader();
+const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
+//const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
+//const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
+
+
+
+
 				// The cloth
 				// Cloth graphic object
 				const clothWidth = 20;
@@ -323,8 +376,19 @@
 				clothGeometry.rotateZ( Math.PI * 0.5 );
 				clothGeometry.translate( clothPos.x, clothPos.y + clothHeight * 0.5, clothPos.z - clothWidth * 0.5 );
 
-				const clothMaterial = new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0,
-    metalness: 1, side: THREE.DoubleSide } );
+				const clothMaterial = new THREE.MeshStandardMaterial( { color: 0xFFFFFF,
+                roughness: settings.roughness,
+                metalness: settings.metalness,
+                normalMap: normalMap,
+                normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require negation in this case?
+                aoMap: aoMap,
+                aoMapIntensity: 1,
+                displacementMap: displacementMap,
+                displacementScale: settings.displacementScale,
+                displacementBias: - 0.428408, // from original model
+                envMap: reflectionCube,
+                envMapIntensity: settings.envMapIntensity,
+                side: THREE.DoubleSide } );
 				cloth = new THREE.Mesh( clothGeometry, clothMaterial );
 				cloth.castShadow = true;
 				cloth.receiveShadow = true;
