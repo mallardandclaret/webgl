@@ -60,9 +60,9 @@
 			const settings = {
             metalness: 1.0,
             roughness: 0.4,
-            ambientIntensity: 0.2,
+            //ambientIntensity: 0.2,
             //aoMapIntensity: 1.0,
-            envMapIntensity: 1.0,
+            //envMapIntensity: 1.0,
             //displacementScale: 2.436143, // from original model
             normalScale: 1.0
             };
@@ -75,20 +75,20 @@
 			const gui = new GUI();
             //let gui = gui.addFolder( "Material" );
             gui.add( settings, 'metalness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-            material.metalness = value;
+			clothMaterial.metalness = value;
             } );
 			gui.add( settings, 'roughness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-            material.roughness = value;
+			clothMaterial.roughness = value;
             } );
             //gui.add( settings, 'aoMapIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
             //material.aoMapIntensity = value;
             //} );
-            gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-            ambientLight.intensity = value;
-            } );
-            gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
-            material.envMapIntensity = value;
-            } );
+            //gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+            //ambientLight.intensity = value;
+            //} );
+            // gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
+            //material.envMapIntensity = value;
+            //} );
             //gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function ( value ) {
             //material.displacementScale = value;
             //} );
@@ -216,7 +216,7 @@
 				controls.target.set( 0, 2, 0 );
 				controls.update();
 
-				textureLoader = new THREE.TextureLoader();
+				//textureLoader = new THREE.TextureLoader();
 
 				//const ambientLight = new THREE.AmbientLight( 0xffffff );
 				//scene.add( ambientLight );
@@ -249,7 +249,11 @@
 			}
 
 
-
+// textures
+const textureLoader = new THREE.TextureLoader();
+const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
+//const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
+//const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
            
 
 
@@ -355,11 +359,7 @@
 				}
 
 
-// textures
-const textureLoader = new THREE.TextureLoader();
-const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
-//const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
-//const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
+
 
 
 
