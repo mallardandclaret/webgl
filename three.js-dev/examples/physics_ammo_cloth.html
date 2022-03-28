@@ -327,8 +327,9 @@
 					color: 0xFFFFFF, 
 					roughness: 0,
                     metalness: 1, 
-					normalMap: normalMap,
-					normalScale: new THREE.Vector2( 1, - 1 ), side: THREE.DoubleSide } );
+					//normalMap: normalMap,
+					//normalScale: new THREE.Vector2( 1, - 1 ), 
+					side: THREE.DoubleSide } );
 				cloth = new THREE.Mesh( clothGeometry, clothMaterial );
 				cloth.castShadow = true;
 				cloth.receiveShadow = true;
