@@ -61,10 +61,10 @@ function initGui() {
 const gui = new GUI();
 //let gui = gui.addFolder( "Material" );
 gui.add( settings, 'metalness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-material.metalness = value;
+	clothMaterial.metalness = value;
 } );
 gui.add( settings, 'roughness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-material.roughness = value;
+	clothMaterial.roughness = value;
 } );
 gui.add( settings, 'aoMapIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
 material.aoMapIntensity = value;
@@ -384,7 +384,7 @@ normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require neg
 //displacementScale: settings.displacementScale,
 //displacementBias: - 0.428408, // from original model
 //envMap: reflectionCube,
-//envMapIntensity: settings.envMapIntensity, 
+envMapIntensity: settings.envMapIntensity, 
 					side: THREE.DoubleSide } );
 				cloth = new THREE.Mesh( clothGeometry, clothMaterial );
 				cloth.castShadow = true;
