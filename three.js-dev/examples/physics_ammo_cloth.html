@@ -86,9 +86,9 @@
             //gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
             //ambientLight.intensity = value;
             //} );
-            gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
-            material.envMapIntensity = value;
-            } );
+            //gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
+            //material.envMapIntensity = value;
+            //} );
             //gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function ( value ) {
             //material.displacementScale = value;
             //} );
@@ -175,8 +175,8 @@
              
              
              
-             //debugObject.envMapIntensity = 2.5
-             //gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
+             debugObject.envMapIntensity = 3
+             gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
         
 
 
@@ -387,8 +387,8 @@ const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
                 displacementMap: displacementMap,
                 displacementScale: settings.displacementScale,
                 displacementBias: - 0.428408, // from original model*/
-                envMap: reflectionCube,
-                envMapIntensity: settings.envMapIntensity, 
+                //envMap: reflectionCube,
+                //envMapIntensity: settings.envMapIntensity, 
                 side: THREE.DoubleSide } );
 				cloth = new THREE.Mesh( clothGeometry, clothMaterial );
 				cloth.castShadow = true;
