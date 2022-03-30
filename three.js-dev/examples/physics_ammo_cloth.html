@@ -73,7 +73,7 @@ gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( v
 ambientLight.intensity = value;
 } );
 gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
-material.envMapIntensity = value;
+settings.envMapIntensity = value;
 } );
 gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function ( value ) {
 material.displacementScale = value;
