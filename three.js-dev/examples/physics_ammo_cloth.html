@@ -441,7 +441,7 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 
 				// Glue the cloth to the arm
 				const influence = 0.1;
-				//clothSoftBody.appendAnchor( 0, arm.userData.physicsBody, false, influence );
+				clothSoftBody.appendAnchor( 2, arm.userData.physicsBody, false, influence );
 				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
 				// Hinge constraint to move the arm
