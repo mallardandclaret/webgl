@@ -48,7 +48,7 @@ metalness: 1.0,
 roughness: 0.1,
 ambientIntensity: 0.2,
 aoMapIntensity: 1.0,
-envMapIntensity: 1.0,
+envMapIntensity: 10.0,
 displacementScale: 2.436143, // from original model
 normalScale: 0.1
 };
@@ -375,19 +375,19 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 				clothGeometry.translate( clothPos.x, clothPos.y + clothHeight * 0.5, clothPos.z - clothWidth * 0.5 );
 
 				const clothMaterial = new THREE.MeshStandardMaterial( { 
-					color: 0xFFFFFF, 
-					roughness: settings.roughness,
-metalness: settings.metalness,
-normalMap: normalMap,
-normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require negation in this case?
-//aoMap: aoMap,
-//aoMapIntensity: 1,
-//displacementMap: displacementMap,
-//displacementScale: settings.displacementScale,
-//displacementBias: - 0.428408, // from original model
-//envMap: reflectionCube,
-envMapIntensity: settings.envMapIntensity, 
-					side: THREE.DoubleSide } );
+				color: 0xFFFFFF, 
+			    roughness: settings.roughness,
+                metalness: settings.metalness,
+                normalMap: normalMap,
+                normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require negation in this case?
+                //aoMap: aoMap,
+                //aoMapIntensity: 1,
+                //displacementMap: displacementMap,
+                //displacementScale: settings.displacementScale,
+                //displacementBias: - 0.428408, // from original model
+                //envMap: reflectionCube,
+                envMapIntensity: settings.envMapIntensity, 
+				side: THREE.DoubleSide } );
 				cloth = new THREE.Mesh( clothGeometry, clothMaterial );
 				cloth.castShadow = true;
 				cloth.receiveShadow = true;
