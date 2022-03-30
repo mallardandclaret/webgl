@@ -61,10 +61,10 @@ function initGui() {
 const gui = new GUI();
 //let gui = gui.addFolder( "Material" );
 gui.add( settings, 'metalness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-	clothMaterial.metalness = value;
+material.metalness = value;
 } );
 gui.add( settings, 'roughness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-	clothMaterial.roughness = value;
+material.roughness = value;
 } );
 gui.add( settings, 'aoMapIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
 material.aoMapIntensity = value;
