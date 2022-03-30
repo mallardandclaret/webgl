@@ -43,25 +43,43 @@
 			import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 
-/* const settings = {
+const settings = {
 metalness: 1.0,
-roughness: 0.4,
+roughness: 0.1,
 ambientIntensity: 0.2,
 aoMapIntensity: 1.0,
 envMapIntensity: 1.0,
 displacementScale: 2.436143, // from original model
-normalScale: 1.0
-}; */
+normalScale: 0.1
+};
 
 
 
-//initGui();
+initGui();
+// Init gui
+function initGui() {
 const gui = new GUI();
-gui.add( material, 'roughness', 0, 1 );
-gui.add( material, 'metalness', 0, 1 );
+//let gui = gui.addFolder( "Material" );
+gui.add( settings, 'metalness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+material.metalness = value;
+} );
+gui.add( settings, 'roughness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+material.roughness = value;
+} );
+gui.add( settings, 'aoMapIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+material.aoMapIntensity = value;
+} );
+gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
+ambientLight.intensity = value;
+} );
+gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
+material.envMapIntensity = value;
+} );
+gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function ( value ) {
+material.displacementScale = value;
+} );
 
-
-
+}
 
 
 			/**
@@ -358,8 +376,8 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 
 				const clothMaterial = new THREE.MeshStandardMaterial( { 
 					color: 0xFFFFFF, 
-					roughness: 0,
-metalness: 1,
+					roughness: settings.roughness,
+metalness: settings.metalness,
 normalMap: normalMap,
 normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require negation in this case?
 //aoMap: aoMap,
