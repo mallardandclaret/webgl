@@ -48,7 +48,7 @@ metalness: 1.0,
 roughness: 0.1,
 ambientIntensity: 0.2,
 aoMapIntensity: 1.0,
-envMapIntensity: 10.0,
+envMapIntensity: 2.0,
 displacementScale: 2.436143, // from original model
 normalScale: 0.1
 };
@@ -441,7 +441,7 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 
 				// Glue the cloth to the arm
 				const influence = 0.1;
-				clothSoftBody.appendAnchor( 2, arm.userData.physicsBody, false, influence );
+				clothSoftBody.appendAnchor( 20, arm.userData.physicsBody, false, influence );
 				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
 				// Hinge constraint to move the arm
