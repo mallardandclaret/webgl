@@ -5,13 +5,14 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
 		<style>
+			
 			body {
-				color: #333;
+				color: rgb(255, 255, 255), background-color: rgb(0, 0, 0);
 			}
 		</style>
 	</head>
 	<body>
-		<div id="info">Ammo.js physics soft body cloth demo<br>Press Q or A to move the arm.</div>
+		<div id="info">M&C iridescent cloth demo<br>Press Q or A to move the cloth.</div>
 		<div id="container"></div>
 
 		<script src="js/libs/ammo.wasm.js"></script>
@@ -197,7 +198,7 @@ material.displacementScale = value;
 
 				camera.position.set( - 20, 0, 0 );
 
-				scene.background = environmentMap
+				//scene.background = environmentMap
                 scene.environment = environmentMap
 
 				renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
