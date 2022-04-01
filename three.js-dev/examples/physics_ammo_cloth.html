@@ -50,7 +50,7 @@ ambientIntensity: 0.2,
 aoMapIntensity: 1.0,
 envMapIntensity: 1.0,
 displacementScale: 0.1, // from original model
-normalScale: 10
+normalScale: 1
 };
 
 
@@ -75,6 +75,9 @@ ambientLight.intensity = value;
 gui.add( settings, 'envMapIntensity' ).min( 0 ).max( 3 ).onChange( function ( value ) {
 clothMaterial.envMapIntensity = value;
 } );
+gui.add( settings, 'normalScale' ).min( - 1 ).max( 1 ).onChange( function ( value ) {
+material.normalScale.set( 1, - 1 ).multiplyScalar( value );
+} );
 gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function ( value ) {
 material.displacementScale = value;
 } );
@@ -84,9 +87,7 @@ material.displacementScale = value;
 
 			/**
 			 * 
-			 * gui.add( settings, 'normalScale' ).min( - 1 ).max( 1 ).onChange( function ( value ) {
-material.normalScale.set( 1, - 1 ).multiplyScalar( value );
-} );
+			 * 
             * Loaders
             */
             //var loader = new GLTFLoader()
@@ -359,7 +360,7 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 
 				const normalMap = textureLoader.load( 'textures/golfball.jpg' );
                 //const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
-                const displacementMap = textureLoader.load( 'textures/golfball.jpg' );
+                //const displacementMap = textureLoader.load( 'textures/golfball.jpg' );
 
 
 				// The cloth
@@ -382,9 +383,9 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
                 normalScale: new THREE.Vector2( 10, - 10 ), // why does the normal map require negation in this case?
                 //aoMap: aoMap,
                 //aoMapIntensity: 1,
-                displacementMap: displacementMap,
-                displacementScale: settings.displacementScale,
-                displacementBias: - 0.428408, // from original model
+                //displacementMap: displacementMap,
+                //displacementScale: settings.displacementScale,
+                //displacementBias: - 0.428408, // from original model
                 //envMap: reflectionCube,
                 envMapIntensity: settings.envMapIntensity, 
 				side: THREE.DoubleSide } );
