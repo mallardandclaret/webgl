@@ -47,16 +47,16 @@
 const settings = {
 metalness: 1.0,
 roughness: 0.1,
-ambientIntensity: 0.2,
-aoMapIntensity: 1.0,
+//ambientIntensity: 0.2,
+//aoMapIntensity: 1.0,
 envMapIntensity: 1.0,
-displacementScale: 0.1, // from original model
+//displacementScale: 0.1, // from original model
 normalScale: 100
 };
 
 
 
-initGui();
+/* initGui();
 // Init gui
 function initGui() {
 const gui = new GUI();
@@ -83,7 +83,7 @@ gui.add( settings, 'displacementScale' ).min( 0 ).max( 3.0 ).onChange( function 
 material.displacementScale = value;
 } );
 
-}
+} */
 
 
 			/**
@@ -340,8 +340,9 @@ material.displacementScale = value;
 						}
 
 						const brick = createParalellepiped( brickDepth, brickHeight, brickLengthCurrent, brickMassCurrent, pos, quat, createMaterial() );
-						brick.castShadow = true;
-						brick.receiveShadow = true;
+						brick.castShadow = false;
+						brick.receiveShadow = false;
+						brick.visible = false;
 
 						if ( oddRow && ( i == 0 || i == nRow - 2 ) ) {
 
