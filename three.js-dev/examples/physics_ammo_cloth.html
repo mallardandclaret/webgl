@@ -288,7 +288,7 @@ material.displacementScale = value;
 				// Ground
 				pos.set( 0, - 0.5, 0 );
 				quat.set( 0, 0, 0, 1 );
-				const ground = createParalellepiped( 60, 1, 60, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF } ) );
+				const ground = createParalellepiped( 60, 1, 60, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, visable: false } ) );
 				ground.castShadow = true;
 				ground.receiveShadow = true;
 				ground.visable = false;
