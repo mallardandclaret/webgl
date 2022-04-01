@@ -7,7 +7,10 @@
 		<style>
 			
 			body {
-				color: rgb(255, 255, 255), background-color: rgb(0, 0, 0);
+				color: rgb(255, 255, 255);
+			}
+			body {
+				 background-color: rgb(0, 0, 0);
 			}
 		</style>
 	</head>
@@ -198,7 +201,7 @@ material.displacementScale = value;
 
 				camera.position.set( - 20, 0, 0 );
 
-				//scene.background = environmentMap
+				scene.background = environmentMap
                 scene.environment = environmentMap
 
 				renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
@@ -304,7 +307,7 @@ material.displacementScale = value;
 	} );
 
 				// Wall
-				const brickMass = 10;
+				const brickMass = 5;
 				const brickLength = 1.2;
 				const brickDepth = 0.6;
 				const brickHeight = brickLength * 0.5;
