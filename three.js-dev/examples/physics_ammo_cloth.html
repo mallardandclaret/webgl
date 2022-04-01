@@ -359,7 +359,7 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 
 				const normalMap = textureLoader.load( 'textures/golfball.jpg' );
                 //const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
-                //const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
+                const displacementMap = textureLoader.load( 'textures/golfball.jpg' );
 
 
 				// The cloth
@@ -382,9 +382,9 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
                 normalScale: new THREE.Vector2( 10, - 10 ), // why does the normal map require negation in this case?
                 //aoMap: aoMap,
                 //aoMapIntensity: 1,
-                //displacementMap: displacementMap,
-                //displacementScale: settings.displacementScale,
-                //displacementBias: - 0.428408, // from original model
+                displacementMap: displacementMap,
+                displacementScale: settings.displacementScale,
+                displacementBias: - 0.428408, // from original model
                 //envMap: reflectionCube,
                 envMapIntensity: settings.envMapIntensity, 
 				side: THREE.DoubleSide } );
