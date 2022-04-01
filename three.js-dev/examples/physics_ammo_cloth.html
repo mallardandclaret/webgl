@@ -437,10 +437,10 @@ material.displacementScale = value;
 				//base.castShadow = false;
 				//base.receiveShadow = false;
 				//pos.set( clothPos.x, 0.5 * pylonHeight, clothPos.z - armLength );
-				//const pylon = createParalellepiped( 0.4, pylonHeight, 0.4, 0, pos, quat, baseMaterial );
-				//pylon.castShadow = false;
-				//pylon.receiveShadow = false;
-				//pos.set( clothPos.x, pylonHeight + 0.2, clothPos.z - 0.5 * armLength );
+				const pylon = createParalellepiped( 0.4, pylonHeight, 0.4, 0, pos, quat, baseMaterial );
+				pylon.castShadow = false;
+				pylon.receiveShadow = false;
+				pos.set( clothPos.x, pylonHeight + 0.2, clothPos.z - 0.5 * armLength );
 				const arm = createParalellepiped( 0.4, 0.4, armLength + 0.4, armMass, pos, quat, baseMaterial );
 				arm.castShadow = false;
 				arm.receiveShadow = false; 
@@ -451,11 +451,11 @@ material.displacementScale = value;
 				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
 				// Hinge constraint to move the arm
-				//const pivotA = new Ammo.btVector3( 0, pylonHeight * 0.5, 0 );
+				const pivotA = new Ammo.btVector3( 0, pylonHeight * 0.5, 0 );
 				const pivotB = new Ammo.btVector3( 0, - 0.2, - armLength * 0.5 );
 				const axis = new Ammo.btVector3( 0, 1, 0 );
-				//hinge = new Ammo.btHingeConstraint( pylon.userData.physicsBody, arm.userData.physicsBody, pivotA, pivotB, axis, axis, true );
-				//physicsWorld.addConstraint( hinge, true );
+				hinge = new Ammo.btHingeConstraint( pylon.userData.physicsBody, arm.userData.physicsBody, pivotA, pivotB, axis, axis, true );
+				physicsWorld.addConstraint( hinge, true );
 
 			}
 
