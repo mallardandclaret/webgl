@@ -398,7 +398,7 @@ material.displacementScale = value;
 				normalMap.repeat.set( clothNumSegmentsZ, clothNumSegmentsY );
 				cloth.material.map = normalMap;
 				cloth.material.needsUpdate = true;
-				textureLoader.load( 'textures/grid.png', function ( texture ) {
+				/* textureLoader.load( 'textures/grid.png', function ( texture ) {
 
 					texture.wrapS = THREE.RepeatWrapping;
 					texture.wrapT = THREE.RepeatWrapping;
@@ -406,7 +406,7 @@ material.displacementScale = value;
 					cloth.material.map = texture;
 					cloth.material.needsUpdate = true;
 
-				} ); 
+				}  );  */ }
 
 				// Cloth physic object
 				const softBodyHelpers = new Ammo.btSoftBodyHelpers();
