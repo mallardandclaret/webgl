@@ -291,6 +291,7 @@ material.displacementScale = value;
 				const ground = createParalellepiped( 60, 1, 60, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF } ) );
 				ground.castShadow = true;
 				ground.receiveShadow = true;
+				ground.visable = false;
 				textureLoader.load( 'textures/grid.png', function ( texture ) {
 
 					texture.wrapS = THREE.RepeatWrapping;
@@ -444,6 +445,9 @@ material.displacementScale = value;
 				const arm = createParalellepiped( 0.4, 0.4, armLength + 0.4, armMass, pos, quat, baseMaterial );
 				arm.castShadow = false;
 				arm.receiveShadow = false; 
+				arm.visable = false;
+				pylon.visable = false;
+				base.visable = false;
 
 				// Glue the cloth to the arm
 				const influence = 0.1;
