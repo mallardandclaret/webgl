@@ -429,7 +429,7 @@ material.displacementScale = value;
 				// The base
 				const armMass = 2;
 				const armLength = 3 + clothWidth;
-				const pylonHeight = clothPos.y + clothHeight;
+				const pylonHeight = clothPos.y + clothHeight + 10;
 				const baseMaterial = new THREE.MeshPhongMaterial( { color: 0x606060 } );
 				pos.set( clothPos.x, 0.1, clothPos.z - armLength );
 				quat.set( 0, 0, 0, 1 );
