@@ -357,9 +357,9 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 				}
 
 
-				const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
-                const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
-                const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
+				const normalMap = textureLoader.load( 'textures/golfball.jpg' );
+                //const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
+                //const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
 
 
 				// The cloth
@@ -442,7 +442,7 @@ material.normalScale.set( 1, - 1 ).multiplyScalar( value );
 				// Glue the cloth to the arm
 				const influence = 0.1;
 				clothSoftBody.appendAnchor( 50, arm.userData.physicsBody, false, influence );
-				clothSoftBody.appendAnchor( 20, arm.userData.physicsBody, false, influence );
+				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
 				// Hinge constraint to move the arm
 				const pivotA = new Ammo.btVector3( 0, pylonHeight * 0.5, 0 );
