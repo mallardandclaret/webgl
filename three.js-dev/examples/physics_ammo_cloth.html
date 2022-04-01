@@ -395,7 +395,7 @@ material.displacementScale = value;
 				scene.add( cloth );
 				normalMap.wrapS = THREE.RepeatWrapping;
 				normalMap.wrapT = THREE.RepeatWrapping;
-				normalMap.repeat.set( clothNumSegmentsZ / 5, clothNumSegmentsY / 5 );
+				normalMap.repeat.set( clothNumSegmentsZ / 20, clothNumSegmentsY / 20 );
 				cloth.material.map = normalMap;
 				cloth.material.needsUpdate = true;
 				/* textureLoader.load( 'textures/grid.png', function ( texture ) {
@@ -427,7 +427,7 @@ material.displacementScale = value;
 				clothSoftBody.setActivationState( 4 );
 
 				// The base
-				const armMass = 2;
+				/* const armMass = 2;
 				const armLength = 3 + clothWidth;
 				const pylonHeight = clothPos.y + clothHeight;
 				const baseMaterial = new THREE.MeshPhongMaterial( { color: 0x606060 } );
@@ -443,11 +443,11 @@ material.displacementScale = value;
 				pos.set( clothPos.x, pylonHeight + 0.2, clothPos.z - 0.5 * armLength );
 				const arm = createParalellepiped( 0.4, 0.4, armLength + 0.4, armMass, pos, quat, baseMaterial );
 				arm.castShadow = true;
-				arm.receiveShadow = true;
+				arm.receiveShadow = true; */
 
 				// Glue the cloth to the arm
 				const influence = 0.1;
-				clothSoftBody.appendAnchor( 50, arm.userData.physicsBody, false, influence );
+				clothSoftBody.appendAnchor( 0, arm.userData.physicsBody, false, influence );
 				clothSoftBody.appendAnchor( clothNumSegmentsZ, arm.userData.physicsBody, false, influence );
 
 				// Hinge constraint to move the arm
