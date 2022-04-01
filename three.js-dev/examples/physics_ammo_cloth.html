@@ -168,12 +168,12 @@ material.displacementScale = value;
               * Environment map
               */
              const environmentMap = cubeTextureLoader.load([
-                 'textures/environmentMaps/3G/px.jpg',
-                 'textures/environmentMaps/3G/nx.jpg',
-                 'textures/environmentMaps/3G/py.jpg',
-                 'textures/environmentMaps/3G/ny.jpg',
-                 'textures/environmentMaps/3G/pz.jpg',
-                 'textures/environmentMaps/3G/nz.jpg'
+                 'textures/environmentMaps/3H/px.jpg',
+                 'textures/environmentMaps/3H/nx.jpg',
+                 'textures/environmentMaps/3H/py.jpg',
+                 'textures/environmentMaps/3H/ny.jpg',
+                 'textures/environmentMaps/3H/pz.jpg',
+                 'textures/environmentMaps/3H/nz.jpg'
              ])
              
              environmentMap.encoding = THREE.sRGBEncoding
@@ -258,7 +258,7 @@ material.displacementScale = value;
 
 
            
-			const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
+			
 
 
 
@@ -364,7 +364,7 @@ material.displacementScale = value;
 				}
 
 
-				const normalMap = textureLoader.load( 'textures/foil2.jpg' );
+				const normalMap = textureLoader.load( 'textures/foil4.jpg' );
                 //const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
                 //const displacementMap = textureLoader.load( 'textures/golfball.jpg' );
 
@@ -401,7 +401,7 @@ material.displacementScale = value;
 				scene.add( cloth );
 				normalMap.wrapS = THREE.RepeatWrapping;
 				normalMap.wrapT = THREE.RepeatWrapping;
-				normalMap.repeat.set( clothNumSegmentsZ / 2, clothNumSegmentsY / 2 );
+				normalMap.repeat.set( clothNumSegmentsZ / 3, clothNumSegmentsY / 3 );
 				cloth.material.map = normalMap;
 				cloth.material.needsUpdate = true;
 				/* textureLoader.load( 'textures/grid.png', function ( texture ) {
