@@ -50,7 +50,7 @@ ambientIntensity: 0.2,
 aoMapIntensity: 1.0,
 envMapIntensity: 1.0,
 displacementScale: 0.1, // from original model
-normalScale: 1
+normalScale: 100
 };
 
 
@@ -380,7 +380,7 @@ material.displacementScale = value;
 			    roughness: settings.roughness,
                 metalness: settings.metalness,
                 normalMap: normalMap,
-                normalScale: new THREE.Vector2( 10, - 10 ), // why does the normal map require negation in this case?
+                normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require negation in this case?
                 //aoMap: aoMap,
                 //aoMapIntensity: 1,
                 //displacementMap: displacementMap,
