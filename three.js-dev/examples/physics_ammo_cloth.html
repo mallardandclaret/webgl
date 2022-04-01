@@ -395,7 +395,7 @@ material.displacementScale = value;
 				scene.add( cloth );
 				normalMap.wrapS = THREE.RepeatWrapping;
 				normalMap.wrapT = THREE.RepeatWrapping;
-				normalMap.repeat.set( clothNumSegmentsZ / 20, clothNumSegmentsY / 20 );
+				normalMap.repeat.set( clothNumSegmentsZ / 10, clothNumSegmentsY / 10 );
 				cloth.material.map = normalMap;
 				cloth.material.needsUpdate = true;
 				/* textureLoader.load( 'textures/grid.png', function ( texture ) {
