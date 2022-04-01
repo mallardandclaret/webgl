@@ -364,7 +364,7 @@ material.displacementScale = value;
 				}
 
 
-				const normalMap = textureLoader.load( 'textures/foil4.jpg' );
+				const normalMap = textureLoader.load( 'textures/foil5.jpg' );
                 //const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
                 //const displacementMap = textureLoader.load( 'textures/golfball.jpg' );
 
@@ -401,7 +401,7 @@ material.displacementScale = value;
 				scene.add( cloth );
 				normalMap.wrapS = THREE.RepeatWrapping;
 				normalMap.wrapT = THREE.RepeatWrapping;
-				normalMap.repeat.set( clothNumSegmentsZ / 3, clothNumSegmentsY / 3 );
+				normalMap.repeat.set( clothNumSegmentsZ / 10, clothNumSegmentsY / 10 );
 				cloth.material.map = normalMap;
 				cloth.material.needsUpdate = true;
 				/* textureLoader.load( 'textures/grid.png', function ( texture ) {
