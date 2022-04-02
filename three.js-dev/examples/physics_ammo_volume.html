@@ -6,14 +6,17 @@
 		<link type="text/css" rel="stylesheet" href="main.css">
 		<style>
 			body {
-				color: #333;
+				color: rgb(255, 255, 255);
+			}
+			body {
+				 background-color: rgb(0, 0, 0);
 			}
 		</style>
 	</head>
 	<body>
 		<div id="info">
-			Ammo.js physics soft body volume demo<br/>
-			Click to throw a ball
+			M&C Soft body test<br/>
+			Click to throw an imported model
 		</div>
 		<div id="container"></div>
 
@@ -39,6 +42,7 @@
 
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
 			// Graphics variables
 			let container, stats;
@@ -93,8 +97,11 @@
 
 				camera.position.set( - 7, 5, 8 );
 
-				renderer = new THREE.WebGLRenderer();
-				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.toneMapping = THREE.ACESFilmicToneMapping;
+				renderer.toneMappingExposure = 1;
+				renderer.outputEncoding = THREE.sRGBEncoding;
+			    renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.shadowMap.enabled = true;
 				container.appendChild( renderer.domElement );
@@ -131,9 +138,24 @@
 				container.appendChild( stats.domElement );
 
 
+				const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
+						loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
+
+							scene.add( gltf.scene );
+
+							render();
+
+						} );
+
+
+
+						
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
+
+			
+
 
 			function initPhysics() {
 
