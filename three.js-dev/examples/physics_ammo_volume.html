@@ -430,13 +430,13 @@
                     const mesh = new THREE.Mesh( geometry, material );
                     mesh.castShadow = true;
                     mesh.receiveShadow = true;
-					pos.copy( raycaster.ray.direction );
-					pos.add( raycaster.ray.origin );
+					pos.set( raycaster.ray.direction );
+					pos.set( raycaster.ray.origin );
 					quat.set( 0, 0, 0, 1 );
                     scene.add( mesh );
                     
                     // Release decoder resources.
-                    dracoLoader.dispose();
+                    //dracoLoader.dispose();
                     
                     } );	
 
