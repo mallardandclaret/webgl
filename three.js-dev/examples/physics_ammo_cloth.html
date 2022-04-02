@@ -528,41 +528,33 @@ material.displacementScale = value;
 
 			}
 
-			/* function initInput() {
-
-            window.addEventListener( 'pointerdown', function ( event ) {
-
-	        if ( ! clickRequest ) {
-
-		    mouseCoords.set(
-			( event.clientX / window.innerWidth ) * 2 - 1,
-			- ( event.clientY / window.innerHeight ) * 2 + 1
-		);
-
-		clickRequest = true;
-
-	}
-
-} );
-
-} */
+			// Moving the cloth
 
 			function initInput() {
 
-				/* window.addEventListener( 'pointerdown', function ( event ) {
+				window.addEventListener( 'keydown', function ( event ) {
+				//window.addEventListener( 'pointerdown', function ( event ) {	
 
-					if ( ! clickRequest ) {
+					//if ( ! clickRequest ) {
+					switch ( event.keyCode ) {
 
-						
+						// Q
+						case 81:
 							armMovement = 1;
+							break;
+
+							// A
+						case 65:
+							armMovement = - 1;
+							break;
 
 					}
 
-				} ); */
+				} );
 
-				window.addEventListener( 'pointerup', function () {
+				window.addEventListener( 'keyup', function () {
 
-					armMovement = 1;
+					armMovement = 0;
 
 				} );
 
