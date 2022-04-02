@@ -149,16 +149,7 @@
 
 			
 
-            //Add model
-
-			const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
-						loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
-
-							scene.add( gltf.scene );
-
-							render();
-
-						} );
+            
 
 
 
@@ -411,8 +402,19 @@
 
 					raycaster.setFromCamera( mouseCoords, camera );
 
+					//Add model
+
+			        const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
+						loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
+
+							scene.add( gltf.scene );
+
+							render();
+
+						} );
+
 					// Creates a ball
-					const ballMass = 10;
+					const ballMass = 3;
 					const ballRadius = 0.4;
 
 					const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
