@@ -138,14 +138,7 @@
 				container.appendChild( stats.domElement );
 
 
-				const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
-						loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
-
-							scene.add( gltf.scene );
-
-							render();
-
-						} );
+				
 
 
 
@@ -155,6 +148,18 @@
 			}
 
 			
+
+            //Add model
+
+			const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
+						loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
+
+							scene.add( gltf.scene );
+
+							render();
+
+						} );
+
 
 
 			function initPhysics() {
