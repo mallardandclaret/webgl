@@ -427,10 +427,10 @@
                     geometry.computeVertexNormals();
 
                     const material = new THREE.MeshStandardMaterial( { color: 0x606060 } );
-                    const mesh = new THREE.Mesh( geometry, material );
-                    mesh.castShadow = false;
-                    mesh.receiveShadow = false;
-					mesh.position.x = Math.random() * 100;
+                    const ball = new THREE.Mesh( geometry, material );
+                    ball.castShadow = false;
+                    ball.receiveShadow = false;
+					//mesh.position.x = Math.random() * 100;
                     scene.add( mesh );
                     
                     // Release decoder resources.
@@ -442,7 +442,7 @@
 					const ballMass = 3;
 					const ballRadius = 0.4;
 
-					const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
+					//const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
 					ball.castShadow = true;
 					ball.receiveShadow = true;
 					const ballShape = new Ammo.btSphereShape( ballRadius );
