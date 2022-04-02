@@ -428,11 +428,9 @@
 
                     const material = new THREE.MeshStandardMaterial( { color: 0x606060 } );
                     const mesh = new THREE.Mesh( geometry, material );
-                    mesh.castShadow = true;
-                    mesh.receiveShadow = true;
-					pos.set( raycaster.ray.direction );
-					pos.set( raycaster.ray.origin );
-					quat.set( 0, 0, 0, 1 );
+                    mesh.castShadow = false;
+                    mesh.receiveShadow = false;
+					mesh.position.x = Math.random() * 100;
                     scene.add( mesh );
                     
                     // Release decoder resources.
