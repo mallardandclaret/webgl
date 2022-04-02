@@ -43,6 +43,15 @@
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
+
+
+
+            // Configure and create Draco decoder.
+            const dracoLoader = new DRACOLoader();
+            dracoLoader.setDecoderPath( 'js/libs/draco/' );
+            dracoLoader.setDecoderConfig( { type: 'js' } );
+
 
 			// Graphics variables
 			let container, stats;
@@ -404,14 +413,29 @@
 
 					//Add model
 
-			        const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
+			        /* const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
 						loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
 
 							scene.add( gltf.scene );
 
 							render();
 
-						} );
+						} ); */
+
+					dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
+
+                    geometry.computeVertexNormals();
+
+                    const material = new THREE.MeshStandardMaterial( { color: 0x606060 } );
+                    const mesh = new THREE.Mesh( geometry, material );
+                    mesh.castShadow = true;
+                    mesh.receiveShadow = true;
+                    scene.add( mesh );
+                    
+                    // Release decoder resources.
+                    dracoLoader.dispose();
+                    
+                    } );	
 
 					// Creates a ball
 					const ballMass = 3;
