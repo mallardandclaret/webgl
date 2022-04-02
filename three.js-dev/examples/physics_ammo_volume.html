@@ -401,6 +401,10 @@
 
 			}
 
+            
+			// Throwing the object at the soft bodies
+
+
 			function processClick() {
 
 				if ( clickRequest ) {
@@ -408,7 +412,7 @@
 					raycaster.setFromCamera( mouseCoords, camera );
 
 					// Creates a ball
-					const ballMass = 3;
+					const ballMass = 10;
 					const ballRadius = 0.4;
 
 					const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
