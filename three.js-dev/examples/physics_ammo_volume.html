@@ -436,9 +436,6 @@
                     // Release decoder resources.
                     //dracoLoader.dispose();
                     
-                    } );	
-
-					// Creates a ball
 					const ballMass = 3;
 					const ballRadius = 0.4;
 
@@ -456,6 +453,12 @@
 					pos.copy( raycaster.ray.direction );
 					pos.multiplyScalar( 14 );
 					ballBody.setLinearVelocity( new Ammo.btVector3( pos.x, pos.y, pos.z ) );
+
+
+                    } );	
+
+					// Creates a ball
+					
 
 					clickRequest = false;
 
