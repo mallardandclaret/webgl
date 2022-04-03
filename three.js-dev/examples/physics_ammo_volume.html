@@ -460,8 +460,10 @@
                     loader.setDRACOLoader( dracoLoader );
                     loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
 
+
+                        mesh.position.x = Math.random() * 100;
 						scene.add( gltf.scene );
-						mesh.position.x = Math.random() * 100;
+						
 
 							render();
 
