@@ -461,6 +461,8 @@
                     loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
 
 
+                        const kball = new THREE.Mesh( geometry, material );
+
                         mesh.position.x = Math.random() * 100;
 						scene.add( gltf.scene );
 						
