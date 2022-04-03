@@ -95,6 +95,24 @@
 
 			}
 
+
+              /**
+              * Environment map
+              */
+			  const environmentMap = cubeTextureLoader.load([
+                 'textures/environmentMaps/3/px.jpg',
+                 'textures/environmentMaps/3/nx.jpg',
+                 'textures/environmentMaps/3/py.jpg',
+                 'textures/environmentMaps/3/ny.jpg',
+                 'textures/environmentMaps/3/pz.jpg',
+                 'textures/environmentMaps/3/nz.jpg'
+             ])
+             
+             environmentMap.encoding = THREE.sRGBEncoding
+			 envMapIntensity = 3
+
+
+
 			function initGraphics() {
 
 				container = document.getElementById( 'container' );
@@ -114,6 +132,9 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.shadowMap.enabled = true;
 				container.appendChild( renderer.domElement );
+
+				scene.background = environmentMap
+                scene.environment = environmentMap
 
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.target.set( 0, 2, 0 );
