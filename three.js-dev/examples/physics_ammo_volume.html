@@ -461,16 +461,16 @@
                     loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
 
 
+						const kball = new THREE.Mesh( gltf.scene );
 
-
-						gltf.scene.scale.set(0.5, 0.5, 0.5);
-						gltf.scene.position.x = Math.random() * 100;
+						kball.scale.set(0.5, 0.5, 0.5);
+						kball.position.x = Math.random() * 100;
                         //const gltf = new THREE.Mesh( gltf );
                         //gltf.position.x = Math.random() * 100;
-						scene.add( gltf.scene );
+						scene.add( kball );
 						
 
-							render();
+						render();
 
   
 
