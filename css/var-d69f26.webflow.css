@@ -838,10 +838,7 @@ blockquote {
   right: 3%;
   bottom: 3%;
   z-index: 999999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: inline-block;
   width: 25vw;
   height: auto;
   padding: 20px;
@@ -941,7 +938,17 @@ blockquote {
   }
 
   .main-holder {
+    display: none;
     opacity: 1;
+  }
+
+  .div-block-4 {
+    width: 50vw;
+  }
+
+  .link {
+    font-size: 2vw;
+    line-height: 2vw;
   }
 
   .cursor-wrapper {
@@ -1083,6 +1090,16 @@ blockquote {
     margin-left: 0%;
     font-size: 0.8em;
     line-height: 1.8;
+  }
+
+  .div-block-4 {
+    left: 3%;
+    display: inline-block;
+    width: 94vw;
+  }
+
+  .link {
+    font-size: 4vw;
   }
 }
 
