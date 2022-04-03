@@ -456,27 +456,27 @@
 					//const dracoLoader = new DRACOLoader();
                     //dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
 
-                    const loader = new GLTFLoader();
+                    /* const loader = new GLTFLoader();
                     loader.setDRACOLoader( dracoLoader );
                     loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
 
 
-                        gltf.computeVertexNormals();
+                        //gltf.computeVertexNormals();
 
-						const kball = new THREE.Mesh( gltf.scene );
+						//const kball = new THREE.Mesh( gltf.scene );
 
-						kball.scale.set(0.5, 0.5, 0.5);
-						kball.position.x = Math.random() * 100;
+						gltf.scene.scale.set(0.5, 0.5, 0.5);
+						gltf.scene.position.x = Math.random() * 100;
                         //const gltf = new THREE.Mesh( gltf );
                         //gltf.position.x = Math.random() * 100;
-						scene.add( kball );
+						scene.add( gltf.scene );
 						
 
 						render();
 
   
 
-                    });
+                    }); */
 
 			        /* const loader = new GLTFLoader().setPath( 'models/gltf/' );
 						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
@@ -487,16 +487,35 @@
 
 						} );  */
 
-					dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
+					//dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
 					//dracoLoader.load( 'models/draco/KL.drc', function ( geometry ) {	
 					//dracoLoader.load( 'models/gltf/KujiraLogoVert.gltf', function ( geometry ) {	
 
-                    geometry.computeVertexNormals();
+                    //geometry.computeVertexNormals();
+
+
+					const loader = new GLTFLoader();
+                    loader.setDRACOLoader( dracoLoader );
+                    loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
+
+
+                        //gltf.computeVertexNormals();
+
+						//const kball = new THREE.Mesh( gltf.scene );
+
+						//gltf.scene.scale.set(0.5, 0.5, 0.5);
+						//gltf.scene.position.x = Math.random() * 100;
+                        //const gltf = new THREE.Mesh( gltf );
+                        //gltf.position.x = Math.random() * 100;
+						//scene.add( gltf.scene );
+						
+
+						render();
 
 					
 
-                    const material = new THREE.MeshStandardMaterial( { color: 0xffffff, metalness: 1, roughness: 0.1 } );
-                    const ball = new THREE.Mesh( geometry, material );
+                    //const material = new THREE.MeshStandardMaterial( { color: 0xffffff, metalness: 1, roughness: 0.1 } );
+                    const ball = new THREE.Mesh( gltf.scene );
 					ball.scale.set(4, 4, 4);
                     ball.castShadow = false;
                     ball.receiveShadow = false;
