@@ -224,7 +224,7 @@
 				// Ground
 				pos.set( 0, - 0.5, 0 );
 				quat.set( 0, 0, 0, 1 );
-				const ground = createParalellepiped( 40, 1, 40, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF } ) );
+				const ground = createParalellepiped( 40, 1, 40, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, metalness: 0.9, roughness: 0.1 } ) );
 				ground.castShadow = true;
 				ground.receiveShadow = true;
 				textureLoader.load( 'textures/grid.png', function ( texture ) {
