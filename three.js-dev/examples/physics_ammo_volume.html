@@ -453,16 +453,17 @@
 
 					//Add model
 
-			        const loader = new GLTFLoader().setPath( 'models/gltf/' );
+			        /* const loader = new GLTFLoader().setPath( 'models/gltf/' );
 						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
 
 							scene.add( gltf.scene );
 
 							render();
 
-						} ); 
+						} );  */
 
-					dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
+					//dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
+					dracoLoader.load( 'models/draco/KL.drc', function ( geometry ) {	
 					//dracoLoader.load( 'models/gltf/KujiraLogoVert.gltf', function ( geometry ) {	
 
                     geometry.computeVertexNormals();
