@@ -461,6 +461,7 @@
                     loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
 
 						scene.add( gltf.scene );
+						mesh.position.x = Math.random() * 100;
 
 							render();
 
