@@ -470,7 +470,7 @@
 					const loader = new GLTFLoader().setPath( 'models/gltf/' );
 					loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
 					
-					geometry.computeVertexNormals();
+					gltf.computeVertexNormals();
 
 					
 
