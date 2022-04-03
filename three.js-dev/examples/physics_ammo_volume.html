@@ -112,6 +112,24 @@
 			 envMapIntensity = 3
 
 
+			// Update all materials
+            
+            const updateAllMaterials = () =>
+             {
+                 scene.traverse((child) =>
+                 {
+                     if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
+                     {
+                         child.material.envMap = environmentMap
+                         child.material.envMapIntensity = debugObject.envMapIntensity
+                         child.material.needsUpdate = true
+                         child.castShadow = true
+                         child.receiveShadow = true
+                     }
+                 })
+             }
+
+
 
 			function initGraphics() {
 
@@ -233,7 +251,7 @@
 				// Ramp
 				pos.set( 3, 1, 0 );
 				quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), 30 * Math.PI / 180 );
-				const obstacle = createParalellepiped( 10, 1, 4, 0, pos, quat, new THREE.MeshPhongMaterial( { color: 0x606060 } ) );
+				const obstacle = createParalellepiped( 10, 1, 4, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0x606060 } ) );
 				obstacle.castShadow = true;
 				obstacle.receiveShadow = true;
 
