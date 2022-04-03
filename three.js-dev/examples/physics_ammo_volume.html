@@ -461,6 +461,8 @@
                     loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
 
 
+                        gltf.computeVertexNormals();
+
 						const kball = new THREE.Mesh( gltf.scene );
 
 						kball.scale.set(0.5, 0.5, 0.5);
