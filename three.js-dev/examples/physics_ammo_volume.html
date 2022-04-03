@@ -463,15 +463,19 @@
 						} );  */
 
 					//dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
-					dracoLoader.load( 'models/draco/KL.drc', function ( geometry ) {	
+					//dracoLoader.load( 'models/draco/KL.drc', function ( geometry ) {	
 					//dracoLoader.load( 'models/gltf/KujiraLogoVert.gltf', function ( geometry ) {	
 
-                    geometry.computeVertexNormals();
+                    
+					const loader = new GLTFLoader().setPath( 'models/gltf/' );
+					loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
+					
+					geometry.computeVertexNormals();
 
 					
 
-                    const material = new THREE.MeshStandardMaterial( { color: 0xffffff, metalness: 1, roughness: 0.1 } );
-                    const ball = new THREE.Mesh( geometry, material );
+                    //const material = new THREE.MeshStandardMaterial( { color: 0xffffff, metalness: 1, roughness: 0.1 } );
+                    const ball = new THREE.Mesh( gltf );
 					ball.scale.set(4, 4, 4);
                     ball.castShadow = false;
                     ball.receiveShadow = false;
