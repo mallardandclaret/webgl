@@ -458,10 +458,10 @@
 
                     const loader = new GLTFLoader();
                     loader.setDRACOLoader( dracoLoader );
-                    loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
+                    loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( geometry ) {
 
 
-                        const kball = new THREE.Mesh( gltf );
+                        const kball = new THREE.Mesh( geometry );
 
                         //kball.position.x = Math.random() * 100;
 						scene.add( kball.scene );
