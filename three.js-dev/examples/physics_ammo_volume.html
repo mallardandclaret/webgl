@@ -246,7 +246,7 @@
 
 				const boxGeometry = new THREE.BoxGeometry( 1, 1, 5, 4, 4, 20 );
 				boxGeometry.translate( - 2, 5, 0 );
-				createSoftVolume( boxGeometry, volumeMass, 120 );
+				createSoftVolume( boxGeometry, volumeMass, 200 );
 
 				// Ramp
 				pos.set( 3, 1, 0 );
@@ -324,13 +324,13 @@
 
 				processGeometry( bufferGeom );
 
-				const volume = new THREE.Mesh( bufferGeom, new THREE.MeshPhongMaterial( { color: 0xFFFFFF } ) );
+				const volume = new THREE.Mesh( bufferGeom, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, metalness: 1, roughness: 0.1 } ) );
 				volume.castShadow = true;
 				volume.receiveShadow = true;
 				volume.frustumCulled = false;
 				scene.add( volume );
 
-				textureLoader.load( 'textures/colors.png', function ( texture ) {
+				textureLoader.load( 'textures/IKAC2.jpg', function ( texture ) {
 
 					volume.material.map = texture;
 					volume.material.needsUpdate = true;
