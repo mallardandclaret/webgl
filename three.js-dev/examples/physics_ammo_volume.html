@@ -191,7 +191,7 @@
 
 
 			   var explosionTexture = new THREE.ImageUtils.loadTexture( 'textures/explosion.jpg' );
-	           boomer = new TextureAnimator( explosionTexture, 4, 4, 16, 55 ); // texture, #horiz, #vert, #total, duration.
+	           //boomer = new TextureAnimator( explosionTexture, 4, 4, 16, 55 ); // texture, #horiz, #vert, #total, duration.
 	           var explosionMaterial = new THREE.MeshBasicMaterial( { map: explosionTexture } );
 	           var cubeGeometry = new THREE.CubeGeometry( 4, 4, 4 );
 	           cube = new THREE.Mesh( cubeGeometry, explosionMaterial );
@@ -694,7 +694,9 @@
 	};
 
 			}
-			}
+
+
+}
 
 		</script>
 
