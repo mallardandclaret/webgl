@@ -259,6 +259,23 @@
 
 			}
 
+			function createObject2() {
+
+               // Create soft volumes
+               const volumeMass = 20;
+
+               const boxGeometry = new THREE.BoxGeometry( 1, 1, 5, 4, 4, 20 );
+               boxGeometry.translate( 10, 5, 0 );
+               createSoftVolume( boxGeometry, volumeMass, 200 );
+
+        
+
+            }
+
+
+
+
+
 			function processGeometry( bufGeometry ) {
 
 				// Ony consider the position values when merging the vertices
@@ -440,8 +457,7 @@
                 // by assigning a function to "onclick"
                 a.onclick = function() {
 
-				camera.position.set( - 20, 5, 8 );
-				createObjects();
+				createObject2();
 
                 return false;
                 }
