@@ -488,7 +488,8 @@
 
 						// Q
 						case 81:
-						    gravityConstant = 3;
+						physicsWorld.setGravity( new Ammo.btVector3( 0, 3, 0 ) );
+				        physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, 3, 0 ) );
 							break;
 
 							// A
