@@ -69,6 +69,30 @@
 			// Animated Texture variables 
             var annie, boomer;
 
+			function animate() 
+{
+    requestAnimationFrame( animate );
+	render();		
+	update();
+}
+
+function update()
+{
+	var delta = clock.getDelta(); 
+
+	annie.update(1000 * delta);
+	boomer.update(1000 * delta);
+	
+	if ( keyboard.pressed("z") ) 
+	{ 
+		// do something
+	}
+	
+	controls.update();
+	stats.update();
+}
+
+
 			// Physics variables
 			const gravityConstant = - 9.8;
 			let physicsWorld;
