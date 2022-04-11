@@ -17,6 +17,7 @@
 		<div id="info">
 			M&C Soft body test<br/>
 			Click to throw an imported model
+			Click <a id="pillow" href="#">here</a> to add more pillows.
 		</div>
 		<div id="container"></div>
 
@@ -432,6 +433,22 @@
 
 			function initInput() {
 
+
+				var a = document.getElementById("pillow");
+
+                //Set code to run when the link is clicked
+                // by assigning a function to "onclick"
+                a.onclick = function() {
+
+				camera.position.set( - 20, 5, 8 );
+				createObjects();
+
+                return false;
+                }
+
+
+
+
 				window.addEventListener( 'pointerdown', function ( event ) {
 
 					if ( ! clickRequest ) {
@@ -455,8 +472,7 @@
 
 						// Q
 						case 81:
-						    camera.position.set( - 20, 5, 8 );
-							createObjects();
+						    
 							break;
 
 							// A
