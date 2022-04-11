@@ -190,15 +190,6 @@
 				container.appendChild( stats.domElement );
 
 
-			   var explosionTexture = new THREE.ImageUtils.loadTexture( 'textures/explosion.jpg' );
-	           //boomer = new TextureAnimator( explosionTexture, 4, 4, 16, 55 ); // texture, #horiz, #vert, #total, duration.
-	           var explosionMaterial = new THREE.MeshBasicMaterial( { map: explosionTexture } );
-	           var cubeGeometry = new THREE.CubeGeometry( 4, 4, 4 );
-	           cube = new THREE.Mesh( cubeGeometry, explosionMaterial );
-	           cube.position.set(0,0,0);
-	           scene.add(cube);
-
-
 
 						
 				window.addEventListener( 'resize', onWindowResize );
@@ -657,6 +648,14 @@
 
 				function TextureAnimator(texture, tilesHoriz, tilesVert, numTiles, tileDispDuration) 
 {	
+	
+	var explosionTexture = new THREE.ImageUtils.loadTexture( 'textures/explosion.jpg' );
+	           boomer = new TextureAnimator( explosionTexture, 4, 4, 16, 55 ); // texture, #horiz, #vert, #total, duration.
+	           var explosionMaterial = new THREE.MeshBasicMaterial( { map: explosionTexture } );
+	           var cubeGeometry = new THREE.CubeGeometry( 4, 4, 4 );
+	           cube = new THREE.Mesh( cubeGeometry, explosionMaterial );
+	           cube.position.set(0,0,0);
+	           scene.add(cube);
 	// note: texture passed by reference, will be updated by the update function.
 		
 	this.tilesHorizontal = tilesHoriz;
