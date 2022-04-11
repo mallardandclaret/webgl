@@ -447,6 +447,26 @@
 
 				} );
 
+				window.addEventListener( 'keydown', function ( event ) {
+				//window.addEventListener( 'pointerdown', function ( event ) {	
+
+					//if ( ! clickRequest ) {
+					switch ( event.keyCode ) {
+
+						// Q
+						case 81:
+						    camera.position.set( - 20, 5, 8 );
+							break;
+
+							// A
+						case 65:
+							armMovement = - 1;
+							break;
+
+						}
+
+                } );
+
 			}
 
             
@@ -574,6 +594,9 @@
 				renderer.render( scene, camera );
 
 			}
+
+           
+
 
 			function updatePhysics( deltaTime ) {
 
