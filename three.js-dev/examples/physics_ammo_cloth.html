@@ -530,35 +530,24 @@ material.displacementScale = value;
 
 			// Moving the cloth
 
-			function initInput() {
-
-				window.addEventListener( 'keydown', function ( event ) {
-				//window.addEventListener( 'pointerdown', function ( event ) {	
-
-					//if ( ! clickRequest ) {
-					switch ( event.keyCode ) {
-
-						// Q
-						case 81:
-							armMovement = 1;
-							break;
-
-							// A
-						case 65:
-							armMovement = - 1;
-							break;
-
-					}
-
-				} );
-
-				window.addEventListener( 'keyup', function () {
-
-					armMovement = 0;
-
-				} );
-
-			}
+			
+            function initInput() {
+            window.addEventListener( 'keydown', function ( event ) {
+            switch ( event.keyCode ) {
+            // Q
+            case 81:
+            armMovement = 1;
+            break;
+            // A
+            case 65:
+            armMovement = - 1;
+            break;
+            }
+            } );
+            window.addEventListener( 'keyup', function () {
+            armMovement = 0;
+            } );
+            }
 
 			function onWindowResize() {
 
