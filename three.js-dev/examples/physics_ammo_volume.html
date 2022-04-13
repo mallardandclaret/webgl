@@ -167,6 +167,7 @@
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.target.set( 0, 2, 0 );
 				controls.update();
+				control.enabled = false;
 
 				textureLoader = new THREE.TextureLoader();
 
