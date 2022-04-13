@@ -151,7 +151,7 @@
 				scene.background = new THREE.Color( 0xbfd1e5 );
 
 				camera.position.set( - 7, 5, 8 );
-				camera.lookAt(new THREE.Vector3(0, 2, 0));
+				//camera.lookAt(new THREE.Vector3(0, 2, 0));
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -165,9 +165,10 @@
 				scene.background = environmentMap
                 scene.environment = environmentMap
 
-				//controls = new OrbitControls( camera, renderer.domElement );
-				//controls.target.set( 0, 2, 0 );
-				//controls.update();
+				controls = new OrbitControls( camera, renderer.domElement );
+				controls.target.set( 0, 2, 0 );
+				controls.enableDamping = true;
+				controls.update();
 				//control.enabled = false;
 
 				textureLoader = new THREE.TextureLoader();
@@ -635,6 +636,8 @@
 			function animate() {
 
 				requestAnimationFrame( animate );
+
+				controls.update();
 
 				render();
 				stats.update();
