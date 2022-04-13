@@ -209,7 +209,7 @@ material.displacementScale = value;
 				//scene.background = new THREE.Color( 0xbfd1e5 );
 
 				camera.position.set( - 20, 2, -5 );
-				camera.lookAt(new THREE.Vector3(0, 2, -5));
+				//camera.lookAt(new THREE.Vector3(0, 2, -5));
 
 				scene.background = environmentMap
                 scene.environment = environmentMap
@@ -229,9 +229,12 @@ material.displacementScale = value;
 				container.appendChild( renderer.domElement );
 
 
-				//controls = new OrbitControls( camera, renderer.domElement );
-				//controls.target.set( 0, 2, -5 );
-				//controls.update();
+				controls = new OrbitControls( camera, renderer.domElement );
+				controls.target.set( 0, 2, -5 );
+				controls.enableDamping = true;
+				controls.dampingFactor = 3;
+				controls.enableZoom = false;
+				controls.update();
 
 				textureLoader = new THREE.TextureLoader();
 
@@ -594,6 +597,8 @@ material.displacementScale = value;
 			function animate() {
 
 				requestAnimationFrame( animate );
+
+				controls.update();
 
 				render();
 				stats.update();
