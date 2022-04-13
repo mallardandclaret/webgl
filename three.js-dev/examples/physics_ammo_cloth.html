@@ -8,14 +8,20 @@
 			
 			body {
 				color: rgb(255, 255, 255);
-				height: 200vh;
+				height: 200vh; 
 			}
 			body {
 				 background-color: rgb(0, 0, 0);
 			}
+
+			webgl {
+				position: fixed;
+			}
+			
 		</style>
 	</head>
 	<body>
+	<webgl>
 		<div id="info">M&C iridescent cloth demo<br>Press Q or A to move the cloth. <br> Press G to reverse gravity. Press H to reset.</div>
 		<div id="container"></div>
 
@@ -654,6 +660,6 @@ material.displacementScale = value;
 			}
 
 		</script>
-
+      </webgl>
 	</body>
 </html>
