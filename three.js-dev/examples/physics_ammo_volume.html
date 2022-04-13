@@ -5,15 +5,24 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
 		<style>
+			
 			body {
 				color: rgb(255, 255, 255);
+				height: 200vh; 
 			}
 			body {
 				 background-color: rgb(0, 0, 0);
 			}
+
+			webgl {
+				position: fixed;
+			}
+
 		</style>
 	</head>
+	
 	<body>
+		<webgl>
 		<div id="info">
 			M&C Soft body test<br/>
 			Click to throw an imported model
@@ -462,13 +471,17 @@
                 return false;
                 }
 
-				document.addEventListener("mousewheel", function(event){
-                if(event.wheelDelta >= 0){
-                console.log("up")
-                }else{
-                console.log("down")
-                }
-                })
+				window.addEventListener("mousewheel", function(event){
+            if(event.wheelDelta >= 0){
+			physicsWorld.setGravity( new Ammo.btVector3( 0, 0, 0 ) );
+			physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, 0, 0 ) );
+            console.log("up")
+            }else{
+			physicsWorld.setGravity( new Ammo.btVector3( 0, -9.8, 0 ) );
+			physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, -9.8, 0 ) );	
+            console.log("down")
+            }
+            })
 
 
 
@@ -713,6 +726,6 @@
 			}
 
 		</script>
-
+       </webgl>
 	</body>
 </html>
