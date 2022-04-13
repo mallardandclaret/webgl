@@ -532,6 +532,16 @@ material.displacementScale = value;
 
 			
             function initInput() {
+
+			document.addEventListener("mousewheel", function(event){
+            if(event.wheelDelta >= 0){
+            console.log("up")
+            }else{
+            console.log("down")
+            }
+            })
+
+
             window.addEventListener( 'keydown', function ( event ) {
             switch ( event.keyCode ) {
 
