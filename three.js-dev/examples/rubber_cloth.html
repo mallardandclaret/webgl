@@ -541,38 +541,6 @@ material.displacementScale = value;
 
 			// Moving the cloth
 
-
-
-            // Mouse position attempt 
-
-			let targetX = 10
-            let targetY = 10
-
-        calcTarget = function(event){
-            targetX = (event.clientX - windowHalfX) * .014;
-            targetY = (event.clientY) * .009;
-        }
-
-
-        /* controls.enabled = false;
-
-        tick = function() {
-            if(document.querySelectorAll("canvas.webgl").length > 0){
-                tarXNegCamPosX = targetX - camera.position.x
-                tarYNegCamPosY = targetY - camera.position.y
-    
-                if ((Math.abs(tarXNegCamPosX) > .2) || (Math.abs(tarYNegCamPosY) > .2)) {
-    
-                    camera.position.x += .06 * (tarXNegCamPosX);
-                    camera.position.y += .06 * (tarYNegCamPosY);
-    
-                    directionalLight.position.x += .06 * (targetX - directionalLight.position.x); */
-
-
-
-
-
-
 			
             function initInput() {
 
@@ -587,9 +555,6 @@ material.displacementScale = value;
             console.log("down")
             }
             })
-
-
-			light.position.x += .06 * (targetX - light.position.x);
 
 
             window.addEventListener( 'keydown', function ( event ) {
