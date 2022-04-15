@@ -129,6 +129,7 @@ material.displacementScale = value;
 			let hinge;
 			let cloth;
 			let transformAux1;
+			let light;
 
 			let armMovement = 0;
 
@@ -241,7 +242,7 @@ material.displacementScale = value;
 				//const ambientLight = new THREE.AmbientLight( 0xffffff );
 				//scene.add( ambientLight );
 
-				const light = new THREE.DirectionalLight( 0xffffff, 1 );
+				light = new THREE.DirectionalLight( 0xffffff, 1 );
 				light.position.set( - 7, 10, 15 );
 				light.castShadow = true;
 				const d = 10;
