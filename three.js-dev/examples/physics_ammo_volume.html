@@ -255,7 +255,7 @@
 
 				// Dynamic box
 
-				pos.set(window.innerWidth / window.innerHeight , 0, 0 );
+				pos.set(window.innerWidth / window.innerHeight , 10, 0 );
 				quat.set( 0, 0, 0, 1 );
 				const vpbox = createParalellepiped( 1, window.innerWidth / window.innerHeight, window.innerHeight / window.innerWidth, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
 				vpbox.castShadow = true;
