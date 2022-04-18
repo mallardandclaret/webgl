@@ -257,7 +257,7 @@
 
 				pos.set( 20, 0, 0 );
 				quat.set( 0, 0, 0, 1 );
-				const vpbox = createParalellepiped( window.innerWidth / window.innerHeight , window.innerHeight / window.innerWidth,  40, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+				const vpbox = createParalellepiped( renderer.width, renderer.height ,  40, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
 				vpbox.castShadow = true;
 				vpbox.receiveShadow = true;
 				textureLoader.load( 'textures/grid.png', function ( texture ) {
