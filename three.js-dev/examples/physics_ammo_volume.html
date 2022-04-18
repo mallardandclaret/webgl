@@ -252,6 +252,26 @@
 
 				} );
 
+
+				// Dynamic box
+
+				pos.set( 0, 0, 0 );
+				quat.set( 0, 0, 0, 1 );
+				const vpbox = createParalellepiped( window.innerWidth, window.innerHeight , 40, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+				vpbox.castShadow = true;
+				vpbox.receiveShadow = true;
+				textureLoader.load( 'textures/grid.png', function ( texture ) {
+
+					texture.wrapS = THREE.RepeatWrapping;
+					texture.wrapT = THREE.RepeatWrapping;
+					texture.repeat.set( 40, 40 );
+					vpbox.material.map = texture;
+					vpbox.material.needsUpdate = true;
+
+				} );
+
+
+
 				// Create soft volumes
 				const volumeMass = 15;
 
@@ -291,7 +311,7 @@
             // Create soft volumes
             const volumeMass = 30;
             
-            const boxGeometry = new THREE.BoxGeometry( window.innerWidth, window.innerHeight, 3, 6, 10, 20 );
+            const boxGeometry = new THREE.BoxGeometry( 3, 3, 3, 6, 10, 20 );
             boxGeometry.translate( 5, 10, 0 );
             createSoftVolume( boxGeometry, volumeMass, 200 );
             
