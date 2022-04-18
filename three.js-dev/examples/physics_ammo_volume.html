@@ -666,6 +666,9 @@
 				camera.updateProjectionMatrix();
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
+				vpbox.setSize(window.innerWidth, window.innerHeight);
+				vpbox.pos.set(window.innerWidth / window.innerHeight , 10, 0 );
+
 
 			}
 
