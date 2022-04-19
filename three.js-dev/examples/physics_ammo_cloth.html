@@ -376,6 +376,12 @@ material.displacementScale = value;
 					pos.y += brickHeight;
 
 				}
+                
+				const testblock = createParalellepiped( 5, 5, 5, 5, 1, 1, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, metalness: 0.9, roughness: 0.1 } ) );
+				testblock.castShadow = false;
+				testblock.receiveShadow = false;
+
+
 
 
 				const normalMap = textureLoader.load( 'textures/foil6.jpg' );
