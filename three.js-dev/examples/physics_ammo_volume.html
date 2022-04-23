@@ -336,6 +336,33 @@
             
             }
 
+			function createObject4() {
+            
+            // Create soft volumes
+            
+            
+            const loader = new GLTFLoader().setPath( 'models/gltf/' );
+						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
+
+							const object4 = new THREE.Mesh( gltf );
+
+							const volumeMass = 30;
+							//const boxGeometry = new THREE.BoxGeometry( 3, 3, 3, 6, 10, 20 );
+                            object4.translate( 5, 10, 0 );
+                            createSoftVolume( object4, volumeMass, 200 );
+
+							scene.add( object4.scene );
+
+							render();
+
+						} );
+
+            
+            
+            
+            
+            }
+
 			
 
 
@@ -524,7 +551,7 @@
                 a.onclick = function() {
 
 				//createObject2();
-				createObject3();
+				createObject4();
 
                 return false;
                 }
