@@ -338,7 +338,7 @@
 
 			function createObject4() {
             
-            
+			const volumeMass = 30;
             const loader = new GLTFLoader().setPath( 'models/gltf/' );
 						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
 
@@ -347,6 +347,8 @@
 							render();
 
 						} ); 
+
+						createSoftVolume( gltf, volumeMass, 200 );
 
             
             
