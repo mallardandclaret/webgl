@@ -345,15 +345,16 @@
 						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
 
 							//const object4 = new THREE.Mesh( gltf );
-
+                            gltf.scene.scale.set(0.025, 0.025, 0.025)
+                            //scene.add(gltf.scene)
 							//const volumeMass = 30;
 							//const boxGeometry = new THREE.BoxGeometry( 3, 3, 3, 6, 10, 20 );
-                            gltf.translate( 5, 10, 0 );
+                            gltf.scene.translate( 5, 10, 0 );
                             //createSoftVolume( object4, volumeMass, 200 );
 
 							//ball.scale.set(4, 4, 4);
 
-							gltf.scene.add( gltf.scene );
+							scene.add( gltf.scene );
 
 							render();
 
