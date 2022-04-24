@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" sizes="16x16" type="image/png" href="/img/icon/logo-16x16.png" />
+    <link rel="icon" sizes="32x32" type="image/png" href="/img/icon/logo-32x32.png" />
+    <link rel="icon" sizes="96x96" type="image/png" href="/img/icon/logo-96x96.png" />
+    <title>enable3d • documentation</title>
+    <meta
+      name="description"
+      content="3D game framework on top of Three.js and Ammo.js (bullet3) which integrates perfectly with Phaser 3."
+    />
+    <link rel="stylesheet" href="/css/style.css?ver=1.2.3" />
+    <link rel="stylesheet" href="/css/floating-action-button.css?ver=1.0.1" />
+
+    <script SSROnly src="//cdn.jsdelivr.net/npm/marked@3/lib/marked.min.js"></script>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <div id="sponsor-section">
+      <span>
+        Enable3d is maintained and provided for free, please consider supporting it on
+        <a href="https://github.com/sponsors/yandeu"> GitHub Sponsors </a>
+        ❤️
+      </span>
+    </div>
+
+    <div>
+      <a href="#logo">
+        <div id="floating-action-button" style="transform: rotate(90deg)">
+          <div>&#10094;</div>
+        </div>
+      </a>
+    </div>
+    <style>
+      .hljs-comment {
+        color: gray !important;
+      }
+    </style>
+    <header>
+      <div class="container navbar">
+        <a href="/">
+          <div id="logo"><img src="/img/enable3d-logo.png" /></div>
+        </a>
+        <ul class="navbar-items">
+          <a href="/examples.html">
+            <li class="navbar-item">Examples</li>
+          </a>
+          <a href="/docs.html">
+            <li class="navbar-item">Docs</li>
+          </a>
+          <a href="https://github.com/enable3d/enable3d/discussions" target="_blank" rel="noopener">
+            <li class="navbar-item">Discussions</li>
+          </a>
+          <a href="https://github.com/enable3d/enable3d" target="_blank" rel="noopener">
+            <li class="navbar-item">Github</li>
+          </a>
+        </ul>
+      </div>
+    </header>
+    <section class="content">
+      <div class="container">
+        <h1 id="documentation">Documentation</h1>
+        <ul id="menu"></ul>
+        <div id="loading">loading...</div>
+        <div id="marked"></div>
+      </div>
+    </section>
+    <script SSROnly>
+      const docs = [
+        'Basic-Setup',
+        'Warp-Speed',
+        'Factory',
+        'Basic-Shapes',
+        'Compound-Shapes',
+        'Physics-Body',
+        'Physics-Configuration',
+        'Position-Rotation-Scale',
+        'Collisions',
+        'Constraints',
+        'Lights',
+        'Loaders',
+        'Tweens',
+        'Controls',
+        'Raycasting',
+        'WebXR',
+        'Misc'
+      ]
+
+      const m = document.getElementById('marked')
+      if (!!m && !m.hasChildNodes()) {
+        // load all markdown files
+        Promise.all(docs.map(doc => fetch(`/docs/${doc}.md`)))
+          .then(files => {
+            // remove loading placeholder
+            document.getElementById('loading').remove()
+
+            // get text from response
+            Promise.all(files.map(f => f.text()))
+              .then(text => {
+                // add text to page
+                text.forEach(t => {
+                  const node = document.createElement('div')
+                  node.innerHTML = marked(t)
+                  document.getElementById('marked').appendChild(node)
+                  document.querySelectorAll('pre code').forEach(block => {
+                    hljs.highlightBlock(block)
+                  })
+                })
+                // make menu
+                const heading = document.querySelectorAll('h2, h3')
+                const menu = document.getElementById('menu')
+                for (var i = 0; i < heading.length; i++) {
+                  const a = document.createElement('a')
+                  a.href = `#${heading[i].id}`
+                  a.innerText = heading[i].innerText
+
+                  const li = document.createElement('li')
+                  li.style.margin = '4px 0px'
+                  if (heading[i].tagName === 'H3') {
+                    li.style.marginLeft = '18px'
+                    li.style.listStyle = 'none'
+                  }
+                  li.append(a)
+                  menu.append(li)
+                }
+              })
+              .catch(err => {
+                console.log(err)
+              })
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
+    </script>
+    <footer>
+      <a href="https://github.com/enable3d/enable3d#readme"> github.com/enable3d/enable3d </a>
+      <div class="footer-buttons">
+        <a href="https://github.com/enable3d/enable3d">
+          <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/enable3d/enable3d?style=social" />
+        </a>
+
+        <a href="https://github.com/sponsors/yandeu">
+          <img
+            alt="GitHub Sponsors"
+            src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-lightgrey?style=social&logo=GitHub"
+          />
+        </a>
+
+        <a
+          href="https://github.com/sponsors/yandeu?frequency=one-time&sponsor=yandeu#sponsors:~:text=%241%20one%20time"
+        >
+          <img
+            alt="One-Time Donation"
+            src="https://img.shields.io/badge/One--Time%20Donation-$1-lightgrey?style=social&logo=GitHub"
+          />
+        </a>
+      </div>
+      <div class="footer-padding"></div>
+    </footer>
+  </body>
+</html>
