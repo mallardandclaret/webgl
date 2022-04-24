@@ -268,13 +268,16 @@ Ammo().then((Ammo) => {
     },
     scale: {
       x: 50,
-      y: 0.1,
+      y: 1,
       z: 50
     },
     mass: 0,
     group: 1,
     interactionGroup: 1,
     color: 0xa0afa4
+    
+
+
   })
   const box1 = new Box(gameEngine, {
     pos: {
@@ -340,7 +343,7 @@ Ammo().then((Ammo) => {
     mass: 1,
     group: 1,
     interactionGroup: 1,
-    color: 0xa0afa4
+    color: 0xf0f0f0
   })
   console.log("gameEngine", gameEngine)
   gameEngine.run()
