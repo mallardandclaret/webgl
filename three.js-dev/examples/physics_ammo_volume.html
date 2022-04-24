@@ -678,10 +678,10 @@
 					//const shape1a = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
 					const shape2 = new Ammo.btConeShape( 0.5, 0.6 );
 					//const shape3 = new Ammo.btSphereShape( ballRadius );
-					const massOffset = new Ammo.btVector3( 0, 20, 0);
+					//const massOffset = new Ammo.btVector3( 0, 20, 0);
                     const ballShape = new Ammo.btCompoundShape();
 					//ballShape.addChildShape( shape2 );
-                    ballShape.addChildShape( shape1, shape2, massOffset );
+                    ballShape.addChildShape( shape1, shape2 );
 					
 					
 
