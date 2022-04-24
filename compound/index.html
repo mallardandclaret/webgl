@@ -244,8 +244,8 @@ class Bone {
     const rotation = properties.rotation
     const transform = new Ammo.btTransform()
     transform.setIdentity()
-    transform.setOrigin(new Ammo.btVector3(pos.x + offset.x, pos.y + offset.y, pos.z + offset.z))
-    transform.setRotation(new Ammo.btQuaternion(quat.x + rotation.x, quat.y + rotation.y, quat.z + rotation.z, quat.w + rotation.w))
+    //transform.setOrigin(new Ammo.btVector3(pos.x + offset.x, pos.y + offset.y, pos.z + offset.z))
+    //transform.setRotation(new Ammo.btQuaternion(quat.x + rotation.x, quat.y + rotation.y, quat.z + rotation.z, quat.w + rotation.w))
     const motionState = new Ammo.btDefaultMotionState(transform)
     const colShape = new Ammo.btBoxShape(new Ammo.btVector3(scale.x * 0.5, scale.y * 0.5, scale.z * 0.5))
     compoundShape.addChildShape(transform, colShape)
