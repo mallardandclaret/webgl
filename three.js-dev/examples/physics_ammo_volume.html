@@ -649,9 +649,12 @@
 
 						} ); */  
 
-					dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
+					//dracoLoader.load( 'models/draco/bunny.drc', function ( geometry ) {
 					//dracoLoader.load( 'models/draco/KL.drc', function ( geometry ) {	
 					//dracoLoader.load( 'models/gltf/KujiraLogoVert.gltf', function ( geometry ) {	
+
+					const loader = new GLTFLoader().setPath( 'models/gltf/' );
+					loader.load( 'KujiraLogoVert.gltf', function ( geometry ) {	
 
                     geometry.computeVertexNormals();
 
