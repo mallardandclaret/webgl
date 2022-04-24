@@ -676,7 +676,7 @@
 					ball.receiveShadow = true;
 					//const ballShape = new Ammo.btSphereShape( ballRadius );
 					const shape1 = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
-					const massOffset = new Ammo.btVector3( 0, 20, 0);
+					const massOffset = new Ammo.btVector3( 0, 0, 0);
                     const ballShape = new Ammo.btCompoundShape();
                     ballShape.addChildShape( massOffset, shape1 );
 					//const ballShape =new Ammo.btConeShape( 0.5, 0.6 );
