@@ -1,3 +1,0 @@
-## Lights
-
-Not documented yet.
