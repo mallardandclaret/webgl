@@ -675,7 +675,7 @@
 					ball.castShadow = true;
 					ball.receiveShadow = true;
 					//const ballShape = new Ammo.btSphereShape( ballRadius );
-					const ballShape = new Ammo.btBoxShape( new Ammo.btVector3( 1, 1, 1 ) );
+					const ballShape = new Ammo.btBoxShape( new Ammo.btVector3( 4, 4, 4 ) );
 					ballShape.setMargin( margin );
 					pos.copy( raycaster.ray.direction );
 					pos.add( raycaster.ray.origin );
