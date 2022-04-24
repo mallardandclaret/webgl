@@ -112,7 +112,7 @@ class GameEngine {
   }
 }
 
-/* class Box {
+ class Box {
   constructor(gameEngine, properties) {
     this.gameEngine = gameEngine
     this._initPhysics_(properties)
@@ -154,7 +154,7 @@ class GameEngine {
     this.mesh.receiveShadow = true
     this.gameEngine.renderEngine.scene.add(this.mesh)
   }
-} */
+}
 
 
 class Bone {
@@ -249,7 +249,7 @@ class Bone {
 
  Ammo().then((Ammo) => {
   const gameEngine = new GameEngine(THREE, Ammo)
-  /*const plane = new Box(gameEngine, {
+  const plane = new Box(gameEngine, {
     pos: {
       x: 0,
       y: 0,
@@ -273,7 +273,7 @@ class Bone {
     
 
 
-  }) */
+  })
   /* const box1 = new Box(gameEngine, {
     pos: {
       x: 0,
