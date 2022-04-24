@@ -14,14 +14,9 @@
 
 		</style>
 	</head>
-	
 	<body>
 		<canvas>
-		
-
-		
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
             <script src="https://cdn.babylonjs.com/ammo.js"></script>
 
         <script>
@@ -69,7 +64,7 @@
   }
 }
 
-class PhysicsEngine {
+  class PhysicsEngine {
   constructor(gameEngine, physicsEngine) {
     this.gameEngine = gameEngine
     let collisionConfiguration = new Ammo.btDefaultCollisionConfiguration(),
@@ -117,7 +112,7 @@ class GameEngine {
   }
 }
 
-class Box {
+/* class Box {
   constructor(gameEngine, properties) {
     this.gameEngine = gameEngine
     this._initPhysics_(properties)
@@ -159,7 +154,7 @@ class Box {
     this.mesh.receiveShadow = true
     this.gameEngine.renderEngine.scene.add(this.mesh)
   }
-}
+} */
 
 
 class Bone {
@@ -279,7 +274,7 @@ Ammo().then((Ammo) => {
 
 
   })
-  const box1 = new Box(gameEngine, {
+  /* const box1 = new Box(gameEngine, {
     pos: {
       x: 0,
       y: 5,
@@ -322,7 +317,7 @@ Ammo().then((Ammo) => {
     group: 1,
     interactionGroup: 1,
     color: 0xa0afa4
-  })
+  }) */
   const bone1 = new Bone(gameEngine, {
     pos: {
       x: -0.75,
