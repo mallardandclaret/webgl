@@ -669,18 +669,19 @@
                     //dracoLoader.dispose();
                     
 					const ballMass = 3;
-					const ballRadius = 0.4;
+					//const ballRadius = 0.4;
 
 					//const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
 					ball.castShadow = true;
 					ball.receiveShadow = true;
-					//const shape1 = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
+					const shape1 = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
+					const shape1a = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
 					//const shape2 = new Ammo.btConeShape( 0.5, 0.6 );
-					const shape3 = new Ammo.btSphereShape( ballRadius );
-					const massOffset = new Ammo.btVector3( 0, 0, 0);
+					//const shape3 = new Ammo.btSphereShape( ballRadius );
+					//const massOffset = new Ammo.btVector3( 0, 0, 0);
                     const ballShape = new Ammo.btCompoundShape();
 					
-                    ballShape.addChildShape( shape3, massOffset );
+                    ballShape.addChildShape( shape1, shape1a );
 					
 					
 
