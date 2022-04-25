@@ -10,7 +10,7 @@
 <!-- partial:index.partial.html -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
 <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
-<!-- <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script> -->
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
 <script src ="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
@@ -26,7 +26,7 @@ console.clear();
  * Loaders
  */
  
- //const cubeTextureLoader = new THREE.CubeTextureLoader()
+ const cubeTextureLoader = new THREE.CubeTextureLoader()
  
 
 
@@ -57,8 +57,7 @@ var scene = new THREE.Scene();
       })
   }
   
-  /**
-   * Environment map
+  //Environment map
    
   const environmentMap = cubeTextureLoader.load([
       'textures/environmentMaps/3/px.jpg',
@@ -73,7 +72,7 @@ var scene = new THREE.Scene();
   
   scene.background = environmentMap
   scene.environment = environmentMap
-  */
+  
 
 
 
