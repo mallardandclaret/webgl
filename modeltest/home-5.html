@@ -1,5 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Mon Apr 25 2022 23:24:06 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Mon Apr 25 2022 23:31:26 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6266f8f2002e2aee3021544d" data-wf-site="623770397994e0c22341c167">
 <head>
   <meta charset="utf-8">
@@ -177,13 +177,17 @@ loader.load(
       }
     });
     model = gltf.scene;
-    model.scale.set(0.35, 0.35, 0.35);
+    model.scale.set(5, 5, 5);
+    model.position.set(0, -10, 5);
+    model.rotation.z += 0.3;
+    model.rotation.x += 0.3;
     scene.add(model);
     mixer = new THREE.AnimationMixer(model);
     // mixer.clipAction(gltf.animations[1]).play();
-    var action = mixer.clipAction(gltf.animations[1]);
+    var action = mixer.clipAction(gltf.animations[0]);
+    //action.clampWhenFinished = true;
     action.play();
-    createAnimation(mixer, action, gltf.animations[1]);
+    createAnimation(mixer, action, gltf.animations[0]);
   }
 );
 var clock = new THREE.Clock();
@@ -191,7 +195,7 @@ function render() {
   requestAnimationFrame(render);
   var delta = clock.getDelta();
   if (mixer != null) mixer.update(delta);
-  if (model) model.rotation.y += 0.025;
+  if (model) model.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 render();
@@ -211,7 +215,7 @@ function createAnimation(mixer, action, clip) {
     scrollTrigger: {
       trigger: renderer.domElement,
       start: "top top",
-      end: "+=200%",
+      end: "+=500%",
       pin: true,
       scrub: true,
       onUpdate: function () {
@@ -221,7 +225,7 @@ function createAnimation(mixer, action, clip) {
   });
   scrollingTL.to(proxy, {
     time: clip.duration,
-    repeat: 1
+    repeat: 0
   });
 }
 </script>
