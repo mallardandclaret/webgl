@@ -25,8 +25,8 @@ console.clear();
 /**
  * Loaders
  */
- var loader = new GLTFLoader()
- const cubeTextureLoader = new THREE.CubeTextureLoader()
+ 
+ //const cubeTextureLoader = new THREE.CubeTextureLoader()
  
 
 
@@ -59,7 +59,7 @@ var scene = new THREE.Scene();
   
   /**
    * Environment map
-   */
+   
   const environmentMap = cubeTextureLoader.load([
       'textures/environmentMaps/3/px.jpg',
       'textures/environmentMaps/3/nx.jpg',
@@ -73,10 +73,7 @@ var scene = new THREE.Scene();
   
   scene.background = environmentMap
   scene.environment = environmentMap
-  
-  debugObject.envMapIntensity = 2.5
-  gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
-
+  */
 
 
 
@@ -136,6 +133,8 @@ window.addEventListener("resize", function () {
 });
 
 //===================================================== model
+var loader = new GLTFLoader();
+
 var mixer;
 var model;
 
