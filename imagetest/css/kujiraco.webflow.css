@@ -1,0 +1,169 @@
+body {
+  font-family: Violetsans, sans-serif;
+  color: #fff;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 100;
+}
+
+a {
+  font-family: Violetsans, sans-serif;
+  color: #fff;
+  font-size: 1.6vw;
+  line-height: 1.6vw;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.body {
+  background-color: #000;
+}
+
+.div-block {
+  position: relative;
+  z-index: 120;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  padding: 2%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Violetsans, sans-serif;
+  color: #fff;
+}
+
+.text-block {
+  position: fixed;
+  left: 2%;
+  top: 2%;
+  right: auto;
+  bottom: auto;
+  font-family: Violetsans, sans-serif;
+  font-size: 1.6vw;
+  line-height: 20px;
+  font-weight: 100;
+}
+
+.image {
+  position: fixed;
+  width: 25vw;
+}
+
+.menu {
+  position: static;
+  left: auto;
+  top: auto;
+  right: 2%;
+  bottom: 2%;
+  font-family: Violetsans, sans-serif;
+  font-weight: 100;
+  text-align: right;
+}
+
+.link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.div-block-2 {
+  position: fixed;
+  left: auto;
+  top: auto;
+  right: 2%;
+  bottom: 2%;
+}
+
+.menutop {
+  position: fixed;
+  z-index: 120;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  padding-top: 2vw;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.link-2 {
+  font-family: Violetsans, sans-serif;
+  color: #fff;
+  font-size: 1.6vw;
+  line-height: 1.6vw;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.menubottom {
+  position: fixed;
+  left: 0%;
+  top: auto;
+  right: 0%;
+  bottom: 0%;
+  z-index: 120;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  padding-right: 2vw;
+  padding-bottom: 1.5vw;
+  padding-left: 2vw;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.tiker {
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+  border-radius: 1.6vw;
+  font-family: Violetsans, sans-serif;
+  color: #fff;
+  font-size: 1.6vw;
+  line-height: 1.6vw;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.canvas {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+}
+
+.html-embed {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 99999999;
+  display: none;
+}
+
+@font-face {
+  font-family: 'Violetsans';
+  src: url('../fonts/VioletSans-Regular.woff2') format('woff2'), url('../fonts/VioletSans-Regular.woff') format('woff'), url('../fonts/VioletSans-Regular.ttf') format('truetype'), url('../fonts/VioletSans-Regular.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
