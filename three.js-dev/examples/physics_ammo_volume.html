@@ -662,7 +662,7 @@
 
                     const material = new THREE.MeshStandardMaterial( { color: 0xffffff, metalness: 1, roughness: 0.1 } );
                     const ball = new THREE.Mesh( geometry, material );
-					ball.scale.set(0.2, 0.2, 0.2);
+					ball.scale.set(0.4, 0.4, 0.4);
                     ball.castShadow = false;
                     ball.receiveShadow = false;
 					//mesh.position.x = Math.random() * 100;
@@ -677,7 +677,7 @@
 					//const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
 					ball.castShadow = true;
 					ball.receiveShadow = true;
-					const ballShape = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
+					const ballShape = new Ammo.btBoxShape( new Ammo.btVector3( 1, 0.5, 0.1 ) );
 					//const shape1a = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
 					//const shape2 = new Ammo.btConeShape( 0.5, 0.6 );
 					//const shape3 = new Ammo.btSphereShape( ballRadius );
