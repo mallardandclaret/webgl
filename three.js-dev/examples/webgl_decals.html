@@ -230,7 +230,7 @@
 
 				const loader = new GLTFLoader();
 
-				loader.load( "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/Halo.glb", function ( gltf ) {
+				loader.load( "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/Notepad.glb", function ( gltf ) {
 
 
 				
@@ -239,10 +239,10 @@
 					mesh = gltf.scene.children[ 0 ];
 					mesh.material = new THREE.MeshPhongMaterial( {
 						specular: 0x111111,
-						map: textureLoader.load( 'models/gltf/LeePerrySmith/Map-COL.jpg' ),
-						specularMap: textureLoader.load( 'models/gltf/LeePerrySmith/Map-SPEC.jpg' ),
-						normalMap: textureLoader.load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
-						shininess: 25
+						//map: textureLoader.load( 'models/gltf/LeePerrySmith/Map-COL.jpg' ),
+						//specularMap: textureLoader.load( 'models/gltf/LeePerrySmith/Map-SPEC.jpg' ),
+						//normalMap: textureLoader.load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
+						shininess: 5
 					} );
 
 					scene.add( mesh );
