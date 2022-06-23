@@ -57,7 +57,7 @@
 			const decalNormal = textureLoader.load( 'textures/decal/decal-normal.jpg' );
 
 			const decalMaterial = new THREE.MeshPhongMaterial( {
-				specular: 0x444444,
+				specular: 0x111111,
 				map: decalDiffuse,
 				normalMap: decalNormal,
 				normalScale: new THREE.Vector2( 1, 1 ),
@@ -263,7 +263,7 @@
 				size.set( scale, scale, scale );
 
 				const material = decalMaterial.clone();
-				material.color.setHex( Math.random() * 0xffffff );
+				//material.color.setHex( Math.random() * 0xffffff );
 
 				const m = new THREE.Mesh( new DecalGeometry( mesh, position, orientation, size ), material );
 
