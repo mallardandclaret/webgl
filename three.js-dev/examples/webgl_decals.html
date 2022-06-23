@@ -237,16 +237,16 @@
 
 
 					mesh = gltf.scene.children[ 0 ];
-					//mesh.material = new THREE.MeshPhongMaterial( {
-						//specular: 0x111111,
+					mesh.material = new THREE.MeshPhongMaterial( {
+						specular: 0x111111,
 						//map: textureLoader.load( 'models/gltf/LeePerrySmith/Map-COL.jpg' ),
 						//specularMap: textureLoader.load( 'models/gltf/LeePerrySmith/Map-SPEC.jpg' ),
 						//normalMap: textureLoader.load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
-						//shininess: 5
-					//} );
+						shininess: 5
+					} );
 
 					scene.add( mesh );
-					mesh.scale.set( 8, 8, 8 );
+					mesh.scale.set( 4, 4, 4 );
 
 				} );
 
