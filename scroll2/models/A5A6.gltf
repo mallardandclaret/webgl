@@ -67,14 +67,14 @@
                     },
                     "index" : 2
                 },
-                "roughnessFactor" : 0.5527864098548889
+                "roughnessFactor" : 0
             }
         },
         {
             "doubleSided" : true,
-            "name" : "paper.001",
+            "name" : "Material.001",
             "pbrMetallicRoughness" : {
-                "metallicFactor" : 0
+                "roughnessFactor" : 0
             }
         }
     ],
