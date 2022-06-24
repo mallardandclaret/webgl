@@ -1,0 +1,278 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "A6"
+        },
+        {
+            "mesh" : 1,
+            "name" : "A5"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "notes_mtl",
+            "normalTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            -1
+                        ]
+                    }
+                },
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                -1
+                            ]
+                        }
+                    },
+                    "index" : 1
+                },
+                "metallicRoughnessTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                -1
+                            ]
+                        }
+                    },
+                    "index" : 2
+                },
+                "roughnessFactor" : 0.5527864098548889
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "paper.001",
+            "pbrMetallicRoughness" : {
+                "metallicFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "A6",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "A5",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6,
+                        "TEXCOORD_1" : 7
+                    },
+                    "indices" : 8,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "notebook_Normal",
+            "uri" : "notebook_Normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "notebook_Diffuse",
+            "uri" : "notebook_Diffuse.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "notebook_Specular",
+            "uri" : "notebook_Specular.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1330,
+            "max" : [
+                4.510024070739746,
+                7.50578498840332,
+                0.27699872851371765
+            ],
+            "min" : [
+                -4.558635711669922,
+                -7.4942169189453125,
+                -0.12153802067041397
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1330,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1330,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 7368,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 1510,
+            "max" : [
+                7.228370189666748,
+                8.961443901062012,
+                0.5996189117431641
+            ],
+            "min" : [
+                -5.085562705993652,
+                -8.475656509399414,
+                -2.664313316345215
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 1510,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 1510,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 1510,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5123,
+            "count" : 5274,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 15960,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 15960,
+            "byteOffset" : 15960
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 10640,
+            "byteOffset" : 31920
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 14736,
+            "byteOffset" : 42560
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18120,
+            "byteOffset" : 57296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18120,
+            "byteOffset" : 75416
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12080,
+            "byteOffset" : 93536
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12080,
+            "byteOffset" : 105616
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 10548,
+            "byteOffset" : 117696
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 128244,
+            "uri" : "A5A6.bin"
+        }
+    ]
+}
