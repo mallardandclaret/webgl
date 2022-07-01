@@ -249,6 +249,19 @@
     "materials" : [
         {
             "doubleSided" : true,
+            "name" : "Yellow Floor",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.8000000715255737,
+                    0.4610220789909363,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0
+            }
+        },
+        {
+            "doubleSided" : true,
             "name" : "Yellow",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -266,8 +279,8 @@
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     1,
-                    0.6745724678039551,
-                    0.17857158184051514,
+                    0.8679416179656982,
+                    0.3800768554210663,
                     1
                 ],
                 "metallicFactor" : 0
@@ -276,7 +289,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Mesh.002",
+            "name" : "Floor",
             "primitives" : [
                 {
                     "attributes" : {
@@ -290,7 +303,7 @@
             ]
         },
         {
-            "name" : "Mesh.004",
+            "name" : "Semi",
             "primitives" : [
                 {
                     "attributes" : {
@@ -299,12 +312,12 @@
                         "TEXCOORD_0" : 6
                     },
                     "indices" : 7,
-                    "material" : 0
+                    "material" : 1
                 }
             ]
         },
         {
-            "name" : "Mesh.003",
+            "name" : "Ball",
             "primitives" : [
                 {
                     "attributes" : {
@@ -313,12 +326,12 @@
                         "TEXCOORD_0" : 10
                     },
                     "indices" : 11,
-                    "material" : 1
+                    "material" : 2
                 }
             ]
         },
         {
-            "name" : "Mesh.005",
+            "name" : "Cylinder",
             "primitives" : [
                 {
                     "attributes" : {
@@ -327,7 +340,7 @@
                         "TEXCOORD_0" : 14
                     },
                     "indices" : 15,
-                    "material" : 1
+                    "material" : 2
                 }
             ]
         }
