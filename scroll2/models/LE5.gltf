@@ -8,7 +8,8 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
@@ -27,12 +28,27 @@
                 0.2554561495780945,
                 0.2554561495780945
             ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "Model_LP2",
+            "rotation" : [
+                0.6971129775047302,
+                -0.15898999571800232,
+                -0.1184636577963829,
+                0.6890008449554443
+            ],
+            "scale" : [
+                0.2554561495780945,
+                0.2554561495780945,
+                0.2554561495780945
+            ]
         }
     ],
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "full",
+            "name" : "full.001",
             "normalTexture" : {
                 "index" : 0
             },
@@ -55,6 +71,19 @@
                         "POSITION" : 0,
                         "NORMAL" : 1,
                         "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3
+                }
+            ]
+        },
+        {
+            "name" : "Model_LP2",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
                     },
                     "indices" : 3,
                     "material" : 0
@@ -127,6 +156,34 @@
             "componentType" : 5123,
             "count" : 20286,
             "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 3521,
+            "max" : [
+                2.5470221042633057,
+                1.6614989042282104,
+                3.1724438667297363
+            ],
+            "min" : [
+                -2.437364101409912,
+                -1.3484464883804321,
+                -3.320838451385498
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 3521,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 3521,
+            "type" : "VEC2"
         }
     ],
     "bufferViews" : [
@@ -149,6 +206,21 @@
             "buffer" : 0,
             "byteLength" : 40572,
             "byteOffset" : 112672
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 42252,
+            "byteOffset" : 153244
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 42252,
+            "byteOffset" : 195496
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 28168,
+            "byteOffset" : 237748
         }
     ],
     "samplers" : [
@@ -159,7 +231,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 153244,
+            "byteLength" : 265916,
             "uri" : "LE5.bin"
         }
     ]
