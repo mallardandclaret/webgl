@@ -22,7 +22,18 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "A6"
+            "name" : "A6",
+            "rotation" : [
+                0,
+                -0.06724169850349426,
+                0,
+                0.9977368116378784
+            ],
+            "translation" : [
+                0,
+                0,
+                -1.0609487295150757
+            ]
         },
         {
             "mesh" : 1,
@@ -42,7 +53,8 @@
                         ]
                     }
                 },
-                "index" : 0
+                "index" : 0,
+                "scale" : 0.10000000149011612
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
@@ -56,6 +68,7 @@
                     },
                     "index" : 1
                 },
+                "metallicFactor" : 0.43236714601516724,
                 "metallicRoughnessTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
@@ -131,19 +144,19 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/png",
-            "name" : "notebook_Normal",
-            "uri" : "notebook_Normal.png"
+            "mimeType" : "image/jpeg",
+            "name" : "Normal",
+            "uri" : "Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "notebook_Diffuse",
-            "uri" : "notebook_Diffuse.png"
+            "uri" : "notebook_Diffuse.jpg"
         },
         {
             "mimeType" : "image/png",
-            "name" : "notebook_Roughness-notebook_Specular.png",
-            "uri" : "notebook_Roughness-notebook_Specular_png.png"
+            "name" : "notebook_Rough",
+            "uri" : "notebook_Rough.png"
         }
     ],
     "accessors" : [
