@@ -1,0 +1,232 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cube.003",
+            "scale" : [
+                0.5,
+                1,
+                1
+            ],
+            "translation" : [
+                -10.276681900024414,
+                19.852678298950195,
+                -81.84198760986328
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Battered Copper",
+            "normalTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.95
+                        ],
+                        "scale" : [
+                            0.05,
+                            0.05
+                        ]
+                    }
+                },
+                "index" : 0,
+                "scale" : 0.30000001192092896
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.95
+                            ],
+                            "scale" : [
+                                0.05,
+                                0.05
+                            ]
+                        }
+                    },
+                    "index" : 1
+                },
+                "metallicRoughnessTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.95
+                            ],
+                            "scale" : [
+                                0.05,
+                                0.05
+                            ]
+                        }
+                    },
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3,
+                        "TEXCOORD_2" : 4
+                    },
+                    "indices" : 5,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "E:\\Dropbox\\Blender\\Assets\\All Items\\Material Libraries\\Alchemist\\GWC Battered Copper\\GWC Battered Copper_Normal",
+            "uri" : "EDropboxBlenderAssetsAll%20ItemsMaterial%20LibrariesAlchemistGWC%20Battered%20CopperGWC%20Battered%20Copper_Normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "E:\\Dropbox\\Blender\\Assets\\All Items\\Material Libraries\\Alchemist\\GWC Battered Copper\\GWC Battered Copper_BaseColor",
+            "uri" : "EDropboxBlenderAssetsAll%20ItemsMaterial%20LibrariesAlchemistGWC%20Battered%20CopperGWC%20Battered%20Copper_BaseColor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "GWC Battered Copper_Metallic-GWC Battered Copper_Roughness",
+            "uri" : "GWC%20Battered%20Copper_Metallic-GWC%20Battered%20Copper_Roughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 5381,
+            "max" : [
+                176.70985412597656,
+                108.22340393066406,
+                96.34783935546875
+            ],
+            "min" : [
+                -151.2259979248047,
+                -20.102678298950195,
+                -43.96639633178711
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 5381,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 5381,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 5381,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 5381,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5123,
+            "count" : 7632,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 64572,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 64572,
+            "byteOffset" : 64572
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 43048,
+            "byteOffset" : 129144
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 43048,
+            "byteOffset" : 172192
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 43048,
+            "byteOffset" : 215240
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 15264,
+            "byteOffset" : 258288
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 273552,
+            "uri" : "CS4.bin"
+        }
+    ]
+}
