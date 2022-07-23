@@ -299,8 +299,8 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "A6normal.jpg",
-            "uri" : "../../../../Non%20Cloud/NUDL/A6normal.jpg"
+            "name" : "A6normal.jpg.001",
+            "uri" : "A6normal.jpg"
         },
         {
             "mimeType" : "image/jpeg",
@@ -309,8 +309,8 @@
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "A6rough.jpg",
-            "uri" : "../../../../Non%20Cloud/NUDL/A6rough.jpg"
+            "name" : "A6rough.jpg.001",
+            "uri" : "A6rough.jpg"
         },
         {
             "mimeType" : "image/jpeg",
