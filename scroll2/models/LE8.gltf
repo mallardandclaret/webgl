@@ -31,7 +31,7 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "line",
+            "name" : "Line",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.800000011920929,
@@ -95,7 +95,7 @@
             ]
         },
         {
-            "name" : "Model_LP2Face",
+            "name" : "Model_LP2B",
             "primitives" : [
                 {
                     "attributes" : {
