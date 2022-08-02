@@ -122,14 +122,14 @@
             "uri" : "Normal%20map_tif.png"
         },
         {
-            "mimeType" : "image/png",
-            "name" : "Diffuse Texture",
-            "uri" : "Diffuse%20Texture.png"
+            "mimeType" : "image/jpeg",
+            "name" : "Diffuse-Texture",
+            "uri" : "Diffuse-Texture.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Glossyrock",
-            "uri" : "Glossyrock.png"
+            "uri" : "Glossyrock.jpg"
         }
     ],
     "accessors" : [
