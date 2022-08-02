@@ -56,6 +56,7 @@
                 "baseColorTexture" : {
                     "index" : 2
                 },
+                "metallicFactor" : 0.7763293385505676,
                 "metallicRoughnessTexture" : {
                     "index" : 3
                 }
@@ -127,9 +128,9 @@
             "uri" : "Diffuse-Texture.jpg"
         },
         {
-            "mimeType" : "image/jpeg",
+            "mimeType" : "image/png",
             "name" : "Glossyrock",
-            "uri" : "Glossyrock.jpg"
+            "uri" : "Glossyrock.png"
         }
     ],
     "accessors" : [
