@@ -286,15 +286,18 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "FblenderDEVblenderhubmodelstexworkmetalscoppercopper_normal.001"
+            "name" : "FblenderDEVblenderhubmodelstexworkmetalscoppercopper_normal",
+            "uri" : "FblenderDEVblenderhubmodelstexworkmetalscoppercopper_normal.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "FblenderDEVblenderhubmodelstexworkmetalscoppercopper_albedo.001"
+            "name" : "FblenderDEVblenderhubmodelstexworkmetalscoppercopper_albedo",
+            "uri" : "FblenderDEVblenderhubmodelstexworkmetalscoppercopper_albedo.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "copper_metallic-copper_roughness.001"
+            "name" : "copper_metallic-copper_roughness",
+            "uri" : "copper_metallic-copper_roughness.jpg"
         }
     ],
     "accessors" : [
