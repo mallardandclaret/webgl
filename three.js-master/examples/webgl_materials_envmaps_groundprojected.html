@@ -43,7 +43,7 @@
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import { GroundProjectedEnv } from './jsm/objects/GroundProjectedEnv.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-			import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
+			//import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 
 			const params = {
@@ -78,43 +78,26 @@
 
 				scene.environment = envMap;
 
-				const dracoLoader = new DRACOLoader();
-				dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
+				//const dracoLoader = new DRACOLoader();
+				//dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
 
 				const loader = new GLTFLoader();
-				loader.setDRACOLoader( dracoLoader );
+				//loader.setDRACOLoader( dracoLoader );
 
 				const shadow = new THREE.TextureLoader().load( 'models/gltf/ferrari_ao.png' );
 
-				loader.load( 'models/gltf/ferrari.glb', function ( gltf ) {
+				loader.load( "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/HS4.glb", ( gltf ) => {
 
-					const bodyMaterial = new THREE.MeshPhysicalMaterial( {
-						color: 0x000000, metalness: 1.0, roughness: 0.8,
-						clearcoat: 1.0, clearcoatRoughness: 0.2
-					} );
+					model = gltf.scene;
+                    model.scale.set(1, 1, 1);
+                    model.position.set(0, 0, 0);
+                    //model.rotation.y = 0;
+                    //model.rotation.z = 0;
+                    //model.rotation.x = 0;
+                    scene.add(model);
 
-					const detailsMaterial = new THREE.MeshStandardMaterial( {
-						color: 0xffffff, metalness: 1.0, roughness: 0.5
-					} );
 
-					const glassMaterial = new THREE.MeshPhysicalMaterial( {
-						color: 0xffffff, metalness: 0.25, roughness: 0, transmission: 1.0
-					} );
-
-					const carModel = gltf.scene.children[ 0 ];
-					carModel.scale.multiplyScalar( 4 );
-					carModel.rotation.y = Math.PI;
-
-					carModel.getObjectByName( 'body' ).material = bodyMaterial;
-
-					carModel.getObjectByName( 'rim_fl' ).material = detailsMaterial;
-					carModel.getObjectByName( 'rim_fr' ).material = detailsMaterial;
-					carModel.getObjectByName( 'rim_rr' ).material = detailsMaterial;
-					carModel.getObjectByName( 'rim_rl' ).material = detailsMaterial;
-					carModel.getObjectByName( 'trim' ).material = detailsMaterial;
-
-					carModel.getObjectByName( 'glass' ).material = glassMaterial;
-
+  
 					// shadow
 					const mesh = new THREE.Mesh(
 						new THREE.PlaneGeometry( 0.655 * 4, 1.3 * 4 ),
@@ -124,9 +107,9 @@
 					);
 					mesh.rotation.x = - Math.PI / 2;
 					mesh.renderOrder = 2;
-					carModel.add( mesh );
+					model.add( mesh );
 
-					scene.add( carModel );
+					scene.add( model );
 
 					render();
 
