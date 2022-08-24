@@ -17,7 +17,8 @@
                 0,
                 1,
                 2,
-                3
+                3,
+                4
             ]
         }
     ],
@@ -42,6 +43,10 @@
                 0.38550400733947754,
                 -0.7465695142745972
             ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "combo"
         }
     ],
     "materials" : [
@@ -244,6 +249,20 @@
                     },
                     "indices" : 19,
                     "material" : 4
+                }
+            ]
+        },
+        {
+            "name" : "combo",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 20,
+                        "NORMAL" : 21,
+                        "TEXCOORD_0" : 22,
+                        "TEXCOORD_1" : 23
+                    },
+                    "indices" : 24
                 }
             ]
         }
@@ -503,6 +522,46 @@
             "componentType" : 5123,
             "count" : 72,
             "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 20,
+            "componentType" : 5126,
+            "count" : 6080,
+            "max" : [
+                1.045371651649475,
+                1.3360927104949951,
+                -0.35451045632362366
+            ],
+            "min" : [
+                -0.7381572127342224,
+                -1.2137292623519897,
+                -0.8505018949508667
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 21,
+            "componentType" : 5126,
+            "count" : 6080,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 22,
+            "componentType" : 5126,
+            "count" : 6080,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 23,
+            "componentType" : 5126,
+            "count" : 6080,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 24,
+            "componentType" : 5123,
+            "count" : 31944,
+            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
@@ -605,6 +664,31 @@
             "buffer" : 0,
             "byteLength" : 144,
             "byteOffset" : 123688
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72960,
+            "byteOffset" : 123832
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72960,
+            "byteOffset" : 196792
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48640,
+            "byteOffset" : 269752
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48640,
+            "byteOffset" : 318392
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 63888,
+            "byteOffset" : 367032
         }
     ],
     "samplers" : [
@@ -615,7 +699,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 123832,
+            "byteLength" : 430920,
             "uri" : "A5A6.bin"
         }
     ]
