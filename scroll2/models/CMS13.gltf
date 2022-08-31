@@ -76,7 +76,12 @@
         },
         {
             "mesh" : 3,
-            "name" : "Base"
+            "name" : "Base",
+            "translation" : [
+                0,
+                -25.029932022094727,
+                0
+            ]
         },
         {
             "mesh" : 4,
@@ -110,27 +115,57 @@
         },
         {
             "mesh" : 9,
-            "name" : "Sandhu"
+            "name" : "Sandhu",
+            "translation" : [
+                28.89333724975586,
+                0,
+                0
+            ]
         },
         {
             "mesh" : 10,
-            "name" : "Hows"
+            "name" : "Hows",
+            "translation" : [
+                0,
+                0,
+                76.65774536132812
+            ]
         },
         {
             "mesh" : 11,
-            "name" : "Aarons"
+            "name" : "Aarons",
+            "translation" : [
+                0,
+                0,
+                -29.095672607421875
+            ]
         },
         {
             "mesh" : 12,
-            "name" : "Xavier"
+            "name" : "Xavier",
+            "translation" : [
+                -40.89738845825195,
+                0,
+                0
+            ]
         },
         {
             "mesh" : 13,
-            "name" : "Harrison"
+            "name" : "Harrison",
+            "translation" : [
+                -47.247013092041016,
+                0,
+                -32.924739837646484
+            ]
         },
         {
             "mesh" : 14,
-            "name" : "Bussell"
+            "name" : "Bussell",
+            "translation" : [
+                0,
+                0,
+                57.12727737426758
+            ]
         },
         {
             "mesh" : 15,
