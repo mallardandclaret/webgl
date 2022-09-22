@@ -178,11 +178,6 @@
         },
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0.2133106978730961,
-                0.2981617018306508,
-                0.2892221493903122
-            ],
             "name" : "River",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
