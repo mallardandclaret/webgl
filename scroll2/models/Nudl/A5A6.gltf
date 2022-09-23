@@ -46,7 +46,7 @@
         },
         {
             "mesh" : 4,
-            "name" : "combo"
+            "name" : "Shoot"
         }
     ],
     "materials" : [
@@ -184,6 +184,21 @@
                 "metallicFactor" : 0.28985506296157837,
                 "roughnessFactor" : 0
             }
+        },
+        {
+            "alphaCutoff" : 0.5,
+            "alphaMode" : "MASK",
+            "doubleSided" : true,
+            "name" : "Shootsticker",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 9
+                },
+                "metallicFactor" : 0.9454545378684998,
+                "metallicRoughnessTexture" : {
+                    "index" : 10
+                }
+            }
         }
     ],
     "meshes" : [
@@ -253,16 +268,16 @@
             ]
         },
         {
-            "name" : "combo",
+            "name" : "Shoot",
             "primitives" : [
                 {
                     "attributes" : {
                         "POSITION" : 20,
                         "NORMAL" : 21,
-                        "TEXCOORD_0" : 22,
-                        "TEXCOORD_1" : 23
+                        "TEXCOORD_0" : 22
                     },
-                    "indices" : 24
+                    "indices" : 23,
+                    "material" : 5
                 }
             ]
         }
@@ -303,6 +318,14 @@
         {
             "sampler" : 0,
             "source" : 8
+        },
+        {
+            "sampler" : 0,
+            "source" : 9
+        },
+        {
+            "sampler" : 0,
+            "source" : 10
         }
     ],
     "images" : [
@@ -350,6 +373,16 @@
             "mimeType" : "image/jpeg",
             "name" : "Stickers",
             "uri" : "Stickers.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "shootdifuse-ShootTransparency",
+            "uri" : "shootdifuse-ShootTransparency.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "ShootRough",
+            "uri" : "ShootRough.png"
         }
     ],
     "accessors" : [
@@ -526,41 +559,35 @@
         {
             "bufferView" : 20,
             "componentType" : 5126,
-            "count" : 6080,
+            "count" : 1558,
             "max" : [
-                1.045371651649475,
-                1.3360927104949951,
-                -0.35451045632362366
+                0.5709077715873718,
+                0.9079797267913818,
+                -0.5063449144363403
             ],
             "min" : [
-                -0.7381572127342224,
-                -1.2137292623519897,
-                -0.8505018949508667
+                0.020753314718604088,
+                0.6008140444755554,
+                -0.5845217704772949
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 21,
             "componentType" : 5126,
-            "count" : 6080,
+            "count" : 1558,
             "type" : "VEC3"
         },
         {
             "bufferView" : 22,
             "componentType" : 5126,
-            "count" : 6080,
+            "count" : 1558,
             "type" : "VEC2"
         },
         {
             "bufferView" : 23,
-            "componentType" : 5126,
-            "count" : 6080,
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 24,
             "componentType" : 5123,
-            "count" : 31944,
+            "count" : 3543,
             "type" : "SCALAR"
         }
     ],
@@ -667,28 +694,23 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 72960,
+            "byteLength" : 18696,
             "byteOffset" : 123832
         },
         {
             "buffer" : 0,
-            "byteLength" : 72960,
-            "byteOffset" : 196792
+            "byteLength" : 18696,
+            "byteOffset" : 142528
         },
         {
             "buffer" : 0,
-            "byteLength" : 48640,
-            "byteOffset" : 269752
+            "byteLength" : 12464,
+            "byteOffset" : 161224
         },
         {
             "buffer" : 0,
-            "byteLength" : 48640,
-            "byteOffset" : 318392
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 63888,
-            "byteOffset" : 367032
+            "byteLength" : 7086,
+            "byteOffset" : 173688
         }
     ],
     "samplers" : [
@@ -699,7 +721,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 430920,
+            "byteLength" : 180776,
             "uri" : "A5A6.bin"
         }
     ]
