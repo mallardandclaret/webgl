@@ -64,6 +64,7 @@
 				camera.lookAt( 0, 4, 0 );
 
 				scene = new THREE.Scene();
+				clock = new THREE.Clock();
 
 				const hdrLoader = new RGBELoader();
 				const envMap = await hdrLoader.loadAsync( 
