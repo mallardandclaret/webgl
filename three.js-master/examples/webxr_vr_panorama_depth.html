@@ -52,7 +52,7 @@
 				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 2000 );
 				scene.add( camera );
 				camera.position.set( 0, 0, 0 );
-				camera.lookAt( 0, 0, -5 );
+				camera.lookAt( 0, 0, 1 );
 
 				// Create the panoramic sphere geometery
 				const panoSphereGeo = new THREE.SphereGeometry( 6, 256, 256 );
@@ -60,7 +60,7 @@
 				// Create the panoramic sphere material
 				const panoSphereMat = new THREE.MeshStandardMaterial( {
 					side: THREE.BackSide,
-					displacementScale: - 10.0
+					displacementScale: - 20.0
 				} );
 
 				// Create the panoramic sphere mesh
@@ -102,9 +102,9 @@
 
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.addEventListener( 'change', render );
-				controls.target.set( 0, 0, -5);
+				controls.target.set( 0, 0, 1);
 				//controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
-				controls.maxDistance = 5;
+				controls.maxDistance = 1;
 				controls.minDistance = 0;
 				controls.enablePan = false;
 				controls.enableDamping = true;
