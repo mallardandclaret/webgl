@@ -29,6 +29,8 @@
 
 			import * as THREE from 'three';
 			import { VRButton } from './jsm/webxr/VRButton.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
 			let camera, scene, renderer, sphere, clock;
 
@@ -96,6 +98,16 @@
 				renderer.xr.setReferenceSpaceType( 'local' );
 				container.appendChild( renderer.domElement );
 
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				controls.target.set( 0, 4, 0);
+				//controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
+				controls.maxDistance = 5;
+				controls.minDistance = 0;
+				controls.enablePan = false;
+				controls.enableDamping = true; 
+				controls.update();
+
 				//document.body.appendChild( VRButton.createButton( renderer ) );
 
 				//
@@ -116,6 +128,7 @@
 			function animate() {
 
 				renderer.setAnimationLoop( render );
+				controls.update();
 
 			}
 
