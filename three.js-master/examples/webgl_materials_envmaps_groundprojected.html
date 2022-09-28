@@ -135,7 +135,7 @@
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.addEventListener( 'change', render );
 				controls.target.set( 0, 2, 0 );
-				controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
+				controls.maxPolarAngle = THREE.MathUtils.degToRad( -90 );
 				controls.maxDistance = 2;
 				controls.minDistance = 0;
 				controls.enablePan = false;
