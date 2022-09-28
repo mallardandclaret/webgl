@@ -93,7 +93,7 @@
 				
 					const model = gltf.scene;
                     model.scale.set(1, 1, 1);
-                    model.position.set(0, 0, 0);
+                    model.position.set(0, 0, -5);
                     //model.rotation.y = 0;
                     //model.rotation.z = 0;
                     //model.rotation.x = 0;
@@ -136,8 +136,8 @@
 				controls.addEventListener( 'change', render );
 				controls.target.set( 0, 2, 0 );
 				controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
-				controls.maxDistance = 80;
-				controls.minDistance = 0;
+				controls.maxDistance = 0;
+				controls.minDistance = -10;
 				controls.enablePan = false;
 				controls.update();
 
