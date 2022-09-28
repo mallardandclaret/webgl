@@ -70,7 +70,11 @@
 				const manager = new THREE.LoadingManager();
 				const loader = new THREE.TextureLoader( manager );
 
-				loader.load( './textures/AnnualReport_360_Sketch7.jpg', function ( texture ) {
+				loader.load(
+					
+				//'./textures/AnnualReport_360_Sketch7.jpg'
+				'./textures/kandao3.jpg'
+				, function ( texture ) {
 
 					texture.minFilter = THREE.NearestFilter;
 					texture.generateMipmaps = false;
@@ -78,7 +82,10 @@
 
 				} );
 
-				loader.load( './textures/Arupdepthtest.jpg', function ( depth ) {
+				loader.load( 
+					'./textures/kandao3_depthmap.jpg',	
+				//'./textures/Arupdepthtest.jpg', 
+				function ( depth ) {
 
 					depth.minFilter = THREE.NearestFilter;
 					depth.generateMipmaps = false;
