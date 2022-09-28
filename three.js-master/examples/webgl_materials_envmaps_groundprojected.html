@@ -60,8 +60,8 @@
 					1,
 					1000
 				);
-				camera.position.set( - 20, 7, 20 );
-				camera.lookAt( 0, 4, 0 );
+				camera.position.set(0, 0, 0 );
+				//camera.lookAt( 0, 4, 0 );
 
 				scene = new THREE.Scene();
 
@@ -136,8 +136,8 @@
 				controls.addEventListener( 'change', render );
 				controls.target.set( 0, 2, 0 );
 				controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
-				controls.maxDistance = 80;
-				controls.minDistance = 20;
+				controls.maxDistance = 0;
+				controls.minDistance = 0;
 				controls.enablePan = false;
 				controls.update();
 
