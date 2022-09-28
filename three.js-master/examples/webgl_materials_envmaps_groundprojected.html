@@ -61,7 +61,7 @@
 					1000
 				);
 				camera.position.set( 0, 4, 0 );
-				camera.lookAt( 0, 4, 0 );
+				camera.lookAt( 0, 4, -5 );
 
 				scene = new THREE.Scene();
 
@@ -93,7 +93,7 @@
 				
 					const model = gltf.scene;
                     model.scale.set(1, 1, 1);
-                    model.position.set(0, 0, -15);
+                    model.position.set(0, 0, -25);
                     //model.rotation.y = 0;
                     //model.rotation.z = 0;
                     //model.rotation.x = 0;
@@ -134,9 +134,9 @@
 
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.addEventListener( 'change', render );
-				controls.target.set( 0, 4, 0);
+				controls.target.set( 0, 4, -5);
 				//controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
-				controls.maxDistance = 4;
+				controls.maxDistance = 5;
 				controls.minDistance = 0;
 				controls.enablePan = false;
 				controls.update();
