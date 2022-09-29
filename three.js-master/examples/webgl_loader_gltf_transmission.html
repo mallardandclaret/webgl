@@ -72,9 +72,9 @@
 
 							} );
 */
-							modelloader.load( "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/ARUPlogo.gltf", ( gltf ) => {
+				    modelloader.load( "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/ARUPlogo.gltf", ( gltf ) => {
 
-								const model = gltf.scene;
+				    const model = gltf.scene;
                     model.scale.set(1, 1, 1);
                     model.position.set(0, -10, -10);
                     //model.rotation.y = 0;
@@ -120,7 +120,7 @@
 
 				window.addEventListener( 'resize', onWindowResize );
 
-			}
+					}
 
 			function onWindowResize() {
 
