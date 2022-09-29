@@ -216,11 +216,13 @@
 
 				controls.update(); // required if damping enabled
 
-				//const time = clock.getElapsedTime();
+				const time = clock.getElapsedTime();
 
-				//	camera.rotation.y += 0.001;
-				//	camera.position.x = Math.sin( time ) * 0.1;
-			//		camera.position.z = Math.cos( time ) * 0.1;
+					sphere.rotation.y += 0.001;
+					sphere.position.x = Math.sin( time ) * 0.1;
+					sphere.position.z = Math.cos( time ) * 0.1;
+
+					if(model)model.rotation.y += 0.001;
 
 				render();
 
