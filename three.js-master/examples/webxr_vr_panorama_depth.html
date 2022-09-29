@@ -113,7 +113,7 @@
 				
 					const model = gltf.scene;
                     model.scale.set(1, 1, 1);
-                    model.position.set(0, 0, -10);
+                    model.position.set(0, -10, -10);
                     //model.rotation.y = 0;
                     //model.rotation.z = 0;
                     //model.rotation.x = 0;
@@ -197,6 +197,10 @@
 					sphere.rotation.y += 0.001;
 					sphere.position.x = Math.sin( time ) * 0.1;
 					sphere.position.z = Math.cos( time ) * 0.1;
+
+					model.rotation.y += 0.001;
+					model.position.x = Math.sin( time ) * 0.1;
+					model.position.z = Math.cos( time ) * 0.1;
 
 				}
 
