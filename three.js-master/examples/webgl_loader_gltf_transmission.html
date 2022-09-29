@@ -44,11 +44,71 @@
 				const container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
-				camera.position.set( 0, 0.4, 0.1 );
-
 				scene = new THREE.Scene();
-				const modelloader = new GLTFLoader();
+
+				//
+
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 2000 );
+				scene.add( camera );
+				camera.position.set( 0, 0, 0 );
+				camera.lookAt( 0, 0, 0.1 );
+
+				// Create the panoramic sphere geometery
+				const panoSphereGeo = new THREE.SphereGeometry( 20, 256, 256 );
+
+				// Create the panoramic sphere material
+				const panoSphereMat = new THREE.MeshStandardMaterial( {
+					side: THREE.BackSide,
+					displacementScale: - 5.0
+				} );
+
+				// Create the panoramic sphere mesh
+				sphere = new THREE.Mesh( panoSphereGeo, panoSphereMat );
+
+				// Load and assign the texture and depth map
+				const manager = new THREE.LoadingManager();
+				const loader = new THREE.TextureLoader( manager );
+
+				loader.load(
+					
+				'./textures/AnnualReport_360_Sketch7.jpg'
+				//'./textures/kandao3.jpg'
+				, function ( texture ) {
+
+					texture.minFilter = THREE.NearestFilter;
+					texture.generateMipmaps = false;
+					sphere.material.map = texture;
+
+				} );
+
+				loader.load( 
+					'./textures/kandao3_depthmap.jpg',	
+				//'./textures/Arupdepthtest.jpg', 
+				function ( depth ) {
+
+					depth.minFilter = THREE.NearestFilter;
+					depth.generateMipmaps = false;
+					sphere.material.displacementMap = depth;
+
+				} );
+
+				// On load complete add the panoramic sphere to the scene
+				manager.onLoad = function () {
+
+                scene.add( sphere );
+
+                };
+
+
+
+
+
+
+
+
+
+
+			    const modelloader = new GLTFLoader();
 				
 				new RGBELoader()
 					.setPath( 'textures/equirectangular/' )
