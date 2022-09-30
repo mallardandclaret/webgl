@@ -51,7 +51,7 @@
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 2000 );
 				scene.add( camera );
 				camera.position.set( 0, 0, 0 );
-				camera.lookAt( 0, 0, 0.1 );
+				camera.lookAt( 0, 0, -1 );
 
 				// Create the panoramic sphere geometery
 				const panoSphereGeo = new THREE.SphereGeometry( 30, 256, 256 );
@@ -218,11 +218,11 @@
 
 				const time = clock.getElapsedTime();
 
-				    camera.rotation.y += -0.001;
-					camera.position.x = Math.sin( time ) * 0.1;
-					camera.position.z = Math.cos( time ) * 0.1;
+				    //camera.rotation.y += -0.001;
+					//camera.position.x = Math.sin( time ) * 0.1;
+					//camera.position.z = Math.cos( time ) * 0.1;
 
-					camera.lookAt( 0, 0, -5 );
+					//camera.lookAt( 0, 0, -5 );
 
 					//scene.rotation.y += 0.001;
 
