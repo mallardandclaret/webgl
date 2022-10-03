@@ -54,7 +54,7 @@
 				camera.lookAt( 0, 0, -2 );
 
 				// Create the panoramic sphere geometery
-				const panoSphereGeo = new THREE.SphereGeometry( 100, 256, 256 );
+				const panoSphereGeo = new THREE.SphereGeometry( 100, 512, 512 );
 
 				// Create the panoramic sphere material
 				const panoSphereMat = new THREE.MeshStandardMaterial( {
@@ -71,8 +71,8 @@
 
 				loader.load(
 					
-				'./textures/AnnualReport_360_Sketch7.jpg'
-				//'./textures/kandao3.jpg'
+				//'./textures/AnnualReport_360_Sketch7.jpg'
+				'./textures/kandao3.jpg'
 				, function ( texture ) {
 
 					texture.minFilter = THREE.NearestFilter;
