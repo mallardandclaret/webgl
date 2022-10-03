@@ -48,13 +48,13 @@
 
 				//
 
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 2000 );
 				scene.add( camera );
 				camera.position.set( 0, 0, 0 );
 				camera.lookAt( 0, 0, -2 );
 
 				// Create the panoramic sphere geometery
-				const panoSphereGeo = new THREE.SphereGeometry( 30, 256, 256 );
+				const panoSphereGeo = new THREE.SphereGeometry( 50, 256, 256 );
 
 				// Create the panoramic sphere material
 				const panoSphereMat = new THREE.MeshStandardMaterial( {
