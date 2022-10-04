@@ -34,6 +34,8 @@
 
 			let camera, scene, renderer, controls, clock, sphere, mixer;
 
+			let lookatme = new THREE.Vector3( -4, 0, -4 );
+
 			var lookX = -4
 			var lookY = 0
 			var lookZ = -4
@@ -55,7 +57,7 @@
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
 				scene.add( camera );
 				camera.position.set( 0, 0, 0 );
-				camera.lookAt( lookX, lookY, lookZ );
+				camera.lookAt( lookatme );
 
 				// Create the panoramic sphere geometery
 				const panoSphereGeo = new THREE.SphereGeometry( 100, 512, 512 );
@@ -197,7 +199,7 @@
 				controls.enableDamping = true;
 				controls.minDistance = 1;
 				controls.maxDistance = 1;
-				controls.target.set( lookX, lookY, lookZ );
+				controls.target.set( lookatme );
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize );
