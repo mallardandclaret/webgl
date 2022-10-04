@@ -53,7 +53,7 @@
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
 				scene.add( camera );
 				camera.position.set( 0, 0, 0 );
-				camera.lookAt( -4, 0, -4  );
+				//camera.lookAt( -4, 0, -4  );
 
 				// Create the panoramic sphere geometery
 				const panoSphereGeo = new THREE.SphereGeometry( 100, 512, 512 );
@@ -195,7 +195,7 @@
 				controls.enableDamping = true;
 				controls.minDistance = 1;
 				controls.maxDistance = 1;
-				controls.target.set( 0, 0, 0  );
+				controls.target.set( 0, 0, 1  );
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize );
