@@ -34,8 +34,6 @@
 
 			let camera, scene, renderer, controls, clock, sphere, mixer;
 
-			const lookatme = new THREE.Vector3( -4, 0, -4 );
-
 			init();
 			animate();
 
@@ -61,7 +59,7 @@
 				// Create the panoramic sphere material
 				const panoSphereMat = new THREE.MeshStandardMaterial( {
 					side: THREE.BackSide,
-					displacementScale: - 5.0
+					displacementScale: - 10.0
 				} );
 
 				// Create the panoramic sphere mesh
