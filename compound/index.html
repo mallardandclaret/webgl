@@ -1,0 +1,351 @@
+<html lang="en">
+	<head>
+		<title>Ammo.js softbody volume demo</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+		<style>
+			
+			canvas, body, html {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+		</style>
+	</head>
+	<body>
+		<canvas>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+            <script src="https://cdn.babylonjs.com/ammo.js"></script>
+
+        <script>
+        
+        
+        class RenderEngine {
+  constructor(gameEngine) {
+    this.gameEngine = gameEngine
+    this.gameEngine.clock = new THREE.Clock();
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xbfd1e5);
+    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.2, 5000);
+    this.camera.position.set(0, 30, 70);
+    this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.1);
+    hemiLight.color.setHSL(0.6, 0.6, 0.6);
+    hemiLight.groundColor.setHSL(0.1, 1, 0.4);
+    hemiLight.position.set(0, 50, 0);
+    this.scene.add(hemiLight);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.color.setHSL(0.1, 1, 0.95);
+    dirLight.position.set(-1, 1.75, 1);
+    dirLight.position.multiplyScalar(100);
+    this.scene.add(dirLight);
+    dirLight.castShadow = true;
+    dirLight.shadow.mapSize.width = 2048;
+    dirLight.shadow.mapSize.height = 2048;
+    const d = 50;
+    dirLight.shadow.camera.left = -d;
+    dirLight.shadow.camera.right = d;
+    dirLight.shadow.camera.top = d;
+    dirLight.shadow.camera.bottom = -d;
+    dirLight.shadow.camera.far = 13500;
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true
+    });
+    this.renderer.setClearColor(0xbfd1e5);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(this.renderer.domElement);
+    this.renderer.shadowMap.enabled = true;
+  }
+  renderFrame() {
+    this.renderer.render(this.scene, this.camera)
+  }
+}
+
+  class PhysicsEngine {
+  constructor(gameEngine, physicsEngine) {
+    this.gameEngine = gameEngine
+    let collisionConfiguration = new Ammo.btDefaultCollisionConfiguration(),
+      dispatcher = new Ammo.btCollisionDispatcher(collisionConfiguration),
+      overlappingPairCache = new Ammo.btDbvtBroadphase(),
+      solver = new Ammo.btSequentialImpulseConstraintSolver();
+    this.tmpTrans = new Ammo.btTransform();
+    this.physicsWorld = new Ammo.btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
+    this.physicsWorld.setGravity(new Ammo.btVector3(0, -10, 0));
+  }
+  updateFrame() {
+    this.physicsWorld.stepSimulation(this.gameEngine.clock.getDelta(), 10);
+    this.gameEngine.objects.forEach(object => {
+      const ms = object.ammo.getMotionState()
+      if (ms) {
+        ms.getWorldTransform(this.tmpTrans)
+        const p = this.tmpTrans.getOrigin()
+        const q = this.tmpTrans.getRotation()
+        object.mesh.position.set(p.x(), p.y(), p.z())
+        object.mesh.quaternion.set(q.x(), q.y(), q.z(), q.w())
+      }
+    })
+  }
+}
+
+class GameEngine {
+  constructor(renderEngine, physicsEngine) {
+    this.objects = []
+    this.renderEngine = new RenderEngine(this, renderEngine)
+    this.physicsEngine = new PhysicsEngine(this, physicsEngine)
+  }
+  run() {
+    this.physicsEngine.updateFrame()
+    this.renderEngine.renderFrame()
+    requestAnimationFrame(() => {
+      this.run()
+    });
+  }
+  add(object) {
+    this.objects.push(object)
+    return this.objects.length - 1
+  }
+  remove(objectIndex) {
+    this.objects[objectIndex] = false
+  }
+}
+
+ class Box {
+  constructor(gameEngine, properties) {
+    this.gameEngine = gameEngine
+    this._initPhysics_(properties)
+    this._initRendering_(properties)
+    this.id = gameEngine.add(this)
+  }
+  _initPhysics_(properties) {
+    const pos = properties.pos
+    const quat = properties.quat
+    const scale = properties.scale
+    const mass = properties.mass
+    const group = properties.group
+    const interactionGroup = properties.interactionGroup
+    const physicsWorld = this.gameEngine.physicsEngine.physicsWorld
+    const transform = new Ammo.btTransform()
+    transform.setIdentity()
+    transform.setOrigin(new Ammo.btVector3(pos.x, pos.y, pos.z))
+    transform.setRotation(new Ammo.btQuaternion(quat.x, quat.y, quat.z, quat.w))
+    const motionState = new Ammo.btDefaultMotionState(transform)
+    const colShape = new Ammo.btBoxShape(new Ammo.btVector3(scale.x * 0.5, scale.y * 0.5, scale.z * 0.5))
+    colShape.setMargin(0.05)
+    const localInertia = new Ammo.btVector3(0, 0, 0)
+    colShape.calculateLocalInertia(mass, localInertia)
+    const rbInfo = new Ammo.btRigidBodyConstructionInfo(mass, motionState, colShape, localInertia)
+    const body = new Ammo.btRigidBody(rbInfo)
+    physicsWorld.addRigidBody(body, group, interactionGroup)
+    this.ammo = body
+  }
+  _initRendering_(properties) {
+    const pos = properties.pos
+    const scale = properties.scale
+    const color = properties.color
+    this.mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(), new THREE.MeshPhongMaterial({
+      color
+    }))
+    this.mesh.position.set(pos.x, pos.y, pos.z)
+    this.mesh.scale.set(scale.x, scale.y, scale.z)
+    this.mesh.castShadow = true
+    this.mesh.receiveShadow = true
+    this.gameEngine.renderEngine.scene.add(this.mesh)
+  }
+}
+
+
+class Bone {
+  constructor(gameEngine, properties) {
+    this.gameEngine = gameEngine
+    this._initPhysics_(properties)
+    this._initRendering_(properties)
+    this.id = gameEngine.add(this)
+  }
+  _initPhysics_(properties) {
+    const pos = properties.pos
+    const quat = properties.quat
+    const scale = properties.scale
+    const mass = properties.mass
+    const group = properties.group
+    const interactionGroup = properties.interactionGroup
+    const physicsWorld = this.gameEngine.physicsEngine.physicsWorld
+    const compoundShape = new Ammo.btCompoundShape()
+    this._addSection_(compoundShape, {
+      pos,
+      quat,
+      scale,
+      offset: {
+        x: 0,
+        y: -4,
+        z: 0
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+        w: 0
+      }
+    })
+    this._addSection_(compoundShape, {
+      pos,
+      quat,
+      scale,
+      offset: {
+        x: 0,
+        y: 0,
+        z: 0
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+        w: 0
+      }
+    })
+    const transform = new Ammo.btTransform()
+    transform.setIdentity()
+    transform.setOrigin(new Ammo.btVector3(pos.x, pos.y, pos.z))
+    transform.setRotation(new Ammo.btQuaternion(quat.x, quat.y, quat.z, quat.w))
+    const motionState = new Ammo.btDefaultMotionState(transform)
+    compoundShape.setMargin(0.05)
+    const localInertia = new Ammo.btVector3(0, 0, 0)
+    compoundShape.calculateLocalInertia(mass, localInertia)
+    const rbInfo = new Ammo.btRigidBodyConstructionInfo(mass, motionState, compoundShape, localInertia)
+    const body = new Ammo.btRigidBody(rbInfo)
+    physicsWorld.addRigidBody(body, group, interactionGroup)
+    this.ammo = body
+  }
+  _initRendering_(properties) {
+    const pos = properties.pos
+    const scale = properties.scale
+    const color = properties.color
+    this.mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(), new THREE.MeshPhongMaterial({
+      color
+    }))
+    this.mesh.position.set(pos.x, pos.y, pos.z)
+    this.mesh.scale.set(scale.x, scale.y, scale.z)
+    this.mesh.castShadow = true
+    this.mesh.receiveShadow = true
+    this.gameEngine.renderEngine.scene.add(this.mesh)
+  }
+  _addSection_(compoundShape, properties) {
+    const pos = properties.pos
+    const quat = properties.quat
+    const scale = properties.scale
+    const offset = properties.offset
+    const rotation = properties.rotation
+    const transform = new Ammo.btTransform()
+    transform.setIdentity()
+    //transform.setOrigin(new Ammo.btVector3(pos.x + offset.x, pos.y + offset.y, pos.z + offset.z))
+    //transform.setRotation(new Ammo.btQuaternion(quat.x + rotation.x, quat.y + rotation.y, quat.z + rotation.z, quat.w + rotation.w))
+    const motionState = new Ammo.btDefaultMotionState(transform)
+    const colShape = new Ammo.btBoxShape(new Ammo.btVector3(scale.x * 0.5, scale.y * 0.5, scale.z * 0.5))
+    compoundShape.addChildShape(transform, colShape)
+  }
+}
+
+ Ammo().then((Ammo) => {
+  const gameEngine = new GameEngine(THREE, Ammo)
+  const plane = new Box(gameEngine, {
+    pos: {
+      x: 0,
+      y: 0,
+      z: 0
+    },
+    quat: {
+      x: 0,
+      y: 0,
+      z: 0,
+      w: 1
+    },
+    scale: {
+      x: 50,
+      y: 0.1,
+      z: 50
+    },
+    mass: 0,
+    group: 1,
+    interactionGroup: 1,
+    color: 0xa0afa4
+    
+
+
+  })
+  /* const box1 = new Box(gameEngine, {
+    pos: {
+      x: 0,
+      y: 5,
+      z: 0
+    },
+    quat: {
+      x: 0,
+      y: 0,
+      z: 0,
+      w: 1
+    },
+    scale: {
+      x: 2,
+      y: 2,
+      z: 2
+    },
+    mass: 1,
+    group: 1,
+    interactionGroup: 1,
+    color: 0xa0afa4
+  })
+  const box2 = new Box(gameEngine, {
+    pos: {
+      x: 0.75,
+      y: 8,
+      z: 0.75
+    },
+    quat: {
+      x: 0,
+      y: 0,
+      z: 0,
+      w: 1
+    },
+    scale: {
+      x: 2,
+      y: 2,
+      z: 2
+    },
+    mass: 1,
+    group: 1,
+    interactionGroup: 1,
+    color: 0xa0afa4
+  }) */
+  const bone1 = new Bone(gameEngine, {
+    pos: {
+      x: -0.75,
+      y: 10,
+      z: -0.75
+    },
+    quat: {
+      x: 0,
+      y: 0,
+      z: 0,
+      w: 1
+    },
+    scale: {
+      x: 2,
+      y: 2,
+      z: 2
+    },
+    mass: 1,
+    group: 1,
+    interactionGroup: 1,
+    color: 0xf0f0f0
+  })
+  console.log("gameEngine", gameEngine)
+  gameEngine.run()
+})
+
+
+</script>
+</canvas>
+</body>
+</html>

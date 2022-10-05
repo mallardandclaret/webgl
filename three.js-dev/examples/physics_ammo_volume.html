@@ -5,15 +5,28 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
 		<style>
+			
 			body {
-				color: #333;
+				color: rgb(255, 255, 255);
+				height: 200vh; 
 			}
+			body {
+				 background-color: rgb(0, 0, 0);
+			}
+
+			webgl {
+				position: fixed;
+			}
+
 		</style>
 	</head>
+	
 	<body>
+		<webgl>
 		<div id="info">
-			Ammo.js physics soft body volume demo<br/>
-			Click to throw a ball
+			M&C Soft body test<br/>
+			Click to throw an imported model
+			Click <a id="pillow" href="#">here</a> to add more pillows. <br> Press Q to reverse gravity. Press A to reset.
 		</div>
 		<div id="container"></div>
 
@@ -39,6 +52,16 @@
 
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
+
+            const cubeTextureLoader = new THREE.CubeTextureLoader()
+
+            // Configure and create Draco decoder.
+            const dracoLoader = new DRACOLoader();
+            dracoLoader.setDecoderPath( 'js/libs/draco/' );
+            dracoLoader.setDecoderConfig( { type: 'js' } );
+
 
 			// Graphics variables
 			let container, stats;
@@ -51,9 +74,10 @@
 			const ballMaterial = new THREE.MeshPhongMaterial( { color: 0x202020 } );
 			const pos = new THREE.Vector3();
 			const quat = new THREE.Quaternion();
+			const vpbox = new THREE.BoxGeometry(); 
 
 			// Physics variables
-			const gravityConstant = - 9.8;
+			let gravityConstant = - 9.8;
 			let physicsWorld;
 			const rigidBodies = [];
 			const softBodies = [];
@@ -80,7 +104,74 @@
 
 				initInput();
 
+				createVPbox();
+
 			}
+
+
+              /**
+              * Environment map
+              */
+			  const environmentMap = cubeTextureLoader.load([
+                 'textures/environmentMaps/3H/px.jpg',
+                 'textures/environmentMaps/3H/nx.jpg',
+                 'textures/environmentMaps/3H/py.jpg',
+                 'textures/environmentMaps/3H/ny.jpg',
+                 'textures/environmentMaps/3H/pz.jpg',
+                 'textures/environmentMaps/3H/nz.jpg'
+             ])
+             
+             environmentMap.encoding = THREE.sRGBEncoding
+			 envMapIntensity = 3
+
+
+
+			 function createVPbox() {
+
+				// Dynamic box
+
+				pos.set(window.innerWidth / window.innerHeight , 10, 0 );
+				quat.set( 0, 0, 0, 1 );
+				const vpbox = createParalellepiped( 1, window.innerWidth / window.innerHeight, window.innerHeight / window.innerWidth, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+				vpbox.castShadow = true;
+				vpbox.receiveShadow = true;
+				textureLoader.load( 'textures/grid.png', function ( texture ) {
+
+					texture.wrapS = THREE.RepeatWrapping;
+					texture.wrapT = THREE.RepeatWrapping;
+					texture.repeat.set( 40, 40 );
+					vpbox.material.map = texture;
+					vpbox.material.needsUpdate = true;
+
+				} );
+
+
+
+
+            }
+
+
+
+
+
+			// Update all materials
+            
+            const updateAllMaterials = () =>
+             {
+                 scene.traverse((child) =>
+                 {
+                     if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
+                     {
+                         child.material.envMap = environmentMap
+                         child.material.envMapIntensity = debugObject.envMapIntensity
+                         child.material.needsUpdate = true
+                         child.castShadow = true
+                         child.receiveShadow = true
+                     }
+                 })
+             }
+
+
 
 			function initGraphics() {
 
@@ -92,16 +183,27 @@
 				scene.background = new THREE.Color( 0xbfd1e5 );
 
 				camera.position.set( - 7, 5, 8 );
+				//camera.lookAt(new THREE.Vector3(0, 2, 0));
 
-				renderer = new THREE.WebGLRenderer();
-				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.toneMapping = THREE.ACESFilmicToneMapping;
+				renderer.toneMappingExposure = 1;
+				renderer.outputEncoding = THREE.sRGBEncoding;
+			    renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.shadowMap.enabled = true;
 				container.appendChild( renderer.domElement );
 
+				scene.background = environmentMap
+                scene.environment = environmentMap
+
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.target.set( 0, 2, 0 );
+				controls.enableDamping = true;
+				//controls.dampingFactor = 1;
+				//controls.enableZoom = false;
 				controls.update();
+				//control.enabled = false;
 
 				textureLoader = new THREE.TextureLoader();
 
@@ -131,9 +233,20 @@
 				container.appendChild( stats.domElement );
 
 
+				
+
+
+
+						
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
+
+			
+
+            
+
+
 
 			function initPhysics() {
 
@@ -158,7 +271,7 @@
 				// Ground
 				pos.set( 0, - 0.5, 0 );
 				quat.set( 0, 0, 0, 1 );
-				const ground = createParalellepiped( 40, 1, 40, 0, pos, quat, new THREE.MeshPhongMaterial( { color: 0xFFFFFF } ) );
+				const ground = createParalellepiped( 40, 1, 40, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, metalness: 0.9, roughness: 0.1 } ) );
 				ground.castShadow = true;
 				ground.receiveShadow = true;
 				textureLoader.load( 'textures/grid.png', function ( texture ) {
@@ -171,6 +284,11 @@
 
 				} );
 
+
+				
+
+
+
 				// Create soft volumes
 				const volumeMass = 15;
 
@@ -180,16 +298,69 @@
 
 				const boxGeometry = new THREE.BoxGeometry( 1, 1, 5, 4, 4, 20 );
 				boxGeometry.translate( - 2, 5, 0 );
-				createSoftVolume( boxGeometry, volumeMass, 120 );
+				createSoftVolume( boxGeometry, volumeMass, 200 );
 
 				// Ramp
 				pos.set( 3, 1, 0 );
 				quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), 30 * Math.PI / 180 );
-				const obstacle = createParalellepiped( 10, 1, 4, 0, pos, quat, new THREE.MeshPhongMaterial( { color: 0x606060 } ) );
+				const obstacle = createParalellepiped( 10, 1, 4, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0,
+                metalness: 1.0} ) );
 				obstacle.castShadow = true;
 				obstacle.receiveShadow = true;
 
 			}
+
+			function createObject2() {
+
+               // Create soft volumes
+               const volumeMass = 30;
+
+               const boxGeometry = new THREE.BoxGeometry( 1, 1, 5, 4, 4, 20 );
+               boxGeometry.translate( 5, 10, 0 );
+               createSoftVolume( boxGeometry, volumeMass, 200 );
+
+        
+
+            }
+
+            function createObject3() {
+            
+            // Create soft volumes
+            const volumeMass = 30;
+            
+            const boxGeometry = new THREE.BoxGeometry( 3, 3, 3, 6, 10, 20 );
+            boxGeometry.translate( 5, 10, 0 );
+            createSoftVolume( boxGeometry, volumeMass, 200 );
+            
+            
+            
+            }
+
+			function createObject4() {
+            
+			const volumeMass = 30;
+            const loader = new GLTFLoader().setPath( 'models/gltf/' );
+						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
+
+							scene.add( gltf.scene );
+
+							render();
+
+						} ); 
+
+						createSoftVolume( gltf, volumeMass, 200 );
+
+            
+            
+            
+            
+            }
+
+			
+
+
+            
+
 
 			function processGeometry( bufGeometry ) {
 
@@ -253,17 +424,25 @@
 
 			}
 
+
+
+
+
+			
 			function createSoftVolume( bufferGeom, mass, pressure ) {
 
 				processGeometry( bufferGeom );
 
-				const volume = new THREE.Mesh( bufferGeom, new THREE.MeshPhongMaterial( { color: 0xFFFFFF } ) );
+				const volume = new THREE.Mesh( bufferGeom, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, metalness: 1, roughness: 0.1 } ) );
 				volume.castShadow = true;
 				volume.receiveShadow = true;
 				volume.frustumCulled = false;
 				scene.add( volume );
 
-				textureLoader.load( 'textures/colors.png', function ( texture ) {
+
+				
+
+				textureLoader.load( 'textures/IKAC2.jpg', function ( texture ) {
 
 					volume.material.map = texture;
 					volume.material.needsUpdate = true;
@@ -357,6 +536,34 @@
 
 			function initInput() {
 
+
+				var a = document.getElementById("pillow");
+
+                //Set code to run when the link is clicked
+                // by assigning a function to "onclick"
+                a.onclick = function() {
+
+				createObject2();
+				//createObject4();
+
+                return false;
+                }
+
+				window.addEventListener("mousewheel", function(event){
+                if(event.wheelDelta >= 0){
+			    physicsWorld.setGravity( new Ammo.btVector3( 0, 0, 0 ) );
+			    physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, 0, 0 ) );
+                console.log("up")
+                }else{
+			    physicsWorld.setGravity( new Ammo.btVector3( 0, -9.8, 0 ) );
+			    physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, -9.8, 0 ) );	
+                console.log("down")
+                }
+                })
+
+
+
+
 				window.addEventListener( 'pointerdown', function ( event ) {
 
 					if ( ! clickRequest ) {
@@ -372,7 +579,33 @@
 
 				} );
 
+				window.addEventListener( 'keydown', function ( event ) {
+				//window.addEventListener( 'pointerdown', function ( event ) {	
+
+					//if ( ! clickRequest ) {
+					switch ( event.keyCode ) {
+
+						// Q
+						case 81:
+						physicsWorld.setGravity( new Ammo.btVector3( 0, 3, 0 ) );
+				        physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, 3, 0 ) );
+							break;
+
+							// A
+						case 65:
+						physicsWorld.setGravity( new Ammo.btVector3( 0, -9.8, 0 ) );
+				        physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, -9.8, 0 ) );
+							break;
+
+						}
+
+                } );
+
 			}
+
+            
+			// Throwing the object at the soft bodies
+
 
 			function processClick() {
 
@@ -380,24 +613,97 @@
 
 					raycaster.setFromCamera( mouseCoords, camera );
 
-					// Creates a ball
-					const ballMass = 3;
-					const ballRadius = 0.4;
+					//Add model
 
-					const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
+					//const dracoLoader = new DRACOLoader();
+                    //dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
+
+                    /* const loader = new GLTFLoader();
+                    loader.setDRACOLoader( dracoLoader );
+                    loader.load( 'models/gltf/KujiraLogoVert.gltf', function ( gltf ) {
+
+
+                        //gltf.computeVertexNormals();
+
+						//const kball = new THREE.Mesh( gltf.scene );
+
+						gltf.scene.scale.set(0.5, 0.5, 0.5);
+						gltf.scene.position.x = Math.random() * 100;
+                        //const gltf = new THREE.Mesh( gltf );
+                        //gltf.position.x = Math.random() * 100;
+						scene.add( gltf.scene );
+						
+
+						render();
+
+  
+
+                    }); */
+
+			         /* const loader = new GLTFLoader().setPath( 'models/gltf/' );
+						loader.load( 'KujiraLogoVert.gltf', function ( gltf ) {
+
+							scene.add( gltf.scene );
+
+							render();
+
+						} ); */  
+
+					dracoLoader.load( 'models/draco/model3.drc', function ( geometry ) {
+					//dracoLoader.load( 'models/draco/KL.drc', function ( geometry ) {	
+					//dracoLoader.load( 'models/gltf/KujiraLogoVert.gltf', function ( geometry ) {	
+
+					//const loader = new GLTFLoader().setPath( 'models/gltf/' );
+					//loader.load( 'KujiraLogoVert.gltf', function ( geometry ) {	
+
+                    geometry.computeVertexNormals();
+
+					
+
+                    const material = new THREE.MeshStandardMaterial( { color: 0xffffff, metalness: 1, roughness: 0.1 } );
+                    const ball = new THREE.Mesh( geometry, material );
+					ball.scale.set(0.4, 0.4, 0.4);
+                    ball.castShadow = false;
+                    ball.receiveShadow = false;
+					//mesh.position.x = Math.random() * 100;
+                    scene.add( ball );
+                    
+                    // Release decoder resources.
+                    //dracoLoader.dispose();
+                    
+					const ballMass = 3;
+					//const ballRadius = 0.4;
+
+					//const ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 18, 16 ), ballMaterial );
 					ball.castShadow = true;
 					ball.receiveShadow = true;
-					const ballShape = new Ammo.btSphereShape( ballRadius );
+					const ballShape = new Ammo.btBoxShape( new Ammo.btVector3(1, 1.2, 1.2) );
+					//const shape1a = new Ammo.btBoxShape( new Ammo.btVector3( 0.4, 0.4, 0.4 ) );
+					//const shape2 = new Ammo.btConeShape( 0.5, 0.6 );
+					//const shape3 = new Ammo.btSphereShape( ballRadius );
+					//const massOffset = new Ammo.btVector3( 0, 20, 0);
+                    //const ballShape = new Ammo.btCompoundShape();
+					//ballShape.addChildShape( shape2 );
+                    //ballShape.addChildShape( shape1, shape2 );
+					
+					
+
 					ballShape.setMargin( margin );
 					pos.copy( raycaster.ray.direction );
 					pos.add( raycaster.ray.origin );
-					quat.set( 0, 0, 0, 1 );
+					quat.set( 0, 1, 0, 1 );
 					const ballBody = createRigidBody( ball, ballShape, ballMass, pos, quat );
 					ballBody.setFriction( 0.5 );
 
 					pos.copy( raycaster.ray.direction );
 					pos.multiplyScalar( 14 );
 					ballBody.setLinearVelocity( new Ammo.btVector3( pos.x, pos.y, pos.z ) );
+
+
+                    } );	
+
+					// Creates a ball
+					
 
 					clickRequest = false;
 
@@ -411,12 +717,17 @@
 				camera.updateProjectionMatrix();
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
+				vpbox.size.set(window.innerWidth, window.innerHeight);
+				vpbox.pos.set(window.innerWidth / window.innerHeight , 10, 0 );
+
 
 			}
 
 			function animate() {
 
 				requestAnimationFrame( animate );
+
+				controls.update();
 
 				render();
 				stats.update();
@@ -434,6 +745,9 @@
 				renderer.render( scene, camera );
 
 			}
+
+           
+
 
 			function updatePhysics( deltaTime ) {
 
@@ -507,6 +821,6 @@
 			}
 
 		</script>
-
+       </webgl>
 	</body>
 </html>
