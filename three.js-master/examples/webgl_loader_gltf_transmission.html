@@ -56,10 +56,10 @@
 				const panoSphereGeo = new THREE.SphereGeometry( 100, 512, 512 );
 
 				// Create the panoramic sphere material
-				const panoSphereMat = new THREE.MeshBasicMaterial( {
+				const panoSphereMat = new THREE.MeshStandardMaterial( {
 					color:0xffffff,
-
-					side: THREE.BackSide,
+					envMap :false,
+                    side: THREE.BackSide,
 					displacementScale: - 30.0
 				} );
 
