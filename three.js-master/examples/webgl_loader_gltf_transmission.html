@@ -59,7 +59,7 @@
 				// Create the panoramic sphere material
 				const panoSphereMat = new THREE.MeshStandardMaterial( {
 					side: THREE.BackSide,
-					displacementScale: - 10.0
+					displacementScale: - 30.0
 				} );
 
 				// Create the panoramic sphere mesh
@@ -71,9 +71,9 @@
 
 				loader.load(
 					
-				'./textures/AnnualReport_360_Sketch7.jpg'
+				//'./textures/AnnualReport_360_Sketch7.jpg'
 				//"https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/kris-guico-rsB-he-ye7w-unsplash.jpg"
-				//'./textures/kandao3.jpg'
+				'./textures/kandao3.jpg'
 				, function ( texture ) {
 
 					texture.minFilter = THREE.NearestFilter;
@@ -222,8 +222,8 @@
 				const time = clock.getElapsedTime();
 
 				    sphere.rotation.y += -0.001;
-					sphere.position.x = Math.sin( time ) * 10;
-					sphere.position.z = Math.cos( time ) * 10;
+					sphere.position.x = Math.sin( time ) * 2;
+					sphere.position.z = Math.cos( time ) * 2;
 
 					//camera.lookAt( 0, 0, -5 );
 
