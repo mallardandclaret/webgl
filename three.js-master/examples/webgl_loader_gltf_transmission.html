@@ -57,9 +57,7 @@
 
 				// Create the panoramic sphere material
 				const panoSphereMat = new THREE.MeshStandardMaterial( {
-					//color:0xffffff,
-					//envMap :false,
-                    side: THREE.BackSide,
+					side: THREE.BackSide,
 					displacementScale: - 30.0
 				} );
 
@@ -110,7 +108,7 @@
 
 
 
-			   const modelloader = new GLTFLoader();
+			const modelloader = new GLTFLoader();
 				
 				new RGBELoader()
 					.setPath( 'textures/equirectangular/' )
@@ -119,7 +117,7 @@
 						texture.mapping = THREE.EquirectangularReflectionMapping;
 
 						//scene.background = texture;
-						//scene.environment = texture;
+						scene.environment = texture;
 
 				//model
 
