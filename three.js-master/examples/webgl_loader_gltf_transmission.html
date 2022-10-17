@@ -47,7 +47,7 @@
 
 				//
 
-				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 200 );
 				scene.add( camera );
 				camera.position.set( 0, 0, 0 );
 				//camera.lookAt( -4, 0, -4  );
@@ -147,7 +147,7 @@
 				//renderer.toneMapping = THREE.CineonToneMapping
 				renderer.toneMapping = THREE.LinearToneMapping
 				renderer.toneMappingExposure = 1;
-				//renderer.outputEncoding = THREE.sRGBEncoding;
+				renderer.outputEncoding = THREE.sRGBEncoding;
 				container.appendChild( renderer.domElement );
 
 				controls = new OrbitControls( camera, renderer.domElement );
