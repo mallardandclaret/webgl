@@ -28,7 +28,7 @@
 
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
+			
 
 
 			let camera, scene, renderer, controls, clock, sphere, mixer;
@@ -71,7 +71,7 @@
 				loader.load(
 					
 				'./textures/AnnualReport_360_Sketch7.jpg'
-				//"https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/kris-guico-rsB-he-ye7w-unsplash.jpg"
+				//"https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/ADPT_Room1_360_BaseRoomC.jpeg"
 				//'./textures/kandao3.jpg'
 				, function ( texture ) {
 
@@ -99,6 +99,9 @@
 
                 };
 
+				const light = new THREE.AmbientLight( 0xFFFFFF );
+                scene.add( light );
+
 
 // Hotspots
 
@@ -111,7 +114,7 @@
 						texture.mapping = THREE.EquirectangularReflectionMapping;
 
 						//scene.background = texture;
-						scene.environment = texture;
+						//scene.environment = texture;
 
 				//model
 
@@ -140,7 +143,7 @@
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
-				renderer.toneMappingExposure = 1;
+				renderer.toneMappingExposure = 1.5;
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				container.appendChild( renderer.domElement );
 
