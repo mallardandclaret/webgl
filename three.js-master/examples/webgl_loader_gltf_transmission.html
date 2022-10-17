@@ -144,7 +144,8 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				//renderer.toneMapping = THREE.ACESFilmicToneMapping;
 				//renderer.toneMapping = THREE.ReinhardToneMapping
-				renderer.toneMapping =THREE.CineonToneMapping
+				//renderer.toneMapping = THREE.CineonToneMapping
+				renderer.toneMapping = THREE.LinearToneMapping
 				renderer.toneMappingExposure = 1;
 				//renderer.outputEncoding = THREE.sRGBEncoding;
 				container.appendChild( renderer.domElement );
