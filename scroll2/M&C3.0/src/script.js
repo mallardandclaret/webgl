@@ -134,85 +134,30 @@ var mallardbox = new THREE.Mesh(new THREE.BoxGeometry(60, 5, 2),
 new THREE.MeshBasicMaterial({color: "black", wireframe: true}));
 scene.add(mallardbox);
 
-
-
-
-
-
-
 //sizes
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 const sizes = {
 width: window.innerWidth,
 height: window.innerHeight
-        }
+}
+
+
+
 
 // Camera
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, .1, 100);
 camera.position.set(0, 0, 20);
 scene.add(camera)
-        // Controls
+
+
+
+// Controls
 const controls = new THREE.OrbitControls(camera, canvas)
 controls.enableDamping = true
 controls.autoRotate = false
 controls.minDistance = 20;
 controls.maxDistance = 20;
-//Responsive code
-window.addEventListener('resize', () => {
-// Update sizes
-sizes.width = window.innerWidth
-sizes.height = window.innerHeight
-
-windowHalfX = window.innerWidth / 2;
-windowHalfY = window.innerHeight / 2;
-            
-window.Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
-window.Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
-// Update camera
-camera.aspect = sizes.width / sizes.height
-camera.updateProjectionMatrix()
-            // Update renderer
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))  
-      
-     corner.set(-1, 1); // NDC of the top-left corner
-     raycaster.setFromCamera(corner, camera);
-     raycaster.ray.intersectPlane(plane, cornerPoint);
-     window.Mallard.position.copy(cornerPoint)
-     .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, - windowHalfX / windowHalfY / mscale / 1.4, 0));
-  
-     blcorner.set(-1, -1); // corner (across then down)
-     blraycaster.setFromCamera(blcorner, camera);
-     blraycaster.ray.intersectPlane(plane, blcornerPoint);
-     window.Claret.position.copy(blcornerPoint)
-     .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, windowHalfX / windowHalfY / mscale / 1.4, 0));
-     //Bottom       
-     brcorner.set(1, -1); // corner
-     brraycaster.setFromCamera(brcorner, camera);
-     brraycaster.ray.intersectPlane(plane, brcornerPoint);
-     bottomwallbody.position.copy(brcornerPoint)
-     //.add(new THREE.Vector3(-15 , -1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
-     //bottombox.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)
-     //Top 
-     trcorner.set(1, 1); // corner
-     trraycaster.setFromCamera(trcorner, camera);
-     trraycaster.ray.intersectPlane(plane, trcornerPoint);
-     topwallbody.position.copy(trcornerPoint)
-     //.add(new THREE.Vector3(-15, 1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
-     //topbox.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)
-     //Left
-     blcorner.set(-1, 1); // corner (across then down)
-     blraycaster.setFromCamera(blcorner, camera);
-     blraycaster.ray.intersectPlane(plane, blcornerPoint);
-     leftwallbody.position.copy(blcornerPoint);
-     //.add(new CANNON.Vec3(-1, -15, -10));  // align the position of the box (width, height, depth (X,Y,Z))
-     //leftwallbody.scale.set(1, 15, 10)
-     //Right
-     rightwallbody.position.copy(trcornerPoint)
-     //.add(new THREE.Vector3(1, -15, -10)); // align the position of the box (width, height, depth (X,Y,Z))
-     //rightbox.scale.set(1, 15, 10)
-            }) 
 
 
 //Load models
@@ -294,6 +239,118 @@ gsap.registerPlugin(ScrollTrigger);
   }
 ) 
 
+
+
+
+//Responsive code
+
+window.addEventListener('resize', () => {
+// Update sizes
+sizes.width = window.innerWidth
+sizes.height = window.innerHeight
+
+windowHalfX = window.innerWidth / 2;
+windowHalfY = window.innerHeight / 2;
+            
+window.Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
+window.Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
+// Update camera
+camera.aspect = sizes.width / sizes.height
+camera.updateProjectionMatrix()
+
+
+// Update renderer
+renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))  
+      
+     corner.set(-1, 1); // NDC of the top-left corner
+     raycaster.setFromCamera(corner, camera);
+     raycaster.ray.intersectPlane(plane, cornerPoint);
+     window.Mallard.position.copy(cornerPoint)
+     .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, - windowHalfX / windowHalfY / mscale / 1.4, 0));
+  
+     blcorner.set(-1, -1); // corner (across then down)
+     blraycaster.setFromCamera(blcorner, camera);
+     blraycaster.ray.intersectPlane(plane, blcornerPoint);
+     window.Claret.position.copy(blcornerPoint)
+     .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, windowHalfX / windowHalfY / mscale / 1.4, 0));
+     //Bottom       
+     brcorner.set(1, -1); // corner
+     brraycaster.setFromCamera(brcorner, camera);
+     brraycaster.ray.intersectPlane(plane, brcornerPoint);
+     bottomwallbody.position.copy(brcornerPoint)
+     //.add(new THREE.Vector3(-15 , -1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
+     //bottombox.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)
+     //Top 
+     trcorner.set(1, 1); // corner
+     trraycaster.setFromCamera(trcorner, camera);
+     trraycaster.ray.intersectPlane(plane, trcornerPoint);
+     topwallbody.position.copy(trcornerPoint)
+     //.add(new THREE.Vector3(-15, 1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
+     //topbox.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)
+     //Left
+     blcorner.set(-1, 1); // corner (across then down)
+     blraycaster.setFromCamera(blcorner, camera);
+     blraycaster.ray.intersectPlane(plane, blcornerPoint);
+     leftwallbody.position.copy(blcornerPoint);
+     //.add(new CANNON.Vec3(-1, -15, -10));  // align the position of the box (width, height, depth (X,Y,Z))
+     //leftwallbody.scale.set(1, 15, 10)
+     //Right
+     rightwallbody.position.copy(trcornerPoint)
+     //.add(new THREE.Vector3(1, -15, -10)); // align the position of the box (width, height, depth (X,Y,Z))
+     //rightbox.scale.set(1, 15, 10)
+            }) 
+
+
+
+
+
+//Renderer
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            //powerPreference: 'high-performance',
+            antialias: true,
+            alpha: true
+        })
+        //renderer.physicallyCorrectLights = true
+        //renderer.outputEncoding = THREE.sRGBEncoding
+        //renderer.toneMapping = THREE.ReinhardToneMapping
+        //renderer.toneMappingExposure = 1
+        //renderer.shadowMap.enabled = false
+        //renderer.shadowMap.type = THREE.PCFSoftShadowMap
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+const clock = new THREE.Clock()
+let oldElapsedTime = 0
+animate = function() {
+var delta = clock.getDelta();
+const elapsedTime = clock.getElapsedTime()
+const deltaTime = elapsedTime - oldElapsedTime
+oldElapsedTime = elapsedTime
+// Update physics
+world.step(1 / 60, deltaTime, 3)
+  //for(const object of objectsToUpdate)
+    //{
+      //  object.mesh.position.copy(object.body.position)
+      //  object.mesh.quaternion.copy(object.body.quaternion)
+   // }
+sphere.position.copy(sphereBody.position)
+leftbox.position.copy(leftwallbody.position)
+bottombox.position.copy(bottomwallbody.position)
+topbox.position.copy(topwallbody.position)
+rightbox.position.copy(rightwallbody.position)
+mallardbox.position.copy(mallardbody.position)
+mallardbox.quaternion.copy(mallardbody.quaternion)
+// Update controls
+controls.update()
+//camera.lookAt(scene.position);
+renderer.render(scene, camera)
+requestAnimationFrame(animate)
+
+}
+animate()
+
 //set up of walls
 
 //Bottom       
@@ -369,50 +426,3 @@ new CANNON.Vec3(1, 0, 0),
 Math.PI * MallardRotation.val
 )
 }
-
-
-//Renderer
-        const renderer = new THREE.WebGLRenderer({
-            canvas: canvas,
-            //powerPreference: 'high-performance',
-            antialias: true,
-            alpha: true
-        })
-        //renderer.physicallyCorrectLights = true
-        //renderer.outputEncoding = THREE.sRGBEncoding
-        //renderer.toneMapping = THREE.ReinhardToneMapping
-        //renderer.toneMappingExposure = 1
-        //renderer.shadowMap.enabled = false
-        //renderer.shadowMap.type = THREE.PCFSoftShadowMap
-        renderer.setSize(sizes.width, sizes.height)
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
-const clock = new THREE.Clock()
-let oldElapsedTime = 0
-animate = function() {
-var delta = clock.getDelta();
-const elapsedTime = clock.getElapsedTime()
-const deltaTime = elapsedTime - oldElapsedTime
-oldElapsedTime = elapsedTime
-// Update physics
-world.step(1 / 60, deltaTime, 3)
-  //for(const object of objectsToUpdate)
-    //{
-      //  object.mesh.position.copy(object.body.position)
-      //  object.mesh.quaternion.copy(object.body.quaternion)
-   // }
-sphere.position.copy(sphereBody.position)
-leftbox.position.copy(leftwallbody.position)
-bottombox.position.copy(bottomwallbody.position)
-topbox.position.copy(topwallbody.position)
-rightbox.position.copy(rightwallbody.position)
-mallardbox.position.copy(mallardbody.position)
-mallardbox.quaternion.copy(mallardbody.quaternion)
-// Update controls
-controls.update()
-//camera.lookAt(scene.position);
-renderer.render(scene, camera)
-requestAnimationFrame(animate)
-
-}
-animate()
