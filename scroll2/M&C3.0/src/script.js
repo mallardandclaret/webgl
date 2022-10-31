@@ -134,84 +134,7 @@ var mallardbox = new THREE.Mesh(new THREE.BoxGeometry(60, 5, 2),
 new THREE.MeshBasicMaterial({color: "black", wireframe: true}));
 scene.add(mallardbox);
 
-//Load models
-// init loader
-const loader = new THREE.GLTFLoader()
-// make async loader (look up load Async function and replace as its not needed maybe?)
-const loadAsync = url => {
-  return new Promise(resolve => {
-    loader.load(url, gltf => {
-      resolve(gltf)
-    })
-  })
-}
-// load both models in parallel
-Promise.all([loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Mallard.glb"), loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/&Claret.glb")]).then(models => {
-  // get what you need from the models array
-  Mallard = models[0].scene.children[0]
-  Claret = models[1].scene.children[0]
 
-  // add both models to the scene
-  scene.add(Mallard)
-  scene.add(Claret)
-  
-  Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
-  Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
-  Mallard.visible = true;
-  Claret.visible = true;
-  corner.set(-1, 1); // NDC of the top-left corner
-  raycaster.setFromCamera(corner, camera);
-  raycaster.ray.intersectPlane(plane, cornerPoint);
-  Mallard.position.copy(cornerPoint)
-  .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, - windowHalfX / windowHalfY / mscale / 1.4, 0));
-  
-  blcorner.set(-1, -1); // corner (across then down)
-  blraycaster.setFromCamera(blcorner, camera);
-  blraycaster.ray.intersectPlane(plane, blcornerPoint);
-  Claret.position.copy(blcornerPoint)
-  .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, windowHalfX / windowHalfY / mscale / 1.4, 0));
-         
-  var sideMaterial = new THREE.MeshBasicMaterial({color: 0xefe3db});
-  var faceMaterial = new THREE.MeshBasicMaterial({color: 0xe54848});
-        
-scene.traverse(child => {
-if (child.material && child.material.name === 'SIDE') {
-child.material = sideMaterial;
-}
-});
-
-scene.traverse(child => {
-if (child.material && child.material.name === 'FACE') {
-child.material = faceMaterial;
-}
-});
-  
-gsap.registerPlugin(ScrollTrigger);
-
-    gsap.to(Mallard.rotation, {
-    scrollTrigger: {
-    trigger: "#trigger1",
-    start: "top top",
-    end: "bottom top",
-    scrub: scrollease,
-    toggleActions: "restart pause resume pause"
-  },
-    x : Math.PI * 20,
-  }); 
-  
-  gsap.to(Claret.rotation, {
-    scrollTrigger: {
-    trigger: "#trigger1",
-    start: "top top",
-    end: "bottom top",
-    scrub: scrollease,
-    toggleActions: "restart pause resume pause"
-  },
-    x : -Math.PI * 20,
-  }); 
-  
-  }
-) 
 
 //set up of walls
 
@@ -364,6 +287,90 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
      //.add(new THREE.Vector3(1, -15, -10)); // align the position of the box (width, height, depth (X,Y,Z))
      //rightbox.scale.set(1, 15, 10)
             }) 
+
+
+//Load models
+// init loader
+const loader = new THREE.GLTFLoader()
+// make async loader (look up load Async function and replace as its not needed maybe?)
+const loadAsync = url => {
+  return new Promise(resolve => {
+    loader.load(url, gltf => {
+      resolve(gltf)
+    })
+  })
+}
+// load both models in parallel
+Promise.all([loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Mallard.glb"), loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/&Claret.glb")]).then(models => {
+  // get what you need from the models array
+  Mallard = models[0].scene.children[0]
+  Claret = models[1].scene.children[0]
+
+  // add both models to the scene
+  scene.add(Mallard)
+  scene.add(Claret)
+  
+  Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
+  Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale);
+  Mallard.visible = true;
+  Claret.visible = true;
+  corner.set(-1, 1); // NDC of the top-left corner
+  raycaster.setFromCamera(corner, camera);
+  raycaster.ray.intersectPlane(plane, cornerPoint);
+  Mallard.position.copy(cornerPoint)
+  .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, - windowHalfX / windowHalfY / mscale / 1.4, 0));
+  
+  blcorner.set(-1, -1); // corner (across then down)
+  blraycaster.setFromCamera(blcorner, camera);
+  blraycaster.ray.intersectPlane(plane, blcornerPoint);
+  Claret.position.copy(blcornerPoint)
+  .add(new THREE.Vector3( windowHalfX / windowHalfY / mscale / 1.4, windowHalfX / windowHalfY / mscale / 1.4, 0));
+         
+  var sideMaterial = new THREE.MeshBasicMaterial({color: 0xefe3db});
+  var faceMaterial = new THREE.MeshBasicMaterial({color: 0xe54848});
+        
+scene.traverse(child => {
+if (child.material && child.material.name === 'SIDE') {
+child.material = sideMaterial;
+}
+});
+
+scene.traverse(child => {
+if (child.material && child.material.name === 'FACE') {
+child.material = faceMaterial;
+}
+});
+  
+gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(Mallard.rotation, {
+    scrollTrigger: {
+    trigger: "#trigger1",
+    start: "top top",
+    end: "bottom top",
+    scrub: scrollease,
+    toggleActions: "restart pause resume pause"
+  },
+    x : Math.PI * 20,
+  }); 
+  
+  gsap.to(Claret.rotation, {
+    scrollTrigger: {
+    trigger: "#trigger1",
+    start: "top top",
+    end: "bottom top",
+    scrub: scrollease,
+    toggleActions: "restart pause resume pause"
+  },
+    x : -Math.PI * 20,
+  }); 
+  
+  }
+) 
+
+
+
+
 //Renderer
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas,
