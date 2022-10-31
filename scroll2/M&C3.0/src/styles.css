@@ -8,10 +8,14 @@ body
     padding: 0;
 }
 
-.webgl
-{
+.webgl {
     position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
-}
+    left: 0%;
+    top: 0%;
+    width: 100vw;
+    height: 100vh;
+    right: auto;
+    bottom: auto;
+    z-index: 10;
+    color: #e54848;
+  }
