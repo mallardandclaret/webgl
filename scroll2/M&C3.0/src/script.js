@@ -136,81 +136,7 @@ scene.add(mallardbox);
 
 
 
-//set up of walls
 
-//Bottom       
-brcorner.set(1, -1); // corner
-brraycaster.setFromCamera(brcorner, camera);
-brraycaster.ray.intersectPlane(plane, brcornerPoint);
-bottomwallbody.position.copy(brcornerPoint)
-//.add(new THREE.Vector3(-15 , -1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
-//bottomwallbody.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)//width, height, depth (X,Y,Z)
-//Top 
-trcorner.set(1, 1); // corner
-trraycaster.setFromCamera(trcorner, camera);
-trraycaster.ray.intersectPlane(plane, trcornerPoint);
-topwallbody.position.copy(trcornerPoint)
-//.add(new THREE.Vector3(-15, 1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
-//topwallbody.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)
-//Left
-blcorner.set(-1, 1); // corner (across then down)
-blraycaster.setFromCamera(blcorner, camera);
-blraycaster.ray.intersectPlane(plane, blcornerPoint);
-leftwallbody.position.copy(blcornerPoint);
-//.add(new CANNON.Vec3(-1, -15, -10));  // align the position of the box (width, height, depth (X,Y,Z))
-//leftwallbody.scale.set(1, 15, 10)
-//Right
-rightwallbody.position.copy(trcornerPoint)
-//.add(new THREE.Vector3(1, -15, -10)); // align the position of the box (width, height, depth (X,Y,Z))
-//rightbox.scale.set(1, 15, 10)
-
-
-gsap.to(leftwallbody.position, {
-scrollTrigger: {
-trigger: "#trigger1",
-start: "top top",
-end: "bottom top",
-scrub: scrollease,
-toggleActions: "restart pause resume pause"
-},
-x : 5
-}); 
-
-gsap.to(bottomwallbody.position, {
-scrollTrigger: {
-trigger: "#trigger1",
-start: "top top",
-end: "bottom top",
-scrub: scrollease,
-toggleActions: "restart pause resume pause"
-},
-y : 5
-}); 
-/* 
-gsap.to(mallardbody.quaternion, { 
-scrollTrigger: {
-trigger: "#trigger1",
-start: "top top",
-end: "bottom top",
-scrub: scrollease,
-toggleActions: "restart pause resume pause"
-},
-x : -1 * Math.Pi *10,
-y : 0,
-z : 0,
-w : 0
-
-}); 
-*/
-
-let MallardRotation = { val: 0 };
-gsap.to( MallardRotation, { duration: 5, val: -5, repeat: -1, yoyo: true, ease: "power1.inOut", onUpdate: updateRotation })
-function updateRotation() {
-mallardbody.quaternion.setFromAxisAngle(
-new CANNON.Vec3(1, 0, 0),
-Math.PI * MallardRotation.val
-)
-}
 
 
 
@@ -368,7 +294,81 @@ gsap.registerPlugin(ScrollTrigger);
   }
 ) 
 
+//set up of walls
 
+//Bottom       
+brcorner.set(1, -1); // corner
+brraycaster.setFromCamera(brcorner, camera);
+brraycaster.ray.intersectPlane(plane, brcornerPoint);
+bottomwallbody.position.copy(brcornerPoint)
+//.add(new THREE.Vector3(-15 , -1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
+//bottomwallbody.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)//width, height, depth (X,Y,Z)
+//Top 
+trcorner.set(1, 1); // corner
+trraycaster.setFromCamera(trcorner, camera);
+trraycaster.ray.intersectPlane(plane, trcornerPoint);
+topwallbody.position.copy(trcornerPoint)
+//.add(new THREE.Vector3(-15, 1, -10)); // align the position of the box (width, height, depth (X,Y,Z))
+//topwallbody.scale.set(15, 1, 10) //width, height, depth (X,Y,Z)
+//Left
+blcorner.set(-1, 1); // corner (across then down)
+blraycaster.setFromCamera(blcorner, camera);
+blraycaster.ray.intersectPlane(plane, blcornerPoint);
+leftwallbody.position.copy(blcornerPoint);
+//.add(new CANNON.Vec3(-1, -15, -10));  // align the position of the box (width, height, depth (X,Y,Z))
+//leftwallbody.scale.set(1, 15, 10)
+//Right
+rightwallbody.position.copy(trcornerPoint)
+//.add(new THREE.Vector3(1, -15, -10)); // align the position of the box (width, height, depth (X,Y,Z))
+//rightbox.scale.set(1, 15, 10)
+
+
+gsap.to(leftwallbody.position, {
+scrollTrigger: {
+trigger: "#trigger1",
+start: "top top",
+end: "bottom top",
+scrub: scrollease,
+toggleActions: "restart pause resume pause"
+},
+x : 5
+}); 
+
+gsap.to(bottomwallbody.position, {
+scrollTrigger: {
+trigger: "#trigger1",
+start: "top top",
+end: "bottom top",
+scrub: scrollease,
+toggleActions: "restart pause resume pause"
+},
+y : 5
+}); 
+/* 
+gsap.to(mallardbody.quaternion, { 
+scrollTrigger: {
+trigger: "#trigger1",
+start: "top top",
+end: "bottom top",
+scrub: scrollease,
+toggleActions: "restart pause resume pause"
+},
+x : -1 * Math.Pi *10,
+y : 0,
+z : 0,
+w : 0
+
+}); 
+*/
+
+let MallardRotation = { val: 0 };
+gsap.to( MallardRotation, { duration: 5, val: -5, repeat: -1, yoyo: true, ease: "power1.inOut", onUpdate: updateRotation })
+function updateRotation() {
+mallardbody.quaternion.setFromAxisAngle(
+new CANNON.Vec3(1, 0, 0),
+Math.PI * MallardRotation.val
+)
+}
 
 
 //Renderer
