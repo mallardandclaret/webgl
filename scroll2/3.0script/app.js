@@ -79878,7 +79878,7 @@ var cornerPoint = new three__WEBPACK_IMPORTED_MODULE_6__.Vector3();
 var brcornerPoint = new three__WEBPACK_IMPORTED_MODULE_6__.Vector3();
 var blcornerPoint = new three__WEBPACK_IMPORTED_MODULE_6__.Vector3();
 var trcornerPoint = new three__WEBPACK_IMPORTED_MODULE_6__.Vector3();
-const guides = true;
+const guides = false;
 const logogroup = new three__WEBPACK_IMPORTED_MODULE_6__.Group();
 //const objectsToUpdate = [];
 
@@ -79994,8 +79994,8 @@ function initModels(){
     const defaultContactMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_8__.ContactMaterial(
         defaultMaterial,
         defaultMaterial, {
-            friction: 0,
-            restitution: 0.8
+            friction: 0.5,
+            restitution: 0.5
         }
     );
     world.defaultContactMaterial = defaultContactMaterial;
@@ -80108,7 +80108,7 @@ function initModels(){
     //Chris
     const chrisShape = new cannon_es__WEBPACK_IMPORTED_MODULE_8__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_8__.Vec3(1 * 0.5, 2 * 0.5, 1 * 0.5));
     chrisBody = new cannon_es__WEBPACK_IMPORTED_MODULE_8__.Body({
-        mass: 1,
+        mass: 3,
         position: new cannon_es__WEBPACK_IMPORTED_MODULE_8__.Vec3(5, 2, -10),
         shape: chrisShape,
         //material: defaultMaterial
@@ -80259,7 +80259,7 @@ function initModels(){
     });
 
     gravity.addEventListener("click", function (){
-        world.gravity.set(0, -9.8, 0);
+        world.gravity.set(0, -15, 0);
     });
 
 
