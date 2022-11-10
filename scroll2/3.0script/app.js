@@ -80258,6 +80258,10 @@ function initModels(){
         });
     });
 
+    gravity.addEventListener("click", function (){
+        world.gravity.set(0, -9.8, 0);
+    });
+
 
 ///////// Grid texture
 
@@ -80391,12 +80395,6 @@ Promise.all([
     scene.traverse(child => {
         if(child.material && child.material.name === "SIDE"){
             child.material = sideMaterial;
-        }
-    });
-
-    scene.traverse(child => {
-        if(child.material && child.material.name === "FACE"){
-            child.material = faceMaterial;
         }
     });
 
