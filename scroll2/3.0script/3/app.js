@@ -1,9 +1,4 @@
 /******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!*********************!*\
-  !*** ./dist/app.js ***!
-  \*********************/
-/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -11,10 +6,10 @@ var __webpack_exports__ = {};
 /*!**************************************************!*\
   !*** ./node_modules/cannon-es/dist/cannon-es.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_375__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_375__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_375__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AABB": () => (/* binding */ AABB),
 /* harmony export */   "ArrayCollisionMatrix": () => (/* binding */ ArrayCollisionMatrix),
 /* harmony export */   "BODY_SLEEP_STATES": () => (/* binding */ BODY_SLEEP_STATES),
@@ -13102,17 +13097,17 @@ const endShapeContactEvent = {
 /*!****************************************!*\
   !*** ./node_modules/gsap/CSSPlugin.js ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_350327__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_350327__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_350327__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CSSPlugin": () => (/* binding */ CSSPlugin),
 /* harmony export */   "_createElement": () => (/* binding */ _createElement),
 /* harmony export */   "_getBBox": () => (/* binding */ _getBBox),
 /* harmony export */   "checkPrefix": () => (/* binding */ _checkPropPrefix),
 /* harmony export */   "default": () => (/* binding */ CSSPlugin)
 /* harmony export */ });
-/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_350327__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
 /*!
  * CSSPlugin 3.11.3
  * https://greensock.com
@@ -14665,10 +14660,10 @@ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
 /*!********************************************!*\
   !*** ./node_modules/gsap/CSSRulePlugin.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_415773__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_415773__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_415773__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CSSRulePlugin": () => (/* binding */ CSSRulePlugin),
 /* harmony export */   "default": () => (/* binding */ CSSRulePlugin)
 /* harmony export */ });
@@ -14813,10 +14808,10 @@ _getGSAP() && gsap.registerPlugin(CSSRulePlugin);
 /*!***************************************!*\
   !*** ./node_modules/gsap/Observer.js ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_419837__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_419837__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_419837__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Observer": () => (/* binding */ Observer),
 /* harmony export */   "_getProxyProp": () => (/* binding */ _getProxyProp),
 /* harmony export */   "_getScrollFunc": () => (/* binding */ _getScrollFunc),
@@ -15514,10 +15509,10 @@ _getGSAP() && gsap.registerPlugin(Observer);
 /*!*********************************************!*\
   !*** ./node_modules/gsap/ScrollSmoother.js ***!
   \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_445667__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_445667__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_445667__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ScrollSmoother": () => (/* binding */ ScrollSmoother),
 /* harmony export */   "default": () => (/* binding */ ScrollSmoother)
 /* harmony export */ });
@@ -16400,14 +16395,14 @@ _getGSAP() && gsap.registerPlugin(ScrollSmoother);
 /*!********************************************!*\
   !*** ./node_modules/gsap/ScrollTrigger.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_478647__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_478647__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_478647__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ScrollTrigger": () => (/* binding */ ScrollTrigger),
 /* harmony export */   "default": () => (/* binding */ ScrollTrigger)
 /* harmony export */ });
-/* harmony import */ var _Observer_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_478647__(/*! ./Observer.js */ "./node_modules/gsap/Observer.js");
+/* harmony import */ var _Observer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Observer.js */ "./node_modules/gsap/Observer.js");
 /*!
  * ScrollTrigger 3.11.3
  * https://greensock.com
@@ -18868,14 +18863,14 @@ _getGSAP() && gsap.registerPlugin(ScrollTrigger);
 /*!****************************************!*\
   !*** ./node_modules/gsap/SplitText.js ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_580787__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_580787__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_580787__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SplitText": () => (/* binding */ SplitText),
 /* harmony export */   "default": () => (/* binding */ SplitText)
 /* harmony export */ });
-/* harmony import */ var _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_580787__(/*! ./utils/strings.js */ "./node_modules/gsap/utils/strings.js");
+/* harmony import */ var _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/strings.js */ "./node_modules/gsap/utils/strings.js");
 /*!
  * SplitText: 3.11.3
  * https://greensock.com
@@ -19481,14 +19476,14 @@ SplitText.version = "3.11.3";
 /*!*****************************************!*\
   !*** ./node_modules/gsap/TextPlugin.js ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_603998__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_603998__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_603998__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "TextPlugin": () => (/* binding */ TextPlugin),
 /* harmony export */   "default": () => (/* binding */ TextPlugin)
 /* harmony export */ });
-/* harmony import */ var _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_603998__(/*! ./utils/strings.js */ "./node_modules/gsap/utils/strings.js");
+/* harmony import */ var _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/strings.js */ "./node_modules/gsap/utils/strings.js");
 /*!
  * TextPlugin 3.11.3
  * https://greensock.com
@@ -19662,10 +19657,10 @@ _getGSAP() && gsap.registerPlugin(TextPlugin);
 /*!****************************************!*\
   !*** ./node_modules/gsap/gsap-core.js ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_609558__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_609558__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_609558__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Animation": () => (/* binding */ Animation),
 /* harmony export */   "Back": () => (/* binding */ Back),
 /* harmony export */   "Bounce": () => (/* binding */ Bounce),
@@ -24178,10 +24173,10 @@ var Power0 = _easeMap.Power0,
 /*!************************************!*\
   !*** ./node_modules/gsap/index.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_779909__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_779909__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_779909__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Back": () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Back),
 /* harmony export */   "Bounce": () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Bounce),
 /* harmony export */   "CSSPlugin": () => (/* reexport safe */ _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin),
@@ -24208,8 +24203,8 @@ __nested_webpack_require_779909__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ gsapWithCSS),
 /* harmony export */   "gsap": () => (/* binding */ gsapWithCSS)
 /* harmony export */ });
-/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_779909__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
-/* harmony import */ var _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_779909__(/*! ./CSSPlugin.js */ "./node_modules/gsap/CSSPlugin.js");
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/* harmony import */ var _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CSSPlugin.js */ "./node_modules/gsap/CSSPlugin.js");
 
 
 var gsapWithCSS = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(_CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin) || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap,
@@ -24223,10 +24218,10 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 /*!********************************************!*\
   !*** ./node_modules/gsap/utils/strings.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_783590__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_783590__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_783590__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "emojiExp": () => (/* binding */ emojiExp),
 /* harmony export */   "emojiSafeSplit": () => (/* binding */ emojiSafeSplit),
 /* harmony export */   "getText": () => (/* binding */ getText),
@@ -24346,10 +24341,10 @@ function emojiSafeSplit(text, delimiter, trim, preserveSpaces) {
 /*!**************************************************!*\
   !*** ./node_modules/three/build/three.module.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nested_webpack_require_794692__) => {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_794692__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_794692__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ACESFilmicToneMapping": () => (/* binding */ ACESFilmicToneMapping),
 /* harmony export */   "AddEquation": () => (/* binding */ AddEquation),
 /* harmony export */   "AddOperation": () => (/* binding */ AddOperation),
@@ -74747,13 +74742,13 @@ if ( typeof window !== 'undefined' ) {
 /*!***************************************************************!*\
   !*** ./node_modules/three/examples/jsm/loaders/GLTFLoader.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nested_webpack_require_1989991__) => {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-__nested_webpack_require_1989991__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1989991__.d(__webpack_exports__, {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "GLTFLoader": () => (/* binding */ GLTFLoader)
 /* harmony export */ });
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1989991__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
 
 
 class GLTFLoader extends three__WEBPACK_IMPORTED_MODULE_0__.Loader {
@@ -79424,7 +79419,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_2104155__(moduleId) {
+/******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -79438,14 +79433,14 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_2104155__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_2104155__.m = __webpack_modules__;
+/******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/create fake namespace object */
@@ -79458,7 +79453,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 		// mode & 4: return value when already ns object
 /******/ 		// mode & 16: return value when it's Promise-like
 /******/ 		// mode & 8|1: behave like require
-/******/ 		__nested_webpack_require_2104155__.t = function(value, mode) {
+/******/ 		__webpack_require__.t = function(value, mode) {
 /******/ 			if(mode & 1) value = this(value);
 /******/ 			if(mode & 8) return value;
 /******/ 			if(typeof value === 'object' && value) {
@@ -79466,14 +79461,14 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 				if((mode & 16) && typeof value.then === 'function') return value;
 /******/ 			}
 /******/ 			var ns = Object.create(null);
-/******/ 			__nested_webpack_require_2104155__.r(ns);
+/******/ 			__webpack_require__.r(ns);
 /******/ 			var def = {};
 /******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
 /******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
 /******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
 /******/ 			}
 /******/ 			def['default'] = () => (value);
-/******/ 			__nested_webpack_require_2104155__.d(ns, def);
+/******/ 			__webpack_require__.d(ns, def);
 /******/ 			return ns;
 /******/ 		};
 /******/ 	})();
@@ -79481,9 +79476,9 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_2104155__.d = (exports, definition) => {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_2104155__.o(definition, key) && !__nested_webpack_require_2104155__.o(exports, key)) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -79492,12 +79487,12 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	
 /******/ 	/* webpack/runtime/ensure chunk */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_2104155__.f = {};
+/******/ 		__webpack_require__.f = {};
 /******/ 		// This file contains only the entry chunk.
 /******/ 		// The chunk loading function for additional chunks
-/******/ 		__nested_webpack_require_2104155__.e = (chunkId) => {
-/******/ 			return Promise.all(Object.keys(__nested_webpack_require_2104155__.f).reduce((promises, key) => {
-/******/ 				__nested_webpack_require_2104155__.f[key](chunkId, promises);
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
 /******/ 				return promises;
 /******/ 			}, []));
 /******/ 		};
@@ -79506,7 +79501,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	/* webpack/runtime/get javascript chunk filename */
 /******/ 	(() => {
 /******/ 		// This function allow to reference async chunks
-/******/ 		__nested_webpack_require_2104155__.u = (chunkId) => {
+/******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
 /******/ 			return "" + chunkId + ".js";
 /******/ 		};
@@ -79514,7 +79509,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_2104155__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/load script */
@@ -79522,7 +79517,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 		var inProgress = {};
 /******/ 		var dataWebpackPrefix = "daffy:";
 /******/ 		// loadScript function to load a script via script tag
-/******/ 		__nested_webpack_require_2104155__.l = (url, done, key, chunkId) => {
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
 /******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
 /******/ 			var script, needAttach;
 /******/ 			if(key !== undefined) {
@@ -79538,8 +79533,8 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 		
 /******/ 				script.charset = 'utf-8';
 /******/ 				script.timeout = 120;
-/******/ 				if (__nested_webpack_require_2104155__.nc) {
-/******/ 					script.setAttribute("nonce", __nested_webpack_require_2104155__.nc);
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 				}
 /******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
 /******/ 				script.src = url;
@@ -79566,7 +79561,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_2104155__.r = (exports) => {
+/******/ 		__webpack_require__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -79576,7 +79571,7 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_2104155__.p = "/dist/";
+/******/ 		__webpack_require__.p = "/dist/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
@@ -79590,9 +79585,9 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 			"main": 0
 /******/ 		};
 /******/ 		
-/******/ 		__nested_webpack_require_2104155__.f.j = (chunkId, promises) => {
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
 /******/ 				// JSONP chunk loading for javascript
-/******/ 				var installedChunkData = __nested_webpack_require_2104155__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
 /******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
 /******/ 		
 /******/ 					// a Promise means "currently loading".
@@ -79605,11 +79600,11 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 							promises.push(installedChunkData[2] = promise);
 /******/ 		
 /******/ 							// start chunk loading
-/******/ 							var url = __nested_webpack_require_2104155__.p + __nested_webpack_require_2104155__.u(chunkId);
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
 /******/ 							// create error before stack unwound to get useful stacktrace later
 /******/ 							var error = new Error();
 /******/ 							var loadingEnded = (event) => {
-/******/ 								if(__nested_webpack_require_2104155__.o(installedChunks, chunkId)) {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
 /******/ 									installedChunkData = installedChunks[chunkId];
 /******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
 /******/ 									if(installedChunkData) {
@@ -79623,8 +79618,8 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 									}
 /******/ 								}
 /******/ 							};
-/******/ 							__nested_webpack_require_2104155__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-/******/ 						} else {}
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						} else installedChunks[chunkId] = 0;
 /******/ 					}
 /******/ 				}
 /******/ 		};
@@ -79647,16 +79642,16 @@ function toTrianglesDrawMode( geometry, drawMode ) {
 /******/ 			var moduleId, chunkId, i = 0;
 /******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
 /******/ 				for(moduleId in moreModules) {
-/******/ 					if(__nested_webpack_require_2104155__.o(moreModules, moduleId)) {
-/******/ 						__nested_webpack_require_2104155__.m[moduleId] = moreModules[moduleId];
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
 /******/ 					}
 /******/ 				}
-/******/ 				if(runtime) var result = runtime(__nested_webpack_require_2104155__);
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
 /******/ 			}
 /******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 /******/ 			for(;i < chunkIds.length; i++) {
 /******/ 				chunkId = chunkIds[i];
-/******/ 				if(__nested_webpack_require_2104155__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
 /******/ 				}
 /******/ 				installedChunks[chunkId] = 0;
@@ -79676,16 +79671,16 @@ var __webpack_exports__ = {};
 /*!*********************!*\
   !*** ./dist/app.js ***!
   \*********************/
-__nested_webpack_require_2104155__.r(__webpack_exports__);
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_2104155__(/*! three */ "./node_modules/three/build/three.module.js");
-/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_7__ = __nested_webpack_require_2104155__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_2104155__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_2104155__(/*! gsap/ScrollSmoother */ "./node_modules/gsap/ScrollSmoother.js");
-/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_2104155__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_2104155__(/*! gsap/TextPlugin */ "./node_modules/gsap/TextPlugin.js");
-/* harmony import */ var gsap_SplitText__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_2104155__(/*! gsap/SplitText */ "./node_modules/gsap/SplitText.js");
-/* harmony import */ var gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_2104155__(/*! gsap/CSSRulePlugin */ "./node_modules/gsap/CSSRulePlugin.js");
-/* harmony import */ var cannon_es__WEBPACK_IMPORTED_MODULE_8__ = __nested_webpack_require_2104155__(/*! cannon-es */ "./node_modules/cannon-es/dist/cannon-es.js");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollSmoother */ "./node_modules/gsap/ScrollSmoother.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/TextPlugin */ "./node_modules/gsap/TextPlugin.js");
+/* harmony import */ var gsap_SplitText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/SplitText */ "./node_modules/gsap/SplitText.js");
+/* harmony import */ var gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/CSSRulePlugin */ "./node_modules/gsap/CSSRulePlugin.js");
+/* harmony import */ var cannon_es__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! cannon-es */ "./node_modules/cannon-es/dist/cannon-es.js");
 
         
 
@@ -79761,7 +79756,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPAC
 
 (async function (){
     if(!("paintWorklet" in CSS)){
-        await __nested_webpack_require_2104155__.e(/*! import() */ "vendors-node_modules_css-paint-polyfill_dist_css-paint-polyfill_js").then(__nested_webpack_require_2104155__.t.bind(__nested_webpack_require_2104155__, /*! css-paint-polyfill */ "./node_modules/css-paint-polyfill/dist/css-paint-polyfill.js", 23));
+        await __webpack_require__.e(/*! import() */ "vendors-node_modules_css-paint-polyfill_dist_css-paint-polyfill_js").then(__webpack_require__.t.bind(__webpack_require__, /*! css-paint-polyfill */ "./node_modules/css-paint-polyfill/dist/css-paint-polyfill.js", 23));
     }
 
     CSS.paintWorklet.addModule(
@@ -79770,8 +79765,8 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPAC
 })();
 
 function initEv(){
-    //const ambientLight = new THREE.AmbientLight( 0xffffff, 10 );
-    //				scene.add( ambientLight );
+    const ambientLight = new three__WEBPACK_IMPORTED_MODULE_6__.AmbientLight(0xffffff, 0.2);
+    				scene.add(ambientLight);
 
     const cubeTextureLoader = new three__WEBPACK_IMPORTED_MODULE_6__.CubeTextureLoader();
     // Environment map
@@ -79780,10 +79775,10 @@ function initEv(){
         scene.traverse((child) => {
             if(child instanceof three__WEBPACK_IMPORTED_MODULE_6__.Mesh && child.material instanceof three__WEBPACK_IMPORTED_MODULE_6__.MeshStandardMaterial, three__WEBPACK_IMPORTED_MODULE_6__.MeshPhysicalMaterial){
                 child.material.envMap = environmentMap;
-                child.material.envMapIntensity = 1;
+                //child.material.envMapIntensity = 1;
                 child.material.needsUpdate = true;
-                child.castShadow = true;
-                child.receiveShadow = true;
+                //child.castShadow = true;
+                //child.receiveShadow = true;
             }
         });
     };
@@ -79795,10 +79790,10 @@ function initEv(){
         "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/pz.jpg", //Front 
         "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/nz.jpg" //Back 
     ]);
-    //environmentMap.encoding = THREE.sRGBEncoding
+    //environmentMap.encoding = THREE.sRGBEncoding;
     //scene.background = environmentMap
     scene.environment = environmentMap;
-    //envMapIntensity = 5
+    //scene.envMapIntensity = 20;
 }
 function intro(){
     //Bottom       
@@ -79863,14 +79858,18 @@ function intro(){
 }
 let scene, renderer, camera, camera2, clock, oldElapsedTime, world, textureLoader, objectsToUpdate;
 const loader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_7__.GLTFLoader();
+const loader2 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_7__.GLTFLoader();
 
 let scrollease = 0;
 let mscale = 0.65;
 var plane = new three__WEBPACK_IMPORTED_MODULE_6__.Plane().setFromNormalAndCoplanarPoint(new three__WEBPACK_IMPORTED_MODULE_6__.Vector3(0, 0, 1), new three__WEBPACK_IMPORTED_MODULE_6__.Vector3(0, 0, 1));
 let mixer = null;
+let mixer2 = null;
 var Mallard, Mallard_M, Mallard_A1, Mallard_L1, Mallard_L2, Mallard_A2, Mallard_R, Mallard_D  = new three__WEBPACK_IMPORTED_MODULE_6__.Object3D;
 var Claret, Claret_AND, Claret_C, Claret_L, Claret_A, Claret_R, Claret_E, Claret_T = new three__WEBPACK_IMPORTED_MODULE_6__.Object3D;
 var Chris = new three__WEBPACK_IMPORTED_MODULE_6__.Object3D;
+//var soldier = new THREE.Object3D;
+//var gas = new THREE.Object3D;
 var raycaster = new three__WEBPACK_IMPORTED_MODULE_6__.Raycaster();
 var brraycaster = new three__WEBPACK_IMPORTED_MODULE_6__.Raycaster();
 var blraycaster = new three__WEBPACK_IMPORTED_MODULE_6__.Raycaster();
@@ -79887,7 +79886,7 @@ const guides = false;
 const logogroup = new three__WEBPACK_IMPORTED_MODULE_6__.Group();
 //const objectsToUpdate = [];
 
-let chrisBody, sphereBody, cubeBody,bottomwallbody,topwallbody,rightwallbody,frontwallbody,backwallbody,mallardbody,claretbody,leftwallbody2, sphere,sphere2,leftwall,rightbox,bottombox,topbox,frontbox,backbox,mallardbox,claretbox;
+let gas, soldier, chrisBody, sphereBody, cubeBody,bottomwallbody,topwallbody,rightwallbody,frontwallbody,backwallbody,mallardbody,claretbody,leftwallbody2, sphere,sphere2,leftwall,rightbox,bottombox,topbox,frontbox,backbox,mallardbox,claretbox;
 
 function initWebgl(){
     const canvas = document.querySelector("canvas.webgl");
@@ -79911,14 +79910,18 @@ function initWebgl(){
     //Renderer
     renderer = new three__WEBPACK_IMPORTED_MODULE_6__.WebGLRenderer({
         canvas: canvas,
-        powerPreference: "high-performance",
+        //powerPreference: "high-performance",
         antialias: true,
         alpha: true
     });
     renderer.physicallyCorrectLights = true;
-    //renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMapping = three__WEBPACK_IMPORTED_MODULE_6__.LinearToneMapping;
-    renderer.toneMappingExposure = 1.3;
+    renderer.toneMapping = 
+    //THREE.NoToneMapping;
+    three__WEBPACK_IMPORTED_MODULE_6__.LinearToneMapping;
+    //THREE.ReinhardToneMapping;
+    //THREE.CineonToneMapping;
+    //THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 3.5;
     //renderer.outputEncoding = THREE.sRGBEncoding;
     //renderer.shadowMap.enabled = false
     //renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -79939,6 +79942,9 @@ function animate(){
     oldElapsedTime = elapsedTime;
 
     chrisBody.applyLocalForce(new cannon_es__WEBPACK_IMPORTED_MODULE_8__.Vec3(0, 0, 0.01), chrisBody.position);
+
+    
+
 
     // Update physics
     world.step(1 / 60, deltaTime, 3);
@@ -79970,9 +79976,22 @@ function animate(){
     leftwall.quaternion.copy(leftwallbody2.quaternion);
     //controls.update()
     //camera.lookAt(scene.position);
-    renderer.render(scene, camera);
+
+    
+    
 
     requestAnimationFrame(animate);
+    
+    renderer.render(scene, camera);
+
+    if(mixer2){
+	
+		mixer2.update(delta);
+	
+	}
+
+    if(mixer = null) mixer.update(delta);
+    
 }
 let sizes = {
     width: window.innerWidth,
@@ -79986,6 +80005,10 @@ let windowHalfY = window.innerHeight / 2;
 initWebgl();
 intro();
 function initModels(){
+    
+    
+    
+    
     //Physics
     world = new cannon_es__WEBPACK_IMPORTED_MODULE_8__.World();
     world.broadphase = new cannon_es__WEBPACK_IMPORTED_MODULE_8__.SAPBroadphase(world);
@@ -80135,7 +80158,8 @@ function initModels(){
         new three__WEBPACK_IMPORTED_MODULE_6__.SphereGeometry(1, 32, 32),
         new three__WEBPACK_IMPORTED_MODULE_6__.MeshBasicMaterial({
             color: 0xe54848,
-            toneMapped: false
+            toneMapped: false,
+            envMapIntensity: 0
         })
     );
     scene.add(sphere);
@@ -80145,7 +80169,8 @@ function initModels(){
         new three__WEBPACK_IMPORTED_MODULE_6__.MeshPhysicalMaterial({
             roughness: 0.6,
             transmission: 1,
-            thickness: 2
+            thickness: 2,
+            envMapIntensity: 0.3
         })
     );
     scene.add(sphere2);
@@ -80228,7 +80253,8 @@ function initModels(){
     const sphereMaterial = new three__WEBPACK_IMPORTED_MODULE_6__.MeshStandardMaterial({
         color: 0xFFFFFF,
         roughness: 0.3,
-        metalness: 1.0
+        metalness: 1.0,
+        envMapIntensity: 0.3
     });
     const createSphere = (radius, position) => {
         // Three.js mesh
@@ -80255,6 +80281,8 @@ function initModels(){
         });
     };
 
+////////////BUTTONS
+
     button.addEventListener("click", function (){
         createSphere(Math.random() * 0.8, {
             x: (Math.random() - 0.5) * 3,
@@ -80263,16 +80291,16 @@ function initModels(){
         });
     });
 
-    gravityY.addEventListener("click", function (){
-        world.gravity.set(0, -15, 0);
+    gravity.addEventListener("click", function (){
+        world.gravity.set(0, -18, 0);
     });
 
     gravityX.addEventListener("click", function (){
-        world.gravity.set(-15, 0, 0);
+        world.gravity.set(-18, 0, 0);
     });
 
     gravity0.addEventListener("click", function (){
-        world.gravity.set(0, 1, 0);
+        world.gravity.set(0, 0.1, 0);
     });
 
 
@@ -80321,7 +80349,13 @@ Promise.all([
     ),
     loader.loadAsync(
         "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/PIChris.glb"
-    )
+    ),
+   // loader.loadAsync(
+    //    "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/GAS9a.gltf"
+   // ),
+  // loader.loadAsync(
+   // "https://threejs.org/examples/models/gltf/Soldier.glb"
+  //  ),
 ])
 .then(models => {
     Mallard = models[0].scene;
@@ -80342,16 +80376,19 @@ Promise.all([
     Claret_E = models[1].scene.children[5];
     Claret_T = models[1].scene.children[6];
     Chris = models[2].scene.children[0];
+
     
 
     scene.add(Mallard);
     scene.add(Claret);
     scene.add(Chris);
+    //scene.add(Gas);
+    //scene.add(soldier);
 
-    //AND = models[1].scene.children[0];
+    
 
-    //const chrismaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0, roughness: 0 } );
-    //Chris.material = chrismaterial;
+    const chrismaterial = new three__WEBPACK_IMPORTED_MODULE_6__.MeshStandardMaterial({ color: 0xffffff, metalness: 0, roughness: 1, envMapIntensity: 0.25 });
+    Chris.material = chrismaterial;
     Chris.scale.set(1, 1, 1);
     //Chris.position.set(5,3,-5);
 
@@ -80376,6 +80413,81 @@ Promise.all([
 });
 
 
+
+	loader.load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/GAS9a.gltf",
+    (gltf) =>
+    {
+        //gltf.scene.scale.set(5, 5, 5)
+        //gltf.scene.position.set(0, -15, 5);
+        //scene.add(gltf.scene)
+        
+        //updateAllMaterials();
+
+        // Animation
+        //mixer = new THREE.AnimationMixer(gltf.scene)
+        //const action = mixer.clipAction(gltf.animations[0])
+        //action.play()
+        
+        //Scroll Version
+        
+        const gas = gltf.scene;
+        gas.scale.set(3, 3, 3);
+        gas.position.set(-4, -6, 0);
+        //gas.rotation.z += -0.3;
+        //gas.rotation.x += -0.3;
+        scene.add(gas);
+
+        
+
+
+        mixer = new three__WEBPACK_IMPORTED_MODULE_6__.AnimationMixer(gas);
+        //mixer.clipAction(gltf.animations[1]).play();
+        var action = mixer.clipAction(gltf.animations[0]);
+        //action.clampWhenFinished = true;
+        action.play();
+
+        createAnimation(mixer, action, gltf.animations[0]);
+
+
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(gas.rotation, {y: 0},
+            {y: Math.PI*2, ease: "none", duration: 8, repeat: -1, yoyo:false }
+            );
+
+  }
+); 
+
+    loader.load("https://threejs.org/examples/models/gltf/Soldier.glb", function (gltf){
+
+		const soldier = gltf.scene;
+		
+        soldier.scale.set(2, 2, 2);
+        soldier.position.set(5, -3, 0);
+        soldier.rotation.y += Math.PI *1.2;
+
+		mixer2 = new three__WEBPACK_IMPORTED_MODULE_6__.AnimationMixer(soldier);
+		
+		const idleClip = gltf.animations[0];
+		const walkClip = gltf.animations[3];
+		
+		const idleAction = mixer2.clipAction(idleClip);
+		const walkAction = mixer2.clipAction(walkClip);
+		
+		idleAction.play();
+		
+		setTimeout(function(){
+		
+			walkAction.play();
+			idleAction.crossFadeTo(walkAction, 1);
+		
+		}, 2000);
+
+		scene.add(soldier);
+
+	});
+
+    
+
+
     Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale,
         windowHalfX / windowHalfY / mscale);
     Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale,
@@ -80398,11 +80510,13 @@ Promise.all([
 
     var sideMaterial = new three__WEBPACK_IMPORTED_MODULE_6__.MeshBasicMaterial({
         color: 0xefe3db,
-        toneMapped: false
+        toneMapped: false,
+        toneMappingExposure: 0
     });
     var faceMaterial = new three__WEBPACK_IMPORTED_MODULE_6__.MeshBasicMaterial({
         color: 0xe54848,
-        toneMapped: false
+        toneMapped: false,
+        toneMappingExposure: 0
     });
 
     scene.traverse(child => {
@@ -80827,6 +80941,38 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         }
     });
 
+
+    function createAnimation(mixer, action, clip){
+        let proxy = {
+        get time(){
+        return mixer.time;
+        },
+        set time(value){
+        action.paused = false;
+        mixer.setTime(value);
+        action.paused = true;
+        }
+        };
+
+        let scrollingTL = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        scrollTrigger: {
+            trigger: "trigger1",
+            start: "top top",
+              end: "500%",
+        pin: true,
+        scrub: scrollease,
+        onUpdate: function (){
+        camera.updateProjectionMatrix();
+        }
+        }
+      });
+
+      scrollingTL.to(proxy, {
+      time: clip.duration,
+      repeat: 0
+      });
+      }
+
     // mallardbody.position.set(0, 5, 1);
 
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard.position, {
@@ -80850,6 +80996,9 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         },
         z: -20,
     });
+
+    
+
 
 });
 }
@@ -80906,9 +81055,6 @@ window.addEventListener("resize", () => {
 });
 })();
 
-/******/ })()
-;
-//# sourceMappingURL=app.js.map
 /******/ })()
 ;
 //# sourceMappingURL=app.js.map
