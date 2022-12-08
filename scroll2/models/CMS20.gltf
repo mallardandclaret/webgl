@@ -139,9 +139,9 @@
                 7.168506145477295
             ],
             "translation" : [
-                -26.90203094482422,
+                -14.70919418334961,
                 112.66105651855469,
-                -22.180734634399414
+                -37.831241607666016
             ]
         }
     ],
@@ -1077,15 +1077,15 @@
         {
             "bufferView" : 65,
             "componentType" : 5126,
-            "count" : 2012,
+            "count" : 1989,
             "max" : [
-                5.463000297546387,
-                0.05000000074505806,
-                0.009000000543892384
+                2.685774326324463,
+                0.07600228488445282,
+                0.008999999612569809
             ],
             "min" : [
-                0.07400000095367432,
-                -0.05000000074505806,
+                -2.703226089477539,
+                -0.023997712880373,
                 -0.6910000443458557
             ],
             "type" : "VEC3"
@@ -1093,13 +1093,13 @@
         {
             "bufferView" : 66,
             "componentType" : 5126,
-            "count" : 2012,
+            "count" : 1989,
             "type" : "VEC3"
         },
         {
             "bufferView" : 67,
             "componentType" : 5126,
-            "count" : 2012,
+            "count" : 1989,
             "type" : "VEC2"
         },
         {
@@ -1502,26 +1502,26 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 24144,
+            "byteLength" : 23868,
             "byteOffset" : 8668552,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 24144,
-            "byteOffset" : 8692696,
+            "byteLength" : 23868,
+            "byteOffset" : 8692420,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 16096,
-            "byteOffset" : 8716840,
+            "byteLength" : 15912,
+            "byteOffset" : 8716288,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 6936,
-            "byteOffset" : 8732936,
+            "byteOffset" : 8732200,
             "target" : 34963
         }
     ],
@@ -1533,7 +1533,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 8739872,
+            "byteLength" : 8739136,
             "uri" : "CMS20.bin"
         }
     ]
