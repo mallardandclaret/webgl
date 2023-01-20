@@ -697,8 +697,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				// Renderer
 
 				gRenderer = new THREE.WebGLRenderer();
+                gRenderer.antialias: true;
 				gRenderer.shadowMap.enabled = true;
-				gRenderer.setPixelRatio( window.devicePixelRatio );
+				gRenderer.setPixelRatio( window.devicePixelRatio / 2 );
 				gRenderer.setSize( 0.8 * window.innerWidth, 0.8 * window.innerHeight );
 				window.addEventListener( 'resize', onWindowResize, false );
 				container.appendChild( gRenderer.domElement );
