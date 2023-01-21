@@ -709,7 +709,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     
                 const updateAllMaterials = () => {
 			    gThreeScene.traverse((child) => {
-                if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial){
+                if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshPhongMaterial){
                 child.material.envMap = environmentMap;
                 //child.material.envMapIntensity = 1;
                 child.material.needsUpdate = true;
