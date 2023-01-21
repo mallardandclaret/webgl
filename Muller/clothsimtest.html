@@ -838,6 +838,45 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			
 			// ------------------------------------------------------
 
+
+
+
+			const cubeTextureLoader = new THREE.CubeTextureLoader();
+    // Environment map
+    //Update all materials
+    const updateAllMaterials = () => {
+        scene.traverse((child) => {
+            if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial){
+                child.material.envMap = environmentMap;
+                //child.material.envMapIntensity = 1;
+                child.material.needsUpdate = true;
+                //child.castShadow = true;
+                //child.receiveShadow = true;
+            }
+        });
+    };
+    const environmentMap = cubeTextureLoader.load([
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/px.jpg", //Right  
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/nx.jpg", //Left
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/py.jpg", //Top                  
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/ny.jpg", //bottom 
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/pz.jpg", //Front 
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/nz.jpg" //Back 
+    ]);
+    //environmentMap.encoding = THREE.sRGBEncoding;
+    //scene.background = environmentMap
+    scene.environment = environmentMap;
+
+
+
+
+
+
+
+
+
+
+
 			function onWindowResize() {
 
 				gCamera.aspect = window.innerWidth / window.innerHeight;
