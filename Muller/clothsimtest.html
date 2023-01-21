@@ -404,7 +404,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					this.triMesh.layers.enable(1);
 					scene.add(this.triMesh);
 
-					var backMaterial = new THREE.MeshPhongMaterial({color: 0xff8000, side: THREE.BackSide});
+					var backMaterial = new THREE.MeshStandardMaterial({color: 0xff8000, metalness: 0.9, roughness: 0.1, side: THREE.BackSide});
 					this.backMesh = new THREE.Mesh(geometry, backMaterial);
 					this.backMesh.userData = this;	// for raycasting
 					this.backMesh.layers.enable(1);
