@@ -397,7 +397,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					geometry = new THREE.BufferGeometry();
 					geometry.setAttribute('position', new THREE.BufferAttribute(this.pos, 3));
 					geometry.setIndex(triIds);
-					var visMaterial = new THREE.MeshPhongMaterial({color: 0xff0000, side: THREE.FrontSide});
+					var visMaterial = new THREE.MeshPhongMaterial({color: 0xffffff, metalness: 0.9, roughness: 0.1, side: THREE.FrontSide});
 					this.triMesh = new THREE.Mesh(geometry, visMaterial);
 					this.triMesh.castShadow = true;
 					this.triMesh.userData = this;	// for raycasting
