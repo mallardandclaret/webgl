@@ -401,9 +401,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             roughness: 0.6,
             transmission: 1,
             thickness: 2,
-            envMapIntensity: 0.3
-            
-        });
+            envMapIntensity: 0.3,
+            side: THREE.FrontSide});
+
 					this.triMesh = new THREE.Mesh(geometry, visMaterial);
 					this.triMesh.castShadow = true;
 					this.triMesh.userData = this;	// for raycasting
@@ -414,9 +414,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             roughness: 0.6,
             transmission: 1,
             thickness: 2,
-            envMapIntensity: 0.3
-            
-        });
+            envMapIntensity: 0.3, side: THREE.BackSide});
 					this.backMesh = new THREE.Mesh(geometry, backMaterial);
 					this.backMesh.userData = this;	// for raycasting
 					this.backMesh.layers.enable(1);
@@ -724,7 +722,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     
                 const updateAllMaterials = () => {
 			    gThreeScene.traverse((child) => {
-                if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial){
+                if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshPhysicalMaterial){
                 child.material.envMap = environmentMap;
                 //child.material.envMapIntensity = 1;
                 child.material.needsUpdate = true;
