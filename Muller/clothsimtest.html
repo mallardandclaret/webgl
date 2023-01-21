@@ -398,9 +398,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					geometry.setAttribute('position', new THREE.BufferAttribute(this.pos, 3));
 					geometry.setIndex(triIds);
 					var visMaterial = new THREE.MeshPhysicalMaterial({
-            roughness: 0.6,
+            roughness: 0.1,
             transmission: 1,
-            thickness: 2,
+            thickness: 0.1,
             envMapIntensity: 0.3,
             side: THREE.FrontSide});
 
@@ -411,9 +411,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					scene.add(this.triMesh);
 
 					var backMaterial = new THREE.MeshPhysicalMaterial({
-            roughness: 0.6,
+            roughness: 0.1,
             transmission: 1,
-            thickness: 2,
+            thickness: 0.1,
             envMapIntensity: 0.3, side: THREE.BackSide});
 					this.backMesh = new THREE.Mesh(geometry, backMaterial);
 					this.backMesh.userData = this;	// for raycasting
