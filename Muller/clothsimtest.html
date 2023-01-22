@@ -719,11 +719,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 gRenderer.physicallyCorrectLights = true;
                 gRenderer.toneMapping = 
                 //THREE.NoToneMapping;
-                THREE.LinearToneMapping;
+                //THREE.LinearToneMapping;
                 //THREE.ReinhardToneMapping;
-                //THREE.CineonToneMapping;
+                THREE.CineonToneMapping;
                 //THREE.ACESFilmicToneMapping;
-                gRenderer.toneMappingExposure = 1;
+                gRenderer.toneMappingExposure = 3;
     //renderer.outputEncoding = THREE.sRGBEncoding;
     //renderer.shadowMap.enabled = false
     //renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -762,7 +762,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 //environmentMap.encoding = THREE.sRGBEncoding;
                 //gThreeScene.background = environmentMap;
                 gThreeScene.environment = environmentMap;
-				gThreeScene.envMapIntensity = 10;
+				//gThreeScene.envMapIntensity = 10;
 
 
 				
