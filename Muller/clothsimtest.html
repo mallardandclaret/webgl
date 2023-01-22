@@ -131,7 +131,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 			var gPhysicsScene = 
 			{
-				gravity : [0.0, -10.0, 0.0],
+				gravity : [0.0, 0.0, 0.0],
 				dt : 1.0 / 60.0,
 				numSubsteps : 10,
 				paused: true,
@@ -693,13 +693,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				
 				// Geometry
 
+
+				 //visible ball
+				 sphere = new THREE.Mesh(
+                 new THREE.SphereGeometry(1, 32, 32),
+                 new THREE.MeshBasicMaterial({
+                 color: 0xe54848,
+                 toneMapped: false,
+                 envMapIntensity: 0
+                 })
+                 );
+				gThreeScene.add(sphere);
+
 				var ground = new THREE.Mesh(
 					new THREE.PlaneBufferGeometry( 20, 20, 1, 1 ),
 					new THREE.MeshStandardMaterial( { color: 0xFFFFFF,
                     roughness: 0.3,
                     metalness: 1.0,
-                   envMapIntensity: 1 } )
-				   );				
+                    envMapIntensity: 1 } )
+				    );				
 
 				ground.rotation.x = - Math.PI / 2; // rotates X/Y to X/Z
 				ground.receiveShadow = true;
@@ -724,11 +736,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 //THREE.CineonToneMapping;
                 THREE.ACESFilmicToneMapping;
                 gRenderer.toneMappingExposure = 3;
-    //renderer.outputEncoding = THREE.sRGBEncoding;
-    //renderer.shadowMap.enabled = false
-    //renderer.shadowMap.type = THREE.PCFSoftShadowMap
+                //renderer.outputEncoding = THREE.sRGBEncoding;
+                //renderer.shadowMap.enabled = false
+                //renderer.shadowMap.type = THREE.PCFSoftShadowMap
     
-    gRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                gRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 
 				
