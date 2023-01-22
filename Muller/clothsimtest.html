@@ -402,7 +402,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             transmission: 1,
 			
 			metalness: 0.1,
-            thickness: 0.3,
+            thickness: 0.8,
             envMapIntensity: 0.3,
             side: THREE.FrontSide});
 
@@ -417,7 +417,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             transmission: 1,
 			
 			metalness: 0.1,
-            thickness: 0.3,
+            thickness: 0.8,
             envMapIntensity: 0.3, side: THREE.BackSide});
 					this.backMesh = new THREE.Mesh(geometry, backMaterial);
 					this.backMesh.userData = this;	// for raycasting
@@ -760,7 +760,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/nz.jpg" //Back 
                  ]);
                 //environmentMap.encoding = THREE.sRGBEncoding;
-                gThreeScene.background = environmentMap;
+                //gThreeScene.background = environmentMap;
                 gThreeScene.environment = environmentMap;
 
 				
