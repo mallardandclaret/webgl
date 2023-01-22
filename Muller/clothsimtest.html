@@ -715,7 +715,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 				gRenderer = new THREE.WebGLRenderer({antialias: true});
 				gRenderer.shadowMap.enabled = true;
-				gRenderer.setPixelRatio( window.devicePixelRatio / 2 );
+
+                gRenderer.physicallyCorrectLights = true;
+                gRenderer.toneMapping = 
+                //THREE.NoToneMapping;
+                THREE.LinearToneMapping;
+                //THREE.ReinhardToneMapping;
+                //THREE.CineonToneMapping;
+                //THREE.ACESFilmicToneMapping;
+                gRenderer.toneMappingExposure = 1;
+    //renderer.outputEncoding = THREE.sRGBEncoding;
+    //renderer.shadowMap.enabled = false
+    //renderer.shadowMap.type = THREE.PCFSoftShadowMap
+    
+    gRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+
+				
 				gRenderer.setSize( 0.8 * window.innerWidth, 0.8 * window.innerHeight );
 				window.addEventListener( 'resize', onWindowResize, false );
 				container.appendChild( gRenderer.domElement );
@@ -744,7 +760,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/environmentMaps/4/nz.jpg" //Back 
                  ]);
                 //environmentMap.encoding = THREE.sRGBEncoding;
-                //gThreeScene.background = environmentMap;
+                gThreeScene.background = environmentMap;
                 gThreeScene.environment = environmentMap;
 
 				
