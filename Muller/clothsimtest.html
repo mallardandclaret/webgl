@@ -400,9 +400,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					var visMaterial = new THREE.MeshPhysicalMaterial({
             roughness: 0.1,
             transmission: 1,
-			reflectivity : 1,
-			metalness: 0.2,
-            thickness: 0.5,
+			
+			metalness: 0.1,
+            thickness: 0.3,
             envMapIntensity: 0.3,
             side: THREE.FrontSide});
 
@@ -415,9 +415,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					var backMaterial = new THREE.MeshPhysicalMaterial({
             roughness: 0.1,
             transmission: 1,
-			reflectivity : 1,
-			metalness: 0.2,
-            thickness: 0.5,
+			
+			metalness: 0.1,
+            thickness: 0.3,
             envMapIntensity: 0.3, side: THREE.BackSide});
 					this.backMesh = new THREE.Mesh(geometry, backMaterial);
 					this.backMesh.userData = this;	// for raycasting
