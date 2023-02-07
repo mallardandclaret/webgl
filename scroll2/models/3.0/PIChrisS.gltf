@@ -49,11 +49,11 @@
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                -1
+                                -0.5
                             ],
                             "scale" : [
-                                2,
-                                2
+                                1.5,
+                                1.5
                             ]
                         }
                     },
