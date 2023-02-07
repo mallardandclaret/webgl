@@ -3,6 +3,12 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -31,9 +37,26 @@
     "materials" : [
         {
             "doubleSided" : true,
+            "emissiveFactor" : [
+                0.06063888967037201,
+                0.06063888967037201,
+                0.06063888967037201
+            ],
             "name" : "Marble",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                -1
+                            ],
+                            "scale" : [
+                                2,
+                                2
+                            ]
+                        }
+                    },
                     "index" : 0
                 },
                 "metallicFactor" : 0,
