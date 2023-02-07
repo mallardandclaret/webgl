@@ -38,9 +38,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.06063888967037201,
-                0.06063888967037201,
-                0.06063888967037201
+                0.03876328095793724,
+                0.03876328095793724,
+                0.03876328095793724
             ],
             "name" : "Marble",
             "pbrMetallicRoughness" : {
@@ -60,7 +60,7 @@
                     "index" : 0
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
+                "roughnessFactor" : 0.05454545468091965
             }
         }
     ],
