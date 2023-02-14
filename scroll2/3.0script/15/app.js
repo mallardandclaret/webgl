@@ -1,319 +1,14 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/cannon-es-debugger/dist/cannon-es-debugger.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/cannon-es-debugger/dist/cannon-es-debugger.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/@barba/core/dist/barba.umd.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@barba/core/dist/barba.umd.js ***!
+  \****************************************************/
+/***/ (function(module) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ CannonDebugger)
-/* harmony export */ });
-/* harmony import */ var cannon_es__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cannon-es */ "./node_modules/cannon-es/dist/cannon-es.js");
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-
-
-
-function CannonDebugger(scene, world, _temp) {
-  let {
-    color = 0x00ff00,
-    scale = 1,
-    onInit,
-    onUpdate
-  } = _temp === void 0 ? {} : _temp;
-  const _meshes = [];
-
-  const _material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshBasicMaterial({
-    color: color != null ? color : 0x00ff00,
-    wireframe: true
-  });
-
-  const _tempVec0 = new cannon_es__WEBPACK_IMPORTED_MODULE_1__.Vec3();
-
-  const _tempVec1 = new cannon_es__WEBPACK_IMPORTED_MODULE_1__.Vec3();
-
-  const _tempVec2 = new cannon_es__WEBPACK_IMPORTED_MODULE_1__.Vec3();
-
-  const _tempQuat0 = new cannon_es__WEBPACK_IMPORTED_MODULE_1__.Quaternion();
-
-  const _sphereGeometry = new three__WEBPACK_IMPORTED_MODULE_0__.SphereGeometry(1);
-
-  const _boxGeometry = new three__WEBPACK_IMPORTED_MODULE_0__.BoxGeometry(1, 1, 1);
-
-  const _planeGeometry = new three__WEBPACK_IMPORTED_MODULE_0__.PlaneGeometry(10, 10, 10, 10); // Move the planeGeometry forward a little bit to prevent z-fighting
-
-
-  _planeGeometry.translate(0, 0, 0.0001);
-
-  function createConvexPolyhedronGeometry(shape) {
-    const geometry = new three__WEBPACK_IMPORTED_MODULE_0__.BufferGeometry(); // Add vertices
-
-    const positions = [];
-
-    for (let i = 0; i < shape.vertices.length; i++) {
-      const vertex = shape.vertices[i];
-      positions.push(vertex.x, vertex.y, vertex.z);
-    }
-
-    geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_0__.Float32BufferAttribute(positions, 3)); // Add faces
-
-    const indices = [];
-
-    for (let i = 0; i < shape.faces.length; i++) {
-      const face = shape.faces[i];
-      const a = face[0];
-
-      for (let j = 1; j < face.length - 1; j++) {
-        const b = face[j];
-        const c = face[j + 1];
-        indices.push(a, b, c);
-      }
-    }
-
-    geometry.setIndex(indices);
-    geometry.computeBoundingSphere();
-    geometry.computeVertexNormals();
-    return geometry;
-  }
-
-  function createTrimeshGeometry(shape) {
-    const geometry = new three__WEBPACK_IMPORTED_MODULE_0__.BufferGeometry();
-    const positions = [];
-    const v0 = _tempVec0;
-    const v1 = _tempVec1;
-    const v2 = _tempVec2;
-
-    for (let i = 0; i < shape.indices.length / 3; i++) {
-      shape.getTriangleVertices(i, v0, v1, v2);
-      positions.push(v0.x, v0.y, v0.z);
-      positions.push(v1.x, v1.y, v1.z);
-      positions.push(v2.x, v2.y, v2.z);
-    }
-
-    geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_0__.Float32BufferAttribute(positions, 3));
-    geometry.computeBoundingSphere();
-    geometry.computeVertexNormals();
-    return geometry;
-  }
-
-  function createHeightfieldGeometry(shape) {
-    const geometry = new three__WEBPACK_IMPORTED_MODULE_0__.BufferGeometry();
-    const s = shape.elementSize || 1; // assumes square heightfield, else i*x, j*y
-
-    const positions = shape.data.flatMap((row, i) => row.flatMap((z, j) => [i * s, j * s, z]));
-    const indices = [];
-
-    for (let xi = 0; xi < shape.data.length - 1; xi++) {
-      for (let yi = 0; yi < shape.data[xi].length - 1; yi++) {
-        const stride = shape.data[xi].length;
-        const index = xi * stride + yi;
-        indices.push(index + 1, index + stride, index + stride + 1);
-        indices.push(index + stride, index + 1, index);
-      }
-    }
-
-    geometry.setIndex(indices);
-    geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_0__.Float32BufferAttribute(positions, 3));
-    geometry.computeBoundingSphere();
-    geometry.computeVertexNormals();
-    return geometry;
-  }
-
-  function createMesh(shape) {
-    let mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh();
-    const {
-      SPHERE,
-      BOX,
-      PLANE,
-      CYLINDER,
-      CONVEXPOLYHEDRON,
-      TRIMESH,
-      HEIGHTFIELD
-    } = cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types;
-
-    switch (shape.type) {
-      case SPHERE:
-        {
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(_sphereGeometry, _material);
-          break;
-        }
-
-      case BOX:
-        {
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(_boxGeometry, _material);
-          break;
-        }
-
-      case PLANE:
-        {
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(_planeGeometry, _material);
-          break;
-        }
-
-      case CYLINDER:
-        {
-          const geometry = new three__WEBPACK_IMPORTED_MODULE_0__.CylinderGeometry(shape.radiusTop, shape.radiusBottom, shape.height, shape.numSegments);
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, _material);
-          shape.geometryId = geometry.id;
-          break;
-        }
-
-      case CONVEXPOLYHEDRON:
-        {
-          const geometry = createConvexPolyhedronGeometry(shape);
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, _material);
-          shape.geometryId = geometry.id;
-          break;
-        }
-
-      case TRIMESH:
-        {
-          const geometry = createTrimeshGeometry(shape);
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, _material);
-          shape.geometryId = geometry.id;
-          break;
-        }
-
-      case HEIGHTFIELD:
-        {
-          const geometry = createHeightfieldGeometry(shape);
-          mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, _material);
-          shape.geometryId = geometry.id;
-          break;
-        }
-    }
-
-    scene.add(mesh);
-    return mesh;
-  }
-
-  function scaleMesh(mesh, shape) {
-    const {
-      SPHERE,
-      BOX,
-      PLANE,
-      CYLINDER,
-      CONVEXPOLYHEDRON,
-      TRIMESH,
-      HEIGHTFIELD
-    } = cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types;
-
-    switch (shape.type) {
-      case SPHERE:
-        {
-          const {
-            radius
-          } = shape;
-          mesh.scale.set(radius * scale, radius * scale, radius * scale);
-          break;
-        }
-
-      case BOX:
-        {
-          mesh.scale.copy(shape.halfExtents);
-          mesh.scale.multiplyScalar(2 * scale);
-          break;
-        }
-
-      case PLANE:
-        {
-          break;
-        }
-
-      case CYLINDER:
-        {
-          mesh.scale.set(1 * scale, 1 * scale, 1 * scale);
-          break;
-        }
-
-      case CONVEXPOLYHEDRON:
-        {
-          mesh.scale.set(1 * scale, 1 * scale, 1 * scale);
-          break;
-        }
-
-      case TRIMESH:
-        {
-          mesh.scale.copy(shape.scale).multiplyScalar(scale);
-          break;
-        }
-
-      case HEIGHTFIELD:
-        {
-          mesh.scale.set(1 * scale, 1 * scale, 1 * scale);
-          break;
-        }
-    }
-  }
-
-  function typeMatch(mesh, shape) {
-    if (!mesh) return false;
-    const {
-      geometry
-    } = mesh;
-    return geometry instanceof three__WEBPACK_IMPORTED_MODULE_0__.SphereGeometry && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.SPHERE || geometry instanceof three__WEBPACK_IMPORTED_MODULE_0__.BoxGeometry && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.BOX || geometry instanceof three__WEBPACK_IMPORTED_MODULE_0__.PlaneGeometry && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.PLANE || geometry.id === shape.geometryId && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.CYLINDER || geometry.id === shape.geometryId && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.CONVEXPOLYHEDRON || geometry.id === shape.geometryId && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.TRIMESH || geometry.id === shape.geometryId && shape.type === cannon_es__WEBPACK_IMPORTED_MODULE_1__.Shape.types.HEIGHTFIELD;
-  }
-
-  function updateMesh(index, shape) {
-    let mesh = _meshes[index];
-    let didCreateNewMesh = false;
-
-    if (!typeMatch(mesh, shape)) {
-      if (mesh) scene.remove(mesh);
-      _meshes[index] = mesh = createMesh(shape);
-      didCreateNewMesh = true;
-    }
-
-    scaleMesh(mesh, shape);
-    return didCreateNewMesh;
-  }
-
-  function update() {
-    const meshes = _meshes;
-    const shapeWorldPosition = _tempVec0;
-    const shapeWorldQuaternion = _tempQuat0;
-    let meshIndex = 0;
-
-    for (const body of world.bodies) {
-      for (let i = 0; i !== body.shapes.length; i++) {
-        const shape = body.shapes[i];
-        const didCreateNewMesh = updateMesh(meshIndex, shape);
-        const mesh = meshes[meshIndex];
-
-        if (mesh) {
-          // Get world position
-          body.quaternion.vmult(body.shapeOffsets[i], shapeWorldPosition);
-          body.position.vadd(shapeWorldPosition, shapeWorldPosition); // Get world quaternion
-
-          body.quaternion.mult(body.shapeOrientations[i], shapeWorldQuaternion); // Copy to meshes
-
-          mesh.position.copy(shapeWorldPosition);
-          mesh.quaternion.copy(shapeWorldQuaternion);
-          if (didCreateNewMesh && onInit instanceof Function) onInit(body, mesh, shape);
-          if (!didCreateNewMesh && onUpdate instanceof Function) onUpdate(body, mesh, shape);
-        }
-
-        meshIndex++;
-      }
-    }
-
-    for (let i = meshIndex; i < meshes.length; i++) {
-      const mesh = meshes[i];
-      if (mesh) scene.remove(mesh);
-    }
-
-    meshes.length = meshIndex;
-  }
-
-  return {
-    update
-  };
-}
-
-
+!function(t,n){ true?module.exports=n():0}(this,(function(){function t(t,n){for(var r=0;r<n.length;r++){var e=n[r];e.enumerable=e.enumerable||!1,e.configurable=!0,"value"in e&&(e.writable=!0),Object.defineProperty(t,e.key,e)}}function n(n,r,e){return r&&t(n.prototype,r),e&&t(n,e),n}function r(){return(r=Object.assign||function(t){for(var n=1;n<arguments.length;n++){var r=arguments[n];for(var e in r)Object.prototype.hasOwnProperty.call(r,e)&&(t[e]=r[e])}return t}).apply(this,arguments)}function e(t,n){t.prototype=Object.create(n.prototype),t.prototype.constructor=t,t.__proto__=n}function i(t){return(i=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function o(t,n){return(o=Object.setPrototypeOf||function(t,n){return t.__proto__=n,t})(t,n)}function u(t,n,r){return(u=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(t){return!1}}()?Reflect.construct:function(t,n,r){var e=[null];e.push.apply(e,n);var i=new(Function.bind.apply(t,e));return r&&o(i,r.prototype),i}).apply(null,arguments)}function f(t){var n="function"==typeof Map?new Map:void 0;return(f=function(t){if(null===t||-1===Function.toString.call(t).indexOf("[native code]"))return t;if("function"!=typeof t)throw new TypeError("Super expression must either be null or a function");if(void 0!==n){if(n.has(t))return n.get(t);n.set(t,r)}function r(){return u(t,arguments,i(this).constructor)}return r.prototype=Object.create(t.prototype,{constructor:{value:r,enumerable:!1,writable:!0,configurable:!0}}),o(r,t)})(t)}function s(t,n){try{var r=t()}catch(t){return n(t)}return r&&r.then?r.then(void 0,n):r}"undefined"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol("Symbol.iterator"))),"undefined"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol("Symbol.asyncIterator")));var c,a="2.9.7",h=function(){};!function(t){t[t.off=0]="off",t[t.error=1]="error",t[t.warning=2]="warning",t[t.info=3]="info",t[t.debug=4]="debug"}(c||(c={}));var v=c.off,l=function(){function t(t){this.t=t}t.getLevel=function(){return v},t.setLevel=function(t){return v=c[t]};var n=t.prototype;return n.error=function(){for(var t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];this.i(console.error,c.error,n)},n.warn=function(){for(var t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];this.i(console.warn,c.warning,n)},n.info=function(){for(var t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];this.i(console.info,c.info,n)},n.debug=function(){for(var t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];this.i(console.log,c.debug,n)},n.i=function(n,r,e){r<=t.getLevel()&&n.apply(console,["["+this.t+"] "].concat(e))},t}(),d=O,m=E,p=g,w=x,b=T,y="/",P=new RegExp(["(\\\\.)","(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?"].join("|"),"g");function g(t,n){for(var r,e=[],i=0,o=0,u="",f=n&&n.delimiter||y,s=n&&n.whitelist||void 0,c=!1;null!==(r=P.exec(t));){var a=r[0],h=r[1],v=r.index;if(u+=t.slice(o,v),o=v+a.length,h)u+=h[1],c=!0;else{var l="",d=r[2],m=r[3],p=r[4],w=r[5];if(!c&&u.length){var b=u.length-1,g=u[b];(!s||s.indexOf(g)>-1)&&(l=g,u=u.slice(0,b))}u&&(e.push(u),u="",c=!1);var E=m||p,x=l||f;e.push({name:d||i++,prefix:l,delimiter:x,optional:"?"===w||"*"===w,repeat:"+"===w||"*"===w,pattern:E?A(E):"[^"+k(x===f?x:x+f)+"]+?"})}}return(u||o<t.length)&&e.push(u+t.substr(o)),e}function E(t,n){return function(r,e){var i=t.exec(r);if(!i)return!1;for(var o=i[0],u=i.index,f={},s=e&&e.decode||decodeURIComponent,c=1;c<i.length;c++)if(void 0!==i[c]){var a=n[c-1];f[a.name]=a.repeat?i[c].split(a.delimiter).map((function(t){return s(t,a)})):s(i[c],a)}return{path:o,index:u,params:f}}}function x(t,n){for(var r=new Array(t.length),e=0;e<t.length;e++)"object"==typeof t[e]&&(r[e]=new RegExp("^(?:"+t[e].pattern+")$",R(n)));return function(n,e){for(var i="",o=e&&e.encode||encodeURIComponent,u=!e||!1!==e.validate,f=0;f<t.length;f++){var s=t[f];if("string"!=typeof s){var c,a=n?n[s.name]:void 0;if(Array.isArray(a)){if(!s.repeat)throw new TypeError('Expected "'+s.name+'" to not repeat, but got array');if(0===a.length){if(s.optional)continue;throw new TypeError('Expected "'+s.name+'" to not be empty')}for(var h=0;h<a.length;h++){if(c=o(a[h],s),u&&!r[f].test(c))throw new TypeError('Expected all "'+s.name+'" to match "'+s.pattern+'"');i+=(0===h?s.prefix:s.delimiter)+c}}else if("string"!=typeof a&&"number"!=typeof a&&"boolean"!=typeof a){if(!s.optional)throw new TypeError('Expected "'+s.name+'" to be '+(s.repeat?"an array":"a string"))}else{if(c=o(String(a),s),u&&!r[f].test(c))throw new TypeError('Expected "'+s.name+'" to match "'+s.pattern+'", but got "'+c+'"');i+=s.prefix+c}}else i+=s}return i}}function k(t){return t.replace(/([.+*?=^!:${}()[\]|/\\])/g,"\\$1")}function A(t){return t.replace(/([=!:$/()])/g,"\\$1")}function R(t){return t&&t.sensitive?"":"i"}function T(t,n,r){for(var e=(r=r||{}).strict,i=!1!==r.start,o=!1!==r.end,u=r.delimiter||y,f=[].concat(r.endsWith||[]).map(k).concat("$").join("|"),s=i?"^":"",c=0;c<t.length;c++){var a=t[c];if("string"==typeof a)s+=k(a);else{var h=a.repeat?"(?:"+a.pattern+")(?:"+k(a.delimiter)+"(?:"+a.pattern+"))*":a.pattern;n&&n.push(a),s+=a.optional?a.prefix?"(?:"+k(a.prefix)+"("+h+"))?":"("+h+")?":k(a.prefix)+"("+h+")"}}if(o)e||(s+="(?:"+k(u)+")?"),s+="$"===f?"$":"(?="+f+")";else{var v=t[t.length-1],l="string"==typeof v?v[v.length-1]===u:void 0===v;e||(s+="(?:"+k(u)+"(?="+f+"))?"),l||(s+="(?="+k(u)+"|"+f+")")}return new RegExp(s,R(r))}function O(t,n,r){return t instanceof RegExp?function(t,n){if(!n)return t;var r=t.source.match(/\((?!\?)/g);if(r)for(var e=0;e<r.length;e++)n.push({name:e,prefix:null,delimiter:null,optional:!1,repeat:!1,pattern:null});return t}(t,n):Array.isArray(t)?function(t,n,r){for(var e=[],i=0;i<t.length;i++)e.push(O(t[i],n,r).source);return new RegExp("(?:"+e.join("|")+")",R(r))}(t,n,r):function(t,n,r){return T(g(t,r),n,r)}(t,n,r)}d.match=function(t,n){var r=[];return E(O(t,r,n),r)},d.regexpToFunction=m,d.parse=p,d.compile=function(t,n){return x(g(t,n),n)},d.tokensToFunction=w,d.tokensToRegExp=b;var S={container:"container",history:"history",namespace:"namespace",prefix:"data-barba",prevent:"prevent",wrapper:"wrapper"},j=new(function(){function t(){this.o=S,this.u=new DOMParser}var n=t.prototype;return n.toString=function(t){return t.outerHTML},n.toDocument=function(t){return this.u.parseFromString(t,"text/html")},n.toElement=function(t){var n=document.createElement("div");return n.innerHTML=t,n},n.getHtml=function(t){return void 0===t&&(t=document),this.toString(t.documentElement)},n.getWrapper=function(t){return void 0===t&&(t=document),t.querySelector("["+this.o.prefix+'="'+this.o.wrapper+'"]')},n.getContainer=function(t){return void 0===t&&(t=document),t.querySelector("["+this.o.prefix+'="'+this.o.container+'"]')},n.removeContainer=function(t){document.body.contains(t)&&t.parentNode.removeChild(t)},n.addContainer=function(t,n){var r=this.getContainer();r?this.s(t,r):n.appendChild(t)},n.getNamespace=function(t){void 0===t&&(t=document);var n=t.querySelector("["+this.o.prefix+"-"+this.o.namespace+"]");return n?n.getAttribute(this.o.prefix+"-"+this.o.namespace):null},n.getHref=function(t){if(t.tagName&&"a"===t.tagName.toLowerCase()){if("string"==typeof t.href)return t.href;var n=t.getAttribute("href")||t.getAttribute("xlink:href");if(n)return this.resolveUrl(n.baseVal||n)}return null},n.resolveUrl=function(){for(var t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];var e=n.length;if(0===e)throw new Error("resolveUrl requires at least one argument; got none.");var i=document.createElement("base");if(i.href=arguments[0],1===e)return i.href;var o=document.getElementsByTagName("head")[0];o.insertBefore(i,o.firstChild);for(var u,f=document.createElement("a"),s=1;s<e;s++)f.href=arguments[s],i.href=u=f.href;return o.removeChild(i),u},n.s=function(t,n){n.parentNode.insertBefore(t,n.nextSibling)},t}()),M=new(function(){function t(){this.h=[],this.v=-1}var e=t.prototype;return e.init=function(t,n){this.l="barba";var r={ns:n,scroll:{x:window.scrollX,y:window.scrollY},url:t};this.h.push(r),this.v=0;var e={from:this.l,index:0,states:[].concat(this.h)};window.history&&window.history.replaceState(e,"",t)},e.change=function(t,n,r){if(r&&r.state){var e=r.state,i=e.index;n=this.m(this.v-i),this.replace(e.states),this.v=i}else this.add(t,n);return n},e.add=function(t,n){var r=this.size,e=this.p(n),i={ns:"tmp",scroll:{x:window.scrollX,y:window.scrollY},url:t};this.h.push(i),this.v=r;var o={from:this.l,index:r,states:[].concat(this.h)};switch(e){case"push":window.history&&window.history.pushState(o,"",t);break;case"replace":window.history&&window.history.replaceState(o,"",t)}},e.update=function(t,n){var e=n||this.v,i=r({},this.get(e),{},t);this.set(e,i)},e.remove=function(t){t?this.h.splice(t,1):this.h.pop(),this.v--},e.clear=function(){this.h=[],this.v=-1},e.replace=function(t){this.h=t},e.get=function(t){return this.h[t]},e.set=function(t,n){return this.h[t]=n},e.p=function(t){var n="push",r=t,e=S.prefix+"-"+S.history;return r.hasAttribute&&r.hasAttribute(e)&&(n=r.getAttribute(e)),n},e.m=function(t){return Math.abs(t)>1?t>0?"forward":"back":0===t?"popstate":t>0?"back":"forward"},n(t,[{key:"current",get:function(){return this.h[this.v]}},{key:"state",get:function(){return this.h[this.h.length-1]}},{key:"previous",get:function(){return this.v<1?null:this.h[this.v-1]}},{key:"size",get:function(){return this.h.length}}]),t}()),L=function(t,n){try{var r=function(){if(!n.next.html)return Promise.resolve(t).then((function(t){var r=n.next;if(t){var e=j.toElement(t);r.namespace=j.getNamespace(e),r.container=j.getContainer(e),r.html=t,M.update({ns:r.namespace});var i=j.toDocument(t);document.title=i.title}}))}();return Promise.resolve(r&&r.then?r.then((function(){})):void 0)}catch(t){return Promise.reject(t)}},$=d,_={__proto__:null,update:L,nextTick:function(){return new Promise((function(t){window.requestAnimationFrame(t)}))},pathToRegexp:$},q=function(){return window.location.origin},B=function(t){return void 0===t&&(t=window.location.href),U(t).port},U=function(t){var n,r=t.match(/:\d+/);if(null===r)/^http/.test(t)&&(n=80),/^https/.test(t)&&(n=443);else{var e=r[0].substring(1);n=parseInt(e,10)}var i,o=t.replace(q(),""),u={},f=o.indexOf("#");f>=0&&(i=o.slice(f+1),o=o.slice(0,f));var s=o.indexOf("?");return s>=0&&(u=D(o.slice(s+1)),o=o.slice(0,s)),{hash:i,path:o,port:n,query:u}},D=function(t){return t.split("&").reduce((function(t,n){var r=n.split("=");return t[r[0]]=r[1],t}),{})},F=function(t){return void 0===t&&(t=window.location.href),t.replace(/(\/#.*|\/|#.*)$/,"")},H={__proto__:null,getHref:function(){return window.location.href},getOrigin:q,getPort:B,getPath:function(t){return void 0===t&&(t=window.location.href),U(t).path},parse:U,parseQuery:D,clean:F};function I(t,n,r){return void 0===n&&(n=2e3),new Promise((function(e,i){var o=new XMLHttpRequest;o.onreadystatechange=function(){if(o.readyState===XMLHttpRequest.DONE)if(200===o.status)e(o.responseText);else if(o.status){var n={status:o.status,statusText:o.statusText};r(t,n),i(n)}},o.ontimeout=function(){var e=new Error("Timeout error ["+n+"]");r(t,e),i(e)},o.onerror=function(){var n=new Error("Fetch error");r(t,n),i(n)},o.open("GET",t),o.timeout=n,o.setRequestHeader("Accept","text/html,application/xhtml+xml,application/xml"),o.setRequestHeader("x-barba","yes"),o.send()}))}var C=function(t){return!!t&&("object"==typeof t||"function"==typeof t)&&"function"==typeof t.then};function N(t,n){return void 0===n&&(n={}),function(){for(var r=arguments.length,e=new Array(r),i=0;i<r;i++)e[i]=arguments[i];var o=!1,u=new Promise((function(r,i){n.async=function(){return o=!0,function(t,n){t?i(t):r(n)}};var u=t.apply(n,e);o||(C(u)?u.then(r,i):r(u))}));return u}}var X=new(function(t){function n(){var n;return(n=t.call(this)||this).logger=new l("@barba/core"),n.all=["ready","page","reset","currentAdded","currentRemoved","nextAdded","nextRemoved","beforeOnce","once","afterOnce","before","beforeLeave","leave","afterLeave","beforeEnter","enter","afterEnter","after"],n.registered=new Map,n.init(),n}e(n,t);var r=n.prototype;return r.init=function(){var t=this;this.registered.clear(),this.all.forEach((function(n){t[n]||(t[n]=function(r,e){t.registered.has(n)||t.registered.set(n,new Set),t.registered.get(n).add({ctx:e||{},fn:r})})}))},r.do=function(t){for(var n=this,r=arguments.length,e=new Array(r>1?r-1:0),i=1;i<r;i++)e[i-1]=arguments[i];if(this.registered.has(t)){var o=Promise.resolve();return this.registered.get(t).forEach((function(t){o=o.then((function(){return N(t.fn,t.ctx).apply(void 0,e)}))})),o.catch((function(r){n.logger.debug("Hook error ["+t+"]"),n.logger.error(r)}))}return Promise.resolve()},r.clear=function(){var t=this;this.all.forEach((function(n){delete t[n]})),this.init()},r.help=function(){this.logger.info("Available hooks: "+this.all.join(","));var t=[];this.registered.forEach((function(n,r){return t.push(r)})),this.logger.info("Registered hooks: "+t.join(","))},n}(h)),z=function(){function t(t){if(this.P=[],"boolean"==typeof t)this.g=t;else{var n=Array.isArray(t)?t:[t];this.P=n.map((function(t){return $(t)}))}}return t.prototype.checkHref=function(t){if("boolean"==typeof this.g)return this.g;var n=U(t).path;return this.P.some((function(t){return null!==t.exec(n)}))},t}(),G=function(t){function n(n){var r;return(r=t.call(this,n)||this).k=new Map,r}e(n,t);var i=n.prototype;return i.set=function(t,n,r){return this.k.set(t,{action:r,request:n}),{action:r,request:n}},i.get=function(t){return this.k.get(t)},i.getRequest=function(t){return this.k.get(t).request},i.getAction=function(t){return this.k.get(t).action},i.has=function(t){return!this.checkHref(t)&&this.k.has(t)},i.delete=function(t){return this.k.delete(t)},i.update=function(t,n){var e=r({},this.k.get(t),{},n);return this.k.set(t,e),e},n}(z),Q=function(){return!window.history.pushState},W=function(t){return!t.el||!t.href},J=function(t){var n=t.event;return n.which>1||n.metaKey||n.ctrlKey||n.shiftKey||n.altKey},K=function(t){var n=t.el;return n.hasAttribute("target")&&"_blank"===n.target},V=function(t){var n=t.el;return void 0!==n.protocol&&window.location.protocol!==n.protocol||void 0!==n.hostname&&window.location.hostname!==n.hostname},Y=function(t){var n=t.el;return void 0!==n.port&&B()!==B(n.href)},Z=function(t){var n=t.el;return n.getAttribute&&"string"==typeof n.getAttribute("download")},tt=function(t){return t.el.hasAttribute(S.prefix+"-"+S.prevent)},nt=function(t){return Boolean(t.el.closest("["+S.prefix+"-"+S.prevent+'="all"]'))},rt=function(t){var n=t.href;return F(n)===F()&&B(n)===B()},et=function(t){function n(n){var r;return(r=t.call(this,n)||this).suite=[],r.tests=new Map,r.init(),r}e(n,t);var r=n.prototype;return r.init=function(){this.add("pushState",Q),this.add("exists",W),this.add("newTab",J),this.add("blank",K),this.add("corsDomain",V),this.add("corsPort",Y),this.add("download",Z),this.add("preventSelf",tt),this.add("preventAll",nt),this.add("sameUrl",rt,!1)},r.add=function(t,n,r){void 0===r&&(r=!0),this.tests.set(t,n),r&&this.suite.push(t)},r.run=function(t,n,r,e){return this.tests.get(t)({el:n,event:r,href:e})},r.checkLink=function(t,n,r){var e=this;return this.suite.some((function(i){return e.run(i,t,n,r)}))},n}(z),it=function(t){function n(r,e){var i;void 0===e&&(e="Barba error");for(var o=arguments.length,u=new Array(o>2?o-2:0),f=2;f<o;f++)u[f-2]=arguments[f];return(i=t.call.apply(t,[this].concat(u))||this).error=r,i.label=e,Error.captureStackTrace&&Error.captureStackTrace(function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(i),n),i.name="BarbaError",i}return e(n,t),n}(f(Error)),ot=function(){function t(t){void 0===t&&(t=[]),this.logger=new l("@barba/core"),this.all=[],this.page=[],this.once=[],this.A=[{name:"namespace",type:"strings"},{name:"custom",type:"function"}],t&&(this.all=this.all.concat(t)),this.update()}var n=t.prototype;return n.add=function(t,n){switch(t){case"rule":this.A.splice(n.position||0,0,n.value);break;case"transition":default:this.all.push(n)}this.update()},n.resolve=function(t,n){var r=this;void 0===n&&(n={});var e=n.once?this.once:this.page;e=e.filter(n.self?function(t){return t.name&&"self"===t.name}:function(t){return!t.name||"self"!==t.name});var i=new Map,o=e.find((function(e){var o=!0,u={};return!(!n.self||"self"!==e.name)||(r.A.reverse().forEach((function(n){o&&(o=r.R(e,n,t,u),e.from&&e.to&&(o=r.R(e,n,t,u,"from")&&r.R(e,n,t,u,"to")),e.from&&!e.to&&(o=r.R(e,n,t,u,"from")),!e.from&&e.to&&(o=r.R(e,n,t,u,"to")))})),i.set(e,u),o)})),u=i.get(o),f=[];if(f.push(n.once?"once":"page"),n.self&&f.push("self"),u){var s,c=[o];Object.keys(u).length>0&&c.push(u),(s=this.logger).info.apply(s,["Transition found ["+f.join(",")+"]"].concat(c))}else this.logger.info("No transition found ["+f.join(",")+"]");return o},n.update=function(){var t=this;this.all=this.all.map((function(n){return t.T(n)})).sort((function(t,n){return t.priority-n.priority})).reverse().map((function(t){return delete t.priority,t})),this.page=this.all.filter((function(t){return void 0!==t.leave||void 0!==t.enter})),this.once=this.all.filter((function(t){return void 0!==t.once}))},n.R=function(t,n,r,e,i){var o=!0,u=!1,f=t,s=n.name,c=s,a=s,h=s,v=i?f[i]:f,l="to"===i?r.next:r.current;if(i?v&&v[s]:v[s]){switch(n.type){case"strings":default:var d=Array.isArray(v[c])?v[c]:[v[c]];l[c]&&-1!==d.indexOf(l[c])&&(u=!0),-1===d.indexOf(l[c])&&(o=!1);break;case"object":var m=Array.isArray(v[a])?v[a]:[v[a]];l[a]?(l[a].name&&-1!==m.indexOf(l[a].name)&&(u=!0),-1===m.indexOf(l[a].name)&&(o=!1)):o=!1;break;case"function":v[h](r)?u=!0:o=!1}u&&(i?(e[i]=e[i]||{},e[i][s]=f[i][s]):e[s]=f[s])}return o},n.O=function(t,n,r){var e=0;return(t[n]||t.from&&t.from[n]||t.to&&t.to[n])&&(e+=Math.pow(10,r),t.from&&t.from[n]&&(e+=1),t.to&&t.to[n]&&(e+=2)),e},n.T=function(t){var n=this;t.priority=0;var r=0;return this.A.forEach((function(e,i){r+=n.O(t,e.name,i+1)})),t.priority=r,t},t}(),ut=function(){function t(t){void 0===t&&(t=[]),this.logger=new l("@barba/core"),this.S=!1,this.store=new ot(t)}var r=t.prototype;return r.get=function(t,n){return this.store.resolve(t,n)},r.doOnce=function(t){var n=t.data,r=t.transition;try{var e=function(){i.S=!1},i=this,o=r||{};i.S=!0;var u=s((function(){return Promise.resolve(i.j("beforeOnce",n,o)).then((function(){return Promise.resolve(i.once(n,o)).then((function(){return Promise.resolve(i.j("afterOnce",n,o)).then((function(){}))}))}))}),(function(t){i.S=!1,i.logger.debug("Transition error [before/after/once]"),i.logger.error(t)}));return Promise.resolve(u&&u.then?u.then(e):e())}catch(t){return Promise.reject(t)}},r.doPage=function(t){var n=t.data,r=t.transition,e=t.page,i=t.wrapper;try{var o=function(t){if(u)return t;f.S=!1},u=!1,f=this,c=r||{},a=!0===c.sync||!1;f.S=!0;var h=s((function(){function t(){return Promise.resolve(f.j("before",n,c)).then((function(){var t=!1;function r(r){return t?r:Promise.resolve(f.remove(n)).then((function(){return Promise.resolve(f.j("after",n,c)).then((function(){}))}))}var o=function(){if(a)return s((function(){return Promise.resolve(f.add(n,i)).then((function(){return Promise.resolve(f.j("beforeLeave",n,c)).then((function(){return Promise.resolve(f.j("beforeEnter",n,c)).then((function(){return Promise.resolve(Promise.all([f.leave(n,c),f.enter(n,c)])).then((function(){return Promise.resolve(f.j("afterLeave",n,c)).then((function(){return Promise.resolve(f.j("afterEnter",n,c)).then((function(){}))}))}))}))}))}))}),(function(t){if(f.M(t))throw new it(t,"Transition error [sync]")}));var r=function(r){return t?r:s((function(){var t=function(){if(!1!==o)return Promise.resolve(f.add(n,i)).then((function(){return Promise.resolve(f.j("beforeEnter",n,c)).then((function(){return Promise.resolve(f.enter(n,c,o)).then((function(){return Promise.resolve(f.j("afterEnter",n,c)).then((function(){}))}))}))}))}();if(t&&t.then)return t.then((function(){}))}),(function(t){if(f.M(t))throw new it(t,"Transition error [before/after/enter]")}))},o=!1,u=s((function(){return Promise.resolve(f.j("beforeLeave",n,c)).then((function(){return Promise.resolve(Promise.all([f.leave(n,c),L(e,n)]).then((function(t){return t[0]}))).then((function(t){return o=t,Promise.resolve(f.j("afterLeave",n,c)).then((function(){}))}))}))}),(function(t){if(f.M(t))throw new it(t,"Transition error [before/after/leave]")}));return u&&u.then?u.then(r):r(u)}();return o&&o.then?o.then(r):r(o)}))}var r=function(){if(a)return Promise.resolve(L(e,n)).then((function(){}))}();return r&&r.then?r.then(t):t()}),(function(t){if(f.S=!1,t.name&&"BarbaError"===t.name)throw f.logger.debug(t.label),f.logger.error(t.error),t;throw f.logger.debug("Transition error [page]"),f.logger.error(t),t}));return Promise.resolve(h&&h.then?h.then(o):o(h))}catch(t){return Promise.reject(t)}},r.once=function(t,n){try{return Promise.resolve(X.do("once",t,n)).then((function(){return n.once?N(n.once,n)(t):Promise.resolve()}))}catch(t){return Promise.reject(t)}},r.leave=function(t,n){try{return Promise.resolve(X.do("leave",t,n)).then((function(){return n.leave?N(n.leave,n)(t):Promise.resolve()}))}catch(t){return Promise.reject(t)}},r.enter=function(t,n,r){try{return Promise.resolve(X.do("enter",t,n)).then((function(){return n.enter?N(n.enter,n)(t,r):Promise.resolve()}))}catch(t){return Promise.reject(t)}},r.add=function(t,n){try{return j.addContainer(t.next.container,n),X.do("nextAdded",t),Promise.resolve()}catch(t){return Promise.reject(t)}},r.remove=function(t){try{return j.removeContainer(t.current.container),X.do("currentRemoved",t),Promise.resolve()}catch(t){return Promise.reject(t)}},r.M=function(t){return t.message?!/Timeout error|Fetch error/.test(t.message):!t.status},r.j=function(t,n,r){try{return Promise.resolve(X.do(t,n,r)).then((function(){return r[t]?N(r[t],r)(n):Promise.resolve()}))}catch(t){return Promise.reject(t)}},n(t,[{key:"isRunning",get:function(){return this.S},set:function(t){this.S=t}},{key:"hasOnce",get:function(){return this.store.once.length>0}},{key:"hasSelf",get:function(){return this.store.all.some((function(t){return"self"===t.name}))}},{key:"shouldWait",get:function(){return this.store.all.some((function(t){return t.to&&!t.to.route||t.sync}))}}]),t}(),ft=function(){function t(t){var n=this;this.names=["beforeLeave","afterLeave","beforeEnter","afterEnter"],this.byNamespace=new Map,0!==t.length&&(t.forEach((function(t){n.byNamespace.set(t.namespace,t)})),this.names.forEach((function(t){X[t](n.L(t))})))}return t.prototype.L=function(t){var n=this;return function(r){var e=t.match(/enter/i)?r.next:r.current,i=n.byNamespace.get(e.namespace);return i&&i[t]?N(i[t],i)(r):Promise.resolve()}},t}();Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),Element.prototype.closest||(Element.prototype.closest=function(t){var n=this;do{if(n.matches(t))return n;n=n.parentElement||n.parentNode}while(null!==n&&1===n.nodeType);return null});var st={container:null,html:"",namespace:"",url:{hash:"",href:"",path:"",port:null,query:{}}};return new(function(){function t(){this.version=a,this.schemaPage=st,this.Logger=l,this.logger=new l("@barba/core"),this.plugins=[],this.hooks=X,this.dom=j,this.helpers=_,this.history=M,this.request=I,this.url=H}var e=t.prototype;return e.use=function(t,n){var r=this.plugins;r.indexOf(t)>-1?this.logger.warn("Plugin ["+t.name+"] already installed."):"function"==typeof t.install?(t.install(this,n),r.push(t)):this.logger.warn("Plugin ["+t.name+'] has no "install" method.')},e.init=function(t){var n=void 0===t?{}:t,e=n.transitions,i=void 0===e?[]:e,o=n.views,u=void 0===o?[]:o,f=n.schema,s=void 0===f?S:f,c=n.requestError,a=n.timeout,h=void 0===a?2e3:a,v=n.cacheIgnore,d=void 0!==v&&v,m=n.prefetchIgnore,p=void 0!==m&&m,w=n.preventRunning,b=void 0!==w&&w,y=n.prevent,P=void 0===y?null:y,g=n.debug,E=n.logLevel;if(l.setLevel(!0===(void 0!==g&&g)?"debug":void 0===E?"off":E),this.logger.info(this.version),Object.keys(s).forEach((function(t){S[t]&&(S[t]=s[t])})),this.$=c,this.timeout=h,this.cacheIgnore=d,this.prefetchIgnore=p,this.preventRunning=b,this._=this.dom.getWrapper(),!this._)throw new Error("[@barba/core] No Barba wrapper found");this._.setAttribute("aria-live","polite"),this.q();var x=this.data.current;if(!x.container)throw new Error("[@barba/core] No Barba container found");if(this.cache=new G(d),this.prevent=new et(p),this.transitions=new ut(i),this.views=new ft(u),null!==P){if("function"!=typeof P)throw new Error("[@barba/core] Prevent should be a function");this.prevent.add("preventCustom",P)}this.history.init(x.url.href,x.namespace),this.B=this.B.bind(this),this.U=this.U.bind(this),this.D=this.D.bind(this),this.F(),this.plugins.forEach((function(t){return t.init()}));var k=this.data;k.trigger="barba",k.next=k.current,k.current=r({},this.schemaPage),this.hooks.do("ready",k),this.once(k),this.q()},e.destroy=function(){this.q(),this.H(),this.history.clear(),this.hooks.clear(),this.plugins=[]},e.force=function(t){window.location.assign(t)},e.go=function(t,n,r){var e;if(void 0===n&&(n="barba"),this.transitions.isRunning)this.force(t);else if(!(e="popstate"===n?this.history.current&&this.url.getPath(this.history.current.url)===this.url.getPath(t):this.prevent.run("sameUrl",null,null,t))||this.transitions.hasSelf)return n=this.history.change(t,n,r),r&&(r.stopPropagation(),r.preventDefault()),this.page(t,n,e)},e.once=function(t){try{var n=this;return Promise.resolve(n.hooks.do("beforeEnter",t)).then((function(){function r(){return Promise.resolve(n.hooks.do("afterEnter",t)).then((function(){}))}var e=function(){if(n.transitions.hasOnce){var r=n.transitions.get(t,{once:!0});return Promise.resolve(n.transitions.doOnce({transition:r,data:t})).then((function(){}))}}();return e&&e.then?e.then(r):r()}))}catch(t){return Promise.reject(t)}},e.page=function(t,n,e){try{var i=function(){var t=o.data;return Promise.resolve(o.hooks.do("page",t)).then((function(){var n=s((function(){var n=o.transitions.get(t,{once:!1,self:e});return Promise.resolve(o.transitions.doPage({data:t,page:u,transition:n,wrapper:o._})).then((function(){o.q()}))}),(function(){0===l.getLevel()&&o.force(t.current.url.href)}));if(n&&n.then)return n.then((function(){}))}))},o=this;o.data.next.url=r({href:t},o.url.parse(t)),o.data.trigger=n;var u=o.cache.has(t)?o.cache.update(t,{action:"click"}).request:o.cache.set(t,o.request(t,o.timeout,o.onRequestError.bind(o,n)),"click").request,f=function(){if(o.transitions.shouldWait)return Promise.resolve(L(u,o.data)).then((function(){}))}();return Promise.resolve(f&&f.then?f.then(i):i())}catch(t){return Promise.reject(t)}},e.onRequestError=function(t){this.transitions.isRunning=!1;for(var n=arguments.length,r=new Array(n>1?n-1:0),e=1;e<n;e++)r[e-1]=arguments[e];var i=r[0],o=r[1],u=this.cache.getAction(i);return this.cache.delete(i),!(this.$&&!1===this.$(t,u,i,o)||("click"===u&&this.force(i),1))},e.prefetch=function(t){var n=this;this.cache.has(t)||this.cache.set(t,this.request(t,this.timeout,this.onRequestError.bind(this,"barba")).catch((function(t){n.logger.error(t)})),"prefetch")},e.F=function(){!0!==this.prefetchIgnore&&(document.addEventListener("mouseover",this.B),document.addEventListener("touchstart",this.B)),document.addEventListener("click",this.U),window.addEventListener("popstate",this.D)},e.H=function(){!0!==this.prefetchIgnore&&(document.removeEventListener("mouseover",this.B),document.removeEventListener("touchstart",this.B)),document.removeEventListener("click",this.U),window.removeEventListener("popstate",this.D)},e.B=function(t){var n=this,r=this.I(t);if(r){var e=this.dom.getHref(r);this.prevent.checkHref(e)||this.cache.has(e)||this.cache.set(e,this.request(e,this.timeout,this.onRequestError.bind(this,r)).catch((function(t){n.logger.error(t)})),"enter")}},e.U=function(t){var n=this.I(t);if(n)return this.transitions.isRunning&&this.preventRunning?(t.preventDefault(),void t.stopPropagation()):void this.go(this.dom.getHref(n),n,t)},e.D=function(t){this.go(this.url.getHref(),"popstate",t)},e.I=function(t){for(var n=t.target;n&&!this.dom.getHref(n);)n=n.parentNode;if(n&&!this.prevent.checkLink(n,t,this.dom.getHref(n)))return n},e.q=function(){var t=this.url.getHref(),n={container:this.dom.getContainer(),html:this.dom.getHtml(),namespace:this.dom.getNamespace(),url:r({href:t},this.url.parse(t))};this.C={current:n,next:r({},this.schemaPage),trigger:void 0},this.hooks.do("reset",this.data)},n(t,[{key:"data",get:function(){return this.C}},{key:"wrapper",get:function(){return this._}}]),t}())}));
+//# sourceMappingURL=barba.umd.js.map
 
 
 /***/ }),
@@ -91526,8 +91221,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! matter-js */ "./node_modules/matter-js/build/matter.js");
 /* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var mouse_follower__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mouse-follower */ "./node_modules/mouse-follower/dist/index.module.js");
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/ScrollSmoother */ "./node_modules/gsap/ScrollSmoother.js");
 /* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
@@ -91537,7 +91232,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var stats_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! stats.js */ "./node_modules/stats.js/build/stats.min.js");
 /* harmony import */ var stats_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stats_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var cannon_es__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! cannon-es */ "./node_modules/cannon-es/dist/cannon-es.js");
-/* harmony import */ var cannon_es_debugger__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! cannon-es-debugger */ "./node_modules/cannon-es-debugger/dist/cannon-es-debugger.js");
+/* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @barba/core */ "./node_modules/@barba/core/dist/barba.umd.js");
+/* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_barba_core__WEBPACK_IMPORTED_MODULE_9__);
 
         
 
@@ -91550,6 +91246,23 @@ __webpack_require__.r(__webpack_exports__);
                 repeat: 1,
                 duration: 0.6
             });
+        });
+
+        $(document).on("click", "#gravity0", function (){
+
+            world.gravity.set(0, 20, 0.1);
+            setTimeout(function(){
+                world.gravity.set(0, 0, 0.1)
+
+            /*gsap.to(bottomwallbody.position, {
+                y: -5,
+                ease: "power4.inOut",
+                yoyo: true,
+                repeat: 1,
+                duration: 0.6
+            });
+            */
+        }, 200);
         });
 
 
@@ -91759,16 +91472,87 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPAC
     );
 })();
 
+
+
+function initPage(){
+    let scroller = gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_5__["default"].create({
+        smooth: 1,
+        effects: true,
+    });
+    
+    let heroHeader = document.querySelector(".hero h1")
+    let fadeUpHeadingSplit = new gsap_SplitText__WEBPACK_IMPORTED_MODULE_6__.SplitText(heroHeader, { type: "words,chars" }),
+    charsOut = fadeUpHeadingSplit.chars;
+
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(".hero h1 *", { opacity: .8, y: 100 + "%" }, {
+        opacity: 1,
+        y: 0,
+        duration: 1.07,
+        stagger: .04,
+
+        onComplete: () => {
+            scroller.paused(false)
+        }
+    })
+
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(".panel:last-of-type", {width: 70 + "vw"}, {
+        width: 100 + "vw",
+
+        scrollTrigger: {
+            trigger: ".panel:last-of-type",
+            start: "top bottom-=20px",
+            end: "bottom-=20px bottom-=20px",
+            scrub: .1,
+
+            onScrubComplete: () => {
+                document.querySelector(".next-page").click()
+            }
+        }
+    })
+}
+
+if(document.querySelector("body.trans-test")){
+    _barba_core__WEBPACK_IMPORTED_MODULE_9___default().init({
+        debug: true,
+        views: [{}],
+    
+        transitions: [{
+            name: "default",
+            once(data){
+                initPage()
+            },
+    
+            after(data){ initPage() },
+
+            leave(){                
+                let tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+                // tl.to(".panel:last-of-type", {
+                //     padding: 0,
+                //     duration: 1,
+                //     ease: "ease",
+                //     delay: .5
+                // });
+
+                return tl;
+            }
+        }]
+    });
+
+    _barba_core__WEBPACK_IMPORTED_MODULE_9___default().hooks.enter(() => {
+        window.scrollTo(0, 0);
+    });
+}
+
 function initEv(){
-    const ambientLight = new three__WEBPACK_IMPORTED_MODULE_9__.AmbientLight(0xffffff, 0.2);
+    const ambientLight = new three__WEBPACK_IMPORTED_MODULE_10__.AmbientLight(0xffffff, 0.6);
     				scene.add(ambientLight);
 
-    const cubeTextureLoader = new three__WEBPACK_IMPORTED_MODULE_9__.CubeTextureLoader();
+    const cubeTextureLoader = new three__WEBPACK_IMPORTED_MODULE_10__.CubeTextureLoader();
     // Environment map
     //Update all materials
     const updateAllMaterials = () => {
         scene.traverse((child) => {
-            if(child instanceof three__WEBPACK_IMPORTED_MODULE_9__.Mesh && child.material instanceof three__WEBPACK_IMPORTED_MODULE_9__.MeshStandardMaterial, three__WEBPACK_IMPORTED_MODULE_9__.MeshPhysicalMaterial){
+            if(child instanceof three__WEBPACK_IMPORTED_MODULE_10__.Mesh && child.material instanceof three__WEBPACK_IMPORTED_MODULE_10__.MeshStandardMaterial, three__WEBPACK_IMPORTED_MODULE_10__.MeshPhysicalMaterial){
                 child.material.envMap = environmentMap;
                 //child.material.envMapIntensity = 1;
                 child.material.needsUpdate = true;
@@ -91852,64 +91636,87 @@ function intro(){
     
 }
 let scene, renderer, camera, camera2, clock, oldElapsedTime, world, textureLoader, objectsToUpdate;
-const loader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader();
-const loader2 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader();
-const loader3 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader();
+const loader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_11__.GLTFLoader();
+const loader2 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_11__.GLTFLoader();
+const loader3 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_11__.GLTFLoader();
 
 let cannonDebugger;
 
 let scrollease = 0;
-let mscale = 0.65;
-var plane = new three__WEBPACK_IMPORTED_MODULE_9__.Plane().setFromNormalAndCoplanarPoint(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(0, 0, 1), new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(0, 0, 1));
+let mscale = 0.64;
+var plane = new three__WEBPACK_IMPORTED_MODULE_10__.Plane().setFromNormalAndCoplanarPoint(new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(0, 0, 1), new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(0, 0, 1));
 let mixer, mixer2, mixer3, mixer4, mixer5, mixer6, mixer7, mixer8, mixer9, mixer10, mixer11, mixer12, mixer13, mixer14, mixer15, mixer16 = null;
-var Mallard, Mallard_M, Mallard_A1, Mallard_L1, Mallard_L2, Mallard_A2, Mallard_R, Mallard_D  = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
-var Claret, Claret_AND, Claret_C, Claret_L, Claret_A, Claret_R, Claret_E, Claret_T = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
-var Chris = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
-var soldier = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
-//var gas = new THREE.Object3D;
-var raycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
-var brraycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
-var blraycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
-var trraycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
-var corner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
-var brcorner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
-var blcorner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
-var trcorner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
-var cornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
-var brcornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
-var blcornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
-var trcornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
+var Mallard, Mallard_M, Mallard_A1, Mallard_L1, Mallard_L2, Mallard_A2, Mallard_R, Mallard_D  = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var Claret, Claret_AND, Claret_C, Claret_L, Claret_A, Claret_R, Claret_E, Claret_T = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var Chris = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var Chris00 = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var Chris01 = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var Chris02 = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var Every = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var DW = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var DW_bottle, DW_cork, DW_label, DW_wine  = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var IKAC = new three__WEBPACK_IMPORTED_MODULE_10__.Object3D;
+var raycaster = new three__WEBPACK_IMPORTED_MODULE_10__.Raycaster();
+var brraycaster = new three__WEBPACK_IMPORTED_MODULE_10__.Raycaster();
+var blraycaster = new three__WEBPACK_IMPORTED_MODULE_10__.Raycaster();
+var trraycaster = new three__WEBPACK_IMPORTED_MODULE_10__.Raycaster();
+var corner = new three__WEBPACK_IMPORTED_MODULE_10__.Vector2();
+var brcorner = new three__WEBPACK_IMPORTED_MODULE_10__.Vector2();
+var blcorner = new three__WEBPACK_IMPORTED_MODULE_10__.Vector2();
+var trcorner = new three__WEBPACK_IMPORTED_MODULE_10__.Vector2();
+var cornerPoint = new three__WEBPACK_IMPORTED_MODULE_10__.Vector3();
+var brcornerPoint = new three__WEBPACK_IMPORTED_MODULE_10__.Vector3();
+var blcornerPoint = new three__WEBPACK_IMPORTED_MODULE_10__.Vector3();
+var trcornerPoint = new three__WEBPACK_IMPORTED_MODULE_10__.Vector3();
+
 const guides = false;
-const logogroup = new three__WEBPACK_IMPORTED_MODULE_9__.Group();
+const walls = false;
+const logogroup = new three__WEBPACK_IMPORTED_MODULE_10__.Group();
 //const objectsToUpdate = [];
 
-let gas, soldierBody, chrisBody, sphereBody, cubeBody,bottomwallbody,topwallbody,rightwallbody,frontwallbody,backwallbody,mallardbody,claretbody,leftwallbody2, sphere,sphere2,leftwall,rightbox,bottombox,topbox,frontbox,backbox,mallardbox,claretbox;
+const movementRadius = 0.2;
+
+let gas, knockerBody, knockerMesh, ikacBody, soldierBody, chrisBody, chrisBody00, chrisBody01, chrisBody02, everyBody, dwBody, sphereBody, cubeBody,bottomwallbody,topwallbody,rightwallbody,frontwallbody,backwallbody,mallardbody,claretbody,leftwallbody2, sphere, sphere2, leftwall,rightbox,bottombox,topbox,frontbox,backbox,mallardbox,claretbox;
 
 const stats = new (stats_js__WEBPACK_IMPORTED_MODULE_3___default())()
     stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(stats.dom)
 
+
+
+
+
 function initWebgl(){
     const canvas = document.querySelector("canvas.webgl");
     // Scene
-    scene = new three__WEBPACK_IMPORTED_MODULE_9__.Scene();
-    
+    scene = new three__WEBPACK_IMPORTED_MODULE_10__.Scene();
+
+    //The Fog
+    /*
+    {
+        const color = 0xefe3db;
+        const near = 10;
+        const far = 50;
+        scene.fog = new THREE.Fog(color, near, far);
+      }
+    */
     initEv();
     initModels();
     
+    
 
     // Camera
-    camera = new three__WEBPACK_IMPORTED_MODULE_9__.PerspectiveCamera(40, window.innerWidth / window.innerHeight, .1, 100);
+    camera = new three__WEBPACK_IMPORTED_MODULE_10__.PerspectiveCamera(40, window.innerWidth / window.innerHeight, .1, 100);
     camera.position.set(0, 0, 20);
     scene.add(camera);
 
     // Camera2
-    camera2 = new three__WEBPACK_IMPORTED_MODULE_9__.PerspectiveCamera(60, window.innerWidth / window.innerHeight, .1, 100);
+    camera2 = new three__WEBPACK_IMPORTED_MODULE_10__.PerspectiveCamera(60, window.innerWidth / window.innerHeight, .1, 100);
     camera2.position.set(0, 0, 80);
     scene.add(camera2);
 
     //Renderer
-    renderer = new three__WEBPACK_IMPORTED_MODULE_9__.WebGLRenderer({
+    renderer = new three__WEBPACK_IMPORTED_MODULE_10__.WebGLRenderer({
         canvas: canvas,
         //powerPreference: "high-performance",
         antialias: true,
@@ -91918,25 +91725,27 @@ function initWebgl(){
     renderer.physicallyCorrectLights = true;
     renderer.toneMapping = 
     //THREE.NoToneMapping;
-    three__WEBPACK_IMPORTED_MODULE_9__.LinearToneMapping;
+    three__WEBPACK_IMPORTED_MODULE_10__.LinearToneMapping;
     //THREE.ReinhardToneMapping;
     //THREE.CineonToneMapping;
     //THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 3.5;
+    renderer.toneMappingExposure = 1;
     //renderer.outputEncoding = THREE.sRGBEncoding;
     //renderer.shadowMap.enabled = false
     //renderer.shadowMap.type = THREE.PCFSoftShadowMap
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    clock = new three__WEBPACK_IMPORTED_MODULE_9__.Clock();
+    clock = new three__WEBPACK_IMPORTED_MODULE_10__.Clock();
     oldElapsedTime = 0;
 
-    cannonDebugger = new cannon_es_debugger__WEBPACK_IMPORTED_MODULE_11__["default"](scene, world);
+    //cannonDebugger = new CannonDebugger(scene, world);
+
 
     //intro();
     initCursorDrop();
     animate();
+    
 }
 
 function animate(){
@@ -91947,23 +91756,34 @@ function animate(){
     const deltaTime = elapsedTime - oldElapsedTime;
     oldElapsedTime = elapsedTime;
 
-    chrisBody.applyLocalForce(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 0.01), chrisBody.position);
+    //chrisBody.applyLocalForce(new CANNON.Vec3(0, 0, 0.01), chrisBody.position);
+    dwBody.applyLocalForce(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 0.04), dwBody.position);
 
+  
     
-
 
     // Update physics
     world.step(1 / 60, deltaTime, 3);
+    
     for(const object of objectsToUpdate){
         object.mesh.position.copy(object.body.position);
         object.mesh.quaternion.copy(object.body.quaternion);
-    }
 
-    Chris.position.copy(chrisBody.position);
-    Chris.quaternion.copy(chrisBody.quaternion);
+        
+    }
+    
+    knockerMesh.position.copy(knockerBody.position);
+    knockerMesh.quaternion.copy(knockerBody.quaternion);
+
+    //Chris.position.copy(chrisBody.position);
+    //Chris.quaternion.copy(chrisBody.quaternion);
+    Chris01.position.copy(chrisBody00.position);
+    Chris01.quaternion.copy(chrisBody00.quaternion);
+    Chris02.position.copy(chrisBody01.position);
+    Chris02.quaternion.copy(chrisBody01.quaternion);
+    Chris00.position.copy(chrisBody02.position);
+    Chris00.quaternion.copy(chrisBody02.quaternion);
     sphere.position.copy(sphereBody.position);
-    sphere2.position.copy(cubeBody.position);
-    sphere2.quaternion.copy(cubeBody.quaternion);
     bottombox.position.copy(bottomwallbody.position);
     bottombox.quaternion.copy(bottomwallbody.quaternion);
     topbox.position.copy(topwallbody.position);
@@ -91980,15 +91800,21 @@ function animate(){
     claretbox.quaternion.copy(claretbody.quaternion);
     leftwall.position.copy(leftwallbody2.position);
     leftwall.quaternion.copy(leftwallbody2.quaternion);
+    Every.position.copy(everyBody.position);
+    Every.quaternion.copy(everyBody.quaternion);
+    DW.position.copy(dwBody.position);
+    DW.quaternion.copy(dwBody.quaternion);
     //soldier.position.copy(soldierBody.position);
     //soldier.quaternion.copy(soldierBody.quaternion);
-    //controls.update()
+    IKAC.position.copy(ikacBody.position);
+    IKAC.quaternion.copy(ikacBody.quaternion);
+    //controls.update();
     //camera.lookAt(scene.position);
 
     if(mixer2){
 	
-        soldier.position.copy(soldierBody.position);
-        soldier.quaternion.copy(soldierBody.quaternion);
+        IKAC.position.copy(ikacBody.position);
+        IKAC.quaternion.copy(ikacBody.quaternion);
 		mixer2.update(delta);
 
 	}
@@ -92032,6 +91858,11 @@ let windowHalfY = window.innerHeight / 2;
 
 initWebgl();
 intro();
+
+
+
+
+
 function initModels(){
     
     
@@ -92044,7 +91875,7 @@ function initModels(){
     world.solver.iterations = 5; // collision detection sampling rate
     objectsToUpdate = [];
     //world.allowSleep = true
-    world.gravity.set(0, 0, 1);
+    world.gravity.set(0, 0, -0.1);
     // Default material
     const defaultMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Material("default");
     const defaultContactMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.ContactMaterial(
@@ -92060,7 +91891,7 @@ function initModels(){
 
     const logobodyscale = windowHalfX / windowHalfY / mscale * 0.5;
    
-    
+ 
     
     //physics bodies
     
@@ -92074,14 +91905,8 @@ function initModels(){
         //material: defaultMaterial
     });
     world.addBody(sphereBody);
-    //physics ball cube 2
-    const cubeShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(2 * 0.5, 2 * 0.5, 2 * 0.5));
-    cubeBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
-        mass: 1
-    });
-    cubeBody.position = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(3, 3, -10),
-        cubeBody.addShape(cubeShape);
-    world.addBody(cubeBody);
+    
+    
     //physics left wall
     const leftwallshape2 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Plane();
     leftwallbody2 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
@@ -92126,7 +91951,7 @@ function initModels(){
     const frontwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, 60 * 0.5, 2 * 0.5));
     frontwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 3),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 15),
         shape: frontwallshape,
         //material: defaultMaterial
     });
@@ -92142,49 +91967,101 @@ function initModels(){
     world.addBody(backwallbody);
     backwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 1), Math.PI * 0.5);
     //physics Mallard
-    const mallardshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, 4 * 0.5, 1 * 0.5));
+    const mallardshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, logobodyscale * 1.1, 0.3 * 0.5));
     mallardbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 5, -20),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 5.8 - logobodyscale, -20),
         shape: mallardshape,
         //material: defaultMaterial
     });
     mallardbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, 0, 0), Math.PI * 0);
     world.addBody(mallardbody);
     //physics Claret
-    const claretshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, 4 * 0.5, 1 * 0.5));
+    const claretshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, logobodyscale * 1.1, 0.3 * 0.5));
     claretbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -5, -20),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, logobodyscale - 6.4 , -20),
         shape: claretshape,
         //material: defaultMaterial
     });
     claretbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, 0, 0), Math.PI * 0);
     world.addBody(claretbody);
+    
+    
     //Chris
-    const chrisShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1 * 0.5, 2 * 0.5, 1 * 0.5));
-    chrisBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
-        mass: 3,
+    
+    chrisBody00 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
         position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(5, 2, -10),
-        shape: chrisShape,
+        
+    });
+    chrisBody00.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(0.8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 1.4, 0.5));
+    chrisBody00.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.9, 0.7, 2.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -0.7));
+    chrisBody00.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(1.7, 1.7, 1.2, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -2, -0.8));
+    world.addBody(chrisBody00);
+
+    chrisBody01 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(5, 2, -10),
+    });
+    chrisBody01.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1 * 0.5, 2 * 0.5, 2 * 0.5)), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-0.5, 3.5, -0.5));
+    world.addBody(chrisBody01);
+
+
+    chrisBody02 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(5, 2, -10),
+        
+    });
+    chrisBody02.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1 * 0.5, 2 * 0.5, 2 * 0.5)), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0.5, 3.5, -0.5));
+    world.addBody(chrisBody02);
+
+    const everyShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(1.6);
+    everyBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-2, 3, -4),
+        shape: everyShape,
         //material: defaultMaterial
     });
-    chrisBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(1.6), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 2.2, 0));
-    chrisBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.9, 0.7, 3, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -0.7));
-    chrisBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(1.7, 1.7, 1.2, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -2, -0.8));
-    world.addBody(chrisBody);
+    everyBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(0.8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -1.5));
+    world.addBody(everyBody);
+
+    const dwShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(1.1, 1.1, 5, 8);
+    dwBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(2, 2, -8),
+        shape: dwShape,
+        //material: defaultMaterial
+    });
+    dwBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.5, 0.5, 6, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 2, 0));
+    world.addBody(dwBody);
+
+    //IKAC
+    
+    const ikacShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.8, 0.8, 5, 8);
+    ikacBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(2, 2, -6),
+        shape: ikacShape,
+        //material: defaultMaterial
+    });
+    ikacBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.5, 0.5, 2.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1.5, 1, 0))
+    ikacBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.5, 0.5, 3, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1.5, 1.3, 0));
+    world.addBody(ikacBody);
+    
 
     //soldier
-    const soldierShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0.1 * 0.5, 0.1 * 0.5, 0.11 * 0.5));
-    soldierBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+    /*
+    const soldierShape = new CANNON.Box(new CANNON.Vec3(0.1 * 0.5, 0.1 * 0.5, 0.11 * 0.5));
+    soldierBody = new CANNON.Body({
         mass: 3,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -3),
+        position: new CANNON.Vec3(0, 0, -3),
         shape: soldierShape,
         //material: defaultMaterial
     });
-    soldierBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.7, 0.7, 3.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 1.5, 0));
+    soldierBody.addShape(new CANNON.Cylinder(0.7, 0.7, 3.5, 8), new CANNON.Vec3(0, 1.5, 0));
     world.addBody(soldierBody);
-    
+    */
     
     
     //visible objects
@@ -92193,71 +92070,103 @@ function initModels(){
 
     
     //visible ball
-    sphere = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(
-        new three__WEBPACK_IMPORTED_MODULE_9__.SphereGeometry(1, 32, 32),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    sphere = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(
+        new three__WEBPACK_IMPORTED_MODULE_10__.SphereGeometry(1, 32, 32),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: 0xe54848,
             toneMapped: false,
             envMapIntensity: 0
         })
     );
     scene.add(sphere);
-    sphere2 = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(
-        new three__WEBPACK_IMPORTED_MODULE_9__.IcosahedronGeometry(2, 0),
-        //new THREE.MeshNormalMaterial()
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshPhysicalMaterial({
-            roughness: 0.6,
-            transmission: 1,
-            thickness: 2,
-            envMapIntensity: 0.3
-            
-        })
-    );
-    scene.add(sphere2);
-    //sphere2.renderOrder = 10;
+
+// Mouse ball visible
+
+knockerMesh = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.SphereGeometry(0.01, 32, 32),
+new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
+    color: 0xe54848,
+    toneMapped: false,
+    envMapIntensity: 0
+})
+);
+knockerBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+  mass: 0,
+  position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 0),
+  shape: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(3)
+});
+world.addBody(knockerBody);
+
+// Add ball to the scene
+//scene.add(knockerMesh);
+
+
+const raycasterXY = new three__WEBPACK_IMPORTED_MODULE_10__.Raycaster();
+const planeXY = new three__WEBPACK_IMPORTED_MODULE_10__.Plane(new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(0, 0, 1), 0);
+
+document.addEventListener('mousemove', e => {
+  const x = (e.clientX / sizes.width) * 2 - 1;
+  const y = -(e.clientY / sizes.height) * 2 + 1;
+
+  // Set raycaster position and direction
+  raycasterXY.setFromCamera(new three__WEBPACK_IMPORTED_MODULE_10__.Vector2(x, y), camera);
+
+  // Calculate intersection point with plane
+  const intersection = new three__WEBPACK_IMPORTED_MODULE_10__.Vector3();
+  raycasterXY.ray.intersectPlane(planeXY, intersection);
+
+  // Update knockerBody position
+  knockerBody.position.copy(intersection);
+});
+
+
+
+
+
+
+
     
     //visible left wall 
-    leftwall = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    leftwall = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //metalness: 1,
             //roughness: 0.1
         })
     );
     scene.add(leftwall);
-    leftwall.visible = guides;
+    leftwall.visible = walls;
     
     //visible right wall    
-    rightbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    rightbox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             //color: "yellow",
             color: 0xEFE3DB,
             wireframe: false
         }));
     scene.add(rightbox);
-    rightbox.visible = guides;
+    rightbox.visible = walls;
 
     //visible bottom wall
-    bottombox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    bottombox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "green",
             wireframe: false
         }));
     scene.add(bottombox);
-    bottombox.visible = guides;
+    bottombox.visible = walls;
     //visible top wall
-    topbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    topbox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "red",
             wireframe: false
         }));
     scene.add(topbox);
-    topbox.visible = guides;
+    topbox.visible = walls;
     //visible front wall
-    frontbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.BoxGeometry(60, 60, 2),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    frontbox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.BoxGeometry(60, 60, 2),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "pink",
             wireframe: true
@@ -92265,41 +92174,46 @@ function initModels(){
     scene.add(frontbox);
     frontbox.visible = guides;
     //visible back wall
-    backbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    backbox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "purple",
             wireframe: false
         }));
     scene.add(backbox);
-    backbox.visible = guides;
+    backbox.visible = walls;
     //visible Mallard box
-    mallardbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.BoxGeometry(60, 4, 1),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    mallardbox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.BoxGeometry(60, 4, 1),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: "black",
             wireframe: true
         }));
     mallardbox.visible = guides;
     scene.add(mallardbox);
     //visible Claret box
-    claretbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.BoxGeometry(60, 4, 1),
-        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    claretbox = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(new three__WEBPACK_IMPORTED_MODULE_10__.BoxGeometry(60, 4, 1),
+        new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
             color: "black",
             wireframe: true
         }));
     claretbox.visible = guides;
     scene.add(claretbox);
 
-    const sphereGeometry = new three__WEBPACK_IMPORTED_MODULE_9__.SphereGeometry(1, 32, 32);
-    const sphereMaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshStandardMaterial({
-        color: 0xFFFFFF,
-        roughness: 0.3,
-        metalness: 1.0,
-        envMapIntensity: 0.3
+    const sphereGeometry = new three__WEBPACK_IMPORTED_MODULE_10__.SphereGeometry(1, 32, 32);
+    const sphereMaterial = new three__WEBPACK_IMPORTED_MODULE_10__.MeshPhysicalMaterial({
+            roughness: 0.5,
+            transmission: 1,
+            thickness: 1.2,
+            envMapIntensity: 0.6,
+            metalness: 0.1,
+            clearcoat: 1,
+            clearcoatRoughness: 0
+
+            
     });
     const createSphere = (radius, position) => {
         // Three.js mesh
-        const mesh = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(sphereGeometry, sphereMaterial);
+        const mesh = new three__WEBPACK_IMPORTED_MODULE_10__.Mesh(sphereGeometry, sphereMaterial);
         mesh.castShadow = true;
         mesh.scale.set(radius, radius, radius);
         mesh.position.copy(position);
@@ -92322,6 +92236,9 @@ function initModels(){
         });
     };
 
+
+
+
 ////////////BUTTONS
 
     button.addEventListener("click", function (){
@@ -92335,7 +92252,7 @@ function initModels(){
     });
 
     gravity.addEventListener("click", function (){
-        world.gravity.set(0, -18, 0);
+        world.gravity.set(0, -18, 0.1);
     });
 
     gravityX.addEventListener("click", function (){
@@ -92343,18 +92260,18 @@ function initModels(){
     });
 
     gravity0.addEventListener("click", function (){
-        world.gravity.set(0, 0.1, 0);
+        world.gravity.set(0, 0, 0.1);
     });
 
 
 ///////// Grid texture
 
-new three__WEBPACK_IMPORTED_MODULE_9__.TextureLoader().load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Grid.svg", function (texture){
+new three__WEBPACK_IMPORTED_MODULE_10__.TextureLoader().load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/3.0backgrounds/every.jpeg", function (texture){
 
-    texture.wrapS = three__WEBPACK_IMPORTED_MODULE_9__.RepeatWrapping;
-    texture.wrapT = three__WEBPACK_IMPORTED_MODULE_9__.RepeatWrapping;
-    texture.repeat.set(12, 12);
-    texture.magFilter = three__WEBPACK_IMPORTED_MODULE_9__.NearestFilter;
+    texture.wrapS = three__WEBPACK_IMPORTED_MODULE_10__.RepeatWrapping;
+    texture.wrapT = three__WEBPACK_IMPORTED_MODULE_10__.RepeatWrapping;
+    texture.repeat.set(1, 1);
+    texture.magFilter = three__WEBPACK_IMPORTED_MODULE_10__.NearestFilter;
     leftwall.material.map = texture;
     leftwall.material.needsUpdate = true;
     rightbox.material.map = texture;
@@ -92385,14 +92302,21 @@ new three__WEBPACK_IMPORTED_MODULE_9__.TextureLoader().load("https://raw.githubu
 // get what you need from the models array
 Promise.all([
     loader.loadAsync(
-        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/MallardS.glb"
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/MallardST.glb"
     ),
     loader.loadAsync(
-        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/&ClaretS.glb"
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/&ClaretST.glb"
     ),
     loader.loadAsync(
-        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/PIChris.glb"
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/PIChris0.gltf"
     ),
+    loader.loadAsync(
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Every.glb"
+    ),
+    loader.loadAsync(
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/DW.glb"
+    ),
+    
    // loader.loadAsync(
     //    "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/GAS9a.gltf"
    // ),
@@ -92419,22 +92343,47 @@ Promise.all([
     Claret_E = models[1].scene.children[3];
     Claret_T = models[1].scene.children[2];
     
-    Chris = models[2].scene.children[0];
+    Chris = models[2].scene;
+    Chris00 = models[2].scene.children[0];
+    Chris01 = models[2].scene.children[1];
+    Chris02 = models[2].scene.children[2];
+
+    Every = models[3].scene.children[0];
+
+    DW = models[4].scene;
+    DW_bottle = models[4].scene.children[0];
+    DW_cork = models[4].scene.children[1];
+    DW_label = models[4].scene.children[2];
+    DW_wine = models[4].scene.children[3];
+
 
     
 
     scene.add(Mallard);
     scene.add(Claret);
     scene.add(Chris);
+    //scene.add(Chris00);
+    //scene.add(Chris01);
+    //scene.add(Chris02);
+    scene.add(Every);
+    scene.add(DW);
     //scene.add(Gas);
     // scene.add(soldier);
 
-    
+    Every.scale.set(1, 1, 1);
+    DW.scale.set(25, 25, 25);    
 
-    const chrismaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshStandardMaterial({ color: 0xffffff, metalness: 0, roughness: 1, envMapIntensity: 0.25 });
-    Chris.material = chrismaterial;
-    Chris.scale.set(1, 1, 1);
+    const DWglassmaterial = new three__WEBPACK_IMPORTED_MODULE_10__.MeshPhysicalMaterial({color: 0xffffff, roughness: 0.6, transmission: 1, thickness: 2, envMapIntensity: 0.3})
+    DW_bottle.material = DWglassmaterial;
+
+    //const chrismaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0, roughness: 1, envMapIntensity: 1 });
+    //Chris.material = chrismaterial;
+    //Chris00.scale.set(1, 1, 1);
     //Chris.position.set(5,3,-5);
+    //Chris00.position.set(5,3,-5);
+    //Chris01.position.set(5,3,-5);
+    //Chris02.position.set(5,3,-5);
+
 
     logogroup.add(Mallard, Claret);
     scene.add(logogroup);
@@ -92445,7 +92394,7 @@ Promise.all([
 
     function initAnimation(el, model){
         for (let i = 0; i < model.animations.length; i++) {
-            let mixerMC = new three__WEBPACK_IMPORTED_MODULE_9__.AnimationMixer(el);
+            let mixerMC = new three__WEBPACK_IMPORTED_MODULE_10__.AnimationMixer(el);
             var action = mixerMC.clipAction(model.animations[i]);
             action.play();
             createAnimation(mixerMC, action, model.animations[i]);
@@ -92541,6 +92490,8 @@ Promise.all([
   }
 ); */
 
+
+/*
     loader.load("https://threejs.org/examples/models/gltf/Soldier.glb", function (gltf){
 
 		soldier = gltf.scene;
@@ -92549,7 +92500,7 @@ Promise.all([
         //soldier.position.set(0, 0, 0);
         soldier.rotation.y += Math.PI *1.2;
 
-		mixer2 = new three__WEBPACK_IMPORTED_MODULE_9__.AnimationMixer(soldier);
+		mixer2 = new THREE.AnimationMixer(soldier);
 		
 		const idleClip = gltf.animations[0];
 		const walkClip = gltf.animations[3];
@@ -92570,36 +92521,62 @@ Promise.all([
 
 	});
 
-    
+    */
+
+    loader2.load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/IKAC.glb", function (gltf){
+
+		IKAC = gltf.scene;
+		
+        IKAC.scale.set(3, 3, 3);
+
+		var cactusmaterial = new three__WEBPACK_IMPORTED_MODULE_10__.MeshStandardMaterial({color: 0xFFFFFF, metalness: 0.9, roughness: 0.1, envMapIntensity: 1});
+        
+        
+        IKAC.traverse(child => {
+        if (child.material && child.material.name === 'Cactus') {
+        child.material = cactusmaterial;
+        //child.material.transparent = !0;
+        }
+        });
+        
+		
+		mixer2 = new three__WEBPACK_IMPORTED_MODULE_10__.AnimationMixer(IKAC)
+        const action = mixer2.clipAction(gltf.animations[0])
+        action.play()
+        action.loop = three__WEBPACK_IMPORTED_MODULE_10__.LoopPingPong;
+
+		scene.add(IKAC);
+
+	});
 
 
     Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale,
-        windowHalfX / windowHalfY / mscale);
+    windowHalfX / windowHalfY / mscale);
     Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY / mscale,
-        windowHalfX / windowHalfY / mscale);
+    windowHalfX / windowHalfY / mscale);
     Mallard.visible = true;
     Claret.visible = true;
     corner.set(-1, 1); // NDC of the top-left corner
     raycaster.setFromCamera(corner, camera);
     raycaster.ray.intersectPlane(plane, cornerPoint);
     Mallard.position.copy(cornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.4, -windowHalfX /
-            windowHalfY / mscale / 1.4, 0));
+        .add(new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, -windowHalfX /
+            windowHalfY / mscale / 1.1, 0));
 
     blcorner.set(-1, -1); // corner (across then down)
     blraycaster.setFromCamera(blcorner, camera);
     blraycaster.ray.intersectPlane(plane, blcornerPoint);
     Claret.position.copy(blcornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.4, windowHalfX /
-            windowHalfY / mscale / 1.4, 0));
+        .add(new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, windowHalfX /
+            windowHalfY / mscale / 1.55, 0));
 
-    var sideMaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
-        color: 0xefe3db,
+    var sideMaterial = new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
+        color: 0xe54848,
         toneMapped: false,
-        //colorWrite: false,
+        colorWrite: false,
         
     });
-    var faceMaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
+    var faceMaterial = new three__WEBPACK_IMPORTED_MODULE_10__.MeshBasicMaterial({
         color: 0xe54848,
         toneMapped: false,
         
@@ -92623,6 +92600,8 @@ Promise.all([
 
 
 ////Mallard
+setTimeout(function(){
+
 
 
 
@@ -92718,7 +92697,31 @@ Promise.all([
         duration: 4,
     });
 
+    world.gravity.set(0, 0, 0.2);
+
+    
+
+}, 3000);
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(backwallbody.position, {
+    z: -5,
+    ease: "power4.inOut",
+    yoyo: true,
+    repeat: 1,
+    delay: 4,
+    duration: 2
+});
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(frontwallbody.position, {
+    z: 5,
+    ease: "power4.inOut",
+    duration: 8,
+    delay: 6,
+});
+
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_4__.ScrollTrigger);
+
+
 
 const logoscrollspins = 10;
 
@@ -92730,7 +92733,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_M.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 0.2,
         toggleActions: "restart pause resume pause"
     },
@@ -92741,7 +92744,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_A1.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 0.4,
         toggleActions: "restart pause resume pause"
     },
@@ -92752,7 +92755,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_L1.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 0.6,
         toggleActions: "restart pause resume pause"
     },
@@ -92763,7 +92766,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_L2.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 0.8,
         toggleActions: "restart pause resume pause"
     },
@@ -92774,7 +92777,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_A2.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 1,
         toggleActions: "restart pause resume pause"
     },
@@ -92785,7 +92788,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_R.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 1.2,
         toggleActions: "restart pause resume pause"
     },
@@ -92796,7 +92799,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
     scrollTrigger: {
         trigger: "#trigger1",
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: scrollease + 1.4,
         toggleActions: "restart pause resume pause"
     },
@@ -92811,7 +92814,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 0.2,
             toggleActions: "restart pause resume pause"
         },
@@ -92822,7 +92825,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 0.4,
             toggleActions: "restart pause resume pause"
         },
@@ -92833,7 +92836,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 0.6,
             toggleActions: "restart pause resume pause"
         },
@@ -92844,7 +92847,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 0.8,
             toggleActions: "restart pause resume pause"
         },
@@ -92855,7 +92858,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 1,
             toggleActions: "restart pause resume pause"
         },
@@ -92866,7 +92869,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 1.2,
             toggleActions: "restart pause resume pause"
         },
@@ -92877,7 +92880,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease + 1.4,
             toggleActions: "restart pause resume pause"
         },
@@ -92888,7 +92891,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
 
 
 //////// BAFFLE BOARDS //////////
-
+setTimeout(function(){
 
     let mallardRotation = {
         val: 0
@@ -92898,7 +92901,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease,
             toggleActions: "restart pause resume pause",
             onUpdate: updateRotation
@@ -92932,7 +92935,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease,
             toggleActions: "restart pause resume pause",
             onUpdate: updateRotation2
@@ -93000,7 +93003,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
                 scrollTrigger: {
                     trigger: "#trigger1",
                     start: "top top",
-                    end: "bottom top",
+                    end: "bottom bottom",
                     scrub: scrollease,
                     toggleActions: "restart pause resume pause",
                 },
@@ -93009,7 +93012,8 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         }
     });
 
-
+    
+        
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(claretbody.position, {
         z: 1,
         ease: "power4.inOut",
@@ -93020,7 +93024,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
                 scrollTrigger: {
                     trigger: "#trigger1",
                     start: "top top",
-                    end: "bottom top",
+                    end: "bottom bottom",
                     scrub: scrollease,
                     toggleActions: "restart pause resume pause",
                 },
@@ -93028,6 +93032,8 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
             });
         }
     });
+    
+    }, 3000);
 
 
      ///////////// MOUSE BASED ANIMATIONS (VISIBLE)
@@ -93047,10 +93053,11 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
 
         document.addEventListener("mousemove", function(e){
             gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(proxy, {
-                time: (clip.duration / 100) * ((e.x / sizes.width) * 95),
-                duration: .7,
+                time: (clip.duration / 100) * ((e.x / sizes.width) * 90),
+                duration: 0.7,
                 ease: "ease"
             });
+
         });
 
         // let scrollingTL = gsap.timeline({
@@ -93083,29 +93090,65 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Mallard_D.rotation, {
         scrollTrigger: {
             trigger: "#trigger1",
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             scrub: scrollease,
-            toggleActions: "restart pause resume pause"
+            toggleActions: "restart none none reverse",
         },
         z: -20,
     });
 
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Claret.position, {
-        scrollTrigger: {
-            trigger: "#trigger1",
-            start: "top top",
-            end: "bottom top",
-            scrub: scrollease,
-            toggleActions: "restart pause resume pause"
-        },
-        z: -20,
+
+/*
+let Mallardbounce = gsap.timeline(
+    { 
+      scrollTrigger: {
+        trigger: "#trigger1",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: scrollease,
+        toggleActions: "restart pause resume pause"
+      }
+      
     });
+
+    Mallardbounce
+    .fromTo(
+        Mallard.position,
+        { z: 1 },
+        { z: -20 }
+      )
+      .fromTo(
+       Mallard.position,
+        { z: -20 },
+        { z: 1 }
+      );
+
+    */
+
+    
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(Claret.position, {
+            scrollTrigger: {
+                trigger: "#trigger1",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: scrollease,
+                toggleActions: "restart pause resume pause"
+            },
+            z: -20,
+        });
+     
+    
+     
+
+    
 
     
 
 
 });
 }
+  
+
 //Responsive code
 window.addEventListener("resize", () => {
     // Update sizes
@@ -93114,11 +93157,12 @@ window.addEventListener("resize", () => {
 
     windowHalfX = window.innerWidth / 2;
     windowHalfY = window.innerHeight / 2;
+    
 
     Mallard.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY /
-        mscale, windowHalfX / windowHalfY / mscale);
+    mscale, windowHalfX / windowHalfY / mscale);
     Claret.scale.set(windowHalfX / windowHalfY / mscale, windowHalfX / windowHalfY /
-        mscale, windowHalfX / windowHalfY / mscale);
+    mscale, windowHalfX / windowHalfY / mscale);
     // Update camera
     camera.aspect = sizes.width / sizes.height;
     camera.updateProjectionMatrix();
@@ -93130,15 +93174,15 @@ window.addEventListener("resize", () => {
     raycaster.setFromCamera(corner, camera);
     raycaster.ray.intersectPlane(plane, cornerPoint);
     Mallard.position.copy(cornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.4, -windowHalfX /
-            windowHalfY / mscale / 1.4, 0));
+    .add(new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, -windowHalfX /
+    windowHalfY / mscale / 1.1, 0));
 
     blcorner.set(-1, -1); // corner (across then down)
     blraycaster.setFromCamera(blcorner, camera);
     blraycaster.ray.intersectPlane(plane, blcornerPoint);
     Claret.position.copy(blcornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.4, windowHalfX /
-            windowHalfY / mscale / 1.4, 0));
+        .add(new three__WEBPACK_IMPORTED_MODULE_10__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, windowHalfX /
+            windowHalfY / mscale / 1.55, 0));
     //Bottom       
     brcorner.set(1, -1); // corner
     brraycaster.setFromCamera(brcorner, camera);
