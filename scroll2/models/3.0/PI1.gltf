@@ -3,6 +3,12 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -22,20 +28,56 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.4000000059604645,
-                0.4000000059604645,
-                0.4000000059604645
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579
             ],
             "emissiveTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.19999998807907104
+                        ],
+                        "scale" : [
+                            0.800000011920929,
+                            0.800000011920929
+                        ]
+                    }
+                },
                 "index" : 0
             },
-            "name" : "Marble grey.001",
+            "name" : "Terrazzo Marble",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.19999998807907104
+                            ],
+                            "scale" : [
+                                0.800000011920929,
+                                0.800000011920929
+                            ]
+                        }
+                    },
                     "index" : 1
                 },
                 "metallicFactor" : 0,
                 "metallicRoughnessTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.19999998807907104
+                            ],
+                            "scale" : [
+                                0.800000011920929,
+                                0.800000011920929
+                            ]
+                        }
+                    },
                     "index" : 2
                 }
             }
@@ -74,13 +116,13 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "marble11 diffuse 4k",
-            "uri" : "marble11%20diffuse%204k.jpg"
+            "name" : "Terrazzo_color.jpg",
+            "uri" : "textures/Terrazzo_color.jpg"
         },
         {
-            "mimeType" : "image/png",
-            "name" : "marble11 roughness 4k",
-            "uri" : "marble11%20roughness%204k.png"
+            "mimeType" : "image/jpeg",
+            "name" : "Terrazzo_roughness.jpg",
+            "uri" : "textures/Terrazzo_roughness.jpg"
         }
     ],
     "accessors" : [
