@@ -21,7 +21,7 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Marble 7",
+            "name" : "Marble Material",
             "normalTexture" : {
                 "index" : 0
             },
@@ -68,26 +68,26 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/png",
-            "name" : "13",
-            "uri" : "13.png"
+            "mimeType" : "image/jpeg",
+            "name" : "Marble_normal",
+            "uri" : "Marble_normal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Marble_basecolor",
+            "uri" : "Marble_basecolor.jpg"
         },
         {
             "mimeType" : "image/png",
-            "name" : "marble 7",
-            "uri" : "marble%207.png"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "13",
-            "uri" : "13-1.png"
+            "name" : "Marble_roughness",
+            "uri" : "Marble_roughness.png"
         }
     ],
     "accessors" : [
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 30799,
+            "count" : 30260,
             "max" : [
                 1.725582242012024,
                 3.907853126525879,
@@ -103,13 +103,13 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 30799,
+            "count" : 30260,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 30799,
+            "count" : 30260,
             "type" : "VEC2"
         },
         {
@@ -122,23 +122,23 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 369588,
+            "byteLength" : 363120,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 369588,
-            "byteOffset" : 369588
+            "byteLength" : 363120,
+            "byteOffset" : 363120
         },
         {
             "buffer" : 0,
-            "byteLength" : 246392,
-            "byteOffset" : 739176
+            "byteLength" : 242080,
+            "byteOffset" : 726240
         },
         {
             "buffer" : 0,
             "byteLength" : 216714,
-            "byteOffset" : 985568
+            "byteOffset" : 968320
         }
     ],
     "samplers" : [
@@ -149,7 +149,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1202284,
+            "byteLength" : 1185036,
             "uri" : "PI1.bin"
         }
     ]
