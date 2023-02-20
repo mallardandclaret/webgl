@@ -47,14 +47,14 @@
             "name" : "Cover",
             "normalTexture" : {
                 "index" : 1,
-                "scale" : 1.000000238418579
+                "scale" : 3.200000047683716
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 2
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.11136364191770554
+                "roughnessFactor" : 0.13181856274604797
             }
         },
         {
