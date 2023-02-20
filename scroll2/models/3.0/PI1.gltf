@@ -21,19 +21,8 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Marble Material",
-            "normalTexture" : {
-                "index" : 0
-            },
-            "pbrMetallicRoughness" : {
-                "baseColorTexture" : {
-                    "index" : 1
-                },
-                "metallicFactor" : 0,
-                "metallicRoughnessTexture" : {
-                    "index" : 2
-                }
-            }
+            "name" : "Procedual Marble Granite Black Galaxy",
+            "pbrMetallicRoughness" : {}
         }
     ],
     "meshes" : [
@@ -50,37 +39,6 @@
                     "material" : 0
                 }
             ]
-        }
-    ],
-    "textures" : [
-        {
-            "sampler" : 0,
-            "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 1
-        },
-        {
-            "sampler" : 0,
-            "source" : 2
-        }
-    ],
-    "images" : [
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "Marble_normal",
-            "uri" : "Marble_normal.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "Marble_basecolor",
-            "uri" : "Marble_basecolor.jpg"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "Marble_roughness",
-            "uri" : "Marble_roughness.png"
         }
     ],
     "accessors" : [
@@ -139,12 +97,6 @@
             "buffer" : 0,
             "byteLength" : 216714,
             "byteOffset" : 968320
-        }
-    ],
-    "samplers" : [
-        {
-            "magFilter" : 9729,
-            "minFilter" : 9987
         }
     ],
     "buffers" : [
