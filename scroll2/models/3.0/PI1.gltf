@@ -21,8 +21,24 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Procedual Marble Granite Black Galaxy",
-            "pbrMetallicRoughness" : {}
+            "emissiveFactor" : [
+                0.40000003576278687,
+                0.40000003576278687,
+                0.40000003576278687
+            ],
+            "emissiveTexture" : {
+                "index" : 0
+            },
+            "name" : "Terrazzo Marble",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
         }
     ],
     "meshes" : [
@@ -39,6 +55,32 @@
                     "material" : 0
                 }
             ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Terrazzo_color",
+            "uri" : "Terrazzo_color.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Terrazzo_roughness",
+            "uri" : "Terrazzo_roughness.png"
         }
     ],
     "accessors" : [
@@ -97,6 +139,12 @@
             "buffer" : 0,
             "byteLength" : 216714,
             "byteOffset" : 968320
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
         }
     ],
     "buffers" : [
