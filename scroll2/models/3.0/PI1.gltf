@@ -37,11 +37,11 @@
                     "KHR_texture_transform" : {
                         "offset" : [
                             0,
-                            0.19999998807907104
+                            0.3999999761581421
                         ],
                         "scale" : [
-                            0.800000011920929,
-                            0.800000011920929
+                            0.6000000238418579,
+                            0.6000000238418579
                         ]
                     }
                 },
@@ -54,11 +54,11 @@
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.19999998807907104
+                                0.3999999761581421
                             ],
                             "scale" : [
-                                0.800000011920929,
-                                0.800000011920929
+                                0.6000000238418579,
+                                0.6000000238418579
                             ]
                         }
                     },
@@ -70,11 +70,11 @@
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.19999998807907104
+                                0.3999999761581421
                             ],
                             "scale" : [
-                                0.800000011920929,
-                                0.800000011920929
+                                0.6000000238418579,
+                                0.6000000238418579
                             ]
                         }
                     },
@@ -116,13 +116,13 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Terrazzo_color.jpg",
-            "uri" : "textures/Terrazzo_color.jpg"
+            "name" : "Terrazzo_color",
+            "uri" : "Terrazzo_color.jpg"
         },
         {
-            "mimeType" : "image/jpeg",
-            "name" : "Terrazzo_roughness.jpg",
-            "uri" : "textures/Terrazzo_roughness.jpg"
+            "mimeType" : "image/png",
+            "name" : "Terrazzo_roughness",
+            "uri" : "Terrazzo_roughness.png"
         }
     ],
     "accessors" : [
