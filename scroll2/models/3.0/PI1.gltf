@@ -22,24 +22,21 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.5,
-                0.5,
-                0.5
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
             ],
             "emissiveTexture" : {
                 "index" : 0
             },
-            "name" : "Marble 7",
-            "normalTexture" : {
-                "index" : 1
-            },
+            "name" : "Marble stone",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 2
+                    "index" : 1
                 },
                 "metallicFactor" : 0,
                 "metallicRoughnessTexture" : {
-                    "index" : 3
+                    "index" : 2
                 }
             }
         }
@@ -67,10 +64,6 @@
         },
         {
             "sampler" : 0,
-            "source" : 1
-        },
-        {
-            "sampler" : 0,
             "source" : 0
         },
         {
@@ -80,14 +73,14 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/jpeg",
-            "name" : "marble 7.jpg",
-            "uri" : "textures/marble%207.jpg"
+            "mimeType" : "image/png",
+            "name" : "marble Diffuse.bmp",
+            "uri" : "marble%20Diffuse_bmp.png"
         },
         {
             "mimeType" : "image/png",
-            "name" : "13.png",
-            "uri" : "textures/13.png"
+            "name" : "marble roughness.bmp",
+            "uri" : "marble%20roughness_bmp.png"
         }
     ],
     "accessors" : [
