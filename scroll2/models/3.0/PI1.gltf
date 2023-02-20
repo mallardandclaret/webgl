@@ -3,6 +3,12 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -22,20 +28,56 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.40000003576278687,
-                0.40000003576278687,
-                0.40000003576278687
+                0.30000001192092896,
+                0.30000001192092896,
+                0.30000001192092896
             ],
             "emissiveTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.19999998807907104
+                        ],
+                        "scale" : [
+                            0.800000011920929,
+                            0.800000011920929
+                        ]
+                    }
+                },
                 "index" : 0
             },
             "name" : "Terrazzo Marble",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.19999998807907104
+                            ],
+                            "scale" : [
+                                0.800000011920929,
+                                0.800000011920929
+                            ]
+                        }
+                    },
                     "index" : 1
                 },
                 "metallicFactor" : 0,
                 "metallicRoughnessTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.19999998807907104
+                            ],
+                            "scale" : [
+                                0.800000011920929,
+                                0.800000011920929
+                            ]
+                        }
+                    },
                     "index" : 2
                 }
             }
@@ -73,14 +115,14 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/png",
-            "name" : "Terrazzo_color",
-            "uri" : "Terrazzo_color.png"
+            "mimeType" : "image/jpeg",
+            "name" : "Terrazzo_color.jpg",
+            "uri" : "textures/Terrazzo_color.jpg"
         },
         {
-            "mimeType" : "image/png",
-            "name" : "Terrazzo_roughness",
-            "uri" : "Terrazzo_roughness.png"
+            "mimeType" : "image/jpeg",
+            "name" : "Terrazzo_roughness.jpg",
+            "uri" : "textures/Terrazzo_roughness.jpg"
         }
     ],
     "accessors" : [
