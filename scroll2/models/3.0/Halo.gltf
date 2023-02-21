@@ -37,14 +37,14 @@
             "name" : "Cover",
             "normalTexture" : {
                 "index" : 1,
-                "scale" : 3.200000047683716
+                "scale" : 2
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 2
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.13181856274604797
+                "roughnessFactor" : 0.22954583168029785
             }
         },
         {
@@ -111,12 +111,12 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloDifuse",
+            "name" : "HaloDifuse.jpg.001",
             "uri" : "HaloDifuse.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloNormal",
+            "name" : "HaloNormal.jpg.001",
             "uri" : "HaloNormal.jpg"
         }
     ],
