@@ -27,6 +27,11 @@
     "materials" : [
         {
             "doubleSided" : true,
+            "emissiveFactor" : [
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
+            ],
             "emissiveTexture" : {
                 "extensions" : {
                     "KHR_texture_transform" : {
@@ -93,8 +98,7 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "marble base",
-            "uri" : "marble%20base.jpg"
+            "name" : "marble base.jpg.002"
         }
     ],
     "accessors" : [
