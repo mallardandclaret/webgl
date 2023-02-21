@@ -98,7 +98,8 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "marble11 diffuse 4k.jpg.001"
+            "name" : "marble11 diffuse 4k",
+            "uri" : "marble11%20diffuse%204k.jpg"
         }
     ],
     "accessors" : [
