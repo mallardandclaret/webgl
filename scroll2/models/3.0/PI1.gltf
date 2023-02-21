@@ -28,9 +28,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.40000003576278687,
-                0.40000003576278687,
-                0.40000003576278687
+                1,
+                1,
+                1
             ],
             "emissiveTexture" : {
                 "extensions" : {
