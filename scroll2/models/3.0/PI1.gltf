@@ -3,6 +3,12 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -21,15 +27,45 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Artificial Marble 9",
+            "emissiveFactor" : [
+                0.40000003576278687,
+                0.40000003576278687,
+                0.40000003576278687
+            ],
+            "emissiveTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.7999999970197678
+                        ],
+                        "scale" : [
+                            0.20000000298023224,
+                            0.20000000298023224
+                        ]
+                    }
+                },
+                "index" : 0
+            },
+            "name" : "Marble Material",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 0
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.7999999970197678
+                            ],
+                            "scale" : [
+                                0.20000000298023224,
+                                0.20000000298023224
+                            ]
+                        }
+                    },
+                    "index" : 1
                 },
                 "metallicFactor" : 0,
-                "metallicRoughnessTexture" : {
-                    "index" : 1
-                }
+                "roughnessFactor" : 0.5
             }
         }
     ],
@@ -56,19 +92,14 @@
         },
         {
             "sampler" : 0,
-            "source" : 1
+            "source" : 0
         }
     ],
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "D:\\BlenderFiles\\Materials\\[2K]Marble14\\Marble14_col",
-            "uri" : "DBlenderFilesMaterials2KMarble14Marble14_col.jpg"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "D:\\BlenderFiles\\Materials\\[2K]Marble14\\Marble14_rgh",
-            "uri" : "DBlenderFilesMaterials2KMarble14Marble14_rgh.png"
+            "name" : "Marble_basecolor",
+            "uri" : "Marble_basecolor.jpg"
         }
     ],
     "accessors" : [
