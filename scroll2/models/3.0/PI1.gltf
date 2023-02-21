@@ -28,44 +28,44 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.699999988079071,
-                0.699999988079071,
-                0.699999988079071
+                0.40000003576278687,
+                0.40000003576278687,
+                0.40000003576278687
             ],
             "emissiveTexture" : {
                 "extensions" : {
                     "KHR_texture_transform" : {
                         "offset" : [
                             0,
-                            0.5
+                            0.3999999761581421
                         ],
                         "scale" : [
-                            0.5,
-                            0.5
+                            0.6000001430511475,
+                            0.6000000238418579
                         ]
                     }
                 },
                 "index" : 0
             },
-            "name" : "Artificial Marble 9",
+            "name" : "Marble grey",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.5
+                                0.3999999761581421
                             ],
                             "scale" : [
-                                0.5,
-                                0.5
+                                0.6000001430511475,
+                                0.6000000238418579
                             ]
                         }
                     },
                     "index" : 1
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.22727273404598236
+                "roughnessFactor" : 0.3136363625526428
             }
         }
     ],
@@ -98,7 +98,8 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Marble14_col.jpg"
+            "name" : "marble base",
+            "uri" : "marble%20base.jpg"
         }
     ],
     "accessors" : [
