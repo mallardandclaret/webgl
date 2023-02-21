@@ -3,12 +3,6 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
-    "extensionsUsed" : [
-        "KHR_texture_transform"
-    ],
-    "extensionsRequired" : [
-        "KHR_texture_transform"
-    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -33,39 +27,15 @@
                 0.4000000059604645
             ],
             "emissiveTexture" : {
-                "extensions" : {
-                    "KHR_texture_transform" : {
-                        "offset" : [
-                            0,
-                            0.3999999761581421
-                        ],
-                        "scale" : [
-                            0.6000001430511475,
-                            0.6000000238418579
-                        ]
-                    }
-                },
                 "index" : 0
             },
-            "name" : "Marble grey",
+            "name" : "Marble  cracks",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "extensions" : {
-                        "KHR_texture_transform" : {
-                            "offset" : [
-                                0,
-                                0.3999999761581421
-                            ],
-                            "scale" : [
-                                0.6000001430511475,
-                                0.6000000238418579
-                            ]
-                        }
-                    },
                     "index" : 1
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.3136363625526428
+                "roughnessFactor" : 0.5
             }
         }
     ],
@@ -97,8 +67,9 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/jpeg",
-            "name" : "marble base.jpg.002"
+            "mimeType" : "image/png",
+            "name" : "marble Diffuse.bmp",
+            "uri" : "marble%20Diffuse_bmp.png"
         }
     ],
     "accessors" : [
