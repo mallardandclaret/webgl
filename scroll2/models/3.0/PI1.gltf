@@ -28,44 +28,44 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.40000003576278687,
-                0.40000003576278687,
-                0.40000003576278687
+                0.5,
+                0.5,
+                0.5
             ],
             "emissiveTexture" : {
                 "extensions" : {
                     "KHR_texture_transform" : {
                         "offset" : [
                             0,
-                            0.7999999970197678
+                            0.5
                         ],
                         "scale" : [
-                            0.20000000298023224,
-                            0.20000000298023224
+                            0.5,
+                            0.5
                         ]
                     }
                 },
                 "index" : 0
             },
-            "name" : "Marble Material",
+            "name" : "Artificial Marble 9",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.7999999970197678
+                                0.5
                             ],
                             "scale" : [
-                                0.20000000298023224,
-                                0.20000000298023224
+                                0.5,
+                                0.5
                             ]
                         }
                     },
                     "index" : 1
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
+                "roughnessFactor" : 0.22727273404598236
             }
         }
     ],
@@ -98,8 +98,8 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Marble_basecolor",
-            "uri" : "Marble_basecolor.jpg"
+            "name" : "D:\\BlenderFiles\\Materials\\[2K]Marble14\\Marble14_col",
+            "uri" : "DBlenderFilesMaterials2KMarble14Marble14_col.jpg"
         }
     ],
     "accessors" : [
