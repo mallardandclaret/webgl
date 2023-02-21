@@ -28,9 +28,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.5,
-                0.5,
-                0.5
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
             ],
             "emissiveTexture" : {
                 "extensions" : {
@@ -65,7 +65,7 @@
                     "index" : 1
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.35227274894714355
+                "roughnessFactor" : 0.418181836605072
             }
         }
     ],
@@ -98,8 +98,7 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "marble11 diffuse 4k",
-            "uri" : "marble11%20diffuse%204k.jpg"
+            "name" : "marble11 diffuse 4k.jpg.001"
         }
     ],
     "accessors" : [
