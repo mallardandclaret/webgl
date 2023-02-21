@@ -111,13 +111,13 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloDifuse.jpg",
-            "uri" : "../../../../../Non%20Cloud/M%26C%203.0/Models/assets/HaloDifuse.jpg"
+            "name" : "HaloDifuse",
+            "uri" : "HaloDifuse.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloNormal.jpg",
-            "uri" : "../../../../../Non%20Cloud/M%26C%203.0/Models/assets/HaloNormal.jpg"
+            "name" : "HaloNormal",
+            "uri" : "HaloNormal.jpg"
         }
     ],
     "accessors" : [
