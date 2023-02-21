@@ -8,24 +8,14 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0,
-                1
+                0
             ]
         }
     ],
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "HaloCover",
-            "scale" : [
-                1.2400000095367432,
-                0.028881723061203957,
-                1.5549999475479126
-            ]
-        },
-        {
-            "mesh" : 1,
-            "name" : "HaloPages",
+            "name" : "Halo",
             "scale" : [
                 1.2400000095367432,
                 0.028881723061203957,
@@ -60,9 +50,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.5232180953025818,
-                0.5232180953025818,
-                0.5232180953025818
+                0.13054199516773224,
+                0.13054199516773224,
+                0.13054199516773224
             ],
             "name" : "Paper",
             "pbrMetallicRoughness" : {
@@ -85,24 +75,20 @@
                     "attributes" : {
                         "POSITION" : 0,
                         "NORMAL" : 1,
-                        "TEXCOORD_0" : 2
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
                     },
-                    "indices" : 3,
+                    "indices" : 4,
                     "material" : 0
-                }
-            ]
-        },
-        {
-            "name" : "Halo.001",
-            "primitives" : [
+                },
                 {
                     "attributes" : {
-                        "POSITION" : 4,
-                        "NORMAL" : 5,
-                        "TEXCOORD_0" : 6,
-                        "TEXCOORD_1" : 7
+                        "POSITION" : 5,
+                        "NORMAL" : 6,
+                        "TEXCOORD_0" : 7,
+                        "TEXCOORD_1" : 8
                     },
-                    "indices" : 8,
+                    "indices" : 9,
                     "material" : 1
                 }
             ]
@@ -125,13 +111,13 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloDifuse",
-            "uri" : "HaloDifuse.jpg"
+            "name" : "HaloDifuse.jpg",
+            "uri" : "../../../../../Non%20Cloud/M%26C%203.0/Models/assets/HaloDifuse.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloNormal",
-            "uri" : "HaloNormal.jpg"
+            "name" : "HaloNormal.jpg",
+            "uri" : "../../../../../Non%20Cloud/M%26C%203.0/Models/assets/HaloNormal.jpg"
         }
     ],
     "accessors" : [
@@ -146,7 +132,7 @@
             ],
             "min" : [
                 -1,
-                -1,
+                -1.2331093549728394,
                 -1
             ],
             "type" : "VEC3"
@@ -165,46 +151,52 @@
         },
         {
             "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 84,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
             "componentType" : 5123,
             "count" : 162,
             "type" : "SCALAR"
         },
         {
-            "bufferView" : 4,
+            "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 84,
+            "count" : 81,
             "max" : [
-                1,
+                1.0000001192092896,
                 1,
                 1
             ],
             "min" : [
-                -1,
-                -1,
+                -1.0000001192092896,
+                -1.2331093549728394,
                 -1
             ],
             "type" : "VEC3"
         },
         {
-            "bufferView" : 5,
-            "componentType" : 5126,
-            "count" : 84,
-            "type" : "VEC3"
-        },
-        {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 84,
-            "type" : "VEC2"
+            "count" : 81,
+            "type" : "VEC3"
         },
         {
             "bufferView" : 7,
             "componentType" : 5126,
-            "count" : 84,
+            "count" : 81,
             "type" : "VEC2"
         },
         {
             "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 81,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 9,
             "componentType" : 5123,
             "count" : 162,
             "type" : "SCALAR"
@@ -228,33 +220,38 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 324,
+            "byteLength" : 672,
             "byteOffset" : 2688
         },
         {
             "buffer" : 0,
-            "byteLength" : 1008,
-            "byteOffset" : 3012
+            "byteLength" : 324,
+            "byteOffset" : 3360
         },
         {
             "buffer" : 0,
-            "byteLength" : 1008,
-            "byteOffset" : 4020
+            "byteLength" : 972,
+            "byteOffset" : 3684
         },
         {
             "buffer" : 0,
-            "byteLength" : 672,
-            "byteOffset" : 5028
+            "byteLength" : 972,
+            "byteOffset" : 4656
         },
         {
             "buffer" : 0,
-            "byteLength" : 672,
-            "byteOffset" : 5700
+            "byteLength" : 648,
+            "byteOffset" : 5628
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 648,
+            "byteOffset" : 6276
         },
         {
             "buffer" : 0,
             "byteLength" : 324,
-            "byteOffset" : 6372
+            "byteOffset" : 6924
         }
     ],
     "samplers" : [
@@ -265,7 +262,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 6696,
+            "byteLength" : 7248,
             "uri" : "Halo.bin"
         }
     ]
