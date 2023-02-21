@@ -28,9 +28,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.5,
-                0.5,
-                0.5
+                0.699999988079071,
+                0.699999988079071,
+                0.699999988079071
             ],
             "emissiveTexture" : {
                 "extensions" : {
@@ -98,8 +98,7 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "D:\\BlenderFiles\\Materials\\[2K]Marble14\\Marble14_col",
-            "uri" : "DBlenderFilesMaterials2KMarble14Marble14_col.jpg"
+            "name" : "Marble14_col.jpg"
         }
     ],
     "accessors" : [
