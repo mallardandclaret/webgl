@@ -33,27 +33,18 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.20000000298023224,
-                0.20000000298023224,
-                0.20000000298023224
+                0.11240252423886243,
+                0,
+                0.0002579352391203528
             ],
             "name" : "Old White Metal",
             "pbrMetallicRoughness" : {
-                "baseColorTexture" : {
-                    "extensions" : {
-                        "KHR_texture_transform" : {
-                            "offset" : [
-                                0,
-                                0.699999988079071
-                            ],
-                            "scale" : [
-                                0.30000001192092896,
-                                0.30000001192092896
-                            ]
-                        }
-                    },
-                    "index" : 0
-                },
+                "baseColorFactor" : [
+                    0.4348977208137512,
+                    0,
+                    0.0011525732697919011,
+                    1
+                ],
                 "metallicRoughnessTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
@@ -67,7 +58,7 @@
                             ]
                         }
                     },
-                    "index" : 1
+                    "index" : 0
                 }
             }
         }
@@ -92,18 +83,9 @@
         {
             "sampler" : 0,
             "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 1
         }
     ],
     "images" : [
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "WhiteMetal_diffuse",
-            "uri" : "WhiteMetal_diffuse.jpg"
-        },
         {
             "mimeType" : "image/png",
             "name" : "WhiteMetal_roughness",
