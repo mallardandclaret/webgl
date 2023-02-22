@@ -1,0 +1,193 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "ARUP",
+            "translation" : [
+                -3.976365566253662,
+                -0.21330329775810242,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Concrate",
+            "normalTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.7999999970197678
+                        ],
+                        "scale" : [
+                            0.20000000298023224,
+                            0.20000000298023224
+                        ]
+                    }
+                },
+                "index" : 0,
+                "scale" : 2
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.7999999970197678
+                            ],
+                            "scale" : [
+                                0.20000000298023224,
+                                0.20000000298023224
+                            ]
+                        }
+                    },
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Curve",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "concrete_54_normal-2K",
+            "uri" : "concrete_54_normal-2K.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "concrete_54_basecolor-2K",
+            "uri" : "concrete_54_basecolor-2K.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 5163,
+            "max" : [
+                8.864869117736816,
+                2.5611703395843506,
+                1.1943085193634033
+            ],
+            "min" : [
+                0.033706728368997574,
+                0.21965381503105164,
+                -1.1943084001541138
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 5163,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 5163,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 5163,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 8580,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 61956,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 61956,
+            "byteOffset" : 61956
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 41304,
+            "byteOffset" : 123912
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 41304,
+            "byteOffset" : 165216
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 17160,
+            "byteOffset" : 206520
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 223680,
+            "uri" : "ARUP.bin"
+        }
+    ]
+}
