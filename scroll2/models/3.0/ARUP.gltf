@@ -32,42 +32,21 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0.5,
-                0.5,
-                0.5
-            ],
-            "emissiveTexture" : {
-                "extensions" : {
-                    "KHR_texture_transform" : {
-                        "offset" : [
-                            0,
-                            0.7999999970197678
-                        ],
-                        "scale" : [
-                            0.20000000298023224,
-                            0.20000000298023224
-                        ]
-                    }
-                },
-                "index" : 0
-            },
-            "name" : "Concrate",
+            "name" : "Scratched metal",
             "normalTexture" : {
                 "extensions" : {
                     "KHR_texture_transform" : {
                         "offset" : [
                             0,
-                            0.7999999970197678
+                            0.5
                         ],
                         "scale" : [
-                            0.20000000298023224,
-                            0.20000000298023224
+                            0.5,
+                            0.5
                         ]
                     }
                 },
-                "index" : 1,
-                "scale" : 2
+                "index" : 0
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
@@ -75,18 +54,31 @@
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.7999999970197678
+                                0.5
                             ],
                             "scale" : [
-                                0.20000000298023224,
-                                0.20000000298023224
+                                0.5,
+                                0.5
+                            ]
+                        }
+                    },
+                    "index" : 1
+                },
+                "metallicRoughnessTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.5
+                            ],
+                            "scale" : [
+                                0.5,
+                                0.5
                             ]
                         }
                     },
                     "index" : 2
-                },
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.3659090995788574
+                }
             }
         }
     ],
@@ -113,23 +105,23 @@
         },
         {
             "sampler" : 0,
-            "source" : 1
+            "source" : 0
         },
         {
             "sampler" : 0,
-            "source" : 0
+            "source" : 1
         }
     ],
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "concrete_54_basecolor-2K",
-            "uri" : "concrete_54_basecolor-2K.jpg"
+            "name" : "scratchedsss",
+            "uri" : "scratchedsss.jpg"
         },
         {
-            "mimeType" : "image/jpeg",
-            "name" : "concrete_54_normal-2K",
-            "uri" : "concrete_54_normal-2K.jpg"
+            "mimeType" : "image/png",
+            "name" : "scratchedsss",
+            "uri" : "scratchedsss-1.png"
         }
     ],
     "accessors" : [
