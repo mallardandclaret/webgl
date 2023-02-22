@@ -86,21 +86,7 @@
                     "index" : 2
                 },
                 "metallicFactor" : 0,
-                "metallicRoughnessTexture" : {
-                    "extensions" : {
-                        "KHR_texture_transform" : {
-                            "offset" : [
-                                0,
-                                0.7999999970197678
-                            ],
-                            "scale" : [
-                                0.20000000298023224,
-                                0.20000000298023224
-                            ]
-                        }
-                    },
-                    "index" : 3
-                }
+                "roughnessFactor" : 0.5
             }
         }
     ],
@@ -132,10 +118,6 @@
         {
             "sampler" : 0,
             "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 2
         }
     ],
     "images" : [
@@ -148,11 +130,6 @@
             "mimeType" : "image/jpeg",
             "name" : "DJOBPROJECTMaterialWOODPlywood cob pressed textureNormal",
             "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureNormal.jpg"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "DJOBPROJECTMaterialWOODPlywood cob pressed textureRoughness",
-            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureRoughness.png"
         }
     ],
     "accessors" : [
