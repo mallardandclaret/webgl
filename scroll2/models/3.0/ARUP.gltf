@@ -32,52 +32,28 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Scratched metal",
-            "normalTexture" : {
-                "extensions" : {
-                    "KHR_texture_transform" : {
-                        "offset" : [
-                            0,
-                            0.5
-                        ],
-                        "scale" : [
-                            0.5,
-                            0.5
-                        ]
-                    }
-                },
-                "index" : 0
-            },
+            "name" : "Old White Metal",
             "pbrMetallicRoughness" : {
-                "baseColorTexture" : {
-                    "extensions" : {
-                        "KHR_texture_transform" : {
-                            "offset" : [
-                                0,
-                                0.5
-                            ],
-                            "scale" : [
-                                0.5,
-                                0.5
-                            ]
-                        }
-                    },
-                    "index" : 1
-                },
+                "baseColorFactor" : [
+                    0.6165184378623962,
+                    0.6165184378623962,
+                    0.6165184378623962,
+                    1
+                ],
                 "metallicRoughnessTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.5
+                                0.699999988079071
                             ],
                             "scale" : [
-                                0.5,
-                                0.5
+                                0.30000001192092896,
+                                0.30000001192092896
                             ]
                         }
                     },
-                    "index" : 2
+                    "index" : 0
                 }
             }
         }
@@ -102,26 +78,13 @@
         {
             "sampler" : 0,
             "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 1
         }
     ],
     "images" : [
         {
-            "mimeType" : "image/jpeg",
-            "name" : "scratchedsss",
-            "uri" : "scratchedsss.jpg"
-        },
-        {
             "mimeType" : "image/png",
-            "name" : "scratchedsss",
-            "uri" : "scratchedsss-1.png"
+            "name" : "WhiteMetal_roughness",
+            "uri" : "WhiteMetal_roughness.png"
         }
     ],
     "accessors" : [
