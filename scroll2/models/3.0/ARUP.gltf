@@ -33,9 +33,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.11240252423886243,
+                0.33720758109122784,
                 0,
-                0.0002579352391203528
+                0.000773805736578731
             ],
             "name" : "Old White Metal",
             "pbrMetallicRoughness" : {
