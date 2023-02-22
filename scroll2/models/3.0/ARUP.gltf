@@ -32,11 +32,6 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0.33720758109122784,
-                0,
-                0.000773805736578731
-            ],
             "name" : "Old White Metal",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -45,16 +40,17 @@
                     0.0011525732697919011,
                     1
                 ],
+                "metallicFactor" : 0.3181818127632141,
                 "metallicRoughnessTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.699999988079071
+                                0.8999999985098839
                             ],
                             "scale" : [
-                                0.30000001192092896,
-                                0.30000001192092896
+                                0.10000000149011612,
+                                0.10000000149011612
                             ]
                         }
                     },
