@@ -32,6 +32,26 @@
     "materials" : [
         {
             "doubleSided" : true,
+            "emissiveFactor" : [
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "emissiveTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.7999999970197678
+                        ],
+                        "scale" : [
+                            0.20000000298023224,
+                            0.20000000298023224
+                        ]
+                    }
+                },
+                "index" : 0
+            },
             "name" : "Concrate",
             "normalTexture" : {
                 "extensions" : {
@@ -46,7 +66,7 @@
                         ]
                     }
                 },
-                "index" : 0,
+                "index" : 1,
                 "scale" : 2
             },
             "pbrMetallicRoughness" : {
@@ -63,7 +83,7 @@
                             ]
                         }
                     },
-                    "index" : 1
+                    "index" : 2
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -78,10 +98,9 @@
                     "attributes" : {
                         "POSITION" : 0,
                         "NORMAL" : 1,
-                        "TEXCOORD_0" : 2,
-                        "TEXCOORD_1" : 3
+                        "TEXCOORD_0" : 2
                     },
-                    "indices" : 4,
+                    "indices" : 3,
                     "material" : 0
                 }
             ]
@@ -95,18 +114,22 @@
         {
             "sampler" : 0,
             "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 0
         }
     ],
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "concrete_54_normal-2K",
-            "uri" : "concrete_54_normal-2K.jpg"
+            "name" : "concrete_54_basecolor-2K",
+            "uri" : "concrete_54_basecolor-2K.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "concrete_54_basecolor-2K",
-            "uri" : "concrete_54_basecolor-2K.jpg"
+            "name" : "concrete_54_normal-2K",
+            "uri" : "concrete_54_normal-2K.jpg"
         }
     ],
     "accessors" : [
@@ -140,12 +163,6 @@
         },
         {
             "bufferView" : 3,
-            "componentType" : 5126,
-            "count" : 5163,
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 4,
             "componentType" : 5123,
             "count" : 8580,
             "type" : "SCALAR"
@@ -169,13 +186,8 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 41304,
-            "byteOffset" : 165216
-        },
-        {
-            "buffer" : 0,
             "byteLength" : 17160,
-            "byteOffset" : 206520
+            "byteOffset" : 165216
         }
     ],
     "samplers" : [
@@ -186,7 +198,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 223680,
+            "byteLength" : 182376,
             "uri" : "ARUP.bin"
         }
     ]
