@@ -32,29 +32,54 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Old White Metal",
+            "name" : "Plywood cob pressed texture",
+            "normalTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.7999999970197678
+                        ],
+                        "scale" : [
+                            0.20000000298023224,
+                            0.20000000298023224
+                        ]
+                    }
+                },
+                "index" : 0,
+                "scale" : 0.10000000149011612
+            },
             "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.4348977208137512,
-                    0,
-                    0.0011525732697919011,
-                    1
-                ],
-                "metallicFactor" : 0.3181818127632141,
+                "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.7999999970197678
+                            ],
+                            "scale" : [
+                                0.20000000298023224,
+                                0.20000000298023224
+                            ]
+                        }
+                    },
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
                 "metallicRoughnessTexture" : {
                     "extensions" : {
                         "KHR_texture_transform" : {
                             "offset" : [
                                 0,
-                                0.8999999985098839
+                                0.7999999970197678
                             ],
                             "scale" : [
-                                0.10000000149011612,
-                                0.10000000149011612
+                                0.20000000298023224,
+                                0.20000000298023224
                             ]
                         }
                     },
-                    "index" : 0
+                    "index" : 2
                 }
             }
         }
@@ -79,13 +104,31 @@
         {
             "sampler" : 0,
             "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
         }
     ],
     "images" : [
         {
             "mimeType" : "image/png",
-            "name" : "WhiteMetal_roughness",
-            "uri" : "WhiteMetal_roughness.png"
+            "name" : "D:\\JOB\\PROJECT\\Material\\WOOD\\Plywood cob pressed texture\\Normal",
+            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureNormal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "D:\\JOB\\PROJECT\\Material\\WOOD\\Plywood cob pressed texture\\Diffuse",
+            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureDiffuse.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "D:\\JOB\\PROJECT\\Material\\WOOD\\Plywood cob pressed texture\\Roughness",
+            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureRoughness.png"
         }
     ],
     "accessors" : [
