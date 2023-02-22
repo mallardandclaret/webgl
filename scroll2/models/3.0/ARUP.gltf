@@ -32,6 +32,26 @@
     "materials" : [
         {
             "doubleSided" : true,
+            "emissiveFactor" : [
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
+            ],
+            "emissiveTexture" : {
+                "extensions" : {
+                    "KHR_texture_transform" : {
+                        "offset" : [
+                            0,
+                            0.7999999970197678
+                        ],
+                        "scale" : [
+                            0.20000000298023224,
+                            0.20000000298023224
+                        ]
+                    }
+                },
+                "index" : 0
+            },
             "name" : "Plywood cob pressed texture",
             "normalTexture" : {
                 "extensions" : {
@@ -46,8 +66,8 @@
                         ]
                     }
                 },
-                "index" : 0,
-                "scale" : 0.10000000149011612
+                "index" : 1,
+                "scale" : 0.20000000298023224
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
@@ -63,7 +83,7 @@
                             ]
                         }
                     },
-                    "index" : 1
+                    "index" : 2
                 },
                 "metallicFactor" : 0,
                 "metallicRoughnessTexture" : {
@@ -79,7 +99,7 @@
                             ]
                         }
                     },
-                    "index" : 2
+                    "index" : 3
                 }
             }
         }
@@ -111,23 +131,27 @@
         },
         {
             "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
             "source" : 2
         }
     ],
     "images" : [
         {
-            "mimeType" : "image/png",
-            "name" : "D:\\JOB\\PROJECT\\Material\\WOOD\\Plywood cob pressed texture\\Normal",
-            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureNormal.png"
+            "mimeType" : "image/jpeg",
+            "name" : "DJOBPROJECTMaterialWOODPlywood cob pressed textureDiffuse",
+            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureDiffuse.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "DJOBPROJECTMaterialWOODPlywood cob pressed textureNormal",
+            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureNormal.jpg"
         },
         {
             "mimeType" : "image/png",
-            "name" : "D:\\JOB\\PROJECT\\Material\\WOOD\\Plywood cob pressed texture\\Diffuse",
-            "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureDiffuse.png"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "D:\\JOB\\PROJECT\\Material\\WOOD\\Plywood cob pressed texture\\Roughness",
+            "name" : "DJOBPROJECTMaterialWOODPlywood cob pressed textureRoughness",
             "uri" : "DJOBPROJECTMaterialWOODPlywood%20cob%20pressed%20textureRoughness.png"
         }
     ],
