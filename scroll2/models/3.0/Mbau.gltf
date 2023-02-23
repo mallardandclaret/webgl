@@ -9,7 +9,8 @@
             "name" : "Scene",
             "nodes" : [
                 0,
-                1
+                1,
+                2
             ]
         }
     ],
@@ -52,6 +53,26 @@
                 -1.1070640087127686,
                 -0.30519598722457886,
                 -0.028763191774487495
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Curve.003",
+            "rotation" : [
+                -1,
+                0,
+                0,
+                5.6999328827277325e-15
+            ],
+            "scale" : [
+                2.11826491355896,
+                1,
+                2.11826491355896
+            ],
+            "translation" : [
+                -0.12240516394376755,
+                -0.2004804164171219,
+                -0.0023402099031955004
             ]
         }
     ],
@@ -132,6 +153,20 @@
                     },
                     "indices" : 9,
                     "material" : 2
+                }
+            ]
+        },
+        {
+            "name" : "Curve.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 10,
+                        "NORMAL" : 11,
+                        "TEXCOORD_0" : 12
+                    },
+                    "indices" : 13,
+                    "material" : 0
                 }
             ]
         }
@@ -226,6 +261,40 @@
             "componentType" : 5123,
             "count" : 18720,
             "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 5858,
+            "max" : [
+                0.19952017068862915,
+                0.019999999552965164,
+                0.08586478233337402
+            ],
+            "min" : [
+                -0.09061018377542496,
+                -0.019999999552965164,
+                -0.05882890522480011
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 5858,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 5858,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5123,
+            "count" : 10512,
+            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
@@ -278,11 +347,31 @@
             "buffer" : 0,
             "byteLength" : 37440,
             "byteOffset" : 5501920
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 70296,
+            "byteOffset" : 5539360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 70296,
+            "byteOffset" : 5609656
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 46864,
+            "byteOffset" : 5679952
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 21024,
+            "byteOffset" : 5726816
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 5539360,
+            "byteLength" : 5747840,
             "uri" : "Mbau.bin"
         }
     ]
