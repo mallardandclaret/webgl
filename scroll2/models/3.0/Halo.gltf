@@ -110,12 +110,12 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloDifuse.jpg.001",
+            "name" : "HaloDifuse",
             "uri" : "HaloDifuse.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "HaloNormal.jpg.001",
+            "name" : "HaloNormal",
             "uri" : "HaloNormal.jpg"
         }
     ],
@@ -123,15 +123,15 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 84,
+            "count" : 3688,
             "max" : [
-                1,
-                1,
-                1
+                1.0000348091125488,
+                1.0736570358276367,
+                1.0035784244537354
             ],
             "min" : [
-                -1,
-                -1.2331093549728394,
+                -1.0080569982528687,
+                -2.4261889457702637,
                 -1
             ],
             "type" : "VEC3"
@@ -139,118 +139,118 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 84,
+            "count" : 3688,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 84,
+            "count" : 3688,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5126,
-            "count" : 84,
+            "count" : 3688,
             "type" : "VEC2"
         },
         {
             "bufferView" : 4,
             "componentType" : 5123,
-            "count" : 162,
+            "count" : 8064,
             "type" : "SCALAR"
         },
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 81,
+            "count" : 1304,
             "max" : [
-                1.0000001192092896,
-                1,
-                1
+                1.0000348091125488,
+                0.599206805229187,
+                1.00812566280365
             ],
             "min" : [
-                -1.0000001192092896,
-                -1.2331093549728394,
-                -1
+                -1.001868486404419,
+                -2.184380292892456,
+                -1.0026546716690063
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 81,
+            "count" : 1304,
             "type" : "VEC3"
         },
         {
             "bufferView" : 7,
             "componentType" : 5126,
-            "count" : 81,
+            "count" : 1304,
             "type" : "VEC2"
         },
         {
             "bufferView" : 8,
             "componentType" : 5126,
-            "count" : 81,
+            "count" : 1304,
             "type" : "VEC2"
         },
         {
             "bufferView" : 9,
             "componentType" : 5123,
-            "count" : 162,
+            "count" : 3456,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 1008,
+            "byteLength" : 44256,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 1008,
-            "byteOffset" : 1008
+            "byteLength" : 44256,
+            "byteOffset" : 44256
         },
         {
             "buffer" : 0,
-            "byteLength" : 672,
-            "byteOffset" : 2016
+            "byteLength" : 29504,
+            "byteOffset" : 88512
         },
         {
             "buffer" : 0,
-            "byteLength" : 672,
-            "byteOffset" : 2688
+            "byteLength" : 29504,
+            "byteOffset" : 118016
         },
         {
             "buffer" : 0,
-            "byteLength" : 324,
-            "byteOffset" : 3360
+            "byteLength" : 16128,
+            "byteOffset" : 147520
         },
         {
             "buffer" : 0,
-            "byteLength" : 972,
-            "byteOffset" : 3684
+            "byteLength" : 15648,
+            "byteOffset" : 163648
         },
         {
             "buffer" : 0,
-            "byteLength" : 972,
-            "byteOffset" : 4656
+            "byteLength" : 15648,
+            "byteOffset" : 179296
         },
         {
             "buffer" : 0,
-            "byteLength" : 648,
-            "byteOffset" : 5628
+            "byteLength" : 10432,
+            "byteOffset" : 194944
         },
         {
             "buffer" : 0,
-            "byteLength" : 648,
-            "byteOffset" : 6276
+            "byteLength" : 10432,
+            "byteOffset" : 205376
         },
         {
             "buffer" : 0,
-            "byteLength" : 324,
-            "byteOffset" : 6924
+            "byteLength" : 6912,
+            "byteOffset" : 215808
         }
     ],
     "samplers" : [
@@ -261,7 +261,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 7248,
+            "byteLength" : 222720,
             "uri" : "Halo.bin"
         }
     ]
