@@ -42,6 +42,11 @@
         },
         {
             "doubleSided" : true,
+            "emissiveFactor" : [
+                0.10000000149011612,
+                0.10000000149011612,
+                0.10000000149011612
+            ],
             "name" : "can",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -50,7 +55,7 @@
                     0.800000011920929,
                     1
                 ],
-                "roughnessFactor" : 0.32045453786849976
+                "roughnessFactor" : 0.09999999403953552
             }
         }
     ],
