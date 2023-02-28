@@ -62,20 +62,6 @@
                 ],
                 "roughnessFactor" : 0.10000000149011612
             }
-        },
-        {
-            "doubleSided" : true,
-            "name" : "Drink",
-            "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.800000011920929,
-                    0.800000011920929,
-                    0.800000011920929,
-                    1
-                ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
-            }
         }
     ],
     "meshes" : [
@@ -101,16 +87,6 @@
                     },
                     "indices" : 9,
                     "material" : 1
-                },
-                {
-                    "attributes" : {
-                        "POSITION" : 10,
-                        "NORMAL" : 11,
-                        "TEXCOORD_0" : 12,
-                        "TEXCOORD_1" : 13
-                    },
-                    "indices" : 14,
-                    "material" : 2
                 }
             ]
         }
@@ -221,46 +197,6 @@
             "componentType" : 5123,
             "count" : 38532,
             "type" : "SCALAR"
-        },
-        {
-            "bufferView" : 10,
-            "componentType" : 5126,
-            "count" : 32,
-            "max" : [
-                0.9168305993080139,
-                1.266289472579956,
-                0.9785881042480469
-            ],
-            "min" : [
-                -0.9970582127571106,
-                1.266289472579956,
-                -0.9353007078170776
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 11,
-            "componentType" : 5126,
-            "count" : 32,
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 12,
-            "componentType" : 5126,
-            "count" : 32,
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 13,
-            "componentType" : 5126,
-            "count" : 32,
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 14,
-            "componentType" : 5123,
-            "count" : 90,
-            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
@@ -313,31 +249,6 @@
             "buffer" : 0,
             "byteLength" : 77064,
             "byteOffset" : 348680
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 384,
-            "byteOffset" : 425744
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 384,
-            "byteOffset" : 426128
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 256,
-            "byteOffset" : 426512
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 256,
-            "byteOffset" : 426768
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 180,
-            "byteOffset" : 427024
         }
     ],
     "samplers" : [
@@ -348,7 +259,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 427204,
+            "byteLength" : 425744,
             "uri" : "V49.bin"
         }
     ]
