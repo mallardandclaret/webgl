@@ -27,26 +27,42 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                1,
-                1,
-                1
+                0.3999999165534973,
+                0.3999999165534973,
+                0.3999999165534973
             ],
             "emissiveTexture" : {
                 "index" : 0
             },
             "name" : "Cover",
             "normalTexture" : {
-                "index" : 1,
-                "scale" : 2.000000238418579
+                "index" : 1
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 2
                 },
-                "metallicRoughnessTexture" : {
-                    "index" : 3
-                },
+                "metallicFactor" : 0,
                 "roughnessFactor" : 0.0863640159368515
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0.13054199516773224,
+                0.13054199516773224,
+                0.13054199516773224
+            ],
+            "name" : "Paper",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.7248943448066711,
+                    0.7511128783226013,
+                    0.8000000715255737,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.03739527240395546
             }
         }
     ],
@@ -72,7 +88,7 @@
                         "TEXCOORD_1" : 8
                     },
                     "indices" : 9,
-                    "material" : 0
+                    "material" : 1
                 }
             ]
         }
@@ -89,10 +105,6 @@
         {
             "sampler" : 0,
             "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 2
         }
     ],
     "images" : [
@@ -105,11 +117,6 @@
             "mimeType" : "image/jpeg",
             "name" : "HaloNormal",
             "uri" : "HaloNormal.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "HaloRough",
-            "uri" : "HaloRough.jpg"
         }
     ],
     "accessors" : [
