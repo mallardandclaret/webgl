@@ -36,33 +36,17 @@
             },
             "name" : "Cover",
             "normalTexture" : {
-                "index" : 1
+                "index" : 1,
+                "scale" : 2.000000238418579
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 2
                 },
-                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 3
+                },
                 "roughnessFactor" : 0.0863640159368515
-            }
-        },
-        {
-            "doubleSided" : true,
-            "emissiveFactor" : [
-                0.13054199516773224,
-                0.13054199516773224,
-                0.13054199516773224
-            ],
-            "name" : "Paper",
-            "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.7248943448066711,
-                    0.7511128783226013,
-                    0.8000000715255737,
-                    1
-                ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.11320754885673523
             }
         }
     ],
@@ -88,7 +72,7 @@
                         "TEXCOORD_1" : 8
                     },
                     "indices" : 9,
-                    "material" : 1
+                    "material" : 0
                 }
             ]
         }
@@ -105,6 +89,10 @@
         {
             "sampler" : 0,
             "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
         }
     ],
     "images" : [
@@ -117,6 +105,11 @@
             "mimeType" : "image/jpeg",
             "name" : "HaloNormal",
             "uri" : "HaloNormal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "HaloRough",
+            "uri" : "HaloRough.jpg"
         }
     ],
     "accessors" : [
