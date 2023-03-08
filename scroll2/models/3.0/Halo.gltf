@@ -43,10 +43,8 @@
                 "baseColorTexture" : {
                     "index" : 2
                 },
-                "metallicRoughnessTexture" : {
-                    "index" : 3
-                },
-                "roughnessFactor" : 0.10909128934144974
+                "metallicFactor" : 0.38863638043403625,
+                "roughnessFactor" : 0.08863674104213715
             }
         },
         {
@@ -57,12 +55,12 @@
                 0.5999999046325684
             ],
             "emissiveTexture" : {
-                "index" : 4
+                "index" : 3
             },
             "name" : "Paper",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 5
+                    "index" : 4
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.08636364340782166
@@ -115,11 +113,7 @@
         },
         {
             "sampler" : 0,
-            "source" : 3
-        },
-        {
-            "sampler" : 0,
-            "source" : 3
+            "source" : 2
         }
     ],
     "images" : [
@@ -132,11 +126,6 @@
             "mimeType" : "image/jpeg",
             "name" : "HaloNormal",
             "uri" : "HaloNormal.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "HaloRough",
-            "uri" : "HaloRough.jpg"
         },
         {
             "mimeType" : "image/jpeg",
