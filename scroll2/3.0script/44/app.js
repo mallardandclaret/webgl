@@ -103861,24 +103861,62 @@ var __webpack_exports__ = {};
   !*** ./dist/app.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! matter-js */ "./node_modules/matter-js/build/matter.js");
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var mouse_follower__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! mouse-follower */ "./node_modules/mouse-follower/dist/index.module.js");
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
-/* harmony import */ var three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! three/examples/jsm/controls/OrbitControls */ "./node_modules/three/examples/jsm/controls/OrbitControls.js");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
+/* harmony import */ var three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! three/examples/jsm/controls/OrbitControls */ "./node_modules/three/examples/jsm/controls/OrbitControls.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! gsap/ScrollSmoother */ "./node_modules/gsap/ScrollSmoother.js");
-/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! gsap/TextPlugin */ "./node_modules/gsap/TextPlugin.js");
-/* harmony import */ var gsap_SplitText__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! gsap/SplitText */ "./node_modules/gsap/SplitText.js");
-/* harmony import */ var gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! gsap/CSSRulePlugin */ "./node_modules/gsap/CSSRulePlugin.js");
-/* harmony import */ var stats_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! stats.js */ "./node_modules/stats.js/build/stats.min.js");
-/* harmony import */ var stats_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(stats_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var cannon_es__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! cannon-es */ "./node_modules/cannon-es/dist/cannon-es.js");
-/* harmony import */ var cannon_es_debugger__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! cannon-es-debugger */ "./node_modules/cannon-es-debugger/dist/cannon-es-debugger.js");
-/* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @barba/core */ "./node_modules/@barba/core/dist/barba.umd.js");
-/* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_barba_core__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollSmoother */ "./node_modules/gsap/ScrollSmoother.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/TextPlugin */ "./node_modules/gsap/TextPlugin.js");
+/* harmony import */ var gsap_SplitText__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/SplitText */ "./node_modules/gsap/SplitText.js");
+/* harmony import */ var gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gsap/CSSRulePlugin */ "./node_modules/gsap/CSSRulePlugin.js");
+/* harmony import */ var stats_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stats.js */ "./node_modules/stats.js/build/stats.min.js");
+/* harmony import */ var stats_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(stats_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var cannon_es__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! cannon-es */ "./node_modules/cannon-es/dist/cannon-es.js");
+/* harmony import */ var cannon_es_debugger__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! cannon-es-debugger */ "./node_modules/cannon-es-debugger/dist/cannon-es-debugger.js");
+/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! matter-js */ "./node_modules/matter-js/build/matter.js");
+/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var mouse_follower__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! mouse-follower */ "./node_modules/mouse-follower/dist/index.module.js");
+/* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @barba/core */ "./node_modules/@barba/core/dist/barba.umd.js");
+/* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_barba_core__WEBPACK_IMPORTED_MODULE_14__);
+
+
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.defaults({ ease: "ease" });
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.config({
+    nullTargetWarn: false,
+    force3D: false,
+    autoSleep: 60
+});
+
+
+
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger, gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_3__["default"], gsap_SplitText__WEBPACK_IMPORTED_MODULE_4__.SplitText, gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_5__.TextPlugin, gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_6__.CSSRulePlugin);
+
+
+
+
+(async function () {
+    if (!("paintWorklet" in CSS)) {
+        await __webpack_require__.e(/*! import() */ "vendors-node_modules_css-paint-polyfill_dist_css-paint-polyfill_js").then(__webpack_require__.t.bind(__webpack_require__, /*! css-paint-polyfill */ "./node_modules/css-paint-polyfill/dist/css-paint-polyfill.js", 23));
+    }
+
+    CSS.paintWorklet.addModule(
+        "https://www.unpkg.com/css-houdini-squircle/squircle.min.js"
+    );
+})();
+
+
+
+
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
@@ -103958,208 +103996,13 @@ $(window).scroll(function(){
     }
 });      
 */
-// Carrer page model
-function initWebglC() {
-    const gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader()
-    //gltfLoader.setDRACOLoader(dracoLoader)
-    // Canvas
-    const canvas = document.querySelector('canvas.why')
-
-    // Scene
-    const scene = new three__WEBPACK_IMPORTED_MODULE_2__.Scene()
-    scene.fog = new three__WEBPACK_IMPORTED_MODULE_2__.Fog(0xEFE3DB, 5, 55);
-
-    scrubease = 0
-
-
-    //Model
-
-    gltfLoader.load(
-        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/why.glb",
-        (gltf) => {
-
-            model = gltf.scene;
-            model.scale.set(4, 4, 4);
-            model.position.set(0, -1, 0);
-            model.rotation.y += -1;
-            model.rotation.x += -0.1;
-            scene.add(model);
-
-            //var linematerial = new THREE.MeshBasicMaterial({color: 0xEFE3DB});
-            var solidmaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({ color: 0xe54848 });
-
-            /*
-            model.traverse(child => {
-            if (child.material && child.material.name === 'Front') {
-            child.material = linematerial;
-            //child.material.transparent = !0;
-            }
-            });
-            */
-
-            model.traverse(child => {
-                if (child.material && child.material.name === 'Front') {
-                    child.material = solidmaterial;
-                }
-            });
-
-
-
-
-            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger);
-
-            // trigger 1
-
-
-            // trigger 3
-
-
-
-            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(model.rotation, {
-                scrollTrigger: {
-                    trigger: "#trigger1",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: scrubease,
-                    toggleActions: "restart pause resume pause"
-                },
-                y: -3,
-                x: 0.2
-            });
-
-            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(model.transform, {
-                scrollTrigger: {
-                    trigger: "#trigger1",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: scrubease,
-                    toggleActions: "restart pause resume pause"
-                },
-                y: 3,
-            });
-
-        }
-    )
-
-    // Sizes
-
-    let windowHalfX = window.innerWidth / 2;
-    let windowHalfY = window.innerHeight / 2;
-
-    const sizes = {
-        width: window.innerWidth,
-        height: window.innerHeight
-    }
-
-    window.addEventListener('resize', () => {
-        // Update sizes
-        sizes.width = window.innerWidth
-        sizes.height = window.innerHeight
-
-        // Update camera
-        camera.aspect = sizes.width / sizes.height
-        camera.updateProjectionMatrix()
-
-        // Update renderer
-        renderer.setSize(sizes.width, sizes.height)
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    })
-
-    /**
-     * Camera
-     */
-    // Base camera
-    const camera = new three__WEBPACK_IMPORTED_MODULE_2__.PerspectiveCamera(60, sizes.width / sizes.height, 0.1, 100)
-    camera.position.set(0, 0, -30)
-    scene.add(camera)
-
-    // Controls
-    const controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_4__.OrbitControls(camera, canvas)
-    controls.enableDamping = true
-    controls.minDistance = 30;
-    controls.maxDistance = 30;
-
-    /**
-* Renderer
-*/
-    const renderer = new three__WEBPACK_IMPORTED_MODULE_2__.WebGLRenderer({
-        canvas: canvas,
-        //powerPreference: 'high-performance',
-        antialias: true,
-        alpha: true
-    })
-    //renderer.physicallyCorrectLights = true
-    //renderer.outputEncoding = THREE.sRGBEncoding
-    //renderer.toneMapping = THREE.ReinhardToneMapping
-    //renderer.toneMappingExposure = 1
-    //renderer.shadowMap.enabled = false
-    //renderer.shadowMap.type = THREE.PCFSoftShadowMap
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
-    //Animate
-    let targetX = 0
-    let targetY = 0
-
-    calcTarget = function (event) {
-        targetX = (event.clientX - windowHalfX) * .014;
-        targetY = (event.clientY) * .009;
-    }
-    setTimeout(() => {
-        document.addEventListener("mousemove", calcTarget)
-    }, 0);
-
-    // Mouse parralax
-    let tarXNegCamPosX = 0
-    let tarYNegCamPosY = 0
-    controls.enabled = false;
-    const clock = new three__WEBPACK_IMPORTED_MODULE_2__.Clock()
-
-    let oldElapsedTime = 0
-
-    const animate = () => {
-
-        if (document.querySelectorAll("canvas.why").length > 0) {
-            tarXNegCamPosX = targetX / 10 - camera.position.x
-            tarYNegCamPosY = targetY / 10 - camera.position.y
-            if ((Math.abs(tarXNegCamPosX) > .2) || (Math.abs(tarYNegCamPosY) > .2)) {
-                camera.position.x += .06 * (tarXNegCamPosX / 2);
-                camera.position.y += .06 * (tarYNegCamPosY / 2);
-
-            }
-        }
-        var delta = clock.getDelta();
-        // Update controls
-        camera.lookAt(scene.position);
-        controls.update()
-
-        const elapsedTime = clock.getElapsedTime()
-        const deltaTime = elapsedTime - oldElapsedTime
-        oldElapsedTime = elapsedTime
-
-        // Update physics
-
-
-        // Render
-        renderer.render(scene, camera)
-
-        // Call tick again on the next frame
-        window.requestAnimationFrame(animate)
-    }
-
-    //if (screen && screen.width > 1200) {
-
-    animate();
-
-
-}
 
 
 // module aliases
-let mEngine = (matter_js__WEBPACK_IMPORTED_MODULE_5___default().Engine),
-    mRender = (matter_js__WEBPACK_IMPORTED_MODULE_5___default().Render),
-    mWorld = (matter_js__WEBPACK_IMPORTED_MODULE_5___default().World),
-    mBodies = (matter_js__WEBPACK_IMPORTED_MODULE_5___default().Bodies),
+let mEngine = (matter_js__WEBPACK_IMPORTED_MODULE_7___default().Engine),
+    mRender = (matter_js__WEBPACK_IMPORTED_MODULE_7___default().Render),
+    mWorld = (matter_js__WEBPACK_IMPORTED_MODULE_7___default().World),
+    mBodies = (matter_js__WEBPACK_IMPORTED_MODULE_7___default().Bodies),
     worldCur;
 
 function createWall(x, y, w, h){
@@ -104221,18 +104064,18 @@ function initCursorDrop(){
         opacity: 0
     });
 
-    matter_js__WEBPACK_IMPORTED_MODULE_5___default().Runner.run(engineCur);
+    matter_js__WEBPACK_IMPORTED_MODULE_7___default().Runner.run(engineCur);
     mRender.run(renderCur);
 
     const worldBody = worldCur.bodies[4];
 
     function moveBody(e){
-        matter_js__WEBPACK_IMPORTED_MODULE_5___default().Body.setVelocity(worldBody, {
+        matter_js__WEBPACK_IMPORTED_MODULE_7___default().Body.setVelocity(worldBody, {
             x: (-(worldBody.position.x - e.x) * .2), 
             y: (-(worldBody.position.y - e.y) * .2)
         });
 
-        matter_js__WEBPACK_IMPORTED_MODULE_5___default().Body.setPosition(worldBody, { x: e.x, y: e.y });
+        matter_js__WEBPACK_IMPORTED_MODULE_7___default().Body.setPosition(worldBody, { x: e.x, y: e.y });
     }
 
     let runCursorRaf = false;
@@ -104273,9 +104116,9 @@ function initCursorDrop(){
 
 
 
-mouse_follower__WEBPACK_IMPORTED_MODULE_6__["default"].registerGSAP(gsap__WEBPACK_IMPORTED_MODULE_0__.gsap);
+mouse_follower__WEBPACK_IMPORTED_MODULE_8__["default"].registerGSAP(gsap__WEBPACK_IMPORTED_MODULE_0__.gsap);
 
-let cursorFollower = new mouse_follower__WEBPACK_IMPORTED_MODULE_6__["default"]({speed: .1});
+let cursorFollower = new mouse_follower__WEBPACK_IMPORTED_MODULE_8__["default"]({speed: .1});
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(cursorFollower.el, {
     position: "fixed",
     background: "#e54848",
@@ -104289,52 +104132,11 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(cursorFollower.el, {
     borderRadius: "50%",
     pointerEvents: "none"
 });
-
-
-
-
-
-
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.defaults({ ease: "ease" });
-
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.config({
-    nullTargetWarn: false,
-    force3D: false,
-    autoSleep: 60
-});
-
-
-
-
-
-
-
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger, gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_8__["default"], gsap_SplitText__WEBPACK_IMPORTED_MODULE_9__.SplitText, gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_10__.TextPlugin, gsap_CSSRulePlugin__WEBPACK_IMPORTED_MODULE_11__.CSSRulePlugin);
-
-
-
-
-(async function () {
-    if (!("paintWorklet" in CSS)) {
-        await __webpack_require__.e(/*! import() */ "vendors-node_modules_css-paint-polyfill_dist_css-paint-polyfill_js").then(__webpack_require__.t.bind(__webpack_require__, /*! css-paint-polyfill */ "./node_modules/css-paint-polyfill/dist/css-paint-polyfill.js", 23));
-    }
-
-    CSS.paintWorklet.addModule(
-        "https://www.unpkg.com/css-houdini-squircle/squircle.min.js"
-    );
-})();
-
-
-
-
 function pageCode() {
-    if ($('.work-inner').length > 0) {
-
-    }
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger);
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
 
 
-    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.create({
+    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
         trigger: ".bottom-trigger",
         start: "top bottom",
         end: "bottom bottom",
@@ -104373,147 +104175,16 @@ function pageCode() {
     $(".up-next_number").text(0);
 }
 
-
-
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-function transOut() {
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
-        opacity: 0,
-        duration: 1
-    });
-}
-function transIn() {
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
-        opacity: 1,
-        duration: 1
-    });
-}
-function projecttransOut() {
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
-        opacity: 1,
-    });
-}
-function projecttransIn() {
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
-        opacity: 1,
-    });
-}
-function resetWebflow(data) {
-    let parser = new DOMParser();
-    let dom = parser.parseFromString(data.next.html, "text/html");
-    let webflowPageId = $(dom).find("html").attr("data-wf-page");
-    $("html").attr("data-wf-page", webflowPageId);
-    window.Webflow && window.Webflow.destroy();
-    window.Webflow && window.Webflow.ready();
-    window.Webflow && window.Webflow.require("ix2").init();
-}
-
-
-_barba_core__WEBPACK_IMPORTED_MODULE_12___default().init({
-    sync: true,
-    preventRunning: true,
-    debug: true,
-    transitions: [
-        {
-            name: 'project',
-            to: {
-                namespace: ['projects']
-            },
-            once(data) {
-                if ($('.work-inner').length > 0) {
-                    pageCode();
-                }
-            },
-            leave({ current, next, trigger }) {
-                const done = this.async();
-                projecttransOut()
-                setTimeout(function () {
-                    done();
-                }, 1800);
-            },
-
-            enter(data) {
-                $(window).scrollTop(0);
-
-            },
-            after(data) {
-                if ($('.work-inner').length > 0) {
-                    pageCode();
-                }
-                setTimeout(() => {
-                    projecttransIn()
-                    resetWebflow(data)
-                }, 1500);
-
-            },
-        }, {
-            name: 'default',
-            once(data) {
-                if ($('.webgl').length > 0) {
-                    initWebgl();
-                    intro();
-                }
-                if ($('.introclicker').length > 0) {
-                    $(".introclicker").click();
-                }
-                if ($('.work-inner').length > 0) {
-                    pageCode();
-                }
-                setTimeout(() => {
-                    if ($('.why').length > 0) {
-                        initWebglC();
-                    }
-                }, 500);
-            },
-            leave({ current, next, trigger }) {
-                const done = this.async();
-                transOut()
-                setTimeout(function () {
-                    done();
-                }, 1000);
-            },
-
-            enter(data) {
-            },
-            after(data) {
-                $(window).scrollTop(0);
-                if ($('.webgl').length > 0) {
-                    initWebgl();
-                    intro();
-                }
-                if ($('.introclicker').length > 0) {
-                    $(".introclicker").click();
-                }
-                if ($('.work-inner').length > 0) {
-                    pageCode();
-                }
-                setTimeout(() => {
-                    transIn()
-                    resetWebflow(data)
-                    if ($('.why').length > 0) {
-                        initWebglC();
-                    }
-                }, 1500);
-
-            },
-        }
-    ]
-});
-
-
-
-
 function initEv(){
-    const ambientLight = new three__WEBPACK_IMPORTED_MODULE_2__.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new three__WEBPACK_IMPORTED_MODULE_9__.AmbientLight(0xffffff, 0.6);
     				scene.add(ambientLight);
 
-    const cubeTextureLoader = new three__WEBPACK_IMPORTED_MODULE_2__.CubeTextureLoader();
+    const cubeTextureLoader = new three__WEBPACK_IMPORTED_MODULE_9__.CubeTextureLoader();
     // Environment map
     //Update all materials
     const updateAllMaterials = () => {
         scene.traverse((child) => {
-            if(child instanceof three__WEBPACK_IMPORTED_MODULE_2__.Mesh && child.material instanceof three__WEBPACK_IMPORTED_MODULE_2__.MeshStandardMaterial, three__WEBPACK_IMPORTED_MODULE_2__.MeshPhysicalMaterial){
+            if(child instanceof three__WEBPACK_IMPORTED_MODULE_9__.Mesh && child.material instanceof three__WEBPACK_IMPORTED_MODULE_9__.MeshStandardMaterial, three__WEBPACK_IMPORTED_MODULE_9__.MeshPhysicalMaterial){
                 child.material.envMap = environmentMap;
                 //child.material.envMapIntensity = 1;
                 child.material.needsUpdate = true;
@@ -104597,9 +104268,9 @@ function intro(){
     
 }
 let scene, renderer, camera, camera2, clock, oldElapsedTime, world, textureLoader, objectsToUpdate, objectsToUpdate2;
-const loader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
-const loader2 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
-const loader3 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
+const loader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader();
+const loader2 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader();
+const loader3 = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader();
 
 let cannonDebugger;
 
@@ -104608,75 +104279,74 @@ let animateId;
 let scrollease = 0;
 let mscale = 0.64;
 let loaddealy = 3000;
-var plane = new three__WEBPACK_IMPORTED_MODULE_2__.Plane().setFromNormalAndCoplanarPoint(new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(0, 0, 1), new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(0, 0, 1));
+var plane = new three__WEBPACK_IMPORTED_MODULE_9__.Plane().setFromNormalAndCoplanarPoint(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(0, 0, 1), new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(0, 0, 1));
 let mixer, mixer2, mixer3, mixer4, mixer5, mixer6, mixer7, mixer8, mixer9, mixer10, mixer11, mixer12, mixer13, mixer14, mixer15, mixer16 = null;
-var Mallard, Mallard_M, Mallard_A1, Mallard_L1, Mallard_L2, Mallard_A2, Mallard_R, Mallard_D = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Claret, Claret_AND, Claret_C, Claret_L, Claret_A, Claret_R, Claret_E, Claret_T = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Chris = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Chris00 = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Chris01 = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Chris02 = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Every = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var DW = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var DW_bottle, DW_cork, DW_label, DW_wine = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var IKAC = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var S99 = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Halo = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var PI1 = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Brother = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var ARUP = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var V49 = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Mbau = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var MC = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var Cookies = new three__WEBPACK_IMPORTED_MODULE_2__.Object3D;
-var raycaster = new three__WEBPACK_IMPORTED_MODULE_2__.Raycaster();
-var brraycaster = new three__WEBPACK_IMPORTED_MODULE_2__.Raycaster();
-var blraycaster = new three__WEBPACK_IMPORTED_MODULE_2__.Raycaster();
-var trraycaster = new three__WEBPACK_IMPORTED_MODULE_2__.Raycaster();
-var corner = new three__WEBPACK_IMPORTED_MODULE_2__.Vector2();
-var brcorner = new three__WEBPACK_IMPORTED_MODULE_2__.Vector2();
-var blcorner = new three__WEBPACK_IMPORTED_MODULE_2__.Vector2();
-var trcorner = new three__WEBPACK_IMPORTED_MODULE_2__.Vector2();
-var cornerPoint = new three__WEBPACK_IMPORTED_MODULE_2__.Vector3();
-var brcornerPoint = new three__WEBPACK_IMPORTED_MODULE_2__.Vector3();
-var blcornerPoint = new three__WEBPACK_IMPORTED_MODULE_2__.Vector3();
-var trcornerPoint = new three__WEBPACK_IMPORTED_MODULE_2__.Vector3();
+var Mallard, Mallard_M, Mallard_A1, Mallard_L1, Mallard_L2, Mallard_A2, Mallard_R, Mallard_D = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var Claret, Claret_AND, Claret_C, Claret_L, Claret_A, Claret_R, Claret_E, Claret_T = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var Every = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var DW = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var DW_bottle, DW_cork, DW_label, DW_wine = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var IKAC = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var S99 = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var Halo = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var PI1 = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var Brother = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var ARUP = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var V49 = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var Mbau = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var MC = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var AWWWARD = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var Cookies = new three__WEBPACK_IMPORTED_MODULE_9__.Object3D;
+var raycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
+var brraycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
+var blraycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
+var trraycaster = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
+var corner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
+var brcorner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
+var blcorner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
+var trcorner = new three__WEBPACK_IMPORTED_MODULE_9__.Vector2();
+var cornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
+var brcornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
+var blcornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
+var trcornerPoint = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
 
 const guides = false;
 const walls = false;
-const logogroup = new three__WEBPACK_IMPORTED_MODULE_2__.Group();
-const IKACSwitch = false;
+const logogroup = new three__WEBPACK_IMPORTED_MODULE_9__.Group();
+const IKACSwitch = true;
 const HaloSwitch = true;
 const S99Switch = true;
 const EverySwitch = true;
 const DWSwitch = true;
-const ChrisSwitch = false;
-const PI1Switch = false;
-const PI2Switch = true;
+const PISwitch = true;
 const BrotherSwitch = true;
 const V49Switch = true;
 const ARUPSwitch = false;
 const MbauSwitch = false;
 const MCSwitch = true;
-const CookiesSwitch = true;
+const AWWWARDSwitch = true;
+const CookiesSwitch = false;
 
 
-const CannonSwitch = true;
+const CannonSwitch = false;
+
 
 
 
 const movementRadius = 0.2;
 
-let MCBody, gas, bubbleMesh, bubbleBody, CookiesBody, MbauBody, ARUPBody, V49Body, haloBody, PI1Body, brotherBody, S99Body, knockerBody, knockerMesh, ikacBody, shadermaterial, soldierBody, chrisBody, chrisBody00, chrisBody01, chrisBody02, everyBody, dwBody, sphereBody, cubeBody, bottomwallbody, topwallbody, rightwallbody, frontwallbody, backwallbody, mallardbody, claretbody, leftwallbody2, sphere, sphere2, leftwall, rightbox, bottombox, topbox, frontbox, backbox, mallardbox, claretbox;
+let AWWWARDBody, MCBody, gas, bubbleMesh, bubbleBody, CookiesBody, MbauBody, ARUPBody, V49Body, haloBody, PI1Body, brotherBody, S99Body, knockerBody, knockerMesh, ikacBody, shadermaterial, soldierBody, chrisBody, chrisBody00, chrisBody01, chrisBody02, everyBody, dwBody, sphereBody, cubeBody, bottomwallbody, topwallbody, rightwallbody, frontwallbody, backwallbody, mallardbody, claretbody, leftwallbody2, sphere, sphere2, leftwall, rightbox, bottombox, topbox, frontbox, backbox, mallardbox, claretbox;
 
 const customUniforms = {
     uTime: { value: 0 }
 }
 
 
-const stats = new (stats_js__WEBPACK_IMPORTED_MODULE_7___default())()
-stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild(stats.dom)
+    const stats = new (stats_js__WEBPACK_IMPORTED_MODULE_1___default())()
+    stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+    document.body.appendChild(stats.dom) 
+    
+
 
 
 
@@ -104685,7 +104355,7 @@ document.body.appendChild(stats.dom)
 function initWebgl() {
     const canvas = document.querySelector("canvas.webgl");
     // Scene
-    scene = new three__WEBPACK_IMPORTED_MODULE_2__.Scene();
+    scene = new three__WEBPACK_IMPORTED_MODULE_9__.Scene();
 
     initEv();
     initModels();
@@ -104693,29 +104363,29 @@ function initWebgl() {
     
 
     // Camera
-    camera = new three__WEBPACK_IMPORTED_MODULE_2__.PerspectiveCamera(40, window.innerWidth / window.innerHeight, .1, 100);
+    camera = new three__WEBPACK_IMPORTED_MODULE_9__.PerspectiveCamera(40, window.innerWidth / window.innerHeight, .1, 100);
     camera.position.set(0, 0, 20);
     scene.add(camera);
 
     //Renderer
-    renderer = new three__WEBPACK_IMPORTED_MODULE_2__.WebGLRenderer({
+    renderer = new three__WEBPACK_IMPORTED_MODULE_9__.WebGLRenderer({
         canvas: canvas,
         //powerPreference: "high-performance",
         antialias: true,
         alpha: true
     });
     renderer.physicallyCorrectLights = true;
-    renderer.toneMapping = three__WEBPACK_IMPORTED_MODULE_2__.LinearToneMapping;
+    renderer.toneMapping = three__WEBPACK_IMPORTED_MODULE_9__.LinearToneMapping;
     renderer.toneMappingExposure = 1;
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    clock = new three__WEBPACK_IMPORTED_MODULE_2__.Clock();
+    clock = new three__WEBPACK_IMPORTED_MODULE_9__.Clock();
     oldElapsedTime = 0;
 
 
     if (CannonSwitch) {
-        cannonDebugger = new cannon_es_debugger__WEBPACK_IMPORTED_MODULE_13__["default"](scene, world);
+        cannonDebugger = new cannon_es_debugger__WEBPACK_IMPORTED_MODULE_11__["default"](scene, world);
     }
 
     //intro();
@@ -104730,8 +104400,10 @@ console.log("NOTAnimating")
 }
 
 function animate() {
-    console.log("Animating")
-    stats.begin()
+    
+        stats.begin();
+    
+    
     var delta = clock.getDelta();
     const elapsedTime = clock.getElapsedTime();
     const deltaTime = elapsedTime - oldElapsedTime;
@@ -104740,7 +104412,7 @@ function animate() {
     //haloBody.applyLocalForce(new CANNON.Vec3(0, 0, 0.01), haloBody.position);
     //dwBody.applyLocalForce(new CANNON.Vec3(0, 0, 0.04), dwBody.position);
 
-    customUniforms.uTime.value = elapsedTime
+    customUniforms.uTime.value = elapsedTime;
 
 
     // Update physics
@@ -104753,7 +104425,7 @@ function animate() {
 
 
 
-    sphere.position.copy(sphereBody.position);
+    
     bottombox.position.copy(bottomwallbody.position);
     bottombox.quaternion.copy(bottomwallbody.quaternion);
     topbox.position.copy(topwallbody.position);
@@ -104770,9 +104442,19 @@ function animate() {
     claretbox.quaternion.copy(claretbody.quaternion);
     leftwall.position.copy(leftwallbody2.position);
     leftwall.quaternion.copy(leftwallbody2.quaternion);
+    if (DWSwitch) {
+        DW.position.copy(dwBody.position);
+        DW.quaternion.copy(dwBody.quaternion);
+    }
+    
+    Halo.position.copy(haloBody.position);
+    Halo.quaternion.copy(haloBody.quaternion);
+    
+    if (PISwitch) {
+        PI1.position.copy(PI1Body.position);
+        PI1.quaternion.copy(PI1Body.quaternion);
+    }
 
-    DW.position.copy(dwBody.position);
-    DW.quaternion.copy(dwBody.quaternion);
 
     if (S99Switch) {
         S99.position.copy(S99Body.position);
@@ -104846,7 +104528,7 @@ function animate() {
         for (const object of objectsToUpdate2) {
 
             object.bubbleMesh.position.copy(object.bubbleBody.position);
-            //object.bubbleMesh.quaternion.copy(object.bubbleBody.quaternion);
+            object.bubbleMesh.quaternion.copy(object.bubbleBody.quaternion);
 
         }
         if (V49Switch) {
@@ -104856,30 +104538,13 @@ function animate() {
 
     }
 
+    if (AWWWARDSwitch) {
+        AWWWARD.position.copy(AWWWARDBody.position);
+        AWWWARD.quaternion.copy(AWWWARDBody.quaternion);
+    }
 
-    sphere.position.copy(sphereBody.position);
-    bottombox.position.copy(bottomwallbody.position);
-    bottombox.quaternion.copy(bottomwallbody.quaternion);
-    topbox.position.copy(topwallbody.position);
-    topbox.quaternion.copy(topwallbody.quaternion);
-    rightbox.position.copy(rightwallbody.position);
-    rightbox.quaternion.copy(rightwallbody.quaternion);
-    frontbox.position.copy(frontwallbody.position);
-    frontbox.quaternion.copy(frontwallbody.quaternion);
-    backbox.position.copy(backwallbody.position);
-    backbox.quaternion.copy(backwallbody.quaternion);
-    mallardbox.position.copy(mallardbody.position);
-    mallardbox.quaternion.copy(mallardbody.quaternion);
-    claretbox.position.copy(claretbody.position);
-    claretbox.quaternion.copy(claretbody.quaternion);
-    leftwall.position.copy(leftwallbody2.position);
-    leftwall.quaternion.copy(leftwallbody2.quaternion);
-    DW.position.copy(dwBody.position);
-    DW.quaternion.copy(dwBody.quaternion);
-    Halo.position.copy(haloBody.position);
-    Halo.quaternion.copy(haloBody.quaternion);
-    PI1.position.copy(PI1Body.position);
-    PI1.quaternion.copy(PI1Body.quaternion);
+
+    
 
     animateId = window.requestAnimationFrame(animate);
     //requestAnimationFrame(animate);
@@ -104921,8 +104586,8 @@ function initModels(){
     
     
     //Physics
-    world = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.World();
-    world.broadphase = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.SAPBroadphase(world);
+    world = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.World();
+    world.broadphase = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.SAPBroadphase(world);
     //world.broadphase = new CANNON.NaiveBroadphase(world) // Detect coilliding objects
     world.solver.iterations = 3; // collision detection sampling rate
     objectsToUpdate = [];
@@ -104930,9 +104595,9 @@ function initModels(){
     //world.allowSleep = true
     world.gravity.set(0, 0, -0.1);
     // Default material
-    var defaultMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Material('default');   
+    var defaultMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Material('default');   
 
-    const defaultContactMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.ContactMaterial(
+    const defaultContactMaterial = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.ContactMaterial(
         defaultMaterial,
         defaultMaterial, {
             friction: 0.5,
@@ -104943,7 +104608,8 @@ function initModels(){
     
 
 
-    //Sound
+    //Sound 
+    /*
 
     const bump = new Audio("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/sound/bump2.mp3")
 
@@ -104958,7 +104624,7 @@ function initModels(){
         bump.play()
     }
     }
-    
+    */
 
 
     let windowHalfX = window.innerWidth / 2;
@@ -104971,157 +104637,147 @@ function initModels(){
     //physics bodies
     
     
-    // physics ball
-    const sphereShape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Sphere(1);
-    sphereBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
-        mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, -3, -8),
-        shape: sphereShape,
-        //material: defaultMaterial
-    });
-    world.addBody(sphereBody);
-    
     
     //physics left wall
-    const leftwallshape2 = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Plane();
-    leftwallbody2 = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const leftwallshape2 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Plane();
+    leftwallbody2 = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-6, 0, 0),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-6, 0, 0),
         shape: leftwallshape2,
         //material: wallMaterial
     });
     world.addBody(leftwallbody2);
-    leftwallbody2.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 1, 0), Math.PI * 0.5);
+    leftwallbody2.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 1, 0), Math.PI * 0.5);
     //physics right wall
-    const rightwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Plane();
-    rightwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const rightwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Plane();
+    rightwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(10, 0, 0),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(10, 0, 0),
         shape: rightwallshape,
         //material: wallMaterial
     });
     world.addBody(rightwallbody);
-    rightwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, -1, 0), Math.PI * 0.5);
+    rightwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -1, 0), Math.PI * 0.5);
     //physics bottom wall
-    const bottomwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Plane();
-    bottomwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const bottomwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Plane();
+    bottomwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, -10, 0),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -10, 0),
         shape: bottomwallshape,
         //material: wallMaterial
     });
     world.addBody(bottomwallbody);
-    bottomwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-1, 0, 0), Math.PI * 0.5);
+    bottomwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, 0, 0), Math.PI * 0.5);
     //physics top wall
-    const topwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Plane();
-    topwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const topwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Plane();
+    topwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 10, 0),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 10, 0),
         shape: topwallshape,
         //material: wallMaterial
     });
     world.addBody(topwallbody);
-    topwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0), Math.PI * 0.5);
+    topwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
     //physics front wall
-    const frontwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(60 * 0.5, 60 * 0.5, 2 * 0.5));
-    frontwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const frontwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, 60 * 0.5, 2 * 0.5));
+    frontwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, 15),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 15),
         shape: frontwallshape,
         //material: wallMaterial
     });
     world.addBody(frontwallbody);
     //physics back wall
-    const backwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Plane();
-    backwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const backwallshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Plane();
+    backwallbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, -20),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -20),
         shape: backwallshape,
         //material: wallMaterial
     });
     world.addBody(backwallbody);
-    backwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, 1), Math.PI * 0.5);
+    backwallbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 1), Math.PI * 0.5);
     //physics Mallard
-    const mallardshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(60 * 0.5, logobodyscale * 1.1, 0.3 * 0.5));
-    mallardbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const mallardshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, logobodyscale * 1.1, 0.3 * 0.5));
+    mallardbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 5.8 - logobodyscale, -20),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 5.8 - logobodyscale, -20),
         shape: mallardshape,
         //material: defaultMaterial
     });
-    mallardbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-1, 0, 0), Math.PI * 0);
+    mallardbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, 0, 0), Math.PI * 0);
     world.addBody(mallardbody);
     //physics Claret
-    const claretshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(60 * 0.5, logobodyscale * 1.1, 0.3 * 0.5));
-    claretbody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const claretshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(60 * 0.5, logobodyscale * 1.1, 0.3 * 0.5));
+    claretbody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, logobodyscale - 6.4 , -20),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, logobodyscale - 6.4 , -20),
         shape: claretshape,
         //material: defaultMaterial
     });
-    claretbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-1, 0, 0), Math.PI * 0);
+    claretbody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, 0, 0), Math.PI * 0);
     world.addBody(claretbody);
     
-
-    PI1Body = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    if (PISwitch) {
+    PI1Body = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(5, 1, -4),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(5, 1, -4),
         //material: defaultMaterial
         
     });
-    PI1Body.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Sphere(1.6), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 2.2, 0.1));
-    PI1Body.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(0.9, 0.7, 2.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, -0.7));
-    PI1Body.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(1.7, 1.7, 1.2, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, -2, -0.8));
-    PI1Body.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-1, 0, 0), Math.PI * 0.2);
-    PI1Body.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, -1, 0), Math.PI * 0.2);
+    PI1Body.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(1.6), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 2.2, 0.1));
+    PI1Body.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.9, 0.7, 2.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -0.7));
+    PI1Body.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(1.7, 1.7, 1.2, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -2, -0.8));
+    PI1Body.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, 0, 0), Math.PI * 0.2);
+    PI1Body.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, -1, 0), Math.PI * 0.2);
     world.addBody(PI1Body);
-
+}
     
     if (EverySwitch) {
-    const everyShape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Sphere(1.6);
-    everyBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const everyShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(1.6);
+    everyBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-2, 3, -4),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(4, 3, -4),
         shape: everyShape,
         //material: glassMaterial
     });
     //everyBody.addEventListener('collide', bumpSound)
-    everyBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Sphere(0.8), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, -1.5));
-    everyBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0), Math.PI * 0.5);
+    everyBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(0.8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, -1.5));
+    everyBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
     world.addBody(everyBody);
     }
 
-    const dwShape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(1.1, 1.1, 5, 8);
-    dwBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const dwShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(1.1, 1.1, 5, 8);
+    dwBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-2, 3, -6),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(3, 0, -6),
         shape: dwShape,
         //material: defaultMaterial
     });
-    dwBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(0.5, 0.5, 6, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 2, 0));
+    dwBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.5, 0.5, 6, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 2, 0));
     world.addBody(dwBody);
 
     //IKAC
     if (IKACSwitch) {
-        const ikacShape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(0.8, 0.8, 5, 8);
-        ikacBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+        const ikacShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.8, 0.8, 5, 8);
+        ikacBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
             mass: 1,
-            position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-4, -1, -6),
+            position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(2, -2, -8),
             shape: ikacShape,
             //material: defaultMaterial
         });
-        ikacBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(0.5, 0.5, 2.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1.5, 1, 0))
-        ikacBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(0.5, 0.5, 3, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-1.5, 1.3, 0));
+        ikacBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.5, 0.5, 2.5, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1.5, 1, 0))
+        ikacBody.addShape(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(0.5, 0.5, 3, 8), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1.5, 1.3, 0));
         //ikacBody.addEventListener('collide', bumpSound)
         world.addBody(ikacBody);
       }
 
     //ARUP
     if (ARUPSwitch) {
-        const ARUPShape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(6 * 0.5, 3 * 0.5, 3 * 0.5));
-        ARUPBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+        const ARUPShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(6 * 0.5, 3 * 0.5, 3 * 0.5));
+        ARUPBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
             mass: 1,
-            position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(3, -1, -6),
+            position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(3, -1, -6),
             shape: ARUPShape,
             //material: defaultMaterial
         });
@@ -105130,24 +104786,24 @@ function initModels(){
 
     
     if (S99Switch) {
-    const S99shape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(3.5 * 0.5, 6.7 * 0.5, 0.5 * 0.5));
-    S99Body = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const S99shape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(3.5 * 0.5, 6.7 * 0.5, 0.5 * 0.5));
+    S99Body = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-6, -6 , -4),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-1, -6 , -4),
         shape: S99shape,
         //material: defaultMaterial
     });
     world.addBody(S99Body);
     }
 
-    const haloshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(6 * 0.5, 0.2 * 0.5, 8 * 0.5));
-    haloBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const haloshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(6 * 0.5, 0.2 * 0.5, 8 * 0.5));
+    haloBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(5, 5 , -3),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-3,  1, -6),
         shape: haloshape,
         //material: defaultMaterial
     });
-    haloBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0), Math.PI * 0.5);
+    haloBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
     world.addBody(haloBody);
 
     
@@ -105155,24 +104811,24 @@ function initModels(){
 
     if (MbauSwitch) {
 
-    const Mbaushape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(4 * 0.5, 2 * 0.5, 3 * 0.5));
-    MbauBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const Mbaushape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(4 * 0.5, 2 * 0.5, 3 * 0.5));
+    MbauBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(5, 5 , -1),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(5, 5 , -1),
         shape: Mbaushape,
         //material: defaultMaterial
     });
-    MbauBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0), Math.PI * 0.5);
+    MbauBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
     
     world.addBody(MbauBody);
 
 }
 
 if (MCSwitch) {
-    const MCShape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(2, 2, 0.6, 16);
-    MCBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const MCShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(2, 2, 0.6, 16);
+    MCBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(2, 3, -6),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-4, 3, -6),
         shape: MCShape,
         //material: defaultMaterial
     });
@@ -105186,16 +104842,16 @@ if (V49Switch) {
     const bubbleBodies = [];
     
     const createBubbleMesh = (size) => {
-      const geometry = new three__WEBPACK_IMPORTED_MODULE_2__.SphereGeometry(size, 32, 32);
-      return new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(geometry, sphereMaterial);
+      const geometry = new three__WEBPACK_IMPORTED_MODULE_9__.SphereGeometry(size, 32, 32);
+      return new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(geometry, sphereMaterial);
     };
     
     const createBubbleBody = (position, velocity, size) => {
-      const shape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Sphere(size);
-      const body = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+      const shape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(size);
+      const body = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0.1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3().copy(position),
-        velocity: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3().copy(velocity),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3().copy(position),
+        velocity: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3().copy(velocity),
       });
       body.addShape(shape);
       return body;
@@ -105228,10 +104884,10 @@ if (V49Switch) {
         world.addBody(bubbleBody);
     
         // Apply a random force to the bubble body
-        const force = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
+        const force = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
         force.normalize();
         force.scale(100, force);
-        bubbleBody.applyLocalForce(force, new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3());
+        bubbleBody.applyLocalForce(force, new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3());
     
         // Add the bubble mesh and body to their respective arrays
         bubbleMeshes.push(bubbleMesh);
@@ -105268,10 +104924,10 @@ if (V49Switch) {
     setInterval(removeRandomBubble, 2000);
 
 
-    const V49Shape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(1.5, 1.5, 4.4, 8);
-    V49Body = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const V49Shape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(1.5, 1.5, 5.5, 8);
+    V49Body = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 1,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(-3, -3, -4),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-5, -3, -1),
         shape: V49Shape,
         //material: defaultMaterial
     });
@@ -105280,18 +104936,32 @@ if (V49Switch) {
  
 }
 
+if (AWWWARDSwitch) {
+    const AWWWARDShape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(2 * 0.5, 6.2 * 0.5, 2 * 0.5));
+    AWWWARDBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
+        mass: 1,
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(-4, 3, -6),
+        shape: AWWWARDShape,
+        //material: defaultMaterial
+    });
+    AWWWARDBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
+    world.addBody(AWWWARDBody);
+ 
+}
+
+
 ////Cookies
 
 if (CookiesSwitch) {
 
-    const Cookiesshape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(10.5 * 0.5, 3.5 * 0.5, 5 * 0.5));
-    CookiesBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    const Cookiesshape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Box(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(10.5 * 0.5, 3.5 * 0.5, 5 * 0.5));
+    CookiesBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 10,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(5, 5 , -1),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(5, 5 , -1),
         shape: Cookiesshape,
         //material: defaultMaterial
     });
-    CookiesBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0), Math.PI * 0.5);
+    CookiesBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
     
     world.addBody(CookiesBody);
 
@@ -105302,13 +104972,13 @@ if (CookiesSwitch) {
     
     //Mouse based object bothereer
 
-    knockerBody = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+    knockerBody = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
         mass: 0,
-        position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, 0),
-        shape: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Cylinder(2, 1, 18, 8),
+        position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 0),
+        shape: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Cylinder(2, 1, 18, 8),
       });
-      knockerBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0), Math.PI * 0.5);
-      knockerBody.addEventListener('collide', bumpSound)
+      knockerBody.quaternion.setFromAxisAngle(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0), Math.PI * 0.5);
+      //knockerBody.addEventListener('collide', bumpSound)
       world.addBody(knockerBody);
     
     
@@ -105324,33 +104994,25 @@ if (CookiesSwitch) {
     //visible objects
  
     
-    //visible ball
-    sphere = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(
-        new three__WEBPACK_IMPORTED_MODULE_2__.SphereGeometry(1, 32, 32),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
-            color: 0xe54848,
-            toneMapped: false,
-        })
-    );
-    scene.add(sphere);
+    
 
 
 
 
 
 
-const raycasterXY = new three__WEBPACK_IMPORTED_MODULE_2__.Raycaster();
-const planeXY = new three__WEBPACK_IMPORTED_MODULE_2__.Plane(new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(0, 0, 1), 0);
+const raycasterXY = new three__WEBPACK_IMPORTED_MODULE_9__.Raycaster();
+const planeXY = new three__WEBPACK_IMPORTED_MODULE_9__.Plane(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(0, 0, 1), 0);
 
 document.addEventListener('mousemove', e => {
   const x = (e.clientX / sizes.width) * 2 - 1;
   const y = -(e.clientY / sizes.height) * 2 + 1;
 
   // Set raycaster position and direction
-  raycasterXY.setFromCamera(new three__WEBPACK_IMPORTED_MODULE_2__.Vector2(x, y), camera);
+  raycasterXY.setFromCamera(new three__WEBPACK_IMPORTED_MODULE_9__.Vector2(x, y), camera);
 
   // Calculate intersection point with plane
-  const intersection = new three__WEBPACK_IMPORTED_MODULE_2__.Vector3();
+  const intersection = new three__WEBPACK_IMPORTED_MODULE_9__.Vector3();
   raycasterXY.ray.intersectPlane(planeXY, intersection);
 
   // Update knockerBody position
@@ -105367,8 +105029,8 @@ document.addEventListener('mousemove', e => {
 
     
     //visible left wall 
-    leftwall = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    leftwall = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //metalness: 1,
             //roughness: 0.1
@@ -105378,8 +105040,8 @@ document.addEventListener('mousemove', e => {
     leftwall.visible = walls;
     
     //visible right wall    
-    rightbox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    rightbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             //color: "yellow",
             color: 0xEFE3DB,
             wireframe: false
@@ -105388,8 +105050,8 @@ document.addEventListener('mousemove', e => {
     rightbox.visible = walls;
 
     //visible bottom wall
-    bottombox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    bottombox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "green",
             wireframe: false
@@ -105397,8 +105059,8 @@ document.addEventListener('mousemove', e => {
     scene.add(bottombox);
     bottombox.visible = walls;
     //visible top wall
-    topbox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    topbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "red",
             wireframe: false
@@ -105406,8 +105068,8 @@ document.addEventListener('mousemove', e => {
     scene.add(topbox);
     topbox.visible = walls;
     //visible front wall
-    frontbox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.BoxGeometry(60, 60, 2),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    frontbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.BoxGeometry(60, 60, 2),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "pink",
             wireframe: true
@@ -105415,8 +105077,8 @@ document.addEventListener('mousemove', e => {
     scene.add(frontbox);
     frontbox.visible = guides;
     //visible back wall
-    backbox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.PlaneGeometry(60, 60),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    backbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.PlaneGeometry(60, 60),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: 0xEFE3DB,
             //color: "purple",
             wireframe: false
@@ -105424,24 +105086,24 @@ document.addEventListener('mousemove', e => {
     scene.add(backbox);
     backbox.visible = walls;
     //visible Mallard box
-    mallardbox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.BoxGeometry(60, 4, 1),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    mallardbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.BoxGeometry(60, 4, 1),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: "black",
             wireframe: true
         }));
     mallardbox.visible = guides;
     scene.add(mallardbox);
     //visible Claret box
-    claretbox = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(new three__WEBPACK_IMPORTED_MODULE_2__.BoxGeometry(60, 4, 1),
-        new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    claretbox = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(new three__WEBPACK_IMPORTED_MODULE_9__.BoxGeometry(60, 4, 1),
+        new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
             color: "black",
             wireframe: true
         }));
     claretbox.visible = guides;
     scene.add(claretbox);
 
-    const sphereGeometry = new three__WEBPACK_IMPORTED_MODULE_2__.SphereGeometry(1, 32, 32);
-    const sphereMaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshPhysicalMaterial({
+    const sphereGeometry = new three__WEBPACK_IMPORTED_MODULE_9__.SphereGeometry(1, 32, 32);
+    const sphereMaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshPhysicalMaterial({
         color: 0xEFE3DB,
         //envMap: new THREE.CubeTextureLoader()
         //  .setPath('path/to/cube/textures/')
@@ -105463,11 +105125,13 @@ document.addEventListener('mousemove', e => {
 
     sphereMaterial.onBeforeCompile = (shader) =>
     {
+
+        
     
     
         shader.uniforms.uTime = customUniforms.uTime
-        shader.uniforms.uRippleSize = { value: 0.03 };
-        shader.uniforms.uWobbleSize = { value: 0.03 };
+        shader.uniforms.uRippleSize = { value: 0.04 };
+        shader.uniforms.uWobbleSize = { value: 0.04 };
     
         shader.vertexShader = shader.vertexShader.replace(
             '#include <common>',
@@ -105506,22 +105170,22 @@ document.addEventListener('mousemove', e => {
     
     const createSphere = (radius, position) => {
         // Three.js mesh
-        const mesh = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(sphereGeometry, sphereMaterial);
+        const mesh = new three__WEBPACK_IMPORTED_MODULE_9__.Mesh(sphereGeometry, sphereMaterial);
         mesh.castShadow = true;
         mesh.scale.set(radius, radius, radius);
         mesh.position.copy(position);
         scene.add(mesh);
         // Cannon.js body
-        const shape = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Sphere(radius);
-        const body = new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Body({
+        const shape = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Sphere(radius);
+        const body = new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Body({
             mass: 1,
-            position: new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 3, 0),
+            position: new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 3, 0),
             shape: shape,
             material: defaultMaterial,
         });
         body.position.copy(position);
         world.addBody(body);
-        body.applyLocalForce(new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, 0), new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(0, 0, 0));
+        body.applyLocalForce(new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 0), new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(0, 0, 0));
         // Save in objects
         objectsToUpdate.push({
             mesh,
@@ -105534,12 +105198,12 @@ document.addEventListener('mousemove', e => {
 
 ///////// Grid texture
 
-new three__WEBPACK_IMPORTED_MODULE_2__.TextureLoader().load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/3.0backgrounds/every.jpeg", function (texture){
+new three__WEBPACK_IMPORTED_MODULE_9__.TextureLoader().load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/textures/3.0backgrounds/every.jpeg", function (texture){
 
-    texture.wrapS = three__WEBPACK_IMPORTED_MODULE_2__.RepeatWrapping;
-    texture.wrapT = three__WEBPACK_IMPORTED_MODULE_2__.RepeatWrapping;
+    texture.wrapS = three__WEBPACK_IMPORTED_MODULE_9__.RepeatWrapping;
+    texture.wrapT = three__WEBPACK_IMPORTED_MODULE_9__.RepeatWrapping;
     texture.repeat.set(1, 1);
-    texture.magFilter = three__WEBPACK_IMPORTED_MODULE_2__.NearestFilter;
+    texture.magFilter = three__WEBPACK_IMPORTED_MODULE_9__.NearestFilter;
     leftwall.material.map = texture;
     leftwall.material.needsUpdate = true;
     rightbox.material.map = texture;
@@ -105581,9 +105245,9 @@ Promise.all([
     loader.loadAsync(
         "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/ARUP.gltf"
     ),
-    loader.loadAsync(
-        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Mbau.gltf"
-    ),
+    //loader.loadAsync(
+    //    "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Mbau.gltf"
+    //),
     loader.loadAsync(
         "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/MC.glb"
     ),
@@ -105591,10 +105255,13 @@ Promise.all([
         "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/V49.gltf"
     ),
 
-    loader.loadAsync(
-        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Cookies.glb"
-    ),
+    //loader.loadAsync(
+    //    "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Cookies.glb"
+    //),
     
+    loader.loadAsync(
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Awwward.glb"
+    ),
    
 ])
 .then(models => {
@@ -105615,13 +105282,6 @@ Promise.all([
     Claret_R = models[1].scene.children[4];
     Claret_E = models[1].scene.children[3];
     Claret_T = models[1].scene.children[2];
-    
-    /*
-    Chris = models[2].scene;
-    Chris00 = models[2].scene.children[0];
-    Chris01 = models[2].scene.children[1];
-    Chris02 = models[2].scene.children[2];
-    */
 
     PI1 = models[2].scene;
 
@@ -105629,21 +105289,17 @@ Promise.all([
     Every = models[3].scene.children[0];
 
     DW = models[4].scene;
-    DW_bottle = models[4].scene.children[0];
-    DW_cork = models[4].scene.children[1];
-    DW_label = models[4].scene.children[2];
-    DW_wine = models[4].scene.children[3];
 
     S99 = models[5].scene;
 
     Halo = models[6].scene;
 
     ARUP = models[7].scene;
-    Mbau = models[8].scene;
-    MC = models[9].scene;
-    V49 = models[10].scene;
-    Cookies = models[11].scene;
-
+    //Mbau = models[8].scene;
+    MC = models[8].scene;
+    V49 = models[9].scene;
+    //Cookies = models[10].scene;
+    AWWWARD = models[10].scene;
 
     
 
@@ -105661,14 +105317,14 @@ Promise.all([
               video.muted = true;
               video.play();
         
-              const videoTexture = new three__WEBPACK_IMPORTED_MODULE_2__.VideoTexture(video);
-              videoTexture.minFilter = three__WEBPACK_IMPORTED_MODULE_2__.LinearFilter;
-              videoTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_2__.LinearFilter;
-              videoTexture.format = three__WEBPACK_IMPORTED_MODULE_2__.RGBAFormat;
+              const videoTexture = new three__WEBPACK_IMPORTED_MODULE_9__.VideoTexture(video);
+              videoTexture.minFilter = three__WEBPACK_IMPORTED_MODULE_9__.LinearFilter;
+              videoTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_9__.LinearFilter;
+              videoTexture.format = three__WEBPACK_IMPORTED_MODULE_9__.RGBAFormat;
               videoTexture.flipY = false;
         
               // replace the 'screen' material with the video texture
-              node.material = new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({ map: videoTexture });
+              node.material = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({ map: videoTexture });
             }
           }); 
 
@@ -105678,13 +105334,25 @@ Promise.all([
 
           Every.scale.set(1, 1, 1);
           Halo.scale.set(2.5, 2.5, 2.5);
-          DW.scale.set(25, 25, 25);  
+           
           
 
 
     scene.add(Mallard);
     scene.add(Claret);
+    
+    if (PISwitch) {
+    /*PI1.traverse(child => {
+        if (child.material && child.material.name === 'Marble grey.001') {
+        child.material = sphereMaterial;
+        //child.material.transparent = !0;
+        }
+        });*/
+
     scene.add(PI1);
+    }
+
+
     if (EverySwitch) {
     scene.add(Every);
     }
@@ -105723,24 +105391,34 @@ Promise.all([
         scene.add(V49);
     }
 
+    
+    
+    if (DWSwitch) {
+        DW.scale.set(25, 25, 25);     
+        const DWglassmaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshPhysicalMaterial({color: 0xFFFFFF, roughness: 0.6, transmission: 1, thickness: 2, envMapIntensity: 0.5})
+        scene.add(DW);
+        DW.traverse(child => {
+            if (child.material && child.material.name === 'Glass') {
+            child.material = DWglassmaterial;
+            }
+            });  
+            
+    }
+
+    if (AWWWARDSwitch) {
+        AWWWARD.scale.set(1, 1, 1);     
+        const AWWWARDnewmaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshStandardMaterial({color: 0xFFFFFF, roughness: 0.1, meatalness: 1})
+        scene.add(AWWWARD);
+        AWWWARD.traverse(child => {
+            if (child.material && child.material.name === 'Stone') {
+            child.material = AWWWARDnewmaterial;
+            }
+            });  
+            
+    }
 
     
-
-
-
-
       
-
-    const DWglassmaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshPhysicalMaterial({color: 0xFFFFFF, roughness: 0.6, transmission: 1, thickness: 2, envMapIntensity: 0.5})
-    DW_bottle.material = DWglassmaterial;
-
-    //const chrismaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0, roughness: 1, envMapIntensity: 1 });
-    //Chris.material = chrismaterial;
-    //Chris00.scale.set(1, 1, 1);
-    //Chris.position.set(5,3,-5);
-    //Chris00.position.set(5,3,-5);
-    //Chris01.position.set(5,3,-5);
-    //Chris02.position.set(5,3,-5);
 
     
 
@@ -105758,7 +105436,7 @@ Promise.all([
 
     function initAnimation(el, model){
         for (let i = 0; i < model.animations.length; i++) {
-            let mixerMC = new three__WEBPACK_IMPORTED_MODULE_2__.AnimationMixer(el);
+            let mixerMC = new three__WEBPACK_IMPORTED_MODULE_9__.AnimationMixer(el);
             var action = mixerMC.clipAction(model.animations[i]);
             action.play();
             createAnimation(mixerMC, action, model.animations[i]);
@@ -105891,19 +105569,19 @@ Promise.all([
     });
 	*/	
 
-    const textureLoader = new three__WEBPACK_IMPORTED_MODULE_2__.TextureLoader();
+    const textureLoader = new three__WEBPACK_IMPORTED_MODULE_9__.TextureLoader();
     const normalMapTexture = textureLoader.load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/textures/IKACnormal.jpg");
 
-    var cactusmaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshStandardMaterial({
+    var cactusmaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshStandardMaterial({
         color: 0x3F8E00, 
         metalness: 0.1, 
         roughness: 0.1, 
         envMapIntensity: 1,
         normalMap: normalMapTexture,
-        normalScale: new three__WEBPACK_IMPORTED_MODULE_2__.Vector2(1, 1) 
+        normalScale: new three__WEBPACK_IMPORTED_MODULE_9__.Vector2(1, 1) 
     
     });
-
+    /*
     cactusmaterial.onBeforeCompile = (shader) =>
     {
 
@@ -105945,7 +105623,7 @@ Promise.all([
         )
     }
 
-
+    */
     IKAC.scale.set(3, 3, 3);
 
     IKAC.material = cactusmaterial;
@@ -105958,10 +105636,10 @@ Promise.all([
         });
         
 		
-		mixer2 = new three__WEBPACK_IMPORTED_MODULE_2__.AnimationMixer(IKAC)
+		mixer2 = new three__WEBPACK_IMPORTED_MODULE_9__.AnimationMixer(IKAC)
         const action = mixer2.clipAction(gltf.animations[0])
         action.play()
-        action.loop = three__WEBPACK_IMPORTED_MODULE_2__.LoopPingPong;
+        action.loop = three__WEBPACK_IMPORTED_MODULE_9__.LoopPingPong;
 
 		scene.add(IKAC);
 
@@ -105995,30 +105673,30 @@ Promise.all([
     raycaster.setFromCamera(corner, camera);
     raycaster.ray.intersectPlane(plane, cornerPoint);
     Mallard.position.copy(cornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, -windowHalfX /
+        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, -windowHalfX /
             windowHalfY / mscale / 1.1, 0));
 
     blcorner.set(-1, -1); // corner (across then down)
     blraycaster.setFromCamera(blcorner, camera);
     blraycaster.ray.intersectPlane(plane, blcornerPoint);
     Claret.position.copy(blcornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, windowHalfX /
+        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, windowHalfX /
             windowHalfY / mscale / 1.55, 0));
 
-    var sideMaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    var sideMaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
         color: 0xe54848,
         toneMapped: false,
         colorWrite: false,
         
     });
 
-    var MCWhite = new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    var MCWhite = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
         color: 0xefe3db,
         toneMapped: false,
         
     });
 
-    var faceMaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshBasicMaterial({
+    var faceMaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({
         color: 0xe54848,
         toneMapped: false,
         
@@ -106152,11 +105830,11 @@ setTimeout(function(){
 }, loaddealy);
 
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(backwallbody.position, {
-    z: -5,
+    z: -3,
     ease: "power4.inOut",
     yoyo: true,
     repeat: 1,
-    delay: loaddealy / 1000 + 1,
+    delay: loaddealy / 1000 + 0,
     duration: 2
 });
 
@@ -106167,7 +105845,7 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(frontwallbody.position, {
     delay: loaddealy / 1000 + 3,
 });
 
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger);
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
 
 
 
@@ -106359,7 +106037,7 @@ setTimeout(function(){
 
     function updateRotation(){
         mallardbody.quaternion.setFromAxisAngle(
-            new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0),
+            new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0),
             Math.PI * mallardRotation.val
         );
     }
@@ -106394,7 +106072,7 @@ setTimeout(function(){
 
     function updateRotation2(){
         claretbody.quaternion.setFromAxisAngle(
-            new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0),
+            new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0),
             -Math.PI * mallardRotation.val
         );
     }
@@ -106415,7 +106093,7 @@ setTimeout(function(){
 
     function updatemallardbodyRotation(){
         mallardbody.quaternion.setFromAxisAngle(
-            new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0),
+            new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0),
             Math.PI * mallardbodyRotation.val
         );
     }
@@ -106436,7 +106114,7 @@ setTimeout(function(){
 
     function updateclaretbodyRotation(){
         claretbody.quaternion.setFromAxisAngle(
-            new cannon_es__WEBPACK_IMPORTED_MODULE_14__.Vec3(1, 0, 0),
+            new cannon_es__WEBPACK_IMPORTED_MODULE_12__.Vec3(1, 0, 0),
             -Math.PI * claretbodyRotation.val
         );
     }
@@ -106634,6 +106312,202 @@ gravity0.addEventListener("click", function (){
 }
   
 
+// Carrer page model
+function initWebglC() {
+    const gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_10__.GLTFLoader()
+    //gltfLoader.setDRACOLoader(dracoLoader)
+    // Canvas
+    const canvas = document.querySelector('canvas.why')
+
+    // Scene
+    const scene = new three__WEBPACK_IMPORTED_MODULE_9__.Scene()
+    scene.fog = new three__WEBPACK_IMPORTED_MODULE_9__.Fog(0xEFE3DB, 5, 55);
+
+    let scrubease = 0
+    let model
+
+    //Model
+
+    gltfLoader.load(
+        "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/why.glb",
+        (gltf) => {
+
+            model = gltf.scene;
+            model.scale.set(4, 4, 4);
+            model.position.set(0, -1, 0);
+            model.rotation.y += -1;
+            model.rotation.x += -0.1;
+            scene.add(model);
+
+            //var linematerial = new THREE.MeshBasicMaterial({color: 0xEFE3DB});
+            var solidmaterial = new three__WEBPACK_IMPORTED_MODULE_9__.MeshBasicMaterial({ color: 0xe54848 });
+
+            /*
+            model.traverse(child => {
+            if (child.material && child.material.name === 'Front') {
+            child.material = linematerial;
+            //child.material.transparent = !0;
+            }
+            });
+            */
+
+            model.traverse(child => {
+                if (child.material && child.material.name === 'Front') {
+                    child.material = solidmaterial;
+                }
+            });
+
+
+
+
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+
+            // trigger 1
+
+
+            // trigger 3
+
+
+
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(model.rotation, {
+                scrollTrigger: {
+                    trigger: "#trigger1",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: scrubease,
+                    toggleActions: "restart pause resume pause"
+                },
+                y: -3,
+                x: 0.2
+            });
+
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(model.transform, {
+                scrollTrigger: {
+                    trigger: "#trigger1",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: scrubease,
+                    toggleActions: "restart pause resume pause"
+                },
+                y: 3,
+            });
+
+        }
+    )
+
+    // Sizes
+
+    let windowHalfX = window.innerWidth / 2;
+    let windowHalfY = window.innerHeight / 2;
+
+    const sizes = {
+        width: window.innerWidth,
+        height: window.innerHeight
+    }
+
+    window.addEventListener('resize', () => {
+        // Update sizes
+        sizes.width = window.innerWidth
+        sizes.height = window.innerHeight
+
+        // Update camera
+        camera.aspect = sizes.width / sizes.height
+        camera.updateProjectionMatrix()
+
+        // Update renderer
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    })
+
+    /**
+     * Camera
+     */
+    // Base camera
+    const camera = new three__WEBPACK_IMPORTED_MODULE_9__.PerspectiveCamera(60, sizes.width / sizes.height, 0.1, 100)
+    camera.position.set(0, 0, -30)
+    scene.add(camera)
+
+    // Controls
+    const controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_13__.OrbitControls(camera, canvas)
+    controls.enableDamping = true
+    controls.minDistance = 30;
+    controls.maxDistance = 30;
+
+    /**
+* Renderer
+*/
+    const renderer = new three__WEBPACK_IMPORTED_MODULE_9__.WebGLRenderer({
+        canvas: canvas,
+        //powerPreference: 'high-performance',
+        antialias: true,
+        alpha: true
+    })
+    //renderer.physicallyCorrectLights = true
+    //renderer.outputEncoding = THREE.sRGBEncoding
+    //renderer.toneMapping = THREE.ReinhardToneMapping
+    //renderer.toneMappingExposure = 1
+    //renderer.shadowMap.enabled = false
+    //renderer.shadowMap.type = THREE.PCFSoftShadowMap
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+    //Animate
+    let targetX = 0
+    let targetY = 0
+    let calcTarget
+
+    calcTarget = function (event) {
+        targetX = (event.clientX - windowHalfX) * .014;
+        targetY = (event.clientY) * .009;
+    }
+    setTimeout(() => {
+        document.addEventListener("mousemove", calcTarget)
+    }, 0);
+
+    // Mouse parralax
+    let tarXNegCamPosX = 0
+    let tarYNegCamPosY = 0
+    controls.enabled = false;
+    const clock = new three__WEBPACK_IMPORTED_MODULE_9__.Clock()
+
+    let oldElapsedTime = 0
+
+    const animate = () => {
+
+        if (document.querySelectorAll("canvas.why").length > 0) {
+            tarXNegCamPosX = targetX / 10 - camera.position.x
+            tarYNegCamPosY = targetY / 10 - camera.position.y
+            if ((Math.abs(tarXNegCamPosX) > .2) || (Math.abs(tarYNegCamPosY) > .2)) {
+                camera.position.x += .06 * (tarXNegCamPosX / 2);
+                camera.position.y += .06 * (tarYNegCamPosY / 2);
+
+            }
+        }
+        var delta = clock.getDelta();
+        // Update controls
+        camera.lookAt(scene.position);
+        controls.update()
+
+        const elapsedTime = clock.getElapsedTime()
+        const deltaTime = elapsedTime - oldElapsedTime
+        oldElapsedTime = elapsedTime
+
+        // Update physics
+
+
+        // Render
+        renderer.render(scene, camera)
+
+        // Call tick again on the next frame
+        window.requestAnimationFrame(animate)
+    }
+
+    //if (screen && screen.width > 1200) {
+
+    animate();
+
+
+}
 //Responsive code
 window.addEventListener("resize", () => {
     // Update sizes
@@ -106659,14 +106533,14 @@ window.addEventListener("resize", () => {
     raycaster.setFromCamera(corner, camera);
     raycaster.ray.intersectPlane(plane, cornerPoint);
     Mallard.position.copy(cornerPoint)
-    .add(new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, -windowHalfX /
+    .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, -windowHalfX /
     windowHalfY / mscale / 1.1, 0));
 
     blcorner.set(-1, -1); // corner (across then down)
     blraycaster.setFromCamera(blcorner, camera);
     blraycaster.ray.intersectPlane(plane, blcornerPoint);
     Claret.position.copy(blcornerPoint)
-        .add(new three__WEBPACK_IMPORTED_MODULE_2__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, windowHalfX /
+        .add(new three__WEBPACK_IMPORTED_MODULE_9__.Vector3(windowHalfX / windowHalfY / mscale / 1.45, windowHalfX /
             windowHalfY / mscale / 1.55, 0));
     //Bottom       
     brcorner.set(1, -1); // corner
@@ -106686,6 +106560,161 @@ window.addEventListener("resize", () => {
     //Right
     rightwallbody.position.copy(trcornerPoint);
 });
+
+
+
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+function transOut() {
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
+        opacity: 0,
+        duration: 0.6
+    });
+}
+function transIn() {
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(".transwrapper", {
+        y: "100vh",
+        opacity: 1
+    }, {
+        y: "0vh",
+        opacity: 1,
+        duration: 1,
+        ease: "power4.out"
+    });
+}
+function projecttransOut() {
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
+        opacity: 1,
+    });
+}
+function projecttransIn() {
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".transwrapper", {
+        opacity: 1,
+    });
+
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(".h1.display", {
+        fontWeight: 400,
+        fontVariationSettings: "'wdth' 180, 'wght' 400",
+    }, {
+        duration: 1.2,
+        fontVariationSettings: "'wdth' 200, 'wght' 450",
+        ease: "expo.inOut",
+    });
+
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".button_large", {
+        opacity: 1,
+        duration: 0.5,
+        ease: "expo.out",
+        delay: 0.5,
+    });
+}
+
+function resetWebflow(data) {
+    let parser = new DOMParser();
+    let dom = parser.parseFromString(data.next.html, "text/html");
+    let webflowPageId = $(dom).find("html").attr("data-wf-page");
+    $("html").attr("data-wf-page", webflowPageId);
+    window.Webflow && window.Webflow.destroy();
+    window.Webflow && window.Webflow.ready();
+    window.Webflow && window.Webflow.require("ix2").init();
+}
+
+
+_barba_core__WEBPACK_IMPORTED_MODULE_14___default().init({
+    sync: true,
+    preventRunning: true,
+    debug: true,
+    transitions: [
+        {
+            name: 'project',
+            to: {
+                namespace: ['projects']
+            },
+            once(data) {
+                if ($('.work-inner').length > 0) {
+                    pageCode();
+                }
+            },
+            leave({ current, next, trigger }) {
+                const done = this.async();
+                projecttransOut()
+                setTimeout(function () {
+                    done();
+                }, 1800);
+            },
+
+            enter(data) {
+                $(window).scrollTop(0);
+
+            },
+            after(data) {
+                if ($('.work-inner').length > 0) {
+                    pageCode();
+                }
+                setTimeout(() => {
+                    projecttransIn()
+                    resetWebflow(data)
+                }, 200);
+
+            },
+        }, {
+            name: 'default',
+            once(data) {
+                if ($('.webgl').length > 0) {
+                    initWebgl();
+                    intro();
+                }
+                if ($('.introclicker').length > 0) {
+                    $(".introclicker").click();
+                }
+                if ($('.work-inner').length > 0) {
+                    pageCode();
+                }
+                setTimeout(() => {
+                    if ($('.why').length > 0) {
+                        transIn()
+                        initWebglC();
+                        resetWebflow(data)
+                    }
+                }, 500);
+            },
+            leave({ current, next, trigger }) {
+                const done = this.async();
+                transOut()
+                setTimeout(function () {
+                    done();
+                }, 1000);
+            },
+
+            enter(data) {
+            },
+            after(data) {
+                $(window).scrollTop(0);
+                if ($('.webgl').length > 0) {
+                    initWebgl();
+                    intro();
+                }
+                if ($('.introclicker').length > 0) {
+                    $(".introclicker").click();
+                }
+                if ($('.work-inner').length > 0) {
+                    pageCode();
+                }
+                setTimeout(() => {
+                    transIn()
+                    if ($('.why').length > 0) {
+                        initWebglC();
+                    }
+                    resetWebflow(data)
+                }, 1500);
+
+            },
+        }
+    ]
+});
+
+
+
 })();
 
 /******/ })()
