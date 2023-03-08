@@ -27,16 +27,17 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.6000000238418579,
-                0.6000000238418579,
-                0.6000000238418579
+                0.800000011920929,
+                0.800000011920929,
+                0.800000011920929
             ],
             "emissiveTexture" : {
                 "index" : 0
             },
             "name" : "Cover",
             "normalTexture" : {
-                "index" : 1
+                "index" : 1,
+                "scale" : 0.800000011920929
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
