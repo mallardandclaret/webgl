@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+  </style>
+</head>
+<body>
+  <button id="work-btn">Work</button>
+
+  <script src="https://unpkg.com/@barba/core@2.10.1/dist/barba.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Additional script to handle the work button click -->
+  <script>
+    const workBtn = document.querySelector('#work-btn');
+    workBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      Barba.Pjax.goTo('work.html');
+    });
+  </script>
+</body>
+</html>
