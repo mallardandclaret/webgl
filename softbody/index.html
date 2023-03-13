@@ -246,6 +246,9 @@
 
                 preSolve(dt, gravity)
                 {
+                    var rightWallX = rightwall.position.x;
+                    var groundY = ground.position.y;
+                    
                     for (var i = 0; i < this.numParticles; i++) {
                         if (this.invMass[i] == 0.0)
                             continue;
@@ -254,11 +257,11 @@
                         vecAdd(this.pos,i, this.vel,i, dt);
                         var y = this.pos[3 * i + 1];
                         var x = this.pos[3 * i];
-                        if (y < 0.0) {
+                        if (y < groundY) {
                             vecCopy(this.pos,i, this.prevPos,i);
-                            this.pos[3 * i + 1] = 0.0;
+                            this.pos[3 * i + 1] = groundY;
                         }
-                        if (x > 5.0) {
+                        if (x > rightWallX) {
                             vecCopy(this.prevPos,i, this.pos,i);
                         }
                     }
