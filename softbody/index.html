@@ -215,6 +215,11 @@
 					}
 				}
 
+
+/////////OLD
+
+/*
+
 				preSolve(dt, gravity)
 				{
 					for (var i = 0; i < this.numParticles; i++) {
@@ -228,8 +233,38 @@
 							vecCopy(this.pos,i, this.prevPos,i);
 							this.pos[3 * i + 1] = 0.0;
 						}
+                        
 					}
 				}
+*/
+
+
+
+
+//////////NEW
+
+
+                preSolve(dt, gravity)
+                {
+                    for (var i = 0; i < this.numParticles; i++) {
+                        if (this.invMass[i] == 0.0)
+                            continue;
+                        vecAdd(this.vel,i, gravity,0, dt);
+                        vecCopy(this.prevPos,i, this.pos,i);
+                        vecAdd(this.pos,i, this.vel,i, dt);
+                        var y = this.pos[3 * i + 1];
+                        var x = this.pos[3 * i];
+                        if (y < 0.0) {
+                            vecCopy(this.pos,i, this.prevPos,i);
+                            this.pos[3 * i + 1] = 0.0;
+                        }
+                        if (x > 5.0) {
+                            vecCopy(this.prevPos,i, this.pos,i);
+                        }
+                    }
+                }
+
+
 
 				solve(dt)
 				{
