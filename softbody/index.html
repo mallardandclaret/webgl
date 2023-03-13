@@ -625,7 +625,7 @@
 			}
 
 			function newBody() {
-                ground.position.y = 3;
+                rightwall.position.x = 2;
 				//body = new SoftBody(bunnyMesh, gThreeScene);
 				//body.translate(-1.0 + 2.0 * Math.random(), 0.0, -1.0 + 2.0 * Math.random());
 				//gPhysicsScene.objects.push(body); 
@@ -639,10 +639,24 @@
 			// make browser to call us repeatedly -----------------------------------
 
 			function update() {
-				simulate();
-				gRenderer.render(gThreeScene, gCamera);
-				requestAnimationFrame(update);
-			}
+            // Update the positions of the rightwall and ground meshes
+            /* rightwall.position.x += deltaRightwallX;
+            ground.position.y += deltaGroundY;
+    
+            // Update the positions of the particles based on the new positions of the meshes
+            for (var i = 0; i < SoftBody.numParticles; i++) {
+            var particlePos = SoftBody.particles[i].position;
+            particlePos.x += deltaRightwallX;
+            particlePos.y += deltaGroundY;
+            } */
+    
+            // Run the simulation and render the scene
+            simulate();
+            gRenderer.render(gThreeScene, gCamera);
+    
+            // Request the next animation frame
+            requestAnimationFrame(update);
+}
 			
 			var bunnyMesh = 
 			{
