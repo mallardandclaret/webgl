@@ -425,8 +425,12 @@
 			}
 
 			// ------------------------------------------
+            //////three.js set up (out of fuction)
 				
-            gThreeScene = new THREE.Scene();
+
+
+
+                gThreeScene = new THREE.Scene();
 				
 				// Lights
 				
@@ -591,6 +595,7 @@
 			
 			// ------------------------------------------------------
 
+
 			function onWindowResize() {
 
 				gCamera.aspect = window.innerWidth / window.innerHeight;
@@ -609,6 +614,7 @@
 
 			function restart() {
 				location.reload();
+                ground.position.y = 3;
 			}
 
 			function squash() {
