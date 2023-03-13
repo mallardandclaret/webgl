@@ -41,7 +41,7 @@
 		<script>
 
 
-            let ground, frontwall;
+            
 
 			// ----- math on vector arrays -------------------------------------------------------------
 
@@ -426,8 +426,8 @@
 
 			// ------------------------------------------
 					
-			function initThreeScene() 
-			{
+			//function initThreeScene() 
+			//{
 				gThreeScene = new THREE.Scene();
 				
 				// Lights
@@ -486,7 +486,7 @@
 				webgl404.addEventListener( 'pointerdown', onPointer, false );
 				webgl404.addEventListener( 'pointermove', onPointer, false );
 				webgl404.addEventListener( 'pointerup', onPointer, false );
-			}
+			//}
 
 			// ------- grabber -----------------------------------------------------------
 
@@ -1217,7 +1217,7 @@
 			};
 	
 	
-			initThreeScene();
+			//initThreeScene();
 			onWindowResize();
 			initPhysics();
 			update();
