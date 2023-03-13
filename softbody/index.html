@@ -34,7 +34,7 @@
 
 
 		<br><br>		
-        <div id="container"></div>
+        <div id="webgl404"></div>
         
         <script src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
         <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
@@ -430,6 +430,15 @@
 				ground.rotation.x = - Math.PI / 2; // rotates X/Y to X/Z
 				ground.receiveShadow = true;
 				gThreeScene.add( ground );
+
+                var rightwall = new THREE.Mesh(
+					new THREE.PlaneBufferGeometry( 20, 20, 1, 1 ),
+					new THREE.MeshPhongMaterial( { color: 0xa0adaf, shininess: 150 } )
+				);				
+
+				rightwall.rotation.y = - Math.PI / 2; // rotates X/Y to X/Z
+				rightwall.receiveShadow = true;
+				gThreeScene.add( rightwall );
 				
 				var helper = new THREE.GridHelper( 20, 20 );
 				helper.material.opacity = 1.0;
@@ -442,9 +451,9 @@
 				gRenderer = new THREE.WebGLRenderer();
 				gRenderer.shadowMap.enabled = true;
 				gRenderer.setPixelRatio( window.devicePixelRatio );
-				gRenderer.setSize( 0.8 * window.innerWidth, 0.8 * window.innerHeight );
+				gRenderer.setSize( window.innerWidth, window.innerHeight );
 				window.addEventListener( 'resize', onWindowResize, false );
-				container.appendChild( gRenderer.domElement );
+		        webgl404.appendChild( gRenderer.domElement );
 				
 				// Camera
 						
@@ -461,9 +470,9 @@
 				// grabber
 
 				gGrabber = new Grabber();
-				container.addEventListener( 'pointerdown', onPointer, false );
-				container.addEventListener( 'pointermove', onPointer, false );
-				container.addEventListener( 'pointerup', onPointer, false );
+				webgl404.addEventListener( 'pointerdown', onPointer, false );
+				webgl404.addEventListener( 'pointermove', onPointer, false );
+				webgl404.addEventListener( 'pointerup', onPointer, false );
 			}
 
 			// ------- grabber -----------------------------------------------------------
