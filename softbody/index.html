@@ -425,10 +425,8 @@
 			}
 
 			// ------------------------------------------
-					
-			//function initThreeScene() 
-			//{
-				gThreeScene = new THREE.Scene();
+				
+            gThreeScene = new THREE.Scene();
 				
 				// Lights
 				
@@ -480,13 +478,18 @@
 				gCameraControl.zoomSpeed = 2.0;
     			gCameraControl.panSpeed = 0.4;
 
+
+			function initThreeScene() 
+			{
+				
+
 				// grabber
 
 				gGrabber = new Grabber();
 				webgl404.addEventListener( 'pointerdown', onPointer, false );
 				webgl404.addEventListener( 'pointermove', onPointer, false );
 				webgl404.addEventListener( 'pointerup', onPointer, false );
-			//}
+			}
 
 			// ------- grabber -----------------------------------------------------------
 
