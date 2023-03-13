@@ -40,6 +40,9 @@
         <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
 		<script>
 
+
+            let ground, frontwall;
+
 			// ----- math on vector arrays -------------------------------------------------------------
 
 			function vecSetZero(a,anr) {
@@ -454,12 +457,7 @@
                 rightwall.position.x = 5;
 				rightwall.receiveShadow = true;
 				gThreeScene.add( rightwall );
-				
-				var helper = new THREE.GridHelper( 20, 20 );
-				helper.material.opacity = 1.0;
-				helper.material.transparent = true;
-				helper.position.set(0, 0.002, 0);
-				gThreeScene.add( helper );				
+							
 				
 				// Renderer
 
