@@ -614,7 +614,7 @@
 
 			function restart() {
 				location.reload();
-                ground.position.y = 3;
+                
 			}
 
 			function squash() {
@@ -625,14 +625,15 @@
 			}
 
 			function newBody() {
-				body = new SoftBody(bunnyMesh, gThreeScene);
-				body.translate(-1.0 + 2.0 * Math.random(), 0.0, -1.0 + 2.0 * Math.random());
-				gPhysicsScene.objects.push(body); 
+                ground.position.y = 3;
+				//body = new SoftBody(bunnyMesh, gThreeScene);
+				//body.translate(-1.0 + 2.0 * Math.random(), 0.0, -1.0 + 2.0 * Math.random());
+				//gPhysicsScene.objects.push(body); 
 				
-				var numTets = 0;
-				for (var i = 0; i < gPhysicsScene.objects.length; i++)
-					numTets += gPhysicsScene.objects[i].numTets;
-				document.getElementById("numTets").innerHTML = numTets;
+				//var numTets = 0;
+				//for (var i = 0; i < gPhysicsScene.objects.length; i++)
+				//	numTets += gPhysicsScene.objects[i].numTets;
+				//document.getElementById("numTets").innerHTML = numTets;
 			}
 			
 			// make browser to call us repeatedly -----------------------------------
