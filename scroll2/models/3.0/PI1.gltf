@@ -106,58 +106,58 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 30260,
+            "count" : 17036,
             "max" : [
-                1.725582242012024,
-                3.907853126525879,
-                1.526771903038025
+                1.7263758182525635,
+                3.9110422134399414,
+                1.526780605316162
             ],
             "min" : [
-                -1.4571583271026611,
-                -2.4907386302948,
-                -2.4417905807495117
+                -1.458439826965332,
+                -2.4913463592529297,
+                -2.443007230758667
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 30260,
+            "count" : 17036,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 30260,
+            "count" : 17036,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 108357,
+            "count" : 43341,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 363120,
+            "byteLength" : 204432,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 363120,
-            "byteOffset" : 363120
+            "byteLength" : 204432,
+            "byteOffset" : 204432
         },
         {
             "buffer" : 0,
-            "byteLength" : 242080,
-            "byteOffset" : 726240
+            "byteLength" : 136288,
+            "byteOffset" : 408864
         },
         {
             "buffer" : 0,
-            "byteLength" : 216714,
-            "byteOffset" : 968320
+            "byteLength" : 86682,
+            "byteOffset" : 545152
         }
     ],
     "samplers" : [
@@ -168,7 +168,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1185036,
+            "byteLength" : 631836,
             "uri" : "PI1.bin"
         }
     ]
