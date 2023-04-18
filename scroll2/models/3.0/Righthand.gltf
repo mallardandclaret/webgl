@@ -707,19 +707,19 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Hands01_Normal",
-            "uri" : "Hands01_Normal.png"
+            "uri" : "Hands01_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Hands01White_BaseColor",
-            "uri" : "Hands01White_BaseColor.png"
+            "uri" : "Hands01White_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Hands01_Roughness",
-            "uri" : "Hands01_Roughness.png"
+            "uri" : "Hands01_Roughness.jpg"
         }
     ],
     "skins" : [
