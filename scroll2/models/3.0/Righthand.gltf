@@ -653,9 +653,9 @@
         {
             "doubleSided" : true,
             "emissiveFactor" : [
-                0.20000004768371582,
-                0.20000004768371582,
-                0.20000004768371582
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224
             ],
             "emissiveTexture" : {
                 "index" : 0
@@ -703,24 +703,19 @@
         },
         {
             "sampler" : 0,
-            "source" : 2
+            "source" : 0
         }
     ],
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Hands01Black_BaseColor",
-            "uri" : "Hands01Black_BaseColor.jpg"
+            "name" : "Hands01White_BaseColor",
+            "uri" : "Hands01White_BaseColor.jpg"
         },
         {
             "mimeType" : "image/jpeg",
             "name" : "Hands01_Normal",
             "uri" : "Hands01_Normal.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "Hands01White_BaseColor",
-            "uri" : "Hands01White_BaseColor.jpg"
         }
     ],
     "skins" : [
