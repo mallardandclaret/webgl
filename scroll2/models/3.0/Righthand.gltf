@@ -652,11 +652,6 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                1,
-                0,
-                0
-            ],
             "name" : "Hand01",
             "normalTexture" : {
                 "index" : 0
