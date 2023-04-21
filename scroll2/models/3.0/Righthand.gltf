@@ -661,9 +661,7 @@
                     "index" : 1
                 },
                 "metallicFactor" : 0,
-                "metallicRoughnessTexture" : {
-                    "index" : 2
-                }
+                "roughnessFactor" : 0.7090908885002136
             }
         }
     ],
@@ -694,10 +692,6 @@
         {
             "sampler" : 0,
             "source" : 1
-        },
-        {
-            "sampler" : 0,
-            "source" : 2
         }
     ],
     "images" : [
@@ -710,11 +704,6 @@
             "mimeType" : "image/jpeg",
             "name" : "Hands01White_BaseColor",
             "uri" : "Hands01White_BaseColor.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "Hands01_Roughness",
-            "uri" : "Hands01_Roughness.jpg"
         }
     ],
     "skins" : [
