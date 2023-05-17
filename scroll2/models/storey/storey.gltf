@@ -25,7 +25,7 @@
             ],
             "scale" : [
                 1,
-                0.45774102210998535,
+                0.19501355290412903,
                 1
             ],
             "translation" : [
@@ -52,10 +52,18 @@
     "materials" : [
         {
             "doubleSided" : true,
+            "emissiveFactor" : [
+                0.5,
+                0.5,
+                0.5
+            ],
+            "emissiveTexture" : {
+                "index" : 0
+            },
             "name" : "plants",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 0
+                    "index" : 1
                 },
                 "metallicFactor" : 0
             }
@@ -106,6 +114,10 @@
         }
     ],
     "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
         {
             "sampler" : 0,
             "source" : 0
