@@ -82285,9 +82285,9 @@ var raycaster = new three__WEBPACK_IMPORTED_MODULE_6__.Raycaster();
 const srubvalue = 0; //// For GSAP scroll triggers 
 
 
-const CannonSwitch = true;
+const CannonSwitch = false;
 const StatsSwitch = false;
-const helpers = true; ///// Light helpers / EV BG
+const helpers = false; ///// Light helpers / EV BG
 const lights = false;
 
 three__WEBPACK_IMPORTED_MODULE_6__.Cache.enabled = true; ///// For caching models to use on other pages
