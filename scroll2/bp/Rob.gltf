@@ -1417,51 +1417,63 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Belt_White_Normal_DirectX.png"
+            "name" : "Belt_White_Normal_DirectX",
+            "uri" : "Belt_White_Normal_DirectX.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Belt_Orange_Base_color.png"
+            "name" : "Belt_Orange_Base_color",
+            "uri" : "Belt_Orange_Base_color.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Belt_White_Roughness.png"
+            "name" : "Belt_White_Metallic-Belt_White_Roughness",
+            "uri" : "Belt_White_Metallic-Belt_White_Roughness.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Hardsurface_White_Normal_DirectX.PNG"
+            "name" : "Hardsurface_White_Normal_DirectX",
+            "uri" : "Hardsurface_White_Normal_DirectX.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Hardsurface_White_Base_Color.PNG"
+            "name" : "Hardsurface_White_Base_Color",
+            "uri" : "Hardsurface_White_Base_Color.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Hardsurface_White_Roughness.PNG"
+            "name" : "Hardsurface_White_Metallic-Hardsurface_White_Roughness",
+            "uri" : "Hardsurface_White_Metallic-Hardsurface_White_Roughness.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Helmet_White_Normal_DirectX.PNG"
+            "name" : "Helmet_White_Normal_DirectX",
+            "uri" : "Helmet_White_Normal_DirectX.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Helmet_White_Base_Color.PNG"
+            "name" : "Helmet_White_Base_Color",
+            "uri" : "Helmet_White_Base_Color.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Helmet_White_Roughness.PNG"
+            "name" : "Helmet_White_Metallic-Helmet_White_Roughness",
+            "uri" : "Helmet_White_Metallic-Helmet_White_Roughness.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Suit_White_Normal_DirectX.png"
+            "name" : "Suit_White_Normal_DirectX",
+            "uri" : "Suit_White_Normal_DirectX.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Suit_Orange_Base_color.png"
+            "name" : "Suit_Orange_Base_color",
+            "uri" : "Suit_Orange_Base_color.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Suit_White_Roughness.png"
+            "name" : "Suit_White_Metallic-Suit_White_Roughness",
+            "uri" : "Suit_White_Metallic-Suit_White_Roughness.jpg"
         }
     ],
     "skins" : [
