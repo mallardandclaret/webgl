@@ -1242,15 +1242,14 @@
         {
             "doubleSided" : true,
             "name" : "Hand01",
-            "normalTexture" : {
-                "index" : 0
-            },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 1
+                    "index" : 0
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.7090908885002136
+                "metallicRoughnessTexture" : {
+                    "index" : 1
+                }
             }
         }
     ],
@@ -1286,13 +1285,13 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Hands01_Normal",
-            "uri" : "Hands01_Normal.jpg"
+            "name" : "Hands01White_BaseColor",
+            "uri" : "Hands01White_BaseColor.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "Hands01White_BaseColor",
-            "uri" : "Hands01White_BaseColor.jpg"
+            "name" : "Hands01_Roughness",
+            "uri" : "Hands01_Roughness.jpg"
         }
     ],
     "skins" : [
