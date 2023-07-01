@@ -293,6 +293,7 @@
 				const volumeMass = 20;
 
 				// Create the box geometries
+// Create the box geometries
 const boxGeometry0 = new THREE.BoxGeometry(1, 1, 30, 4, 4, 60);
 boxGeometry0.translate(-5, 1, 0);
 const boxGeometry1 = new THREE.BoxGeometry(1, 1, 30, 4, 4, 60);
@@ -309,19 +310,16 @@ const constraintOpts = {
   m: 1, // Constraint influence: 0 (no movement) to 1 (full movement)
 };
 
-const prevSoftBody = softBody0;
-const currentSoftBody = softBody1;
-
 // Get the last node of the previous soft body
-const prevNodeIndex = prevSoftBody.nodes.length - 1;
+const prevNodeIndex = softBody0.index - 1;
 
 // Get the first node of the current soft body
 const currentNodeIndex = 0;
 
 // Connect the bodies using the appendAnchor method
-prevSoftBody.appendAnchor(
+softBody0.appendAnchor(
   prevNodeIndex,
-  currentSoftBody,
+  softBody1,
   true, // Collide with anchor
   constraintOpts
 );
