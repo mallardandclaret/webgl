@@ -309,13 +309,19 @@ const constraintOpts = {
   m: 1, // Constraint influence: 0 (no movement) to 1 (full movement)
 };
 
-// Connect the bodies using the appendAnchor method
-softBody0.appendAnchor(
-  null, // No specific node in softBody0
+const pos0 = new Ammo.btVector3(0, 0, 0); // Position in local coordinates of softBody0
+const pos1 = new Ammo.btVector3(0, 0, 0); // Position in local coordinates of softBody1
+
+const linearJoint = new Ammo.btSoftBodyLinearJoint(
+  softBody0,
   softBody1,
-  true, // Collide with anchor
+  pos0,
+  pos1,
   constraintOpts
 );
+
+// Add the joint to the soft bodies
+softBody0.appendLinearJoint(linearJoint);
 
 				// Ramp
 				pos.set( 3, 1, 0 );
