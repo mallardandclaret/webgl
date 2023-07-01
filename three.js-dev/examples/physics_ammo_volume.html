@@ -292,29 +292,48 @@
 				// Create soft volumes
 				const volumeMass = 20;
 
-				/* const sphereGeometry = new THREE.SphereGeometry( 1.5, 40, 25 );
-				sphereGeometry.translate( 5, 5, 0 );
-				createSoftVolume( sphereGeometry, volumeMass, 250 ); */
+				// Create an array to store the soft bodies
+const softBodies = [];
 
-				const boxGeometry0 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 30 );
-				boxGeometry0.translate( -5 , 1, 0 );
-				createSoftVolume( boxGeometry0, volumeMass, 200 );
+// Define the position offsets for the soft bodies
+const positionOffsets = [
+  { x: -5, y: 1, z: 0 },
+  { x: -6.03, y: 1, z: 0 },
+  { x: -7.06, y: 1, z: 0 },
+  { x: -8.9, y: 1, z: 0 },
+  { x: -9.12, y: 1, z: 0 },
+];
 
-				const boxGeometry1 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 30 );
-				boxGeometry1.translate( - 6.04, 1, 0 );
-				createSoftVolume( boxGeometry1, volumeMass, 200 );
+// Create and connect the soft bodies
+for (let i = 0; i < positionOffsets.length; i++) {
+  const boxGeometry = new THREE.BoxGeometry(1, 1, 30, 4, 4, 60);
+  boxGeometry.translate(
+    positionOffsets[i].x,
+    positionOffsets[i].y,
+    positionOffsets[i].z
+  );
+  const softBody = createSoftVolume(boxGeometry, volumeMass, 200);
+  softBodies.push(softBody);
 
-				const boxGeometry2 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 30 );
-				boxGeometry2.translate( - 7.08, 1, 0 );
-				createSoftVolume( boxGeometry2, volumeMass, 200 );
-
-				const boxGeometry3 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 30 );
-				boxGeometry3.translate( - 8.12, 1, 0 );
-				createSoftVolume( boxGeometry3, volumeMass, 200 );
-
-				const boxGeometry4 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 30 );
-				boxGeometry4.translate( - 9.16, 1, 0 );
-				createSoftVolume( boxGeometry4, volumeMass, 200 );
+  // Connect the soft bodies with constraints
+  if (i > 0) {
+    const prevSoftBody = softBodies[i - 1];
+    const currentSoftBody = softBodies[i];
+    
+    // Create a constraint between the previous and current soft bodies
+    // Adjust the constraint settings as per your desired behavior
+    const constraint = new Ammo.btSoftBodyConstrainConfig();
+    constraint.set_citerations(10); // Number of constraint iterations
+    constraint.set_erp(0.5); // Error reduction parameter
+    constraint.set_tau(0.1); // Global constraint scale
+    prevSoftBody.appendAnchor(
+      prevSoftBody.get_m_nodes().size() - 1, // Index of a node in the previous soft body
+      currentSoftBody, // Current soft body
+      true, // Collision between anchor and linked soft body
+      constraint // Constraint settings
+    );
+  }
+}
 
 				// Ramp
 				pos.set( 3, 1, 0 );
