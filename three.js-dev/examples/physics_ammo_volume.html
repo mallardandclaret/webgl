@@ -314,28 +314,23 @@ for (let i = 0; i < positionOffsets.length; i++) {
   );
   const softBody = createSoftVolume(boxGeometry, volumeMass, 200);
   softBodies.push(softBody);
+}
 
-  // Connect the soft bodies with constraints
-  if (i > 0) {
-    const prevSoftBody = softBodies[i - 1];
-    const currentSoftBody = softBodies[i];
-    
-    // Get the nodes of the previous and current soft bodies
-    const prevNodes = prevSoftBody.get_m_nodes();
-    const currentNodes = currentSoftBody.get_m_nodes();
-    
-    // Define the anchor indices for connecting the bodies
-    const prevNodeIndex = prevNodes.size() - 1; // Index of the last node in the previous soft body
-    const currentNodeIndex = 0; // Index of the first node in the current soft body
-    
-    // Connect the bodies using the appendAnchor method
-    currentSoftBody.appendAnchor(
-      prevNodeIndex,
-      prevSoftBody,
-      true, // Collide with anchor
-      1, // Influence: 0 (no movement) to 1 (full movement)
-    );
-  }
+// Connect the soft bodies with constraints
+for (let i = 0; i < softBodies.length - 1; i++) {
+  const prevSoftBody = softBodies[i];
+  const currentSoftBody = softBodies[i + 1];
+
+  // Get the nodes of the previous and current soft bodies
+  const prevNodes = prevSoftBody.get_m_nodes();
+  const currentNodes = currentSoftBody.get_m_nodes();
+
+  // Connect the bodies using the appendAnchor method
+  const prevNodeIndex = prevNodes.size() - 1; // Index of the last node in the previous soft body
+  const currentNodeIndex = 0; // Index of the first node in the current soft body
+  const influence = 1; // Influence: 0 (no movement) to 1 (full movement)
+  const collision = true; // Collide with anchor
+  currentSoftBody.appendAnchor(prevNodeIndex, prevSoftBody, collision, influence);
 }
 
 				// Ramp
