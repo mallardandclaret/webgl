@@ -292,36 +292,29 @@
 				// Create soft volumes
 				const volumeMass = 20;
 
-// Create the box geometries
-const boxGeometry0 = new THREE.BoxGeometry(1, 1, 30, 4, 4, 60);
-boxGeometry0.translate(-5, 1, 0);
-const boxGeometry1 = new THREE.BoxGeometry(1, 1, 30, 4, 4, 60);
-boxGeometry1.translate(-6.03, 1, 0);
+				/* const sphereGeometry = new THREE.SphereGeometry( 1.5, 40, 25 );
+				sphereGeometry.translate( 5, 5, 0 );
+				createSoftVolume( sphereGeometry, volumeMass, 250 ); */
 
-// Create the soft bodies
-const softBody0 = createSoftVolume(boxGeometry0, volumeMass, 200);
-const softBody1 = createSoftVolume(boxGeometry1, volumeMass, 200);
+				const boxGeometry0 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 60 );
+				boxGeometry0.translate( -5 , 1, 0 );
+				createSoftVolume( boxGeometry0, volumeMass, 200 );
 
-// Connect the soft bodies
-const constraintOpts = {
-  citerations: 10, // Number of constraint iterations
-  erp: 0.5, // Error reduction parameter
-  m: 1, // Constraint influence: 0 (no movement) to 1 (full movement)
-};
+				const boxGeometry1 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 60 );
+				boxGeometry1.translate( - 6.03, 1, 0 );
+				createSoftVolume( boxGeometry1, volumeMass, 200 );
 
-const pos0 = new Ammo.btVector3(0, 0, 0); // Position in local coordinates of softBody0
-const pos1 = new Ammo.btVector3(0, 0, 0); // Position in local coordinates of softBody1
+				const boxGeometry2 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 60 );
+				boxGeometry2.translate( - 7.06, 1, 0 );
+				createSoftVolume( boxGeometry2, volumeMass, 200 );
 
-const linearJoint = new Ammo.btSoftBodyLinearJoint(
-  softBody0,
-  softBody1,
-  pos0,
-  pos1,
-  constraintOpts
-);
+				const boxGeometry3 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 60 );
+				boxGeometry3.translate( - 8.9, 1, 0 );
+				createSoftVolume( boxGeometry3, volumeMass, 200 );
 
-// Add the joint to the soft bodies
-softBody0.appendLinearJoint(linearJoint);
+				const boxGeometry4 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 60 );
+				boxGeometry4.translate( - 9.12, 1, 0 );
+				createSoftVolume( boxGeometry4, volumeMass, 200 );
 
 				// Ramp
 				pos.set( 3, 1, 0 );
