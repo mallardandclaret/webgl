@@ -292,7 +292,6 @@
 				// Create soft volumes
 				const volumeMass = 20;
 
-				// Create an array to store the soft bodies
 // Create an array to store the soft bodies
 const softBodies = [];
 
@@ -321,12 +320,21 @@ for (let i = 0; i < positionOffsets.length; i++) {
     const prevSoftBody = softBodies[i - 1];
     const currentSoftBody = softBodies[i];
     
-    // Create a constraint between the previous and current soft bodies
-    const link = new Ammo.btSoftBodyLink();
-    link.set_m_material(currentSoftBody.get_m_materials().at(0));
-    link.set_m_nodeIndex0(prevSoftBody.get_m_nodes().size() - 1);
-    link.set_m_nodeIndex1(0);
-    currentSoftBody.get_m_links().push_back(link);
+    // Get the nodes of the previous and current soft bodies
+    const prevNodes = prevSoftBody.get_m_nodes();
+    const currentNodes = currentSoftBody.get_m_nodes();
+    
+    // Define the anchor indices for connecting the bodies
+    const prevNodeIndex = prevNodes.size() - 1; // Index of the last node in the previous soft body
+    const currentNodeIndex = 0; // Index of the first node in the current soft body
+    
+    // Connect the bodies using the appendAnchor method
+    currentSoftBody.appendAnchor(
+      prevNodeIndex,
+      prevSoftBody,
+      true, // Collide with anchor
+      1, // Influence: 0 (no movement) to 1 (full movement)
+    );
   }
 }
 
