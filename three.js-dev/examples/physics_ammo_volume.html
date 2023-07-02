@@ -131,7 +131,7 @@
 
 				// Dynamic box
 
-				pos.set(1, 1, 1 );
+				pos.set(-5, 1, 1 );
 				quat.set( 0, 0, 0, 1 );
 				const vpbox = createParalellepiped( 1, 5, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
 				vpbox.castShadow = true;
@@ -143,7 +143,7 @@
 
             // Dynamic box
             
-            pos.set(1, 1, 1 );
+            pos.set(-5, 1, 1 );
             quat.set( 0, 0, 0, 1 );
             const vpbox1 = createParalellepiped( 5, 1, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
             vpbox1.castShadow = true;
@@ -291,7 +291,7 @@
 
 
 				// Create soft volumes
-				const volumeMass = 1;
+				const volumeMass = 20;
 
 				const boxGeometry0 = new THREE.BoxGeometry( 1, 1, 30, 4, 4, 60 );
 				boxGeometry0.translate( -5 , 1, 0 );
