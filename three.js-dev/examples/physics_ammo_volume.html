@@ -126,28 +126,28 @@
 
 
 
-			 function createVPbox() {
+			 function createVPbox1() {
 
 				// Dynamic box
 
-				pos.set(window.innerWidth / window.innerHeight , 10, 0 );
+				pos.set(1, 1, 1 );
 				quat.set( 0, 0, 0, 1 );
-				const vpbox = createParalellepiped( 1, window.innerWidth / window.innerHeight, window.innerHeight / window.innerWidth, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+				const vpbox = createParalellepiped( 1, 5, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
 				vpbox.castShadow = true;
 				vpbox.receiveShadow = true;
-				textureLoader.load( 'textures/grid.png', function ( texture ) {
 
-					texture.wrapS = THREE.RepeatWrapping;
-					texture.wrapT = THREE.RepeatWrapping;
-					texture.repeat.set( 40, 40 );
-					vpbox.material.map = texture;
-					vpbox.material.needsUpdate = true;
+            }
 
-				} );
+			function createVPbox1() {
 
-
-
-
+            // Dynamic box
+            
+            pos.set(1, 1, 1 );
+            quat.set( 0, 0, 0, 1 );
+            const vpbox1 = createParalellepiped( 5, 1, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+            vpbox1.castShadow = true;
+            vpbox1.receiveShadow = true;
+            
             }
 
 
@@ -317,13 +317,7 @@
 				createSoftVolume( boxGeometry4, volumeMass, 200 );
 
 				
-                // wall one
-                pos.set( 3, 1, 0 );
-				
-				const wall1 = createParalellepiped( 10, 1, 4, 0, pos, 0, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0,
-                metalness: 1.0} ) );
-				wall1.castShadow = true;
-				wall1.receiveShadow = true;
+                
 				
 
 				// Ramp
