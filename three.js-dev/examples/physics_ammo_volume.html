@@ -318,12 +318,12 @@
 
 				
                 // wall one
-                pos.set( 3, 1, 0 );
+                pos1.set( 3, 1, 0 );
 				
-				const wall1 = createParalellepiped( 10, 1, 4, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0,
+				const wall1 = createParalellepiped( 10, 1, 4, 0, pos1, 0, new THREE.MeshStandardMaterial( { color: 0xFFFFFF, roughness: 0,
                 metalness: 1.0} ) );
-				obstacle.castShadow = true;
-				obstacle.receiveShadow = true;
+				wall1.castShadow = true;
+				wall1.receiveShadow = true;
 				
 
 				// Ramp
