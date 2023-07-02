@@ -131,9 +131,9 @@
 
 				// Dynamic box
 
-				pos.set(-5, 1, 1 );
+				pos.set(-5, 1, -10 );
 				quat.set( 0, 0, 0, 1 );
-				const vpbox = createParalellepiped( 1, 5, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+				const vpbox = createParalellepiped( 1, 20, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
 				vpbox.castShadow = true;
 				vpbox.receiveShadow = true;
 
@@ -143,9 +143,9 @@
 
             // Dynamic box
             
-            pos.set(-5, 1, 5 );
+            pos.set(-5, 1, 10);
             quat.set( 0, 0, 0, 1 );
-            const vpbox1 = createParalellepiped( 5, 1, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+            const vpbox1 = createParalellepiped( 1, 20, 5, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
             vpbox1.castShadow = true;
             vpbox1.receiveShadow = true;
             
