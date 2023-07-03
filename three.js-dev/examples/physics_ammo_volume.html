@@ -612,14 +612,17 @@
 
 						// Q
 						case 81:
-						physicsWorld.setGravity( new Ammo.btVector3( 0, 3, 0 ) );
-				        physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, 3, 0 ) );
+						vpbox1.position.x += 1;
+						//physicsWorld.setGravity( new Ammo.btVector3( 0, 3, 0 ) );
+				        //physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, 3, 0 ) );
 							break;
 
 							// A
 						case 65:
-						physicsWorld.setGravity( new Ammo.btVector3( 0, -9.8, 0 ) );
-				        physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, -9.8, 0 ) );
+
+                        vpbox1.position.x -= 1; 
+						//physicsWorld.setGravity( new Ammo.btVector3( 0, -9.8, 0 ) );
+				        //physicsWorld.getWorldInfo().set_m_gravity( new Ammo.btVector3( 0, -9.8, 0 ) );
 							break;
 
 						}
