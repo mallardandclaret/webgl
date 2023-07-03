@@ -75,6 +75,7 @@
 			const pos = new THREE.Vector3();
 			const quat = new THREE.Quaternion();
 			const vpbox = new THREE.BoxGeometry(); 
+			var vpbox1
 
 			// Physics variables
 			let gravityConstant = - 9.8;
@@ -145,7 +146,7 @@
             
             pos.set(-5, 1, 15);
             quat.set( 0, 0, 0, 1 );
-            const vpbox1 = createParalellepiped( 20, 2, 1, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
+            vpbox1 = createParalellepiped( 20, 2, 1, 0, pos, quat, new THREE.MeshStandardMaterial( { color: 0xf0f0f0 } ) );
             vpbox1.castShadow = true;
             vpbox1.receiveShadow = true;
             
