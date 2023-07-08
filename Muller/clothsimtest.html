@@ -527,6 +527,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				}
 
 				solveCubeCollisions() {
+
+					var damping = 0.6;  // Adjust this to change how quickly the cloth comes to rest
+
+    for (var i = 0; i < this.numParticles; i++) {
+        if (this.invMass[i] == 0.0)
+            continue;
+        
+        var x = this.pos[3 * i];
+        var y = this.pos[3 * i + 1];
+        var z = this.pos[3 * i + 2];
+
+        if (this.cube.contains(x, y, z)) {
+            // compute velocity
+            vecScaleAndAdd(this.vel, i, this.pos, i, this.prevPos, i, -invDt);
+
+            // apply damping
+            vecScale(this.vel, i, damping);
+
+            // save old position
+            vecCopy(this.prevPos, i, this.pos, i);
+
+            // integrate
+            vecScaleAndAdd(this.pos, i, this.vel, i, this.forces, i, this.invMass[i] * dt * dt);
+
+            // clear forces
+            vecZero(this.forces, i);
+
+
                 var cubeMin = [-0.25, -0.25, -0.25];  // min corner of the cube
                 var cubeMax = [0.25, 0.25, 0.25];  // max corner of the cube
 
