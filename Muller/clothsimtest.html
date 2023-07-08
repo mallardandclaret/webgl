@@ -721,15 +721,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 				 //visible ball
-				 sphere = new THREE.Mesh(
-                 new THREE.SphereGeometry(1, 32, 32),
+				 cube = new THREE.Mesh(
+                 new THREE.BoxGeometry(1, 1, 1),
                  new THREE.MeshBasicMaterial({
                  color: 0xe54848,
                  toneMapped: false,
                  envMapIntensity: 0
                  })
                  );
-				gThreeScene.add(sphere);
+				gThreeScene.add(cube);
 
 				var ground = new THREE.Mesh(
 					new THREE.PlaneBufferGeometry( 20, 20, 1, 1 ),
