@@ -470,6 +470,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						// solve
 
 						this.solveGroundCollisions();
+						this.solveCubeCollisions();
 
 						this.solveConstraints(dt);
 						if (this.handleCollisions)
@@ -524,6 +525,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						}
 					}
 				}
+
+				solveCubeCollisions() {
+                var cubeMin = [-0.5, -0.5, -0.5];  // min corner of the cube
+                var cubeMax = [0.5, 0.5, 0.5];  // max corner of the cube
+
+                for (var i = 0; i < this.numParticles; i++) {
+                if (this.invMass[i] == 0.0)
+                continue;
+        
+                var x = this.pos[3 * i];
+                var y = this.pos[3 * i + 1];
+                var z = this.pos[3 * i + 2];
+
+                if (x >= cubeMin[0] && x <= cubeMax[0] &&
+                y >= cubeMin[1] && y <= cubeMax[1] &&
+                z >= cubeMin[2] && z <= cubeMax[2]) {
+            
+                // Particle is inside the cube. Resolve collision in a simple way by
+                // moving the particle outside the cube. In a more advanced implementation,
+                // you would want to find the nearest face of the cube and push the particle
+                // away from that face.
+                this.pos[3 * i] = cubeMin[0] - this.thickness;
+        }
+    }
+}
 
 				solveCollisions(dt) { 
 
