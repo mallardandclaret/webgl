@@ -527,26 +527,56 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				}
 
 				solveCubeCollisions() {
-                var cubeMin = [-0.5, -0.5, -0.5];  // min corner of the cube
-                var cubeMax = [0.5, 0.5, 0.5];  // max corner of the cube
+                var cubeMin = [-0.25, -0.25, -0.25];  // min corner of the cube
+                var cubeMax = [0.25, 0.25, 0.25];  // max corner of the cube
 
                 for (var i = 0; i < this.numParticles; i++) {
-                if (this.invMass[i] == 0.0)
-                continue;
+        if (this.invMass[i] == 0.0)
+            continue;
         
-                var x = this.pos[3 * i];
-                var y = this.pos[3 * i + 1];
-                var z = this.pos[3 * i + 2];
+        var x = this.pos[3 * i];
+        var y = this.pos[3 * i + 1];
+        var z = this.pos[3 * i + 2];
 
-                if (x >= cubeMin[0] && x <= cubeMax[0] &&
-                y >= cubeMin[1] && y <= cubeMax[1] &&
-                z >= cubeMin[2] && z <= cubeMax[2]) {
-            
-                // Particle is inside the cube. Resolve collision in a simple way by
-                // moving the particle outside the cube. In a more advanced implementation,
-                // you would want to find the nearest face of the cube and push the particle
-                // away from that face.
-                this.pos[3 * i] = cubeMin[0] - this.thickness;
+        if (x >= cubeMin[0] && x <= cubeMax[0] &&
+            y >= cubeMin[1] && y <= cubeMax[1] &&
+            z >= cubeMin[2] && z <= cubeMax[2]) {
+
+            // Calculate distances to each face of the cube
+            var distances = [
+                Math.abs(x - cubeMin[0]),
+                Math.abs(x - cubeMax[0]),
+                Math.abs(y - cubeMin[1]),
+                Math.abs(y - cubeMax[1]),
+                Math.abs(z - cubeMin[2]),
+                Math.abs(z - cubeMax[2])
+            ];
+
+            // Find the smallest distance
+            var minDistance = Math.min(...distances);
+            var index = distances.indexOf(minDistance);
+
+            // Resolve collision based on closest face
+            switch (index) {
+                case 0:  // -x face
+                    this.pos[3 * i] = cubeMin[0] - this.thickness;
+                    break;
+                case 1:  // +x face
+                    this.pos[3 * i] = cubeMax[0] + this.thickness;
+                    break;
+                case 2:  // -y face
+                    this.pos[3 * i + 1] = cubeMin[1] - this.thickness;
+                    break;
+                case 3:  // +y face
+                    this.pos[3 * i + 1] = cubeMax[1] + this.thickness;
+                    break;
+                case 4:  // -z face
+                    this.pos[3 * i + 2] = cubeMin[2] - this.thickness;
+                    break;
+                case 5:  // +z face
+                    this.pos[3 * i + 2] = cubeMax[2] + this.thickness;
+                    break;
+            }
         }
     }
 }
@@ -722,7 +752,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 				 //visible ball
 				 cube = new THREE.Mesh(
-                 new THREE.BoxGeometry(1, 1, 1),
+                 new THREE.BoxGeometry(0.5, 0.5, 0.5),
                  new THREE.MeshBasicMaterial({
                  color: 0xe54848,
                  toneMapped: false,
