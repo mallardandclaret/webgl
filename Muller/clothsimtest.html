@@ -527,18 +527,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				}
 
 				solveCubeCollisions() {
+    var damping = 0.6;  // Adjust this to change how quickly the cloth comes to rest
+    var cubeSize = 0.25;
+    var cubeMin = -cubeSize / 2;
+    var cubeMax = cubeSize / 2;
 
-					var damping = 0.6;  // Adjust this to change how quickly the cloth comes to rest
+    var dt = this.timeStep;  // Assuming you have a time step defined somewhere
+    var invDt = 1.0 / dt;
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
             continue;
-        
+
         var x = this.pos[3 * i];
         var y = this.pos[3 * i + 1];
         var z = this.pos[3 * i + 2];
 
-        if (this.cube.contains(x, y, z)) {
+        if (x >= cubeMin && x <= cubeMax && y >= cubeMin && y <= cubeMax && z >= cubeMin && z <= cubeMax) {
             // compute velocity
             vecScaleAndAdd(this.vel, i, this.pos, i, this.prevPos, i, -invDt);
 
@@ -554,57 +559,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             // clear forces
             vecZero(this.forces, i);
 
-
-                var cubeMin = [-0.25, -0.25, -0.25];  // min corner of the cube
-                var cubeMax = [0.25, 0.25, 0.25];  // max corner of the cube
-
-                for (var i = 0; i < this.numParticles; i++) {
-        if (this.invMass[i] == 0.0)
-            continue;
-        
-        var x = this.pos[3 * i];
-        var y = this.pos[3 * i + 1];
-        var z = this.pos[3 * i + 2];
-
-        if (x >= cubeMin[0] && x <= cubeMax[0] &&
-            y >= cubeMin[1] && y <= cubeMax[1] &&
-            z >= cubeMin[2] && z <= cubeMax[2]) {
-
-            // Calculate distances to each face of the cube
-            var distances = [
-                Math.abs(x - cubeMin[0]),
-                Math.abs(x - cubeMax[0]),
-                Math.abs(y - cubeMin[1]),
-                Math.abs(y - cubeMax[1]),
-                Math.abs(z - cubeMin[2]),
-                Math.abs(z - cubeMax[2])
-            ];
-
-            // Find the smallest distance
-            var minDistance = Math.min(...distances);
-            var index = distances.indexOf(minDistance);
-
-            // Resolve collision based on closest face
-            switch (index) {
-                case 0:  // -x face
-                    this.pos[3 * i] = cubeMin[0] - this.thickness;
-                    break;
-                case 1:  // +x face
-                    this.pos[3 * i] = cubeMax[0] + this.thickness;
-                    break;
-                case 2:  // -y face
-                    this.pos[3 * i + 1] = cubeMin[1] - this.thickness;
-                    break;
-                case 3:  // +y face
-                    this.pos[3 * i + 1] = cubeMax[1] + this.thickness;
-                    break;
-                case 4:  // -z face
-                    this.pos[3 * i + 2] = cubeMin[2] - this.thickness;
-                    break;
-                case 5:  // +z face
-                    this.pos[3 * i + 2] = cubeMax[2] + this.thickness;
-                    break;
-            }
+            // Resolve the intersection with the cube
+            // Example: Push particle outside of cube
+            if (x < cubeMin) this.pos[3 * i] = cubeMin;
+            if (x > cubeMax) this.pos[3 * i] = cubeMax;
+            if (y < cubeMin) this.pos[3 * i + 1] = cubeMin;
+            if (y > cubeMax) this.pos[3 * i + 1] = cubeMax;
+            if (z < cubeMin) this.pos[3 * i + 2] = cubeMin;
+            if (z > cubeMax) this.pos[3 * i + 2] = cubeMax;
         }
     }
 }
