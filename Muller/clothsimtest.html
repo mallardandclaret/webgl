@@ -532,7 +532,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				solveCubeCollisions() {
     var cubeMin = [-0.5, -0.5, -0.5];
     var cubeMax = [0.5, 0.5, 0.5];
-    var damping = 1.0;  // Adjust this value as needed
+    var damping = 0.1;  // Adjust this value as needed
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
