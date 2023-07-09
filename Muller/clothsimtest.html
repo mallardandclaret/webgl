@@ -527,9 +527,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				}
 
 				solveCubeCollisions() {
-    var cubeMin = [-0.5, -0.5, -0.5];
-    var cubeMax = [0.5, 0.5, 0.5];
+    var cubeMin = [-0.25, -0.25, -0.25];
+    var cubeMax = [0.25, 0.25, 0.25];
     var damping = 0.9;  // Adjust this value to make the cloth settle more quickly or slowly
+    var pushScale = 0.01;  // Adjust this value to control the pushing force
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
@@ -557,8 +558,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             var minDistance = Math.min(...distances);
             var index = distances.indexOf(minDistance);
 
-            // Interpolate pushing force based on penetration depth
-            var pushForce = this.thickness / minDistance;
+            // Calculate pushing force based on penetration depth
+            var pushForce = minDistance * pushScale;
 
             // Resolve collision based on closest face
             switch (index) {
