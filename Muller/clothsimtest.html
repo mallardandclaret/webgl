@@ -530,7 +530,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     var cubeMin = [-0.25, -0.25, -0.25];
     var cubeMax = [0.25, 0.25, 0.25];
     var damping = 0.9;  // Adjust this value to make the cloth settle more quickly or slowly
-    var pushScale = 0.01;  // Adjust this value to control the pushing force
+    var pushScale = 0.1;  // Adjust this value to control the pushing force
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
