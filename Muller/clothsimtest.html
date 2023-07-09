@@ -287,6 +287,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 					this.numParticles = numX * numY;
 					this.pos = new Float32Array(3 * this.numParticles);
+					this.decay = new Float32Array(3 * this.numParticles).fill(1.0);
 					this.prevPos = new Float32Array(3 * this.numParticles);
 					this.restPos = new Float32Array(3 * this.numParticles);
 					this.vel = new Float32Array(3 * this.numParticles);
@@ -526,11 +527,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					}
 				}
 
+				
+
 				solveCubeCollisions() {
-    var cubeMin = [-0.25, -0.25, -0.25];
-    var cubeMax = [0.25, 0.25, 0.25];
-    var damping = 0.9;  // Adjust this value to make the cloth settle more quickly or slowly
-    var pushScale = 0.1;  // Adjust this value to control the pushing force
+
+	
+	var cubeMin = [-0.125, -0.125, -0.125];
+    var cubeMax = [0.125, 0.125, 0.125];
+    var decayFactor = 0.99;
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
@@ -559,7 +563,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             var index = distances.indexOf(minDistance);
 
             // Calculate pushing force based on penetration depth
-            var pushForce = minDistance * pushScale;
+            var pushForce = minDistance * this.thickness / minDistance;
+
+            // Decay the push force
+            this.decay[i] *= decayFactor;
+            pushForce *= this.decay[i];
 
             // Resolve collision based on closest face
             switch (index) {
@@ -581,11 +589,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 case 5:  // +z face
                     this.pos[3 * i + 2] += pushForce;
                     break;
-            }
-
-            // Apply damping to velocity
-            for (var j = 0; j < 3; j++) {
-                this.vel[3 * i + j] *= damping;
             }
         }
     }
