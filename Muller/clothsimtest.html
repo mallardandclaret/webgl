@@ -531,8 +531,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 				solveCubeCollisions() {
 
-    var cubeMin = [-0.26, -0.26, -0.26];
-    var cubeMax = [0.26, 0.26, 0.26];
+    var cubeMin = [-0.25, -0.25, -0.25];
+    var cubeMax = [0.25, 0.25, 0.25];
+    var decayConstant = 10; // Adjust this based on your needs
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
@@ -560,8 +561,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             var minDistance = Math.min(...distances);
             var index = distances.indexOf(minDistance);
 
-            // Calculate a damping factor based on the penetration depth
-            var damping = Math.min(1, minDistance / this.thickness / 5);
+            // Calculate a damping factor based on the penetration depth and time
+            var timeFactor = Math.exp(-this.time / decayConstant);
+            var damping = Math.min(1, minDistance / this.thickness) * timeFactor;
 
             // Resolve collision based on closest face
             switch (index) {
