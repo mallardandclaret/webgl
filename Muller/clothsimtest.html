@@ -530,7 +530,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 				solveCubeCollisions() {
-					
+
     var cubeMin = [-0.25, -0.25, -0.25];
     var cubeMax = [0.25, 0.25, 0.25];
 
@@ -561,7 +561,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             var index = distances.indexOf(minDistance);
 
             // Calculate a damping factor based on the penetration depth
-            var damping = Math.min(1, minDistance / this.thickness);
+            var damping = Math.min(1, minDistance / this.thickness * 2);
 
             // Resolve collision based on closest face
             switch (index) {
