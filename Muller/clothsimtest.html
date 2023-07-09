@@ -527,10 +527,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				}
 
 				solveCubeCollisions() {
-                var cubeMin = [-0.25, -0.25, -0.25];  // min corner of the cube
-                var cubeMax = [0.25, 0.25, 0.25];  // max corner of the cube
+    var cubeMin = [-0.5, -0.5, -0.5];
+    var cubeMax = [0.5, 0.5, 0.5];
+    var damping = 0.9;  // Adjust this value to make the cloth settle more quickly or slowly
 
-                for (var i = 0; i < this.numParticles; i++) {
+    for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
             continue;
         
@@ -556,26 +557,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             var minDistance = Math.min(...distances);
             var index = distances.indexOf(minDistance);
 
+            // Interpolate pushing force based on penetration depth
+            var pushForce = this.thickness / minDistance;
+
             // Resolve collision based on closest face
             switch (index) {
                 case 0:  // -x face
-                    this.pos[3 * i] = cubeMin[0] - this.thickness;
+                    this.pos[3 * i] -= pushForce;
                     break;
                 case 1:  // +x face
-                    this.pos[3 * i] = cubeMax[0] + this.thickness;
+                    this.pos[3 * i] += pushForce;
                     break;
                 case 2:  // -y face
-                    this.pos[3 * i + 1] = cubeMin[1] - this.thickness;
+                    this.pos[3 * i + 1] -= pushForce;
                     break;
                 case 3:  // +y face
-                    this.pos[3 * i + 1] = cubeMax[1] + this.thickness;
+                    this.pos[3 * i + 1] += pushForce;
                     break;
                 case 4:  // -z face
-                    this.pos[3 * i + 2] = cubeMin[2] - this.thickness;
+                    this.pos[3 * i + 2] -= pushForce;
                     break;
                 case 5:  // +z face
-                    this.pos[3 * i + 2] = cubeMax[2] + this.thickness;
+                    this.pos[3 * i + 2] += pushForce;
                     break;
+            }
+
+            // Apply damping to velocity
+            for (var j = 0; j < 3; j++) {
+                this.vel[3 * i + j] *= damping;
             }
         }
     }
