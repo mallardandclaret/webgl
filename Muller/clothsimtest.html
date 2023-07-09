@@ -530,42 +530,59 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 				solveCubeCollisions() {
+					
     var cubeMin = [-0.25, -0.25, -0.25];
     var cubeMax = [0.25, 0.25, 0.25];
-    let damping = 0.5; // You can adjust this to suit your needs
 
-    for (let i = 0; i < this.numParticles; i++) {
+    for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
             continue;
-
-        let x = this.pos[3 * i];
-        let y = this.pos[3 * i + 1];
-        let z = this.pos[3 * i + 2];
+        
+        var x = this.pos[3 * i];
+        var y = this.pos[3 * i + 1];
+        var z = this.pos[3 * i + 2];
 
         if (x >= cubeMin[0] && x <= cubeMax[0] &&
             y >= cubeMin[1] && y <= cubeMax[1] &&
             z >= cubeMin[2] && z <= cubeMax[2]) {
 
-            let minDistance = Math.min(
-                x - cubeMin[0], cubeMax[0] - x,
-                y - cubeMin[1], cubeMax[1] - y,
-                z - cubeMin[2], cubeMax[2] - z
-            );
-            let index = [
-                x - cubeMin[0], cubeMax[0] - x,
-                y - cubeMin[1], cubeMax[1] - y,
-                z - cubeMin[2], cubeMax[2] - z
-            ].indexOf(minDistance);
+            // Calculate distances to each face of the cube
+            var distances = [
+                Math.abs(x - cubeMin[0]),
+                Math.abs(x - cubeMax[0]),
+                Math.abs(y - cubeMin[1]),
+                Math.abs(y - cubeMax[1]),
+                Math.abs(z - cubeMin[2]),
+                Math.abs(z - cubeMax[2])
+            ];
 
-            vecSetDiff(this.vecs,0, this.pos,i, this.prevPos,i);
+            // Find the smallest distance
+            var minDistance = Math.min(...distances);
+            var index = distances.indexOf(minDistance);
 
+            // Calculate a damping factor based on the penetration depth
+            var damping = Math.min(1, minDistance / this.thickness);
+
+            // Resolve collision based on closest face
             switch (index) {
-                case 0: this.pos[3 * i] += minDistance * damping; break;
-                case 1: this.pos[3 * i] -= minDistance * damping; break;
-                case 2: this.pos[3 * i + 1] += minDistance * damping; break;
-                case 3: this.pos[3 * i + 1] -= minDistance * damping; break;
-                case 4: this.pos[3 * i + 2] += minDistance * damping; break;
-                case 5: this.pos[3 * i + 2] -= minDistance * damping; break;
+                case 0:  // -x face
+                    this.pos[3 * i] -= this.thickness * damping;
+                    break;
+                case 1:  // +x face
+                    this.pos[3 * i] += this.thickness * damping;
+                    break;
+                case 2:  // -y face
+                    this.pos[3 * i + 1] -= this.thickness * damping;
+                    break;
+                case 3:  // +y face
+                    this.pos[3 * i + 1] += this.thickness * damping;
+                    break;
+                case 4:  // -z face
+                    this.pos[3 * i + 2] -= this.thickness * damping;
+                    break;
+                case 5:  // +z face
+                    this.pos[3 * i + 2] += this.thickness * damping;
+                    break;
             }
         }
     }
