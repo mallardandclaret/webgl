@@ -530,8 +530,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				
 
 				solveCubeCollisions() {
-    var cubeMin = [-0.25, -0.25, -0.25];
-    var cubeMax = [0.25, 0.25, 0.25];
+    var cubeMin = [-0.5, -0.5, -0.5];
+    var cubeMax = [0.5, 0.5, 0.5];
+    var damping = 1.0;  // Adjust this value as needed
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
@@ -579,6 +580,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 case 5:  // +z face
                     this.pos[3 * i + 2] = cubeMax[2] + this.thickness;
                     break;
+            }
+
+            // Apply damping to velocity
+            for (var j = 0; j < 3; j++) {
+                this.vel[3 * i + j] *= damping;
             }
         }
     }
