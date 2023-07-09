@@ -531,7 +531,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 				solveCubeCollisions() {
     const cubeCenter = [0.0, 0.0, 0.0];  // Assuming the cube's center is at the origin
-    const cubeSize = 1.0;  // Assuming the cube's size is 1
+    const cubeSize = 0.5;  // Assuming the cube's size is 1
 
     for (let i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
@@ -553,7 +553,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             dir[2] /= len;
 
             // Calculate the velocity of the vertex in the opposite direction
-            const vel = [-dir[0] * 0.1, -dir[1] * 0.1, -dir[2] * 0.1];  // Multiply by some small factor to avoid bouncing too much
+            const vel = [-dir[0] * 0.1, -dir[1] * 0.1, -dir[2] * 0.01];  // Multiply by some small factor to avoid bouncing too much
 
             // Apply the velocity to the vertex
             this.pos[3 * i] += vel[0];
