@@ -532,7 +532,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				solveCubeCollisions() {
     var cubeMin = [-0.25, -0.25, -0.25];
     var cubeMax = [0.25, 0.25, 0.25];
-    const PENALTY_K = 1000;
+    let damping = 0.5; // You can adjust this to suit your needs
 
     for (let i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
@@ -557,24 +557,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 z - cubeMin[2], cubeMax[2] - z
             ].indexOf(minDistance);
 
-            // Instead of moving the particles directly, we compute a penalty force
-            let depth = this.thickness - minDistance;  // Compute penetration depth
-            let forceMagnitude = PENALTY_K * depth;
+            vecSetDiff(this.vecs,0, this.pos,i, this.prevPos,i);
 
-            // Compute force direction (outwards from the cube)
-            let forceDirection = [];
             switch (index) {
-                case 0: forceDirection = [-1, 0, 0]; break;
-                case 1: forceDirection = [1, 0, 0]; break;
-                case 2: forceDirection = [0, -1, 0]; break;
-                case 3: forceDirection = [0, 1, 0]; break;
-                case 4: forceDirection = [0, 0, -1]; break;
-                case 5: forceDirection = [0, 0, 1]; break;
-            }
-
-            // Apply penalty force
-            for (let j = 0; j < 3; j++) {
-                this.vel[3 * i + j] += forceDirection[j] * forceMagnitude;
+                case 0: this.pos[3 * i] += minDistance * damping; break;
+                case 1: this.pos[3 * i] -= minDistance * damping; break;
+                case 2: this.pos[3 * i + 1] += minDistance * damping; break;
+                case 3: this.pos[3 * i + 1] -= minDistance * damping; break;
+                case 4: this.pos[3 * i + 2] += minDistance * damping; break;
+                case 5: this.pos[3 * i + 2] -= minDistance * damping; break;
             }
         }
     }
