@@ -530,40 +530,56 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				
 
 				solveCubeCollisions() {
-    const cubeCenter = [0.0, 0.0, 0.0];  // Assuming the cube's center is at the origin
-    const cubeSize = 0.5;  // Assuming the cube's size is 1
+    var cubeMin = [-0.25, -0.25, -0.25];
+    var cubeMax = [0.25, 0.25, 0.25];
 
-    for (let i = 0; i < this.numParticles; i++) {
+    for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
             continue;
         
-        const x = this.pos[3 * i];
-        const y = this.pos[3 * i + 1];
-        const z = this.pos[3 * i + 2];
+        var x = this.pos[3 * i];
+        var y = this.pos[3 * i + 1];
+        var z = this.pos[3 * i + 2];
 
-        // Check if the vertex is inside the cube
-        if (Math.abs(x - cubeCenter[0]) < cubeSize / 2 && Math.abs(y - cubeCenter[1]) < cubeSize / 2 && Math.abs(z - cubeCenter[2]) < cubeSize / 2) {
-            // Calculate the direction from the cube's center to the vertex
-            const dir = [x - cubeCenter[0], y - cubeCenter[1], z - cubeCenter[2]];
-            
-            // Normalize the direction
-            const len = Math.sqrt(dir[0]*dir[0] + dir[1]*dir[1] + dir[2]*dir[2]);
-            dir[0] /= len;
-            dir[1] /= len;
-            dir[2] /= len;
+        if (x >= cubeMin[0] && x <= cubeMax[0] &&
+            y >= cubeMin[1] && y <= cubeMax[1] &&
+            z >= cubeMin[2] && z <= cubeMax[2]) {
 
-            // Calculate the velocity of the vertex in the opposite direction
-            const vel = [-dir[0] * 0.1, -dir[1] * 0.1, -dir[2] * 0.001];  // Multiply by some small factor to avoid bouncing too much
+            // Calculate distances to each face of the cube
+            var distances = [
+                Math.abs(x - cubeMin[0]),
+                Math.abs(x - cubeMax[0]),
+                Math.abs(y - cubeMin[1]),
+                Math.abs(y - cubeMax[1]),
+                Math.abs(z - cubeMin[2]),
+                Math.abs(z - cubeMax[2])
+            ];
 
-            // Apply the velocity to the vertex
-            this.pos[3 * i] += vel[0];
-            this.pos[3 * i + 1] += vel[1];
-            this.pos[3 * i + 2] += vel[2];
+            // Find the smallest distance
+            var minDistance = Math.min(...distances);
+            var index = distances.indexOf(minDistance);
 
-            // Move the vertex slightly outwards to ensure it's outside the cube
-            this.pos[3 * i] += dir[0] * cubeSize / 2;
-            this.pos[3 * i + 1] += dir[1] * cubeSize / 2;
-            this.pos[3 * i + 2] += dir[2] * cubeSize / 2;
+            // Resolve collision based on closest face
+            switch (index) {
+                case 0:  // -x face
+                    this.pos[3 * i] = cubeMin[0] - this.thickness;
+                    break;
+                case 1:  // +x face
+                    this.pos[3 * i] = cubeMax[0] + this.thickness;
+                    break;
+                case 2:  // -y face
+                    this.pos[3 * i + 1] = cubeMin[1] - this.thickness;
+                    break;
+                case 3:  // +y face
+                    this.pos[3 * i + 1] = cubeMax[1] + this.thickness;
+                    break;
+                case 4:  // -z face
+                    this.pos[3 * i + 2] = cubeMin[2] - this.thickness;
+                    break;
+                case 5:  // +z face
+                    this.pos[3 * i + 2] = cubeMax[2] + this.thickness;
+                    break;
+            }
         }
     }
 }
