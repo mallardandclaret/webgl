@@ -527,13 +527,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					}
 				}
 
-
+				
 
 				solveCubeCollisions() {
 
     var cubeMin = [-0.25, -0.25, -0.25];
     var cubeMax = [0.25, 0.25, 0.25];
     var decayConstant = 10; // Adjust this based on your needs
+	this.time += delta;
 
     for (var i = 0; i < this.numParticles; i++) {
         if (this.invMass[i] == 0.0)
