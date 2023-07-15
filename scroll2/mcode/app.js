@@ -82133,6 +82133,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.defaults({ ease: "ease" });
 
 gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.config({
@@ -82207,12 +82208,13 @@ console.log("Main started")
  
 let scene, scene2, scene3, renderer, renderer3, camera, camera3, composer, clock, oldElapsedTime, world, textureLoader, objectsToUpdate, 
 objectsToUpdate2, environmentMap, testbox, boxMaterial, sphere, box, renderTarget, liquidMaterial, liquidMesh, 
-transformControls, orbitControls;
+transformControls, orbitControls, customOnBeforeCompile, customOnBeforeCompile2;
 
 let sphereMaterial; 
 
 let mixer = null;
 let mixer2 = null;
+let mixer3 = null;
 
 
 const manager = new three__WEBPACK_IMPORTED_MODULE_7__.LoadingManager();
@@ -82227,8 +82229,8 @@ var raycaster = new three__WEBPACK_IMPORTED_MODULE_7__.Raycaster();
 var liquid = new three__WEBPACK_IMPORTED_MODULE_7__.Object3D;
 var righthand = new three__WEBPACK_IMPORTED_MODULE_7__.Object3D;
 var handMesh = new three__WEBPACK_IMPORTED_MODULE_7__.Object3D;
-var Kira = new three__WEBPACK_IMPORTED_MODULE_7__.Object3D;
-const srubvalue = 0;
+var can = new three__WEBPACK_IMPORTED_MODULE_7__.Object3D;
+const scrubvalue = 0;
 let raycaster2 = new three__WEBPACK_IMPORTED_MODULE_7__.Raycaster();
 let intersections;
 let sampleRate = 10000; // shoot one ray for every `sampleRate` vertices
@@ -82298,6 +82300,7 @@ function updateIK() {
                 const canvas = document.querySelector("canvas.webgl");
                 const canvas3 = document.querySelector("canvas.webgl2");
 
+
                 renderer = new three__WEBPACK_IMPORTED_MODULE_7__.WebGLRenderer({
                     canvas: canvas,
                     powerPreference: "high-performance",
@@ -82315,16 +82318,28 @@ function updateIK() {
                     //depth: true,
                 });
 
+                
+
                 composer = new three_examples_jsm_postprocessing_EffectComposer_js__WEBPACK_IMPORTED_MODULE_9__.EffectComposer(renderer);
+
+                
 
                 const renderPass = new three_examples_jsm_postprocessing_RenderPass_js__WEBPACK_IMPORTED_MODULE_10__.RenderPass(scene, camera);
                 composer.addPass(renderPass);
 
+                
+
                 const maskPass = new three_examples_jsm_postprocessing_MaskPass_js__WEBPACK_IMPORTED_MODULE_11__.MaskPass(scene2, camera);
                 composer.addPass(maskPass);
+
+                
                 
                 const clearMaskPass = new three_examples_jsm_postprocessing_MaskPass_js__WEBPACK_IMPORTED_MODULE_11__.ClearMaskPass();
                 composer.addPass(clearMaskPass);
+
+                
+
+                
                 
 
                 //renderer.setClearColor(0x000000, 0);
@@ -82440,6 +82455,9 @@ function updateIK() {
 
                 mixer.update(delta);
                 mixer2.update(delta);
+                if (mixer3 != null) mixer3.update(delta);
+                if (can) can.rotation.y += 0.01;
+                   
 
             
                 if (StatsSwitch) {
@@ -82586,8 +82604,11 @@ scene2.add(blueHelper);
     videoTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_7__.LinearFilter;
     videoTexture.format = three__WEBPACK_IMPORTED_MODULE_7__.RGBAFormat;
     videoTexture.flipY = false;
+    videoTexture.wrapS = videoTexture.wrapT = three__WEBPACK_IMPORTED_MODULE_7__.RepeatWrapping;
+    videoTexture.repeat.set(1, 2);
 
     const boxTexture = new three__WEBPACK_IMPORTED_MODULE_7__.TextureLoader().load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/textures/5/test.jpg");
+    
     const boxMaterial = new three__WEBPACK_IMPORTED_MODULE_7__.MeshBasicMaterial({
         //map: boxTexture,
         map: videoTexture,
@@ -82599,12 +82620,13 @@ scene2.add(blueHelper);
     scene.add(testbox);
 
     const planeGeometry = new three__WEBPACK_IMPORTED_MODULE_7__.PlaneGeometry(5, 5);
-    const planeMaterial = boxMaterial.clone();
-    planeMaterial.side = three__WEBPACK_IMPORTED_MODULE_7__.DoubleSide;
-    const planeMesh = new three__WEBPACK_IMPORTED_MODULE_7__.Mesh(planeGeometry, planeMaterial);
+    //const planeMaterial = boxMaterial.clone();
+    const planeTexture = new three__WEBPACK_IMPORTED_MODULE_7__.TextureLoader().load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/textures/5/test.jpg");
+    //planeMaterial.side = THREE.DoubleSide;
+    const planeMesh = new three__WEBPACK_IMPORTED_MODULE_7__.Mesh(planeGeometry, planeTexture);
     planeMesh.rotation.y = Math.PI;
-    planeMesh.position.z = 8; 
-    //scene2.add(planeMesh);
+    planeMesh.position.z = -9; 
+    scene.add(planeMesh);
     
     //var loader3 = new THREE.TextureLoader();
     //var displacementTexture = loader3.load("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/8-10.jpg");
@@ -82638,15 +82660,97 @@ gsap.to(displacementTexture.repeat, {
 
 
     
+customOnBeforeCompile2 = (shader) => {
 
+    shader.uniforms.uTime = customUniforms.uTime;
+    shader.uniforms.uRippleSize = { value: 0.003 };
+    shader.uniforms.uFlowSpeed = { value: 0.05 };
+    shader.uniforms.uDripSpeed = { value: 0.05 };
+    shader.uniforms.uBendAmount = { value: 0.5 };
+    shader.uniforms.uBendCenter = { value: new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(0, 10, 0) };
+    shader.uniforms.uBendFalloff = { value: 1.0 };
+    shader.uniforms.uTwistFactor = { value: 0.0 };
+    shader.uniforms.uIntersectionPoint = { value: new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(0, 0, 0) };
+    
+    
+    shader.vertexShader = shader.vertexShader.replace(
+        '#include <common>',
+
+        
+        `
+        #include <common>
+
+        uniform float uTime;
+        uniform float uRippleSize;
+        uniform float uFlowSpeed;
+        uniform float uDripSpeed;
+        uniform float uBendAmount;
+        uniform vec3 uBendCenter;
+        uniform float uBendFalloff;
+        uniform float uTwistFactor;
+        uniform vec3 uIntersectionPoint;
+        uniform float uEffectIntensity;
+        uniform float uEffectFrequency;
+        uniform float uEffectAmplitude;
+
+    
+            mat2 get2dRotateMatrix(float _angle)
+            {
+                return mat2(cos(_angle), -sin(_angle), sin(_angle), cos(_angle));
+            }
+    
+            // Modify the bendS function
+            vec3 bendS(vec3 pos, float amount, vec3 center, float falloff) {
+                float distance = length(pos - center); // Calculate the distance using length function
+                float falloffAmount = 1.0 - smoothstep(0.0, falloff, distance); // Invert the falloff
+                float sinVal = sin(pos.y * 3.14159 * amount) * falloffAmount;
+                pos.x += sinVal;
+                pos.z += sinVal;
+                return pos;
+            }
+            `
+        )
+    
+        shader.vertexShader = shader.vertexShader.replace(
+            '#include <begin_vertex>',
+            `
+            #include <begin_vertex>
+
+            // Add twist effect based on uTwistFactor
+            float twistAmount = position.y * uTwistFactor;
+            mat2 twistRotation = get2dRotateMatrix(twistAmount);
+            transformed.xz *= twistRotation;
+    
+            // Add dripping effect
+            float dripAmount = sin((position.z + uTime * uDripSpeed) * 30.0) * uRippleSize;
+            transformed.y -= dripAmount;
+    
+            // Add small bulges with increased frequency and decreased amplitude
+            float bulgeAmount = sin((position.y + uTime * uDripSpeed) * 300.0) * uRippleSize * 0.05;
+            transformed.xyz += bulgeAmount * normalize(position.xyz);
+    
+            // Apply bendS effect with center and inverted falloff
+            transformed = bendS(transformed, uBendAmount, uBendCenter, uBendFalloff);
+
+
+    
+            `
+        )
+
+
+
+
+
+
+}
     
 
     
 
-        sphereMaterial.onBeforeCompile = (shader) => {
+            customOnBeforeCompile = (shader) => {
 
             shader.uniforms.uTime = customUniforms.uTime;
-            shader.uniforms.uRippleSize = { value: 0.01 };
+            shader.uniforms.uRippleSize = { value: 0.02 };
             shader.uniforms.uFlowSpeed = { value: 0.05 };
             shader.uniforms.uDripSpeed = { value: 0.05 };
             shader.uniforms.uBendAmount = { value: 0.5 };
@@ -82731,7 +82835,7 @@ gsap.to(displacementTexture.repeat, {
                 trigger: "#trigger", 
                 start: "top top", 
                 end: "bottom bottom", 
-                scrub: srubvalue, 
+                scrub: scrubvalue,
                 toggleActions: "restart pause resume pause"
             },
             y: -10, 
@@ -82778,6 +82882,11 @@ gsap.to(displacementTexture.repeat, {
 
     }
 
+    sphereMaterial.onBeforeCompile = customOnBeforeCompile;
+    
+            
+
+
     
 
 
@@ -82816,7 +82925,9 @@ gsap.to(displacementTexture.repeat, {
         // Load models for desktop devices
         modelsToLoadDesktop = [
             loader.loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Liquid2.glb"), /// 0
-            loader.loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Righthand.gltf")
+            loader.loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/3.0/Righthand.gltf"),
+            loader.loadAsync("https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/M/500Can.glb")
+
         ];
     
         loadDesktopModels(modelsToLoadDesktop);
@@ -82835,12 +82946,15 @@ gsap.to(displacementTexture.repeat, {
 
             });
     }
+
+    
     
     function loadDesktopModels(modelsToLoadDesktop) {
         Promise.all(modelsToLoadDesktop)
             .then(models => {
             liquid = models[0].scene;
             righthand = models[1].scene;
+            can = models[2].scene;
             
             
             //// Testing the cache
@@ -82851,10 +82965,6 @@ gsap.to(displacementTexture.repeat, {
 
                 liquid.scale.set(10, 10, 10);
                 liquid.position.y = -50;
-
-
-
-                
 
                 scene2.add(liquid);
                     liquid.traverse(child => {
@@ -82872,7 +82982,16 @@ gsap.to(displacementTexture.repeat, {
                 scene.add(liquidClone);
 
 
+                can.scale.set(1.2, 1.2, 1.2);
                 
+                can.rotation.z = Math.PI / 2;
+                //can.rotation.y = Math.PI;
+                //can.rotation.x += Math.PI / 3;
+                scene2.add(can);
+
+
+
+
                 ////// IK 
 
                 ////// righthand try
@@ -82893,6 +83012,67 @@ gsap.to(displacementTexture.repeat, {
                     }
                 });
 
+                righthand.traverse((node) => {
+                    // This code will be run for every object in your model's scene graph
+                    if (node.isMesh) {
+                        // Here, we use the function stored in customOnBeforeCompile instead of writing it out
+                        node.material.onBeforeCompile = customOnBeforeCompile2;
+                        node.material.needsUpdate = true;
+                    }
+                });
+
+                /*
+                can.traverse((node) => {
+                    // This code will be run for every object in your model's scene graph
+                    if (node.isMesh) {
+                        // Here, we use the function stored in customOnBeforeCompile instead of writing it out
+                        node.material.onBeforeCompile = customOnBeforeCompile2;
+                        node.material.needsUpdate = true;
+
+                        
+                       
+
+                    }
+                });
+                */
+
+                mixer3 = new three__WEBPACK_IMPORTED_MODULE_7__.AnimationMixer(can);
+                        // mixer3.clipAction(gltf.animations[1]).play();
+                        var action3 = mixer3.clipAction(models[2].animations[0]);
+                        //action.clampWhenFinished = true;
+                        action3.play();
+
+                        function createAnimation(mixer3, action3, clip) {
+                            let proxy = {
+                              get time() {
+                                return mixer3.time;
+                              },
+                              set time(value) {
+                                action3.paused = false;
+                                mixer3.setTime(value);
+                                action3.paused = true;
+                              }
+                            };
+                          
+                            let scrollingTL = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+                              scrollTrigger: {
+                                trigger: "#trigger",
+                                start: "top top",
+                                end: "bottom bottom",
+                                scrub: scrubvalue,
+                                onUpdate: function () {
+                                  camera.updateProjectionMatrix();
+                                }
+                              }
+                            });
+                          
+                            scrollingTL.to(proxy, {
+                              time: clip.duration,
+                              repeat: 0
+                            });
+                          }
+
+                        createAnimation(mixer3, action3, models[2].animations[0]);
                 
                 
                 mixer = new three__WEBPACK_IMPORTED_MODULE_7__.AnimationMixer(righthand)
@@ -83104,6 +83284,12 @@ gsap.to(displacementTexture.repeat, {
                     }
                 });
                 */
+
+                gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(can.position, { y: 0 });
+                gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(can.rotation, { z: Math.PI * 0 });
+                console.log(can.position.y)
+
+             
                 
                 
                 gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to([liquidClone.rotation, liquid.rotation], {
@@ -83112,28 +83298,107 @@ gsap.to(displacementTexture.repeat, {
                         trigger: "#trigger",
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: srubvalue,
+                        scrub: scrubvalue,
                         toggleActions: "restart pause resume pause"
                     },
                 });
                 
                 gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to([liquidClone.position, liquid.position], {
-                    y: 45,
+                    y: 60,
                     scrollTrigger: {
                         trigger: "#trigger",
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: srubvalue,
+                        scrub: scrubvalue,
                         toggleActions: "restart pause resume pause"
                     },
                 });
+
+                console.log(can.position.y)
+
+                /*
+                let scrollTriggerSettings = {
+                  trigger: "#trigger",
+                  scrub: scrubvalue,
+                  markers: true,
+                  ease: "none"
+                };
+                
+                gsap.to(can.position, {
+                  y: 15, 
+                  scrollTrigger: {
+                    ...scrollTriggerSettings,
+                    start: "top top",
+                    end: "top+=20%",
+                    toggleActions: "restart pause resume pause"
+                  }
+                });
+                
+                gsap.to(can.position, {
+                  y: -15, 
+                  duration: 0,
+                  scrollTrigger: {
+                    ...scrollTriggerSettings,
+                    start: "top+=21%",
+                    immediateRender: false,
+                    toggleActions: "restart pause resume pause"
+                  },
+                });
+
+                gsap.to(can.rotation, {
+                    z: Math.PI,
+                    scrollTrigger: {
+                      ...scrollTriggerSettings,
+                      start: "top+=21%",
+                      end: "top+=22%",
+                      immediateRender: false,
+                      toggleActions: "restart pause resume pause"
+                    },
+                  });
+
+                  gsap.to(can.position, {
+                    y: 0, 
+                    scrollTrigger: {
+                      ...scrollTriggerSettings,
+                      start: "top+=50%",
+                      end: "top+=70%",
+                      toggleActions: "restart pause resume pause"
+                    },
+                  });
+
+                  gsap.to(can.rotation, {
+                    z: Math.PI * 0,
+                    scrollTrigger: {
+                      ...scrollTriggerSettings,
+                      start: "top+=80%",
+                      end: "bottom bottom",
+                      immediateRender: false,
+                      toggleActions: "restart pause resume pause"
+                    },
+                  });
+
+                  gsap.to(can.rotation, {
+                    x: Math.PI * 2,
+                    scrollTrigger: {
+                      ...scrollTriggerSettings,
+                      start: "top top",
+                      end: "bottom bottom",
+                      immediateRender: false,
+                      toggleActions: "restart pause resume pause"
+                    },
+                  });
+                
+                */
+               
+                  
 
                 gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(testbox.position, {
                     scrollTrigger: {
                         trigger: "#trigger",
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: srubvalue,
+                        scrub: scrubvalue,
+                        immediateRender: false,
                         toggleActions: "restart pause resume pause"
                     },
                     y: 0,
