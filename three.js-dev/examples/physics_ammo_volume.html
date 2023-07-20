@@ -645,13 +645,13 @@
       break;
 
 	  case 90:
-      vpbox1.position.x += 1; // Move the visible box by decrementing its x position by 1
+      boxGeometry3.position.x += 1; // Move the visible box by decrementing its x position by 1
       // Move the physics body by updating its transform
       const transform4 = new Ammo.btTransform();
       transform.setIdentity();
-      const newPos4 = new Ammo.btVector3(vpbox1.position.x, vpbox1.position.y, vpbox1.position.z);
+      const newPos4 = new Ammo.btVector3(boxGeometry3.position.x, boxGeometry3.position.y, boxGeometry3.position.z);
       transform.setOrigin(newPos4);
-      vpbox1.userData.physicsBody.setWorldTransform(transform4);
+      boxGeometry3.userData.physicsBody.setWorldTransform(transform4);
       Ammo.destroy(transform4);
       break;
 
