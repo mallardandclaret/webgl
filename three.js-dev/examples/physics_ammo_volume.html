@@ -639,7 +639,7 @@
       const transform3 = new Ammo.btTransform();
       transform.setIdentity();
       const newPos3 = new Ammo.btVector3(vpbox1.position.x, vpbox1.position.y, vpbox1.position.z);
-      transform.setOrigin(newPos2);
+      transform.setOrigin(newPos3);
       vpbox1.userData.physicsBody.setWorldTransform(transform3);
       Ammo.destroy(transform3);
       break;
@@ -650,7 +650,7 @@
       const transform4 = new Ammo.btTransform();
       transform.setIdentity();
       const newPos4 = new Ammo.btVector3(vpbox1.position.x, vpbox1.position.y, vpbox1.position.z);
-      transform.setOrigin(newPos2);
+      transform.setOrigin(newPos4);
       vpbox1.userData.physicsBody.setWorldTransform(transform4);
       Ammo.destroy(transform4);
       break;
