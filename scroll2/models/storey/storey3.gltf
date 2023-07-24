@@ -181,7 +181,7 @@
 		{
 			"mimeType":"image/jpeg",
 			"name":"IMG_8621 1",
-			"uri":"../assets/media/models/IMG_8621%201.jpg"
+			"uri":"IMG_8621%201.jpg"
 		}
 	],
 	"accessors":[
@@ -371,7 +371,7 @@
 	"buffers":[
 		{
 			"byteLength":113712,
-			"uri":"../assets/media/models/storey3.bin"
+			"uri":"storey3.bin"
 		}
 	]
 }
