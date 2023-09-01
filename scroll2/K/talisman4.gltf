@@ -3,12 +3,6 @@
 		"generator":"Khronos glTF Blender I/O v3.6.27",
 		"version":"2.0"
 	},
-	"extensionsUsed":[
-		"KHR_texture_transform"
-	],
-	"extensionsRequired":[
-		"KHR_texture_transform"
-	],
 	"scene":0,
 	"scenes":[
 		{
@@ -98,22 +92,6 @@
 		{
 			"doubleSided":true,
 			"name":"Sides",
-			"normalTexture":{
-				"extensions":{
-					"KHR_texture_transform":{
-						"offset":[
-							0,
-							-2
-						],
-						"scale":[
-							3,
-							3
-						]
-					}
-				},
-				"index":0,
-				"scale":2
-			},
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.16571606695652008,
@@ -336,19 +314,6 @@
 					"material":0
 				}
 			]
-		}
-	],
-	"textures":[
-		{
-			"sampler":0,
-			"source":0
-		}
-	],
-	"images":[
-		{
-			"mimeType":"image/jpeg",
-			"name":"9926-normal",
-			"uri":"9926-normal.jpg"
 		}
 	],
 	"accessors":[
@@ -1223,12 +1188,6 @@
 			"byteLength":1110,
 			"byteOffset":206076,
 			"target":34963
-		}
-	],
-	"samplers":[
-		{
-			"magFilter":9729,
-			"minFilter":9987
 		}
 	],
 	"buffers":[
