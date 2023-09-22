@@ -22,6 +22,24 @@ body {
 	overscroll-behavior: none;
 }
 
+.hero-logo-div {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.hero-logo {
+	width: 70%;
+}
+
+
+
 .demo-2 {
 	font-family: Futura, "futura-pt", Arial, sans-serif;
 }
