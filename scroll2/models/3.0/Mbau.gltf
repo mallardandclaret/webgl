@@ -1,0 +1,257 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Box002",
+            "rotation" : [
+                0,
+                0.0033163088373839855,
+                0,
+                -0.9999945163726807
+            ],
+            "scale" : [
+                0.04796886444091797,
+                0.057878509163856506,
+                0.057878509163856506
+            ],
+            "translation" : [
+                -0.004734396934509277,
+                -0.21782487630844116,
+                -0.032460544258356094
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "GPF Source 001->Event 002",
+            "rotation" : [
+                0,
+                0.0033163088373839855,
+                0,
+                -0.9999945163726807
+            ],
+            "scale" : [
+                0.06451600044965744,
+                -0.06451600044965744,
+                0.06451600044965744
+            ],
+            "translation" : [
+                1.1101347208023071,
+                0.3283892273902893,
+                -0.0017467159777879715
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0.12891110373900982,
+                0.21347353776504896,
+                0.13441528282188298
+            ],
+            "name" : "Soap",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.358066588640213
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "bubbles1",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.26619285345077515,
+                    1,
+                    0.6072155833244324,
+                    1
+                ],
+                "metallicFactor" : 0.02500000223517418,
+                "roughnessFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Mesh.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Mesh.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5
+                    },
+                    "indices" : 6,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Ra-BarN",
+            "uri" : "Ra-BarN.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Ra-Bar",
+            "uri" : "Ra-Bar.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 11654,
+            "max" : [
+                14.913636207580566,
+                7.941265106201172,
+                8.116950988769531
+            ],
+            "min" : [
+                -14.835311889648438,
+                0,
+                -8.233743667602539
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 11654,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 11654,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 66816,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 91098,
+            "max" : [
+                -4.898525714874268,
+                9.78120231628418,
+                8.109292984008789
+            ],
+            "min" : [
+                -30.532470703125,
+                -0.9311259984970093,
+                -8.68408203125
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 91098,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5125,
+            "count" : 520560,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 139848,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 139848,
+            "byteOffset" : 139848
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 93232,
+            "byteOffset" : 279696
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 133632,
+            "byteOffset" : 372928
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1093176,
+            "byteOffset" : 506560
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1093176,
+            "byteOffset" : 1599736
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2082240,
+            "byteOffset" : 2692912
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 4775152,
+            "uri" : "Mbau.bin"
+        }
+    ]
+}

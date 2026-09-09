@@ -1,0 +1,185 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_draco_mesh_compression"
+    ],
+    "extensionsRequired" : [
+        "KHR_draco_mesh_compression"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Helen_1_1",
+            "rotation" : [
+                -0.49102041125297546,
+                0.5088527202606201,
+                0.5090341567993164,
+                0.49076685309410095
+            ],
+            "scale" : [
+                0.009523548185825348,
+                0.009523547254502773,
+                0.009523551911115646
+            ],
+            "translation" : [
+                -0.09554730355739594,
+                0.0708765983581543,
+                0.035351064056158066
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Bedrock stone.003",
+            "normalTexture" : {
+                "index" : 0,
+                "scale" : 0.20000000298023224
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Mesh.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3,
+                        "TEXCOORD_2" : 4
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 0,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2,
+                                "TEXCOORD_1" : 3,
+                                "TEXCOORD_2" : 4
+                            }
+                        }
+                    },
+                    "indices" : 5,
+                    "material" : 0,
+                    "mode" : 4
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "AdobeStock_374434847",
+            "uri" : "AdobeStock_374434847.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "bedrock_stone_BaseColor",
+            "uri" : "bedrock_stone_BaseColor.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "bedrock_stone_Roughness",
+            "uri" : "bedrock_stone_Roughness.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "componentType" : 5126,
+            "count" : 113275,
+            "max" : [
+                27.648971557617188,
+                19.562162399291992,
+                38.15424346923828
+            ],
+            "min" : [
+                -20.342435836791992,
+                -12.170764923095703,
+                -7.696318626403809
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 113275,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 113275,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 113275,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 113275,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5125,
+            "count" : 218442,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 1165207,
+            "byteOffset" : 0
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1165208,
+            "uri" : "PImodels2022.bin"
+        }
+    ]
+}

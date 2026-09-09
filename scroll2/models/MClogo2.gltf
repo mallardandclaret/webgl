@@ -1,0 +1,192 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cylinder.001",
+            "rotation" : [
+                0,
+                0,
+                -0.7071068286895752,
+                0.7071068286895752
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.004",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0.9605263471603394
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "SVGMat",
+            "pbrMetallicRoughness" : {
+                "roughnessFactor" : 0.09345794469118118
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 8978,
+            "max" : [
+                0.2854926288127899,
+                0.036762576550245285,
+                0.2854926586151123
+            ],
+            "min" : [
+                -0.2854926586151123,
+                -0.036762576550245285,
+                -0.2854926586151123
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 8978,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 8978,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 46080,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 15263,
+            "max" : [
+                0.243113711476326,
+                -0.017174741253256798,
+                0.22089321911334991
+            ],
+            "min" : [
+                -0.23378121852874756,
+                -0.02717474102973938,
+                -0.24998131394386292
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 15263,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 15263,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 16386,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 107736,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 107736,
+            "byteOffset" : 107736
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 71824,
+            "byteOffset" : 215472
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 92160,
+            "byteOffset" : 287296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 183156,
+            "byteOffset" : 379456
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 183156,
+            "byteOffset" : 562612
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 122104,
+            "byteOffset" : 745768
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32772,
+            "byteOffset" : 867872
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 900644,
+            "uri" : "MClogo2.bin"
+        }
+    ]
+}

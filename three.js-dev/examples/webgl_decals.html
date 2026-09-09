@@ -57,7 +57,7 @@
 			const decalNormal = textureLoader.load( 'textures/decal/decal-normal.jpg' );
 
 			const decalMaterial = new THREE.MeshPhongMaterial( {
-				specular: 0x444444,
+				specular: 0x111111,
 				map: decalDiffuse,
 				normalMap: decalNormal,
 				normalScale: new THREE.Vector2( 1, 1 ),
@@ -77,7 +77,7 @@
 			const size = new THREE.Vector3( 10, 10, 10 );
 
 			const params = {
-				minScale: 10,
+				minScale: 20,
 				maxScale: 20,
 				rotate: true,
 				clear: function () {
@@ -108,13 +108,13 @@
 				controls.minDistance = 50;
 				controls.maxDistance = 200;
 
-				scene.add( new THREE.AmbientLight( 0x443333 ) );
+				//scene.add( new THREE.AmbientLight( 0x111111 ) );
 
-				const dirLight1 = new THREE.DirectionalLight( 0xffddcc, 1 );
+				const dirLight1 = new THREE.DirectionalLight( 0xffffff, 1 );
 				dirLight1.position.set( 1, 0.75, 0.5 );
 				scene.add( dirLight1 );
 
-				const dirLight2 = new THREE.DirectionalLight( 0xccccff, 1 );
+				const dirLight2 = new THREE.DirectionalLight( 0xffffff, 1 );
 				dirLight2.position.set( - 1, 0.75, - 0.5 );
 				scene.add( dirLight2 );
 
@@ -122,7 +122,7 @@
 				geometry.setFromPoints( [ new THREE.Vector3(), new THREE.Vector3() ] );
 
 				line = new THREE.Line( geometry, new THREE.LineBasicMaterial() );
-				scene.add( line );
+				//scene.add( line );
 
 				loadLeePerrySmith();
 
@@ -230,19 +230,23 @@
 
 				const loader = new GLTFLoader();
 
-				loader.load( 'models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
+				loader.load( "https://raw.githubusercontent.com/mallardandclaret/webgl/staging/scroll2/models/Notepad.glb", function ( gltf ) {
+
+
+				
+
 
 					mesh = gltf.scene.children[ 0 ];
-					mesh.material = new THREE.MeshPhongMaterial( {
-						specular: 0x111111,
-						map: textureLoader.load( 'models/gltf/LeePerrySmith/Map-COL.jpg' ),
-						specularMap: textureLoader.load( 'models/gltf/LeePerrySmith/Map-SPEC.jpg' ),
-						normalMap: textureLoader.load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
-						shininess: 25
-					} );
+					//mesh.material = new THREE.MeshPhongMaterial( {
+						//specular: 0x111111,
+						//map: textureLoader.load( 'models/gltf/LeePerrySmith/Map-COL.jpg' ),
+						//specularMap: textureLoader.load( 'models/gltf/LeePerrySmith/Map-SPEC.jpg' ),
+						//normalMap: textureLoader.load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
+						//shininess: 5
+					//} );
 
 					scene.add( mesh );
-					mesh.scale.set( 10, 10, 10 );
+					mesh.scale.set( 4, 4, 4 );
 
 				} );
 
@@ -259,7 +263,7 @@
 				size.set( scale, scale, scale );
 
 				const material = decalMaterial.clone();
-				material.color.setHex( Math.random() * 0xffffff );
+				//material.color.setHex( Math.random() * 0xffffff );
 
 				const m = new THREE.Mesh( new DecalGeometry( mesh, position, orientation, size ), material );
 

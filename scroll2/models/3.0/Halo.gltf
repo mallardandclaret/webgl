@@ -1,0 +1,281 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Halo",
+            "scale" : [
+                1.2400000095367432,
+                0.028881723061203957,
+                1.5549999475479126
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0.800000011920929,
+                0.800000011920929,
+                0.800000011920929
+            ],
+            "emissiveTexture" : {
+                "index" : 0
+            },
+            "name" : "Cover",
+            "normalTexture" : {
+                "index" : 1
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2
+                },
+                "metallicFactor" : 0.29545456171035767,
+                "roughnessFactor" : 0.08863674104213715
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0.5999999046325684,
+                0.5999999046325684,
+                0.5999999046325684
+            ],
+            "emissiveTexture" : {
+                "index" : 3
+            },
+            "name" : "Paper",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 4
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.08636364340782166
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Halo",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 5,
+                        "NORMAL" : 6,
+                        "TEXCOORD_0" : 7,
+                        "TEXCOORD_1" : 8
+                    },
+                    "indices" : 9,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "HaloDifuse",
+            "uri" : "HaloDifuse.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "HaloNormal",
+            "uri" : "HaloNormal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "MagSide",
+            "uri" : "MagSide.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1036,
+            "max" : [
+                1.0000348091125488,
+                1.0736570358276367,
+                1.0035784244537354
+            ],
+            "min" : [
+                -1.0080569982528687,
+                -2.4261889457702637,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1036,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1036,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 1036,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 5541,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 509,
+            "max" : [
+                1.0000348091125488,
+                0.599206805229187,
+                1.00812566280365
+            ],
+            "min" : [
+                -1.001868486404419,
+                -2.184380292892456,
+                -1.0026546716690063
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 509,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 509,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 509,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5123,
+            "count" : 2523,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 12432,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12432,
+            "byteOffset" : 12432
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8288,
+            "byteOffset" : 24864
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8288,
+            "byteOffset" : 33152
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 11082,
+            "byteOffset" : 41440
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6108,
+            "byteOffset" : 52524
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6108,
+            "byteOffset" : 58632
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4072,
+            "byteOffset" : 64740
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4072,
+            "byteOffset" : 68812
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5046,
+            "byteOffset" : 72884
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 77932,
+            "uri" : "Halo.bin"
+        }
+    ]
+}

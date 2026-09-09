@@ -1,0 +1,480 @@
+.w-layout-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sideways {
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 200vw;
+  height: 100vh;
+}
+
+.div-block-2 {
+  overflow: visible;
+  width: 50vw;
+  background-image: url('../images/Group-172x.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.smooth-wrapper {
+  position: static;
+  width: 100vw;
+  height: 400vh;
+}
+
+.z-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  background-image: url('../images/HUNGER003.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.section {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.div-block-3 {
+  width: 100vw;
+  height: 400vh;
+}
+
+.js-loopitem {
+  position: relative;
+  overflow: auto;
+  width: 100vw;
+  height: 100vh;
+}
+
+.body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.div-block-4 {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+}
+
+.heading {
+  width: 1000px;
+  height: 300px;
+  margin: auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #fff;
+  font-size: 200px;
+  text-align: center;
+}
+
+.z-top1 {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+  display: block;
+  width: 250px;
+  height: auto;
+  margin: auto;
+  border-style: solid;
+  border-width: 15px;
+  border-color: #fff;
+}
+
+.z-link-block-1 {
+  position: static;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+  display: none;
+}
+
+.div-block {
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.z-horizontal-scroll {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.body-2 {
+  overflow: hidden;
+}
+
+.z-heading {
+  margin-bottom: 2vh;
+  margin-left: 25px;
+  font-family: Dia, sans-serif;
+  color: #000;
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.z-grid {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  width: 200vw;
+  height: 100vh;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+}
+
+.z-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  background-image: url('../images/YOUTHSTORY001-2.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.z-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  background-image: url('../images/Screenshot-2020-11-14-at-16.41.41.png');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.z-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.div-block-5 {
+  position: fixed;
+  z-index: 10;
+  display: none;
+  width: 100vw;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.insta {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 31px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-family: 'Traulha web', sans-serif;
+  color: #000;
+  text-decoration: none;
+}
+
+.insta:hover {
+  text-decoration: underline;
+}
+
+.div-block-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-family: 'Traulha web', sans-serif;
+  color: #000;
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: underline;
+}
+
+.z-link-block-2 {
+  position: static;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+  display: none;
+}
+
+.z-link-block-3 {
+  position: static;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+  display: none;
+}
+
+.z-link-block-4 {
+  position: static;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+  display: none;
+}
+
+.z-top2 {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999999;
+  display: block;
+  width: 250px;
+  height: auto;
+  margin: auto;
+  border-style: solid;
+  border-width: 15px;
+  border-color: #fff;
+}
+
+.z-top2a {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 10;
+  width: 250px;
+  height: auto;
+  margin: auto;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.image {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  width: 400px;
+  margin: auto;
+}
+
+.z-top3 {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  width: 400px;
+  margin: auto;
+}
+
+.z-top4 {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  width: 400px;
+  margin: auto;
+}
+
+.z-nav {
+  position: fixed;
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  padding-top: 6px;
+  padding-right: 1%;
+  padding-left: 1%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.z-arrow {
+  position: fixed;
+  left: auto;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 10;
+  display: inline-block;
+  width: 8%;
+  margin-top: auto;
+  margin-right: 1%;
+  margin-bottom: auto;
+}
+
+.z-arrow-flip {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: auto;
+  bottom: 0%;
+  z-index: 10;
+  display: inline-block;
+  width: 8%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1%;
+  opacity: 1;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.background-video {
+  position: absolute;
+  width: 50vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+  .z-heading {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .z-heading {
+    margin-bottom: 17vh;
+  }
+
+  .z-grid {
+    width: 300vw;
+  }
+
+  .insta {
+    padding-left: 0px;
+  }
+
+  .div-block-6 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+
+  .z-arrow {
+    display: none;
+    width: 20%;
+    opacity: 0;
+  }
+
+  .z-arrow-flip {
+    display: none;
+    width: 20%;
+    opacity: 0;
+  }
+}
+
+@font-face {
+  font-family: 'Dia';
+  src: url('../fonts/Dia-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Traulha web';
+  src: url('../fonts/Traulha-WEB-Regulara.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,276 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                5,
+                6,
+                10
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Render",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ]
+        },
+        {
+            "name" : "Main Camera",
+            "rotation" : [
+                0.6447247266769409,
+                -0.02262764796614647,
+                0.019099004566669464,
+                0.7638410925865173
+            ],
+            "translation" : [
+                -0.17100414633750916,
+                1.1397128105163574,
+                2.873831272125244
+            ]
+        },
+        {
+            "name" : "Sky Light 1",
+            "rotation" : [
+                -0.29801955819129944,
+                0.5185756087303162,
+                -0.6948438882827759,
+                0.39931896328926086
+            ]
+        },
+        {
+            "name" : "Sky Light 2",
+            "rotation" : [
+                -0.4060167074203491,
+                -0.18998762965202332,
+                0.3788570761680603,
+                0.8096433877944946
+            ]
+        },
+        {
+            "name" : "Sky Light 3",
+            "rotation" : [
+                -0.1570085734128952,
+                0.27320611476898193,
+                -0.8228530287742615,
+                0.47288432717323303
+            ]
+        },
+        {
+            "children" : [
+                2,
+                3,
+                4
+            ],
+            "name" : "Sky",
+            "rotation" : [
+                0.0370081327855587,
+                0.7061375975608826,
+                -0.7061377167701721,
+                0.0370081290602684
+            ]
+        },
+        {
+            "name" : "Shadow Catcher 1",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                2.9999685287475586,
+                2.9999685287475586,
+                1
+            ],
+            "translation" : [
+                0.2951008081436157,
+                0.00830364041030407,
+                0
+            ]
+        },
+        {
+            "name" : "defaultMat"
+        },
+        {
+            "children" : [
+                7
+            ],
+            "mesh" : 0,
+            "name" : "Group38309",
+            "translation" : [
+                0,
+                0,
+                0.6430914998054504
+            ]
+        },
+        {
+            "children" : [
+                8
+            ],
+            "name" : "_x Chunk 13-high-10k",
+            "translation" : [
+                0,
+                0,
+                0.027460753917694092
+            ]
+        },
+        {
+            "children" : [
+                9
+            ],
+            "name" : "Turntable 1",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "13",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "x Chunk 13-high-10k_normals",
+            "uri" : "x%20Chunk%2013-high-10k_normals.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "x Chunk 13-T-8k",
+            "uri" : "x%20Chunk%2013-T-8k.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "13_Glossiness",
+            "uri" : "13_Glossiness.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 5088,
+            "max" : [
+                1.0565739870071411,
+                0.3898627758026123,
+                -0.008687970228493214
+            ],
+            "min" : [
+                -0.9378977417945862,
+                -0.40275782346725464,
+                -1.627907633781433
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 5088,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 5088,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 29685,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 61056,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 61056,
+            "byteOffset" : 61056
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 40704,
+            "byteOffset" : 122112
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 59370,
+            "byteOffset" : 162816
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 222188,
+            "uri" : "LEtest.bin"
+        }
+    ]
+}
